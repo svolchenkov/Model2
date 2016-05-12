@@ -1,0 +1,59 @@
+
+/* 
+    Created on : May 12, 2016, 9:21:38 AM
+    Author     : Sergey
+*/
+#mainBlockHouse {
+    margin:auto;
+    width:1440px;
+}
+.block0House{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:1417px;
+    height:240px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+.block1House, .block2House{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:700px;
+    height:1450px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+.h4House {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  14px;
+    font-weight: bold;
+    margin: auto;
+    padding: 0px;
+    text-align: center;
+    color: green;
+}
+.h5House {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  14px;
+    font-weight: bold;
+    margin: auto;
+    padding: 0px;
+    text-align: center;
+    color: darkblue;
+}
+.titleHouse {
+    width: 140px;
+}
+.textAreaHouse {
+    width: 300px;
+}
+.checkBoxHouse {
+    width: 70px;
+}
+.doneHouse {
+    width: 70px;
+}
