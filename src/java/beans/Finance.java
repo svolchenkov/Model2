@@ -63,6 +63,11 @@ public class Finance implements Serializable {
     }
 
     public String getDataReceivedFromSales0String() {
+        if ( isDataReceivedFromSales0CheckBox() == true ) {
+            dataReceivedFromSales0String = "done";
+        } else {
+            dataReceivedFromSales0String = "";
+        }
         return dataReceivedFromSales0String;
     }
 
@@ -75,12 +80,10 @@ public class Finance implements Serializable {
     }
 
     public void setDataReceivedFromSales0CheckBox(boolean dataReceivedFromSales0CheckBox) {
-        System.out.println( "setDataReceivedFromSales0CheckBox " + dataReceivedFromSales0CheckBox );
         this.dataReceivedFromSales0CheckBox = dataReceivedFromSales0CheckBox;
     }
 
     public String getDataReceivedFromSales0Done() {
-        System.out.println("getDataReceivedFromSales0Done" + isDataReceivedFromSales0CheckBox() );
         return dataReceivedFromSales0Done;
     }
 

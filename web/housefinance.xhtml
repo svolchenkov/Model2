@@ -13,12 +13,10 @@
             <ui:define name="content">
                 <div id="mainBlockHouse" >
                     <h:form>
-
-                        <table><tr>
-                                <h:form>
-                                    <td>
-                                        <div class="block1House" >
-                                            <table>
+                        <table ><tr>
+                                <td>
+                                    <div class="block1House" >
+                                        <h:form><table class="tableHouse">
                                                 <tr>
                                                     <td><h:outputText value="First meeting: " /> </td>
                                                     <td><p:calendar id="firstMeeting" value="#{questions.firstMeeting}" showOn="button" /></td>
@@ -158,25 +156,23 @@
                                                     <td><p:commandButton id="submit" value="submit" action="#{questions.submit()}" style="color: green"/>
                                                         <p:outputLabel value=".." />
                                                         <p:commandButton id="reset" value="reset" action="#{questions.reset()}" style="color: red" />
-                                                        <p:commandButton value="toString" action="#{questions.toString()}" style="color: blue" /></td>
+                                                        <p:commandButton id="toString" value="toString" action="#{questions.toString()}" style="color: blue" /></td>
                                                 </tr>
-                                            </table></div>
-                                    </td></h:form>
-                                <h:form><td>
-                                        <div class="block2House" >
-                                            <h:form>
-                                                <table>
-                                                    <tr><td class="titleHouse" ><h:outputText value="0.Data received from Sales" /></td>
-                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="50" value="#{finance.dataReceivedFromSales0String}" /></td>
-                                                        <td class="checkBoxHouse" ><h:selectBooleanCheckbox value="#{finance.dataReceivedFromSales0CheckBox}"  >
-                                                                <p:ajax event="change" update="dataReceivedFromSales0Done"  />
+                                        </table></h:form>
+                                    </div> 
+                                </td>
+                                <td>
+                                    <div class="block2House" >
+                                        <div class="block11House" ><h:form><table><tr>
+                                                        <td class="titleHouse" ><h:outputText value="0.Data received from Sales" /></td>
+                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="55" value="#{finance.dataReceivedFromSales0String}" /></td>
+                                                        <td class="checkBoxHouse" ><h:selectBooleanCheckbox value="#{finance.dataReceivedFromSales0CheckBox}" >
+                                                                <p:ajax event="change" update="dataReceivedFromSales0String" />
                                                             </h:selectBooleanCheckbox></td>
-                                                        <td class="doneHouse" ><h:outputText  id="dataReceivedFromSales0Done" value="#{finance.dataReceivedFromSales0Done}" /></td>
-                                                    </tr>
-                                                </table>
-                                            </h:form>
-                                        </div>
-                                    </td></h:form>
+                                                        <td class="doneHouse" ><h:outputText class="h4House" id="dataReceivedFromSales0String" value="#{finance.dataReceivedFromSales0String}" /></td>
+                                                    </tr></table></h:form></div>
+                                    </div>
+                                </td>
                             </tr></table>
                     </h:form>
                 </div>
