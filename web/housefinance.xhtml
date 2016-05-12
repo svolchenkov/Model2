@@ -158,19 +158,62 @@
                                                         <p:commandButton id="reset" value="reset" action="#{questions.reset()}" style="color: red" />
                                                         <p:commandButton id="toString" value="toString" action="#{questions.toString()}" style="color: blue" /></td>
                                                 </tr>
-                                        </table></h:form>
+                                            </table></h:form>
                                     </div> 
                                 </td>
                                 <td>
                                     <div class="block2House" >
-                                        <div class="block11House" ><h:form><table><tr>
+                                        <h:commandButton value="to house + finance data" action="measure" />
+                                        <!-- 0.Data received from Sales -->
+                                        <div class="block11House" ><h:form><table class="tableHouse" ><tr>
                                                         <td class="titleHouse" ><h:outputText value="0.Data received from Sales" /></td>
                                                         <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="55" value="#{finance.dataReceivedFromSales0String}" /></td>
-                                                        <td class="checkBoxHouse" ><h:selectBooleanCheckbox value="#{finance.dataReceivedFromSales0CheckBox}" >
+                                                        <td class="checkBoxHouse" ><p:selectBooleanButton id="value1" onLabel="Yes" offLabel="No" value="#{finance.dataReceivedFromSales0CheckBox}" >
                                                                 <p:ajax event="change" update="dataReceivedFromSales0String" />
-                                                            </h:selectBooleanCheckbox></td>
-                                                        <td class="doneHouse" ><h:outputText class="h4House" id="dataReceivedFromSales0String" value="#{finance.dataReceivedFromSales0String}" /></td>
+                                                            </p:selectBooleanButton></td>
+                                                        <td class="doneHouse" ><h:outputText class="h4House" id="dataReceivedFromSales0String" value="#{finance.dataReceivedFromSales0Done}" /></td>
                                                     </tr></table></h:form></div>
+                                        <!-- 1.Checking available financing -->
+                                        <div class="block11House" ><h:form><table class="tableHouse" ><tr>
+                                                        <td class="titleHouse" ><h:outputText value="1.Checking available financing" /></td>
+                                                        <td class="textAreaHouse" >
+                                                            <table>
+                                                                <tr><td ><h:outputText value="Ygreen" /></td><td ><h:inputText maxlength="6" lang="6" value="#{finance.checkingAvailableFinancing1YgreenString}" >
+                                                                            <p:ajax event="keyup" update="checkingAvailableFinancing1YgreenString" />
+                                                                        </h:inputText></td>
+                                                                    <td><h:outputText id="checkingAvailableFinancing1YgreenString" value="#{finance.checkingAvailableFinancing1YgreenString}" /></td></tr>
+                                                                <tr><td ><h:outputText value="CalFirst" /></td><td  ><h:inputText maxlength="6" lang="6" value="#{finance.checkingAvailableFinancing1CalFirstString}" >
+                                                                            <p:ajax event="keyup" update="checkingAvailableFinancing1CalFirstString" />
+                                                                        </h:inputText></td>
+                                                                    <td><h:outputText id="checkingAvailableFinancing1CalFirstString" value="#{finance.checkingAvailableFinancing1CalFirstString}"  /></td></tr>
+                                                                <tr><td ><h:outputText value="Hero" /></td><td  ><h:inputText  maxlength="6" lang="6" value="#{finance.checkingAvailableFinancing1HeroString}" >
+                                                                            <p:ajax event="keyup" update="checkingAvailableFinancing1HeroString" />
+                                                                        </h:inputText></td>
+                                                                    <td><h:outputText id="checkingAvailableFinancing1HeroString" value="#{finance.checkingAvailableFinancing1HeroString}" /></td></tr>
+                                                            </table>
+                                                        </td>        
+                                                        <td class="checkBoxHouse" ><p:selectBooleanButton id="value1" onLabel="Yes" offLabel="No" value="#{finance.checkingAvailableFinancing1CheckBox}" >
+                                                                <p:ajax event="change" update="checkingAvailableFinancing1Done" />
+                                                            </p:selectBooleanButton></td>
+                                                        <td class="doneHouse" ><h:outputText class="h4House" id="checkingAvailableFinancing1Done" value="#{finance.checkingAvailableFinancing1Done}" /></td>
+                                                    </tr></table></h:form></div>
+                                        <!-- 2.Evaluate HP -->
+                                        <div class="block11House" >
+                                            <table class="tableHouse" ><tr>
+                                                        <td class="titleHouse" ><h:outputText value="2.Evaluate HP" /></td>
+                                                        <td class="textAreaHouse" >
+                                                            <table>
+                                                                <tr><td ><h:commandButton value="to evaluation HP + solar" action="#{finance.receiveWayToMeasures()}" /></td></tr>
+                                                                <tr><td ><h:outputText value="total HP + Solar:" /></td><td ><h:outputText value="#{measureBean.total}" /></td></tr>
+                                                            </table>
+                                                        </td>        
+                                                        <td class="checkBoxHouse" ><p:selectBooleanButton id="value1" onLabel="Yes" offLabel="No" value="#{finance.checkingAvailableFinancing1CheckBox}" >
+                                                                <p:ajax event="change" update="checkingAvailableFinancing1Done" />
+                                                            </p:selectBooleanButton></td>
+                                                        <td class="doneHouse" ><h:outputText class="h4House" id="checkingAvailableFinancing1Done" value="#{finance.checkingAvailableFinancing1Done}" /></td>
+                                                    </tr></table>
+                                            
+                                            </div>
                                     </div>
                                 </td>
                             </tr></table>

@@ -55,13 +55,19 @@
     color: darkblue;
 }
 .titleHouse {
-    width: 140px;
+    width: 150px;
 }
 .textAreaHouse {
-    width: 300px;
+    width: 400px;
+}
+.textArea2titleHouse {
+    width: 150px;
+}
+.textArea2fieldHouse {
+    width: 150px;
 }
 .checkBoxHouse {
-    width: 70px;
+    width: 50px;
 }
 .doneHouse {
     width: 70px;
