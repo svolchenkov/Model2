@@ -65,6 +65,11 @@ public class Finance implements Serializable {
     private boolean financingDocsReceived7CheckBox;
     private String financingDocsReceived7Done;
     
+    private Date scheduleAppointmentByCustomer8Date;
+    private String scheduleAppointmentByCustomer8String;
+    private boolean scheduleAppointmentByCustomer8CheckBox;
+    private String scheduleAppointmentByCustomer8Done;
+    
     /**
      * Creates a new instance of Finance
      */
@@ -400,6 +405,45 @@ public class Finance implements Serializable {
             FacesMessage message = new FacesMessage("Succesful", financingDocsReceived7FileUpload.getFileName() + " is uploaded.");
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
+    }
+    
+    //************ 8.Schedule appointment by customer ************************
+
+    public Date getScheduleAppointmentByCustomer8Date() {
+        return scheduleAppointmentByCustomer8Date;
+    }
+
+    public void setScheduleAppointmentByCustomer8Date(Date scheduleAppointmentByCustomer8Date) {
+        this.scheduleAppointmentByCustomer8Date = scheduleAppointmentByCustomer8Date;
+    }
+
+    public String getScheduleAppointmentByCustomer8String() {
+        return scheduleAppointmentByCustomer8String;
+    }
+
+    public void setScheduleAppointmentByCustomer8String(String scheduleAppointmentByCustomer8String) {
+        this.scheduleAppointmentByCustomer8String = scheduleAppointmentByCustomer8String;
+    }
+
+    public boolean isScheduleAppointmentByCustomer8CheckBox() {
+        return scheduleAppointmentByCustomer8CheckBox;
+    }
+
+    public void setScheduleAppointmentByCustomer8CheckBox(boolean scheduleAppointmentByCustomer8CheckBox) {
+        this.scheduleAppointmentByCustomer8CheckBox = scheduleAppointmentByCustomer8CheckBox;
+    }
+
+    public String getScheduleAppointmentByCustomer8Done() {
+        if ( isScheduleAppointmentByCustomer8CheckBox() == true ) {
+            scheduleAppointmentByCustomer8Done = "done";
+        } else {
+            scheduleAppointmentByCustomer8Done = "";
+        }
+        return scheduleAppointmentByCustomer8Done;
+    }
+
+    public void setScheduleAppointmentByCustomer8Done(String scheduleAppointmentByCustomer8Done) {
+        this.scheduleAppointmentByCustomer8Done = scheduleAppointmentByCustomer8Done;
     }
     
     

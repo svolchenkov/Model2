@@ -225,7 +225,6 @@
                                                 </tr></table></div>
 
                                         <!-- 4.Gathering DOB, SS# -->
-
                                         <div class="block11House" ><table class="tableHouse" ><tr>
                                                     <td class="titleHouse" ><h:outputText value="4.Gathering DOB, SS#" /></td>
                                                     <td class="textAreaHouse" >
@@ -287,7 +286,23 @@
                                                         </p:selectBooleanButton></td>
                                                     <td class="doneHouse" ><h:outputText class="h4House" id="financingDocsReceived7Done" value="#{finance.financingDocsReceived7Done}" /></td>
                                                 </tr></table></div>
-                                        
+                                        <!-- 8.Schedule appointment by customer -->
+                                        <div class="block11House" ><table class="tableHouse" ><tr>
+                                                    <td class="titleHouse" ><h:outputText value="8.Schedule appointment by customer" /></td>
+                                                    <td class="textAreaHouse" >
+                                                        <table><tr><td><h:outputText value="Day of meeting: " /> </td>
+                                                                <td><p:calendar effect="fold"  value="#{finance.scheduleAppointmentByCustomer8Date}" pattern="MM/dd/yyyy HH:mm:ss" >
+                                                                        <p:ajax event="dateSelect" update="scheduleAppointmentByCustomer8Date" />
+                                                                    </p:calendar></td>
+                                                                <td><h:outputText id="scheduleAppointmentByCustomer8Date" value="#{finance.scheduleAppointmentByCustomer8Date}"  /></td></tr>
+                                                        </table>
+                                                        <table><tr><td><h:inputTextarea rows="3" cols="55" value="#{finance.scheduleAppointmentByCustomer8String}" /></td></tr></table>
+                                                    </td>
+                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.scheduleAppointmentByCustomer8CheckBox}" >
+                                                            <p:ajax event="change" update="scheduleAppointmentByCustomer8Done" />
+                                                        </p:selectBooleanButton></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="scheduleAppointmentByCustomer8Done" value="#{finance.scheduleAppointmentByCustomer8Done}" /></td>
+                                                </tr></table></div>
                                         
 
                                     </div>
