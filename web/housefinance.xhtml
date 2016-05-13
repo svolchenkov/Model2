@@ -261,7 +261,19 @@
                                                         </p:selectBooleanButton></td>
                                                     <td class="doneHouse" ><h:outputText class="h4House" id="signingERIAgeement5Done" value="#{finance.signingERIAgeement5Done}" /></td>
                                                 </tr></table></div>
+                                        
+                                        <!-- 6. Apply to financing -->
+                                        <div class="block11House" ><table class="tableHouse" ><tr>
+                                                    <td class="titleHouse" ><h:outputText value="6.Apply to financing" /></td>
+                                                    <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="53" value="#{finance.applyToFinancing6String}" /></td>
+                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.applyToFinancing6CheckBox}" >
+                                                            <p:ajax event="change" update="applyToFinancing6Done" />
+                                                        </p:selectBooleanButton></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="applyToFinancing6Done" value="#{finance.applyToFinancing6Done}" /></td>
+                                                </tr></table></div>
 
+                                        
+                                        
 
                                     </div>
                                 </td>

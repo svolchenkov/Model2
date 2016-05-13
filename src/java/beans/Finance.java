@@ -56,6 +56,10 @@ public class Finance implements Serializable {
     private boolean signingERIAgeement5CheckBox;
     private String signingERIAgeement5Done;
     
+    private String applyToFinancing6String;
+    private boolean applyToFinancing6CheckBox;
+    private String applyToFinancing6Done;
+    
     /**
      * Creates a new instance of Finance
      */
@@ -316,7 +320,38 @@ public class Finance implements Serializable {
         }
     }
     
-    
+    //********************* 6. Apply to financing  *********************
+
+    public String getApplyToFinancing6String() {
+        return applyToFinancing6String;
+    }
+
+    public void setApplyToFinancing6String(String applyToFinancing6String) {
+        this.applyToFinancing6String = applyToFinancing6String;
+    }
+
+    public boolean isApplyToFinancing6CheckBox() {
+        return applyToFinancing6CheckBox;
+    }
+
+    public void setApplyToFinancing6CheckBox(boolean applyToFinancing6CheckBox) {
+        this.applyToFinancing6CheckBox = applyToFinancing6CheckBox;
+    }
+
+    public String getApplyToFinancing6Done() {
+        if ( isApplyToFinancing6CheckBox() == true ) {
+            applyToFinancing6Done = "done";
+        } else {
+            applyToFinancing6Done = "";
+        }
+        return applyToFinancing6Done;
+    }
+
+    public void setApplyToFinancing6Done(String applyToFinancing6Done) {
+        this.applyToFinancing6Done = applyToFinancing6Done;
+    }
+
+   
     
     
     
