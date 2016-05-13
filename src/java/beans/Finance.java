@@ -70,6 +70,12 @@ public class Finance implements Serializable {
     private boolean scheduleAppointmentByCustomer8CheckBox;
     private String scheduleAppointmentByCustomer8Done;
     
+    private UploadedFile signingContractByCustomer9FileUpload;
+    private String signingContractByCustomer9String;
+    private boolean signingContractByCustomer9CheckBox;
+    private String signingContractByCustomer9Done;
+    
+    
     /**
      * Creates a new instance of Finance
      */
@@ -85,9 +91,9 @@ public class Finance implements Serializable {
         states.put(7, "Financing docs received");
         states.put(8, "Schedule appointment by customer");
         states.put(9, "Signing contract by customer");
-        states.put(9, "All docs completed");
-        states.put(10, "Notice to proceed");
-        states.put(11, "# gave to concierge");
+        states.put(10, "All docs completed");
+        states.put(11, "Notice to proceed");
+        states.put(12, "# gave to concierge");
     }
     
     public int getState() {
@@ -446,7 +452,51 @@ public class Finance implements Serializable {
         this.scheduleAppointmentByCustomer8Done = scheduleAppointmentByCustomer8Done;
     }
     
+    // ********************** 9.Signing contract by customer *****************
+
+    public UploadedFile getSigningContractByCustomer9FileUpload() {
+        return signingContractByCustomer9FileUpload;
+    }
+
+    public void setSigningContractByCustomer9FileUpload(UploadedFile signingContractByCustomer9FileUpload) {
+        this.signingContractByCustomer9FileUpload = signingContractByCustomer9FileUpload;
+    }
+
+    public String getSigningContractByCustomer9String() {
+        return signingContractByCustomer9String;
+    }
+
+    public void setSigningContractByCustomer9String(String signingContractByCustomer9String) {
+        this.signingContractByCustomer9String = signingContractByCustomer9String;
+    }
+
+    public boolean isSigningContractByCustomer9CheckBox() {
+        return signingContractByCustomer9CheckBox;
+    }
+
+    public void setSigningContractByCustomer9CheckBox(boolean signingContractByCustomer9CheckBox) {
+        this.signingContractByCustomer9CheckBox = signingContractByCustomer9CheckBox;
+    }
+
+    public String getSigningContractByCustomer9Done() {
+        if ( isSigningContractByCustomer9CheckBox() == true ) {
+            signingContractByCustomer9Done = "done";
+        } else {
+            signingContractByCustomer9Done = "";
+        }
+        return signingContractByCustomer9Done;
+    }
+
+    public void setSigningContractByCustomer9Done(String signingContractByCustomer9Done) {
+        this.signingContractByCustomer9Done = signingContractByCustomer9Done;
+    }
     
+    public void signingContractByCustomer9upload() {
+        if( signingContractByCustomer9FileUpload != null ) {
+            FacesMessage message = new FacesMessage("Succesful", signingContractByCustomer9FileUpload.getFileName() + " is uploaded.");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
+    }
     
     
     

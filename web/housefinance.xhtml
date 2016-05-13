@@ -303,6 +303,24 @@
                                                         </p:selectBooleanButton></td>
                                                     <td class="doneHouse" ><h:outputText class="h4House" id="scheduleAppointmentByCustomer8Done" value="#{finance.scheduleAppointmentByCustomer8Done}" /></td>
                                                 </tr></table></div>
+                                        <!-- 9.Signing contract by customer -->
+                                        <div class="block11House" ><table class="tableHouse" ><tr>
+                                                    <td class="titleHouse" ><h:outputText value="9.Signing contract by customer" /></td>
+                                                    <td class="textAreaHouse" >
+                                                        <table><tr><td><h:outputText value="Upload file: " /> </td>
+                                                                <td><p:fileUpload value="#{finance.signingContractByCustomer9FileUpload}" mode="simple" skinSimple="true"/></td></tr>
+                                                                <tr><td></td><td><p:commandButton value="Submit" ajax="false" actionListener="#{finance.signingContractByCustomer9upload()}" disabled="false" /></td></tr>
+                                                        </table>
+                                                        <table><tr><td  ><h:inputTextarea rows="3" cols="55" value="#{finance.signingContractByCustomer9String}" /></td></tr></table>
+                                                    </td>
+                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.signingContractByCustomer9CheckBox}" >
+                                                            <p:ajax event="change" update="signingContractByCustomer9Done" />
+                                                        </p:selectBooleanButton></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="signingContractByCustomer9Done" value="#{finance.signingContractByCustomer9Done}" /></td>
+                                                </tr></table></div>
+                                        
+                                        
+                                        
                                         
 
                                     </div>
