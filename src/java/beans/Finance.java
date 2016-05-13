@@ -60,6 +60,11 @@ public class Finance implements Serializable {
     private boolean applyToFinancing6CheckBox;
     private String applyToFinancing6Done;
     
+    private UploadedFile financingDocsReceived7FileUpload;
+    private String financingDocsReceived7String;
+    private boolean financingDocsReceived7CheckBox;
+    private String financingDocsReceived7Done;
+    
     /**
      * Creates a new instance of Finance
      */
@@ -351,7 +356,51 @@ public class Finance implements Serializable {
         this.applyToFinancing6Done = applyToFinancing6Done;
     }
 
-   
+   // *************** 7. Financing docs received *******************
+
+    public UploadedFile getFinancingDocsReceived7FileUpload() {
+        return financingDocsReceived7FileUpload;
+    }
+
+    public void setFinancingDocsReceived7FileUpload(UploadedFile financingDocsReceived7FileUpload) {
+        this.financingDocsReceived7FileUpload = financingDocsReceived7FileUpload;
+    }
+
+    public String getFinancingDocsReceived7String() {
+        return financingDocsReceived7String;
+    }
+
+    public void setFinancingDocsReceived7String(String financingDocsReceived7String) {
+        this.financingDocsReceived7String = financingDocsReceived7String;
+    }
+
+    public boolean isFinancingDocsReceived7CheckBox() {
+        return financingDocsReceived7CheckBox;
+    }
+
+    public void setFinancingDocsReceived7CheckBox(boolean financingDocsReceived7CheckBox) {
+        this.financingDocsReceived7CheckBox = financingDocsReceived7CheckBox;
+    }
+
+    public String getFinancingDocsReceived7Done() {
+        if ( isFinancingDocsReceived7CheckBox() == true ) {
+            financingDocsReceived7Done = "done";
+        } else {
+            financingDocsReceived7Done = "";
+        }
+        return financingDocsReceived7Done;
+    }
+
+    public void setFinancingDocsReceived7Done(String financingDocsReceived7Done) {
+        this.financingDocsReceived7Done = financingDocsReceived7Done;
+    }
+    
+    public void financingDocsReceived7upload() {
+        if( financingDocsReceived7FileUpload != null ) {
+            FacesMessage message = new FacesMessage("Succesful", financingDocsReceived7FileUpload.getFileName() + " is uploaded.");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
+    }
     
     
     

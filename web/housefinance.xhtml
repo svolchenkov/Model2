@@ -272,6 +272,21 @@
                                                     <td class="doneHouse" ><h:outputText class="h4House" id="applyToFinancing6Done" value="#{finance.applyToFinancing6Done}" /></td>
                                                 </tr></table></div>
 
+                                        <!-- 7.Financing docs received -->
+                                        <div class="block11House" ><table class="tableHouse" ><tr>
+                                                    <td class="titleHouse" ><h:outputText value="7.Financing docs received" /></td>
+                                                    <td class="textAreaHouse" >
+                                                        <table><tr><td><h:outputText value="Upload file: " /> </td>
+                                                                <td><p:fileUpload value="#{finance.financingDocsReceived7FileUpload}" mode="simple" skinSimple="true"/></td></tr>
+                                                                <tr><td></td><td><p:commandButton value="Submit" ajax="false" actionListener="#{finance.financingDocsReceived7upload()}" disabled="false" /></td></tr>
+                                                        </table>
+                                                        <table><tr><td  ><h:inputTextarea rows="3" cols="55" value="#{finance.financingDocsReceived7String}" /></td></tr></table>
+                                                    </td>
+                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.financingDocsReceived7CheckBox}" >
+                                                            <p:ajax event="change" update="financingDocsReceived7Done" />
+                                                        </p:selectBooleanButton></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="financingDocsReceived7Done" value="#{finance.financingDocsReceived7Done}" /></td>
+                                                </tr></table></div>
                                         
                                         
 
