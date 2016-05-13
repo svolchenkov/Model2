@@ -182,10 +182,19 @@ public class MeasureBean implements Serializable {
     public MeasureBean() {
     }
 
-    //******************** 1. Number1InsulatAtticBlown***************************
+    //****************** 0 **********************************
+    
     public void printToExcel() {
         measureEJB.printToExcel(this);
     }
+    
+    public String wayToHouseFinance () {
+        return "housefinance";
+    }
+    
+    //******************** 1. Number1InsulatAtticBlown***************************
+    
+    
 
     public int getSqft1() {
         return sqft1;

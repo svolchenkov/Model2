@@ -163,7 +163,6 @@
                                 </td>
                                 <td>
                                     <div class="block2House" >
-                                        <h:commandButton value="to house + finance data" action="measure" />
                                         <!-- 0.Data received from Sales -->
                                         <div class="block11House" ><h:form><table class="tableHouse" ><tr>
                                                         <td class="titleHouse" ><h:outputText value="0.Data received from Sales" /></td>
@@ -204,11 +203,11 @@
                                                         <td class="textAreaHouse" >
                                                             <table>
                                                                 <tr><td ><h:commandButton value="to evaluation HP + solar" action="#{finance.receiveWayToMeasures()}" /></td></tr>
-                                                                <tr><td ><h:outputText value="total HP + Solar:" /></td><td ><h:outputText value="#{measureBean.total}" /></td></tr>
+                                                                <tr><td ><h:outputText value="total HP + Solar:" /></td><td ><h:outputText id="total" value="#{measureBean.total}" /></td></tr>
                                                             </table>
                                                         </td>        
                                                         <td class="checkBoxHouse" ><p:selectBooleanButton id="value1" onLabel="Yes" offLabel="No" value="#{finance.checkingAvailableFinancing1CheckBox}" >
-                                                                <p:ajax event="change" update="checkingAvailableFinancing1Done" />
+                                                                <p:ajax event="change" update="checkingAvailableFinancing1Done, total" />
                                                             </p:selectBooleanButton></td>
                                                         <td class="doneHouse" ><h:outputText class="h4House" id="checkingAvailableFinancing1Done" value="#{finance.checkingAvailableFinancing1Done}" /></td>
                                                     </tr></table>

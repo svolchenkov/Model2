@@ -1,0 +1,105 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 12, 2016, 3:07:07 PM
+    Author     : Sergey
+*/
+#measuresMainBlock {
+    margin:auto;
+    width:1540px;
+}
+.block0Measures{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:1517px;
+    height:25px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+.measuresblock1, .measuresblock2{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:750px;
+    height:1000px;
+    padding: 5px;
+    text-align: left;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+
+/* Measures column */
+td{
+    text-align: left;
+    /*  border: 1px solid black;
+      border-collapse: collapse; */
+    border-bottom: 1px solid #ddd;
+}
+
+td.checkboxtd {
+    width:20px;
+}
+
+td.titletd {
+    width:150px;
+}
+
+td.fieldtd {
+    width:400px;
+}
+td.field {
+    width: 100%;
+}
+td.sqftpricelable {
+    width:50px;
+}
+td.sqftpricetd {
+    width:50px;
+}
+td.sqftprice {
+    width:50px;
+}
+td.resulttd {
+    width:70px;
+}
+table.measure {
+    color: darkblue;  
+} 
+
+/* measure, right column */
+
+td.rightFieldtd {
+    width:400px;
+}
+td.rightItd {
+    width:90px;
+}
+td.rightJtd {
+    width:90px;
+}
+td.rightCosttd {
+    width:100px;
+}
+.printButton {
+    position: relative;
+    left: 300px;
+}
+
+h3 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  16px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: darkred;
+}
+.topButtonsMeasures {
+    padding-right: 30px;
+    padding-left: 30px;
+    color: darkred;
+}

@@ -13,794 +13,794 @@
         <ui:composition template="./template.xhtml">
             <ui:define name="content">
                 <table class="measure">
-                    <tr><td>
-                            <div id="measuresMainBlock" >
+                        <tr><td>
+                                <div id="measuresMainBlock" >
+                                    <h:form>
+                                    <div class="block0Measures" >
+                                        <h3><p:outputLabel value="Home Performance/Solar Pricing Tool" /></h3>
+                                    </div>
+                                    
+                                    <div class="block0Measures" >
+                                        <div >
+                                            <h:outputText class="topButtonsMeasures" id="hpTotal" value="total: #{measureBean.total} $" />
+                                            <h:outputText class="topButtonsMeasures" value="person ID, person name"  />
+                                            <h:commandButton class="topButtonsMeasures" value="send result to Excell" action="#{measureBean.printToExcel()}" />
+                                            <h:commandButton class="topButtonsMeasures" value="to house + finance" action="#{measureBean.wayToHouseFinance()}" />
+                                            <h:commandButton class="topButtonsMeasures" value="roof picture" action="roofpicture.html" />
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="measuresblock1" >
+                                        <table ><tr><td>
+                                                    <!-- 1. Number1InsulatAtticBlown -->
+                                                    <div>
+                                                        <table >
+                                                            <tr ><td class="checkboxtd" ><h:selectBooleanCheckbox value="#{measureBean.number1InsulatAtticBlownCheckBox}"  >
+                                                                        <p:ajax event="change" update="number1InsulatAtticBlownResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox>
+                                                                </td>
+                                                                <td class="titletd"><h:outputText  value="1.Insulate Attic: " /></td>
+                                                                <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number1InsulatAtticBlownString" value="#{measureBean.number1InsulatAtticBlownString}" >
+                                                                        <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                        <f:selectItem itemLabel="Blown in Fiberglass R-38 Value" itemValue="1.251" />
+                                                                        <f:selectItem itemLabel="Blown in Fiberglass R-44 Value" itemValue="1.252" />
+                                                                        <f:selectItem itemLabel="Cellalose R-38 Value" itemValue="1.253" />
+                                                                        <f:selectItem itemLabel="Cellalose R-44 Value" itemValue="1.254" />
+                                                                        <p:ajax event="change" update="number1InsulatAtticBlownString, number1InsulatAtticBlownResult, hpTotal" />
+                                                                    </h:selectOneMenu>
+                                                                </td>
+                                                                <td class="sqftpricelable"><p:outputLabel value="sqft:  " /></td>
+                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft1}"  >
+                                                                        <p:ajax event="keyup" update="number1InsulatAtticBlownResult, hpTotal" />
+                                                                    </h:inputText></td>
+                                                                <td class="resulttd"><h:outputText id="number1InsulatAtticBlownResult" value=" = #{measureBean.number1InsulatAtticBlownResult}" />
+                                                                </td>
+                                                            </tr></table>
+                                                    </div>
+                                                    <!-- 2. Fresh Start -->
+                                                    <div>
+                                                        <table>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number2RemoveAndReplaceCheckBox}" >
+                                                                        <p:ajax event="change" update="number2RemoveAndReplaceResult , hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td class="titletd"><h:outputText value="2.Fresh Start:" /></td>
+                                                                <td class="fieldtd"><h:outputText style="width: 95%" value="Remove  and  Replace  Attic  Insulation"  /></td>
+                                                                <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
+                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft2}"  >
+                                                                        <p:ajax event="keyup" update="number2RemoveAndReplaceResult, hpTotal" />
+                                                                    </h:inputText></td>
+                                                                <td class="resulttd"><h:outputText id="number2RemoveAndReplaceResult" value=" = #{measureBean.number2RemoveAndReplaceResult}" />
+                                                                </td>
+                                                            </tr></table>
+                                                        </div>
+                                                    <!-- 3. Crawl Space Insulation -->
+                                                    <div>
+                                                        <table>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number3InstallBattedInsulationCheckBox}" >
+                                                                        <p:ajax event="change" update="number3InstallBattedInsulationResult , hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td class="titletd"><h:outputText value="3. Crawl Space Insulation:" /></td>
+                                                                <td class="fieldtd"><h:outputText style="width: 95%" value="Install R-19 Batted Insulation (with Vapor Barrier) for conditioned space that's accessible"  /></td>
+                                                                <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
+                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft3}"  >
+                                                                        <p:ajax event="keyup" update="number3InstallBattedInsulationResult, hpTotal" />
+                                                                    </h:inputText></td>
+                                                                <td class="resulttd"><h:outputText id="number3InstallBattedInsulationResult" value=" = #{measureBean.number3InstallBattedInsulationResult}" />
+                                                                </td>
+                                                            </tr></table>
+                                                    </div>
 
-                                <div class="blockbottom" >
-                                    <h3><p:outputLabel value="Home Performance/Solar Pricing Tool" /></h3>
-                                </div>
+                                                    <!-- 4. Seal Ducting to Code Compliance Standards -->
+                                                    <div>
+                                                        <table>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number4SealDuctingCodeComplianceCheckBox}" >
+                                                                        <p:ajax event="change" update="number4SealDuctingCodeComplianceResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td class="titletd"><h:outputText value="4. Seal Ducting to Code Compliance Standards:" /></td>
+                                                                <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number4SealDuctingCodeComplianceString" value="#{measureBean.number4SealDuctingCodeComplianceString}" >
+                                                                        <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                        <f:selectItem itemLabel="Seal Ducting to Code Compliance Standards" itemValue="1.001" />
+                                                                        <f:selectItem itemLabel="Seal Ducting to CCS for Both Systems" itemValue="1.002" />
+                                                                        <p:ajax event="change" update="number4SealDuctingCodeComplianceString, hpTotal" />
+                                                                    </h:selectOneMenu>
+                                                                </td>
+                                                                <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
+                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft4}" >
+                                                                        <p:ajax event="keyup" update="number4SealDuctingCodeComplianceResult, hpTotal" />
+                                                                    </h:inputText></td>
+                                                                <td class="resulttd"><h:outputText id="number4SealDuctingCodeComplianceResult" value=" = #{measureBean.number4SealDuctingCodeComplianceResult}" />
+                                                                </td>
+                                                            </tr></table>
+                                                    </div>
 
-                                <div class="measuresblock1" >
-                                    <!-- Total -->
-                                    <h3><h:outputText id="hpTotal" value="total: #{measureBean.total} $" /></h3>
-                                    <table ><tr><td>
-                                                <!-- 1. Number1InsulatAtticBlown -->
-                                                <div>
-                                                    <table >
-                                                        <tr ><td class="checkboxtd" ><h:selectBooleanCheckbox value="#{measureBean.number1InsulatAtticBlownCheckBox}"  >
-                                                                    <p:ajax event="change" update="number1InsulatAtticBlownResult, hpTotal"  />
+                                                    <!-- 5. Air Seal Package -->
+                                                    <div>
+                                                        <table>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number5AirSealPackageCheckBox}" >
+                                                                        <p:ajax event="change" update="number4SealDuctingCodeComplianceResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td class="titletd"><h:outputText value="5. Air Seal Package:" /></td>
+                                                                <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number5AirSealPackageString" value="#{measureBean.number5AirSealPackageString}" >
+                                                                        <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                        <f:selectItem itemLabel="Air Seal Attic Penetration to Target" itemValue="0.5" />
+                                                                        <f:selectItem itemLabel="Air Seal Attic/Floor Penetration to Target" itemValue="0.8" />
+                                                                        <f:selectItem itemLabel="Level 3 Air Seal Attic/Floor Penetration to Target" itemValue="1.1" />
+                                                                        <f:selectItem itemLabel="Install Mechanical Ventilation to meet BAS standards" itemValue="600" />
+                                                                        <p:ajax event="change" update="number5AirSealPackageString, number5AirSealPackageResult, hpTotal" />
+                                                                    </h:selectOneMenu>
+                                                                </td>
+                                                                <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
+                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft5}" >
+                                                                        <p:ajax event="keyup" update="number5AirSealPackageResult, hpTotal" />
+                                                                    </h:inputText></td>
+                                                                <td class="resulttd"><h:outputText id="number5AirSealPackageResult" value=" = #{measureBean.number5AirSealPackageResult}" />
+                                                                </td>
+                                                            </tr></table>
+                                                    </div>
+                                                    <!-- 6. CAZ Area Report -->
+                                                    <div>
+                                                        <table>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number6CAZAreaReportCheckBox}" >
+                                                                        <p:ajax event="change" update="number6CAZAreaReportResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox>
+                                                                </td>
+                                                                <td class="titletd"><h:outputText value="6. CAZ Area Report:" /></td>
+                                                                <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number6CAZAreaReportString" value="#{measureBean.number6CAZAreaReportString}" >
+                                                                        <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                        <f:selectItem itemLabel="Add Ventilation to DHW Area for test out compliance" itemValue="0.001" />
+                                                                        <f:selectItem itemLabel="Add Ventilation to Furnace Area for test out compliance" itemValue="0.002" />
+                                                                        <f:selectItem itemLabel="Add Ventilation to DHW and Furnace Area for test out compliance" itemValue="0.003" />
+                                                                        <f:selectItem itemLabel="Visual Inspection shows adequate ventilation" itemValue="0.004" />
+                                                                        <f:selectItem itemLabel="Visual Inspection shows adequate ventilation" itemValue="0.005" />
+                                                                        <p:ajax event="change" update="number6CAZAreaReportString, number6CAZAreaReportResult, hpTotal" />
+                                                                    </h:selectOneMenu>
+                                                                </td>
+                                                                <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
+                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft6}" >
+                                                                        <p:ajax event="keyup" update="number6CAZAreaReportResult, hpTotal" />
+                                                                    </h:inputText></td>
+                                                                <td class="resulttd"><h:outputText id="number6CAZAreaReportResult" value=" = #{measureBean.number6CAZAreaReportResult}" />
+                                                                </td>
+                                                            </tr></table>
+                                                    </div>
+
+                                                    <!-- 7a. Install R-8 Ducting Standalone -->
+                                                    <div>
+                                                        <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number7AInstallDuctingStandaloneCheckBox}" >
+                                                                        <p:ajax event="change" update="number7AInstallDuctingStandaloneResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td class="titletd"><h:outputText value="7a. Install R-8 Ducting Standalone:" /></td>
+                                                                <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number7AInstallDuctingStandaloneString" value="#{measureBean.number7AInstallDuctingStandaloneString}" >
+                                                                        <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                        <f:selectItem itemLabel="Install 2 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="3300" />
+                                                                        <f:selectItem itemLabel="Install 2.5 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="3630" />
+                                                                        <f:selectItem itemLabel="Install 3 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="3800" />
+                                                                        <f:selectItem itemLabel="Install 3.5 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="4000" />
+                                                                        <f:selectItem itemLabel="Install 4 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="4650" />
+                                                                        <f:selectItem itemLabel="Install 5 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="5150" />
+                                                                        <f:selectItem itemLabel="Install 2 Ton Energy Star R-8 Ducting in Attic" itemValue="3050" />
+                                                                        <f:selectItem itemLabel="Install 2.5 Ton Energy Star R-8 Ducting in Attic" itemValue="3380" />
+                                                                        <f:selectItem itemLabel="Install 3 Ton Energy Star R-8 Ducting in Attic" itemValue="3550" />
+                                                                        <f:selectItem itemLabel="Install 3.5 Ton Energy Star R-8 Ducting in Attic" itemValue="3750" />
+                                                                        <f:selectItem itemLabel="Install 4 Ton Energy Star R-8 Ducting in Attic" itemValue="4400" />
+                                                                        <f:selectItem itemLabel="Install 5 Ton Energy Star R-8 Ducting in Attic" itemValue="4900" />
+                                                                        <f:selectItem itemLabel="Install 2 Ton  Energy Star R-8 Ducting in Crawlspace" itemValue="3300.001" />
+                                                                        <f:selectItem itemLabel="Install 2.5 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="3630.001" />
+                                                                        <f:selectItem itemLabel="Install 3 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="3800.001" />
+                                                                        <f:selectItem itemLabel="Install 3.5 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="4000.001" />
+                                                                        <f:selectItem itemLabel="Install 4 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="4650.001" />
+                                                                        <f:selectItem itemLabel="Install 5 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="5150.001" />
+                                                                        <p:ajax event="change" update="number6CAZAreaReportString, number7AInstallDuctingStandaloneResult, hpTotal" />
+                                                                    </h:selectOneMenu>
+                                                                </td>
+                                                                <td class="sqftpricelable"><h:outputText value="price:  " /></td>
+                                                                <td class="sqftpricetd"><h:outputText style="width: 95%" value="#{measureBean.sqft7a}" />
+                                                                </td>
+                                                                <td class="resulttd"><h:outputText id="number7AInstallDuctingStandaloneResult" value="= #{measureBean.number7AInstallDuctingStandaloneResult}" />
+                                                                </td>
+                                                            </tr></table>
+                                                    </div>
+
+                                                    <!-- 7B. Install R-8 Ducting w/ New HVAC System -->
+                                                    <div>
+                                                        <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number7BInstallR8DuctingNewHVACCheckBox}" >
+                                                                        <p:ajax event="change" update="number7BInstallR8DuctingNewHVACResult, hpTotal"  /></h:selectBooleanCheckbox></td>
+                                                                <td class="titletd"><h:outputText value="7B. Install R-8 Ducting w/ New HVAC System:" /></td>
+                                                                <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number7BInstallR8DuctingNewHVACString" value="#{measureBean.number7BInstallR8DuctingNewHVACString}" >
+                                                                        <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                        <f:selectItem itemLabel="Install R-8 Radiant Barrier Ducting" itemValue="2" />
+                                                                        <p:ajax event="change" update="number7BInstallR8DuctingNewHVACString, number7BInstallR8DuctingNewHVACResult, hpTotal" />
+                                                                    </h:selectOneMenu>
+                                                                </td>
+                                                                <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
+                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft7b}" >
+                                                                        <p:ajax event="keyup" update="number7BInstallR8DuctingNewHVACResult, hpTotal" />
+                                                                    </h:inputText></td>
+                                                                <td class="resulttd"><h:outputText id="number7BInstallR8DuctingNewHVACResult" value=" = #{measureBean.number7BInstallR8DuctingNewHVACResult}" />
+                                                                </td>
+                                                            </tr></table>
+                                                    </div>
+                                                    <!-- 8a. New HVAC System (ERI Private Label) -->
+                                                    <div>
+                                                        <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number8ANewHVACSystemERICheckBox}" >
+                                                                        <p:ajax event="change" update="number8ANewHVACSystemERIResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>   
+                                                                <td class="titletd"><h:outputText value="8a. New HVAC System (ERI Private Label):" /></td>
+                                                                <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number8ANewHVACSystemERIString" value="#{measureBean.number8ANewHVACSystemERIString}" >
+                                                                        <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                        <f:selectItem itemLabel="Install 16 Seer HVAC / 96% 2 Ton Split System" itemValue="8550.001" />
+                                                                        <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 2.5 Ton Split System" itemValue="8550.002" />
+                                                                        <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 3 Ton Split System" itemValue="9350" />
+                                                                        <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 3.5 Ton Split System" itemValue="10450" />
+                                                                        <f:selectItem itemLabel="Install 15 Seer HVAC/ 96% 5 Ton Split System" itemValue="11350" />
+                                                                        <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 2 Ton 2 Stage Heat Package System" itemValue="8550.003" />
+                                                                        <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 2.5 Ton 2 Stage Heat Package System" itemValue="8550.004" />
+                                                                        <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 3 Ton 2 Stage Heat Package System" itemValue="9100" />
+                                                                        <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 3.5 Ton 2 Stage Heat Package System" itemValue="9700" />
+                                                                        <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 4 Ton 2 Stage Heat Package System" itemValue="10100" />
+                                                                        <f:selectItem itemLabel="Install ERI 14 Seer HVAC/ 81% 5 Ton 2 Stage Heat Package System" itemValue="11100" />
+                                                                        <p:ajax event="change" update="number8ANewHVACSystemERIString, number8ANewHVACSystemERIResult, hpTotal" />
+                                                                    </h:selectOneMenu>
+                                                                </td>
+                                                                <td class="sqftpricelable"><h:outputText value="price:  " /></td>
+                                                                <td class="sqftpricetd"><h:outputText style="width: 95%" value="#{measureBean.sqft8a}" /></td>
+                                                                <td class="resulttd"><h:outputText id="number8ANewHVACSystemERIResult" value=" = #{measureBean.number8ANewHVACSystemERIResult}" />
+                                                                </td>
+                                                            </tr></table>
+                                                    </div>
+
+                                                    <!-- 8b. New HVAC System (ERI Private Label) -->
+                                                    <div>
+                                                        <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number8BNewHVACSystemERIPrivateCheckBox}" >
+                                                                        <p:ajax event="change" update="number8BNewHVACSystemERIPrivateResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td class="titletd"><h:outputText value="8b. New HVAC System (ERI Private Label):" /></td>
+                                                                <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number8BNewHVACSystemERIPrivateString" value="#{measureBean.number8BNewHVACSystemERIPrivateString}"  >
+                                                                        <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                        <f:selectItem itemLabel="Install 16 Seer HVAC / 96% 2 Ton Split System" itemValue="8550.001" />
+                                                                        <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 2.5 Ton Split System" itemValue="8550.002" />
+                                                                        <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 3 Ton Split System" itemValue="9350" />
+                                                                        <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 3.5 Ton Split System" itemValue="10450" />
+                                                                        <f:selectItem itemLabel="Install 15 Seer HVAC/ 96% 5 Ton Split System" itemValue="11350" />
+                                                                        <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 2 Ton 2 Stage Heat Package System" itemValue="8550.003" />
+                                                                        <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 2.5 Ton 2 Stage Heat Package System" itemValue="8550.004" />
+                                                                        <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 3 Ton 2 Stage Heat Package System" itemValue="9100" />
+                                                                        <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 3.5 Ton 2 Stage Heat Package System" itemValue="9700" />
+                                                                        <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 4 Ton 2 Stage Heat Package System" itemValue="10100" />
+                                                                        <f:selectItem itemLabel="Install ERI 14 Seer HVAC/ 81% 5 Ton 2 Stage Heat Package System" itemValue="11100" />
+                                                                        <p:ajax event="change" update="number8BNewHVACSystemERIPrivateString, number8BNewHVACSystemERIPrivateResult, hpTotal" />
+                                                                    </h:selectOneMenu>
+                                                                </td>
+                                                                <td class="sqftpricelable"><p:outputLabel value="price:  " /></td>
+                                                                <td class="sqftpricetd"><p:outputLabel value="#{measureBean.sqft8b}"  /></td>
+                                                                <td class="resulttd" ><p:outputLabel id="number8BNewHVACSystemERIPrivateResult" value=" = #{measureBean.number8BNewHVACSystemERIPrivateResult}" />
+                                                                </td></tr></table>
+                                                    </div>
+
+                                                    <!-- 8bii. Includes 10 Year Parts and Labor/MERV 11 Filtration/UV Coil -->
+                                                    <div>
+                                                        <table>
+                                                            <tr></tr>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number8BIIIncludes10YearPartsCheckBox}"  >
+                                                                        <p:ajax event="change" update="number8BIIIncludes10YearPartsResult , hpTotal"  /></h:selectBooleanCheckbox></td>
+                                                                <td class="titletd"><h:outputText value="8bii. Includes 10 Year Parts and Labor/MERV 11 Filtration/UV Coil:" /></td>
+                                                                <td class="fieldtd"><h:outputText id="h_outputTextid" value="Includes 10 Year Parts and Labor/MERV 11 Filtration UV Coil" /></td>
+                                                                <td class="sqftpricetd"><h:outputText value="price:  " /></td>
+                                                                <td class="sqftpricetd"><h:outputText style="width: 95%" value="#{measureBean.sqft8bii}" ></h:outputText></td>
+                                                                <td class="resulttd"><p:outputLabel id="number8BIIIncludes10YearPartsResult" value=" = #{measureBean.number8BIIIncludes10YearPartsResult}" />
+                                                                </td>
+                                                            </tr></table>
+                                                    </div>
+
+                                                    <!-- 9. Single/Dual Zone HVAC System -->
+
+                                                    <div>
+                                                        <table>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number9SingleDualZoneHVACSystemCheckBox}"  >
+                                                                        <p:ajax event="change" update="number9SingleDualZoneHVACSystemResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td class="titletd"><h:outputText value="9. Single/Dual Zone HVAC System:" /></td>
+                                                                <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number9SingleDualZoneHVACSystemString" value="#{measureBean.number9SingleDualZoneHVACSystemString}" >
+                                                                        <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                        <f:selectItem itemLabel="Single Zone HVAC System" itemValue="0" />
+                                                                        <f:selectItem itemLabel="Dual Zone HVAC System" itemValue="1650" />
+                                                                        <p:ajax event="change" update="number9SingleDualZoneHVACSystemString, number9SingleDualZoneHVACSystemResult, hpTotal" />
+                                                                    </h:selectOneMenu></td>
+                                                                <td class="sqftpricelable"><h:outputLabel value="price:  " /></td>
+                                                                <td class="sqftpricetd"><p:outputLabel style="width: 95%" value="#{measureBean.sqft9}"  >
+                                                                        <p:ajax event="keyup" update="number9SingleDualZoneHVACSystemResult, hpTotal" />
+                                                                    </p:outputLabel></td>
+                                                                <td class="resulttd" ><p:outputLabel id="number9SingleDualZoneHVACSystemResult" value=" = #{measureBean.number9SingleDualZoneHVACSystemResult}" />
+                                                                </td>
+                                                            </tr></table>
+                                                    </div>
+
+                                                    <!-- 9.1a Miscellaneous Items HVAC -->
+                                                    <div>
+                                                            <table>
+                                                                <tr><td class="checkbox"><h:selectBooleanCheckbox value="#{measureBean.number91aRelocateCondenserCheckBox}"  >
+                                                                            <p:ajax event="change" update="number91aRelocateCondenserInt, number91aRelocateCondenserResult, hpTotal"  />
+                                                                        </h:selectBooleanCheckbox></td>
+                                                                    <td class="titletd" ><h:outputText value="9.1a." /></td>
+                                                                    <td class="fieldtd"><h:outputText style="width: 95%" value="Relocate Condenser: " /></td>
+                                                                    <td class="sqftpricelable"><h:outputText value="price:" /></td>
+                                                                    <td class="sqftpricetd"><h:inputText style="width: 95%" id="number91aRelocateCondenserInt" value="#{measureBean.number91aRelocateCondenserInt}">  
+                                                                            <p:ajax event="keyup" update="number91aRelocateCondenserResult, hpTotal" /></h:inputText></td>
+                                                                    <td class="resulttd" ><h:outputText id="number91aRelocateCondenserResult" value=" = #{measureBean.number91aRelocateCondenserResult}" /></td>
+                                                                </tr></table>
+                                                    </div>
+
+                                                    <!-- 9.1b Cut in Supply Vent w/ New Duct: -->
+                                                    <div>
+                                                        <table>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number91bCutInSupplyVentNewDuctCheckBox}"  >
+                                                                        <p:ajax event="change" update="number91bCutInSupplyVentNewDuctInt, number91bCutInSupplyVentNewDuctResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td class="titletd" ><h:outputText value="9.1b." /></td>
+                                                                <td class="fieldtd"><h:outputText style="width: 95%" value="Cut in Supply Vent w/ New Duct: " /></td>
+                                                                <td class="sqftpricelable"><h:outputText value="price:" /></td>
+                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" id="number91bCutInSupplyVentNewDuctInt" value="#{measureBean.number91bCutInSupplyVentNewDuctInt}">  
+                                                                        <p:ajax event="keyup" update="number91bCutInSupplyVentNewDuctResult, hpTotal" /></h:inputText></td>
+                                                                <td class="resulttd"><h:outputText id="number91bCutInSupplyVentNewDuctResult" value=" = #{measureBean.number91bCutInSupplyVentNewDuctResult}" />
+                                                                </td></tr></table>
+                                                    </div>
+
+                                                    <!-- 9.1c HVAC Cut In: -->
+                                                    <div>
+                                                        <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number91cHVACCutInCheckBox}"  >
+                                                                        <p:ajax event="change" update="number91cHVACCutInInt, number91cHVACCutInResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td class="titletd" ><h:outputText value="9.1c." /></td>
+                                                                <td class="fieldtd"><h:outputText style="width: 95%" value="HVAC Cut In: " /></td>
+                                                                <td class="sqftpricelable"><h:outputText value="price:" /></td>
+                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" id="number91cHVACCutInInt" value="#{measureBean.number91cHVACCutInInt}">  
+                                                                        <p:ajax event="keyup" update="number91cHVACCutInResult, hpTotal" />
+                                                                    </h:inputText></td>
+                                                                <td class="resulttd"><h:outputText id="number91cHVACCutInResult" value=" = #{measureBean.number91cHVACCutInResult}" /></td>
+                                                            </tr></table>
+                                                    </div>
+
+                                                    <!-- 9.1d Duct Seal Only: -->
+                                                    <div>
+                                                        <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number91dDuctSealOnlyCheckBox}"  >
+                                                                        <p:ajax event="change" update="number91dDuctSealOnlyInt, number91dDuctSealOnlyResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td class="titletd" ><h:outputText value="9.1d." /></td>
+                                                                <td class="fieldtd"><h:outputText style="width: 95%" value="Duct Seal Only: " /></td>
+                                                                <td class="sqftpricelable"><h:outputText value="price:" /></td>
+                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" id="number91dDuctSealOnlyInt" value="#{measureBean.number91dDuctSealOnlyInt}">  
+                                                                        <p:ajax event="keyup" update="number91dDuctSealOnlyResult, hpTotal" />
+                                                                    </h:inputText>
+                                                                </td>
+                                                                <td class="resulttd"><p:outputLabel id="number91dDuctSealOnlyResult" value=" = #{measureBean.number91dDuctSealOnlyResult}" />
+                                                                </td>
+                                                            </tr></table>
+                                                    </div>
+
+                                                    <!-- 9.1e New Line Set: -->
+                                                    <div>
+                                                        <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number91eNewLineSetCheckBox}"  >
+                                                                        <p:ajax event="change" update="number91eNewLineSetInt, number91eNewLineSetResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td class="titletd" ><h:outputText value="9.1e." /></td>
+                                                                <td class="fieldtd"><h:outputText style="width: 95%" value="New Line Set: " /></td>
+                                                                <td class="sqftpricelable"><h:outputText value="price:" /></td>
+                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" id="number91eNewLineSetInt" value="#{measureBean.number91eNewLineSetInt}">  
+                                                                        <p:ajax event="keyup" update="number91eNewLineSetResult, hpTotal" />
+                                                                    </h:inputText></td>
+                                                                <td class="resulttd"><h:outputText id="number91eNewLineSetResult" value=" = #{measureBean.number91eNewLineSetResult}" />
+                                                                </td></tr></table>
+                                                    </div>
+
+                                                    <!-- 9.1f Enlarge Return Air / Add Return: -->
+                                                    <div>
+                                                        <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number91fEnlargeReturnAirCheckBox}"  >
+                                                                        <p:ajax event="change" update="number91fEnlargeReturnAirInt, number91fEnlargeReturnAirResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td class="titletd" ><h:outputText value="9.1f." /></td>
+                                                                <td class="fieldtd"><h:outputText style="width: 95%" value="Cut in Supply Vent w/ New Duct: " /></td>
+                                                                <td class="sqftpricelable"><h:outputText value="price:" /></td>
+                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" id="number91fEnlargeReturnAirInt" value="#{measureBean.number91fEnlargeReturnAirInt}">  
+                                                                        <p:ajax event="keyup" update="number91fEnlargeReturnAirResult, hpTotal" />
+                                                                    </h:inputText></td>
+                                                                <td class="resulttd" ><h:outputText id="number91fEnlargeReturnAirResult" value=" = #{measureBean.number91fEnlargeReturnAirResult}" /></td>
+                                                            </tr></table>
+                                                    </div>
+                                                    <!-- 9.2 Notes: -->
+                                                    <div>
+                                                        <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number92NotesCheckBox}"  /></td>
+                                                                <td class="titletd" ><h:outputText value="9.2 Notes " /></td>
+                                                                <td class="fieldtd"><h:inputTextarea  rows="6" cols="50" value="#{measureBean.number92NotesString}" /></td>
+                                                                <td class="sqftpricelable" />
+                                                                <td class="sqftpricetd" />
+                                                                <td class="resulttd"  />
+                                                            </tr></table>
+                                                    </div>
+                                                    <!-- 9.3 Cost per KW: -->
+                                                    <div>
+                                                        <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number93CostPerKWCheckBox}"  >
+                                                                        <p:ajax event="change" update="number93CostPerKWResalt, number93DCKWsResalt"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td class="titletd" ><h:outputText value="9.3a. Cost per KW: " /></td>
+                                                                <td class="fieldtd"><h:inputText value="#{measureBean.number93CostPerKWInt}"  >
+                                                                        <p:ajax event="keyup" update="number93CostPerKWResalt"  />
+                                                                    </h:inputText></td>
+                                                                <td class="sqftpricelable" />
+                                                                <td class="sqftpricetd" />
+                                                                <td class="resulttd"  ><h:outputText id="number93CostPerKWResalt" value="#{measureBean.number93CostPerKWResalt}" /></td>
+                                                            </tr>
+                                                            <tr><td class="checkboxtd" />
+                                                                <td class="titletd" ><h:outputText value="9.3b. DC KWs: " /></td>
+                                                                <td class="fieldtd"><h:inputText value="#{measureBean.number93DCKWsInt}"  >
+                                                                        <p:ajax event="keyup" update="number93DCKWsResalt"  />
+                                                                    </h:inputText></td>
+                                                                <td class="sqftpricelable" />
+                                                                <td class="sqftpricetd" />
+                                                                <td class="resulttd"  ><h:outputText id="number93DCKWsResalt" value="#{measureBean.number93DCKWsResalt}" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+
+                                                </td>
+                                            </tr></table>    
+                                    </div>
+
+                                    <div class="measuresblock2" >
+                                        <table class="measure"><tr><td>
+                                                    <!-- second column -->
+                                                    <!-- 10. Install Windows: -->
+                                                    <div>
+                                                        <table><tr><td class="checkboxtd" />
+                                                                <td class="rightFieldtd" ><h:outputText style="width: 95%" value="10.Install Windows" /></td>
+                                                                <td class="rightItd" ><h:outputText style="width: 95%" value="# of windows" /></td>
+                                                                <td class="rightJtd" ><h:outputText style="width: 95%" value="total united inches" /></td>
+                                                                <td class="resulttd" ><h:outputText style="width: 95%" value="Cost" /></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="checkboxtd"><h:selectBooleanCheckbox id="number10InstallWindowsCheckBox" value="#{measureBean.number10InstallWindowsCheckBox}" >
+                                                                        <p:ajax event="change" update="number10numOfWindows, number10InstallResult, number10LinearFeetResult, hpTotal, number103AllGlazingCheckBox, number104WindowsToMatcCheckBox"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td class="rightJtd" ><h:outputText style="width: 95%" id="number10numOfWindows" value="Install #{measureBean.number10numOfWindows} Monte Verde High Performance Retrofit Windows" /></td>
+                                                                <td class="rightItd" ><h:inputText style="width: 95%" value="#{measureBean.number10numOfWindows}" >
+                                                                        <p:ajax event="keyup" update="number10numOfWindows"  /></h:inputText></td>
+                                                                <td class="sqftpricetd" ><h:inputText style="width: 95%" value="#{measureBean.number10TotalUnitedInchesInt}" >
+                                                                        <p:ajax event="keyup" update="number10InstallResult, hpTotal"  /></h:inputText></td>
+                                                                <td class="resulttd" ><h:outputText style="width: 95%" id="number10InstallResult" value="#{measureBean.number10InstallResult}" /></td>
+                                                            </tr>
+                                                            <tr><td class="checkboxtd"></td>
+                                                                <td class="rightFieldtd" ><h:outputText style="width: 95%" value="If new construction is selected, it is at a higher cost" /></td>
+                                                                <td class="rightItd" ><h:outputText style="width: 95%" value="#of sliders" /></td>
+                                                                <td class="rightJtd" ><h:outputText style="width: 95%" value="linear Feet" /></td>
+                                                                <td class="resulttd" ></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="checkboxtd" />
+                                                                <td class="rightFieldtd" ><h:outputText style="width: 95%" id="number10numOfSliders" value="AND #{measureBean.number10numOfSliders} Sliders" /></td>
+                                                                <td class="rightItd" ><h:inputText style="width: 95%" value="#{measureBean.number10numOfSliders}" >
+                                                                        <p:ajax event="keyup" update="number10numOfSliders"  /></h:inputText></td>
+                                                                <td class="rightJtd" ><h:inputText style="width: 95%" value="#{measureBean.number10LinearFeet}" >
+                                                                        <p:ajax event="keyup" update="number10LinearFeetResult, hpTotal"  /></h:inputText></td>
+                                                                <td class="resulttd" ><h:outputText style="width: 95%" id="number10LinearFeetResult" value="#{measureBean.number10LinearFeetResult}" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+
+                                                    <!-- 10.1a. Install Windows: -->
+                                                    <div>
+                                                        <table><tr><td class="checkboxtd" />
+                                                                <td class="rightFieldtd" ><h:outputText style="width: 95%" value="10.1a Misc. Items (Windows, per lin. Ft.)" /></td>
+                                                                <td class="rightItd" ><h:outputText style="width: 95%" value="lin. Ft. where applicable" /></td>
+                                                                <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number101ACutInDoorCheckBox}" >
+                                                                        <p:ajax event="change" update="number101ACutInDoorResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Cut In Door / Window" /></td>
+                                                                <td class="rightItd" />
+                                                                <td  class="rightJtd"><h:inputText style="width: 95%" value="#{measureBean.number101ACutInDoorInt}" >
+                                                                        <p:ajax event="keyup" update="number101ACutInDoorResult, hpTotal"  /></h:inputText></td>
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number101ACutInDoorResult" value="#{measureBean.number101ACutInDoorResult}" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+
+                                                    <!-- 10.1b. Add Header: -->
+                                                    <div>
+                                                        <table><tr>
+                                                                <td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number101BAddHeaderCheckBox}" >
+                                                                        <p:ajax event="change" update="number101BAddHeaderResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Add Header / Enlarge Opening" /></td>
+                                                                <td class="rightItd" />
+                                                                <td  class="rightJtd"><h:inputText style="width: 95%" value="#{measureBean.number101BAddHeaderInt}" >
+                                                                        <p:ajax event="keyup" update="number101BAddHeaderResult, hpTotal"  /></h:inputText></td>
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number101BAddHeaderResult" value="#{measureBean.number101BAddHeaderResult}" /></td>
+                                                            </tr>
+                                                            <tr><td class="checkboxtd" />
+                                                                <td class="rightFieldtd" ><h:outputText style="width: 95%" value="New Construction ($325. per hole/window)" /></td>
+                                                                <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+
+                                                    <!-- 10.2. Misc. Items (Windows, Bulk): -->
+                                                    <div>
+                                                        <table>
+                                                            <tr><td class="checkboxtd" />
+                                                                <td class="rightFieldtd" ><h:outputText style="width: 95%" value="10.2 Misc. Items (Windows, Bulk)" /></td>
+                                                                <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+
+                                                    <!-- 10.2. Misc. Items (Windows, Bulk): -->
+                                                    <div>
+                                                        <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number102ACutDownWindowCheckBox}" >
+                                                                        <p:ajax event="change" update="number102ACutDownWindowResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Cut Down Window no Electric" /></td>
+                                                                <td class="rightItd" />
+                                                                <td  class="rightJtd" />
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number102ACutDownWindowResult" value="#{measureBean.number102ACutDownWindowResult}" /></td>
+                                                            </tr>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number102BElectricalReroutesCheckBox}" >
+                                                                        <p:ajax event="change" update="number102BElectricalReroutesResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Electrical Reroutes" /></td>
+                                                                <td class="rightItd" />
+                                                                <td  class="rightJtd" />
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number102BElectricalReroutesResult" value="#{measureBean.number102BElectricalReroutesResult}" /></td>
+                                                            </tr>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number102CGardenWindow4CheckBox}" >
+                                                                        <p:ajax event="change" update="number102CGardenWindow4Result, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Garden Window 4" /></td>
+                                                                <td class="rightItd" />
+                                                                <td  class="rightJtd" />
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number102CGardenWindow4Result" value="#{measureBean.number102CGardenWindow4Result}" /></td>
+                                                            </tr>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number102DGardenWindow6CheckBox}" >
+                                                                        <p:ajax event="change" update="number102DGardenWindow6Result, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Garden Window 6" /></td>
+                                                                <td class="rightItd" />
+                                                                <td  class="rightJtd" />
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number102DGardenWindow6Result" value="#{measureBean.number102DGardenWindow6Result}" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+
+                                                    <!-- 10.3. All glazing is Triple lowE, tempered where required by code and obscured in bathrooms as required by customer: -->
+                                                    <table>
+                                                        <tr><td class="checkboxtd" />
+                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%" value="10.3 All glazing is Triple lowE, tempered where required by code and obscured in bathrooms as required by customer" /></td>
+                                                            <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                        </tr>
+                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox id="number103AllGlazingCheckBox" style="width: 95%" value="#{measureBean.number103AllGlazingCheckBox}" >
+                                                                </h:selectBooleanCheckbox></td>
+                                                            <td  class="rightFieldtd"><h:outputText style="width: 95%" value="All glazing is Triple lowE, tempered where required by code and obscured in bathrooms as required by customer" /></td>
+                                                            <td class="rightItd" />
+                                                            <td  class="rightJtd" />
+                                                            <td  class="resulttd" />
+                                                        </tr>
+                                                    </table>
+
+                                                    <!-- 10.4. Windows to match existing configuration with white vinyl frames, including bug screens and Argon gas-filled glass pack: -->
+                                                    <table>
+                                                        <tr><td class="checkboxtd" />
+                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%" value="10.4 Windows to match existing configuration with white vinyl frames, including bug screens and Argon gas-filled glass pack" /></td>
+                                                            <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                        </tr>
+                                                        <tr><td class="checkboxtd" />
+                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%" value="If grids are selected, they are an added cost" /></td>
+                                                            <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                        </tr>
+                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox id="number104WindowsToMatcCheckBox" style="width: 95%" value="#{measureBean.number104WindowsToMatcCheckBox}" >
+                                                                </h:selectBooleanCheckbox></td>
+                                                            <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Windows to match existing configuration with white vinyl frames, including bug screens and Argon gas-filled glass pack" /></td>
+                                                            <td class="rightItd" />
+                                                            <td  class="rightJtd" />
+                                                            <td  class="resulttd" />
+                                                        </tr>
+                                                        <tr><td class="checkboxtd" />
+                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%" value="If grids are selected, they are an added cost" /></td>
+                                                            <td class="rightItd" ><h:outputText style="width: 95%" value="$0.25 per UI" /></td>
+                                                            <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                        </tr>
+                                                    </table>
+
+                                                    <!-- 11. Install Pool Pump: -->
+                                                    <div>
+                                                        <table>
+                                                            <tr><td class="checkboxtd" />
+                                                                <td class="rightFieldtd" ><h:outputText style="width: 95%" value="11. Install Pool Pump" /></td>
+                                                                <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            </tr>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number11InstallPoolPumpCheckBox}" >
+                                                                        <p:ajax event="change" update="number11InstallPoolPumpResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Pentair 3HP Intelliflo Variable Speed Pool Pump" /></td>
+                                                                <td class="rightItd" />
+                                                                <td  class="rightJtd" />
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number11InstallPoolPumpResult" value="#{measureBean.number11InstallPoolPumpResult}" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+
+                                                    <!-- 12. Install Whole House Fan: -->
+                                                    <table>
+                                                        <tr><td class="checkboxtd" />
+                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%" value="12. Install Whole House Fan" /></td>
+                                                            <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                        </tr>
+                                                        <tr><td class="checkboxtd" ><h:selectBooleanCheckbox value="#{measureBean.number12InstallWholeHouseFanCheckBox}"  >
+                                                                    <p:ajax event="change" update="number12InstallWholeHouseFanResult, hpTotal"  />
                                                                 </h:selectBooleanCheckbox>
                                                             </td>
-                                                            <td class="titletd"><h:outputText  value="1.Insulate Attic: " /></td>
-                                                            <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number1InsulatAtticBlownString" value="#{measureBean.number1InsulatAtticBlownString}" >
+                                                            <td class="rightFieldtd"><h:selectOneMenu style="width: 95%" id="number12InstallWholeHouseFanInt" value="#{measureBean.number12InstallWholeHouseFanInt}" >
                                                                     <f:selectItem itemLabel="Select One " itemValue="0" />
-                                                                    <f:selectItem itemLabel="Blown in Fiberglass R-38 Value" itemValue="1.251" />
-                                                                    <f:selectItem itemLabel="Blown in Fiberglass R-44 Value" itemValue="1.252" />
-                                                                    <f:selectItem itemLabel="Cellalose R-38 Value" itemValue="1.253" />
-                                                                    <f:selectItem itemLabel="Cellalose R-44 Value" itemValue="1.254" />
-                                                                    <p:ajax event="change" update="number1InsulatAtticBlownString, number1InsulatAtticBlownResult, hpTotal" />
+                                                                    <f:selectItem itemLabel="Direct Drive (Home Depot)" itemValue="900" />
+                                                                    <f:selectItem itemLabel="Quiet Cool WH Fan Tri 2.5 2500 CFM" itemValue="1350" />
+                                                                    <f:selectItem itemLabel="Quiet Cool WH Fan Tri 3.3 3300 CFM" itemValue="1550" />
+                                                                    <f:selectItem itemLabel="Quiet Cool WH Fan Tri 4.8 4800 CFM" itemValue="1800" />
+                                                                    <p:ajax event="change" update="number12InstallWholeHouseFanInt, number12InstallWholeHouseFanResult, hpTotal" />
                                                                 </h:selectOneMenu>
                                                             </td>
-                                                            <td class="sqftpricelable"><p:outputLabel value="sqft:  " /></td>
-                                                            <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft1}"  >
-                                                                    <p:ajax event="keyup" update="number1InsulatAtticBlownResult, hpTotal" />
-                                                                </h:inputText></td>
-                                                            <td class="resulttd"><h:outputText id="number1InsulatAtticBlownResult" value=" = #{measureBean.number1InsulatAtticBlownResult}" />
+                                                            <td class="rightItd" />
+                                                            <td class="rightJtd"  />
+                                                            <td class="resulttd"><h:outputText id="number12InstallWholeHouseFanResult" value="#{measureBean.number12InstallWholeHouseFanResult}" />
                                                             </td>
-                                                        </tr></table>
-                                                </div>
-                                                <!-- 2. Fresh Start -->
-                                                <div>
-                                                    <table>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number2RemoveAndReplaceCheckBox}" >
-                                                                    <p:ajax event="change" update="number2RemoveAndReplaceResult , hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td class="titletd"><h:outputText value="2.Fresh Start:" /></td>
-                                                            <td class="fieldtd"><h:outputText style="width: 95%" value="Remove  and  Replace  Attic  Insulation"  /></td>
-                                                            <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
-                                                            <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft2}"  >
-                                                                    <p:ajax event="keyup" update="number2RemoveAndReplaceResult, hpTotal" />
-                                                                </h:inputText></td>
-                                                            <td class="resulttd"><h:outputText id="number2RemoveAndReplaceResult" value=" = #{measureBean.number2RemoveAndReplaceResult}" />
-                                                            </td>
-                                                        </tr></table>
-                                                </div>
-                                                <!-- 3. Crawl Space Insulation -->
-                                                <div>
-                                                    <table>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number3InstallBattedInsulationCheckBox}" >
-                                                                    <p:ajax event="change" update="number3InstallBattedInsulationResult , hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td class="titletd"><h:outputText value="3. Crawl Space Insulation:" /></td>
-                                                            <td class="fieldtd"><h:outputText style="width: 95%" value="Install R-19 Batted Insulation (with Vapor Barrier) for conditioned space that's accessible"  /></td>
-                                                            <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
-                                                            <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft3}"  >
-                                                                    <p:ajax event="keyup" update="number3InstallBattedInsulationResult, hpTotal" />
-                                                                </h:inputText></td>
-                                                            <td class="resulttd"><h:outputText id="number3InstallBattedInsulationResult" value=" = #{measureBean.number3InstallBattedInsulationResult}" />
-                                                            </td>
-                                                        </tr></table>
-                                                </div>
+                                                        </tr>
 
-                                                <!-- 4. Seal Ducting to Code Compliance Standards -->
-                                                <div>
-                                                    <table>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number4SealDuctingCodeComplianceCheckBox}" >
-                                                                    <p:ajax event="change" update="number4SealDuctingCodeComplianceResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td class="titletd"><h:outputText value="4. Seal Ducting to Code Compliance Standards:" /></td>
-                                                            <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number4SealDuctingCodeComplianceString" value="#{measureBean.number4SealDuctingCodeComplianceString}" >
-                                                                    <f:selectItem itemLabel="Select One " itemValue="0" />
-                                                                    <f:selectItem itemLabel="Seal Ducting to Code Compliance Standards" itemValue="1.001" />
-                                                                    <f:selectItem itemLabel="Seal Ducting to CCS for Both Systems" itemValue="1.002" />
-                                                                    <p:ajax event="change" update="number4SealDuctingCodeComplianceString, hpTotal" />
-                                                                </h:selectOneMenu>
-                                                            </td>
-                                                            <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
-                                                            <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft4}" >
-                                                                    <p:ajax event="keyup" update="number4SealDuctingCodeComplianceResult, hpTotal" />
-                                                                </h:inputText></td>
-                                                            <td class="resulttd"><h:outputText id="number4SealDuctingCodeComplianceResult" value=" = #{measureBean.number4SealDuctingCodeComplianceResult}" />
-                                                            </td>
-                                                        </tr></table>
-                                                </div>
 
-                                                <!-- 5. Air Seal Package -->
-                                                <div>
+                                                    </table>
+
+                                                    <!-- 13. Install Water Heater: -->
                                                     <table>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number5AirSealPackageCheckBox}" >
-                                                                    <p:ajax event="change" update="number4SealDuctingCodeComplianceResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td class="titletd"><h:outputText value="5. Air Seal Package:" /></td>
-                                                            <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number5AirSealPackageString" value="#{measureBean.number5AirSealPackageString}" >
-                                                                    <f:selectItem itemLabel="Select One " itemValue="0" />
-                                                                    <f:selectItem itemLabel="Air Seal Attic Penetration to Target" itemValue="0.5" />
-                                                                    <f:selectItem itemLabel="Air Seal Attic/Floor Penetration to Target" itemValue="0.8" />
-                                                                    <f:selectItem itemLabel="Level 3 Air Seal Attic/Floor Penetration to Target" itemValue="1.1" />
-                                                                    <f:selectItem itemLabel="Install Mechanical Ventilation to meet BAS standards" itemValue="600" />
-                                                                    <p:ajax event="change" update="number5AirSealPackageString, number5AirSealPackageResult, hpTotal" />
-                                                                </h:selectOneMenu>
-                                                            </td>
-                                                            <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
-                                                            <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft5}" >
-                                                                    <p:ajax event="keyup" update="number5AirSealPackageResult, hpTotal" />
-                                                                </h:inputText></td>
-                                                            <td class="resulttd"><h:outputText id="number5AirSealPackageResult" value=" = #{measureBean.number5AirSealPackageResult}" />
-                                                            </td>
-                                                        </tr></table>
-                                                </div>
-                                                <!-- 6. CAZ Area Report -->
-                                                <div>
-                                                    <table>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number6CAZAreaReportCheckBox}" >
-                                                                    <p:ajax event="change" update="number6CAZAreaReportResult, hpTotal"  />
+                                                        <tr><td class="checkboxtd" />
+                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%" value="13. Install Water Heater" /></td>
+                                                            <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                        </tr>
+                                                        <tr><td class="checkboxtd" ><h:selectBooleanCheckbox value="#{measureBean.number13InstallWaterHeaterCheckBox}"  >
+                                                                    <p:ajax event="change" update="number13InstallWaterHeaterResult, hpTotal"  />
                                                                 </h:selectBooleanCheckbox>
                                                             </td>
-                                                            <td class="titletd"><h:outputText value="6. CAZ Area Report:" /></td>
-                                                            <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number6CAZAreaReportString" value="#{measureBean.number6CAZAreaReportString}" >
+                                                            <td class="rightFieldtd"><h:selectOneMenu style="width: 95%" id="number13InstallWaterHeaterInt" value="#{measureBean.number13InstallWaterHeaterDouble}" >
                                                                     <f:selectItem itemLabel="Select One " itemValue="0" />
-                                                                    <f:selectItem itemLabel="Add Ventilation to DHW Area for test out compliance" itemValue="0.001" />
-                                                                    <f:selectItem itemLabel="Add Ventilation to Furnace Area for test out compliance" itemValue="0.002" />
-                                                                    <f:selectItem itemLabel="Add Ventilation to DHW and Furnace Area for test out compliance" itemValue="0.003" />
-                                                                    <f:selectItem itemLabel="Visual Inspection shows adequate ventilation" itemValue="0.004" />
-                                                                    <f:selectItem itemLabel="Visual Inspection shows adequate ventilation" itemValue="0.005" />
-                                                                    <p:ajax event="change" update="number6CAZAreaReportString, number6CAZAreaReportResult, hpTotal" />
+                                                                    <f:selectItem itemLabel="Install 40 Gallon Gas Water Heater" itemValue="1200" />
+                                                                    <f:selectItem itemLabel="Install 50 Gallon Gas Water Heater" itemValue="1400" />
+                                                                    <f:selectItem itemLabel="Install 40 Gallon Electric Water Heater" itemValue="1200.001" />
+                                                                    <f:selectItem itemLabel="Install 50 Gallon Electric Water Heater" itemValue= "1400.001" />
+                                                                    <f:selectItem itemLabel="Install 75 Gallon Water Heater" itemValue= "1900" />
+                                                                    <p:ajax event="change" update="number13InstallWaterHeaterInt, number13InstallWaterHeaterResult, hpTotal" />
                                                                 </h:selectOneMenu>
                                                             </td>
-                                                            <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
-                                                            <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft6}" >
-                                                                    <p:ajax event="keyup" update="number6CAZAreaReportResult, hpTotal" />
-                                                                </h:inputText></td>
-                                                            <td class="resulttd"><h:outputText id="number6CAZAreaReportResult" value=" = #{measureBean.number6CAZAreaReportResult}" />
+                                                            <td class="rightItd" />
+                                                            <td class="rightJtd"  />
+                                                            <td class="resulttd"><h:outputText id="number13InstallWaterHeaterResult" value="#{measureBean.number13InstallWaterHeaterResult}" />
                                                             </td>
-                                                        </tr></table>
-                                                </div>
-
-                                                <!-- 7a. Install R-8 Ducting Standalone -->
-                                                <div>
-                                                    <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number7AInstallDuctingStandaloneCheckBox}" >
-                                                                    <p:ajax event="change" update="number7AInstallDuctingStandaloneResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td class="titletd"><h:outputText value="7a. Install R-8 Ducting Standalone:" /></td>
-                                                            <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number7AInstallDuctingStandaloneString" value="#{measureBean.number7AInstallDuctingStandaloneString}" >
-                                                                    <f:selectItem itemLabel="Select One " itemValue="0" />
-                                                                    <f:selectItem itemLabel="Install 2 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="3300" />
-                                                                    <f:selectItem itemLabel="Install 2.5 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="3630" />
-                                                                    <f:selectItem itemLabel="Install 3 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="3800" />
-                                                                    <f:selectItem itemLabel="Install 3.5 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="4000" />
-                                                                    <f:selectItem itemLabel="Install 4 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="4650" />
-                                                                    <f:selectItem itemLabel="Install 5 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="5150" />
-                                                                    <f:selectItem itemLabel="Install 2 Ton Energy Star R-8 Ducting in Attic" itemValue="3050" />
-                                                                    <f:selectItem itemLabel="Install 2.5 Ton Energy Star R-8 Ducting in Attic" itemValue="3380" />
-                                                                    <f:selectItem itemLabel="Install 3 Ton Energy Star R-8 Ducting in Attic" itemValue="3550" />
-                                                                    <f:selectItem itemLabel="Install 3.5 Ton Energy Star R-8 Ducting in Attic" itemValue="3750" />
-                                                                    <f:selectItem itemLabel="Install 4 Ton Energy Star R-8 Ducting in Attic" itemValue="4400" />
-                                                                    <f:selectItem itemLabel="Install 5 Ton Energy Star R-8 Ducting in Attic" itemValue="4900" />
-                                                                    <f:selectItem itemLabel="Install 2 Ton  Energy Star R-8 Ducting in Crawlspace" itemValue="3300.001" />
-                                                                    <f:selectItem itemLabel="Install 2.5 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="3630.001" />
-                                                                    <f:selectItem itemLabel="Install 3 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="3800.001" />
-                                                                    <f:selectItem itemLabel="Install 3.5 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="4000.001" />
-                                                                    <f:selectItem itemLabel="Install 4 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="4650.001" />
-                                                                    <f:selectItem itemLabel="Install 5 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="5150.001" />
-                                                                    <p:ajax event="change" update="number6CAZAreaReportString, number7AInstallDuctingStandaloneResult, hpTotal" />
-                                                                </h:selectOneMenu>
-                                                            </td>
-                                                            <td class="sqftpricelable"><h:outputText value="price:  " /></td>
-                                                            <td class="sqftpricetd"><h:outputText style="width: 95%" value="#{measureBean.sqft7a}" />
-                                                            </td>
-                                                            <td class="resulttd"><h:outputText id="number7AInstallDuctingStandaloneResult" value="= #{measureBean.number7AInstallDuctingStandaloneResult}" />
-                                                            </td>
-                                                        </tr></table>
-                                                </div>
-
-                                                <!-- 7B. Install R-8 Ducting w/ New HVAC System -->
-                                                <div>
-                                                    <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number7BInstallR8DuctingNewHVACCheckBox}" >
-                                                                    <p:ajax event="change" update="number7BInstallR8DuctingNewHVACResult, hpTotal"  /></h:selectBooleanCheckbox></td>
-                                                            <td class="titletd"><h:outputText value="7B. Install R-8 Ducting w/ New HVAC System:" /></td>
-                                                            <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number7BInstallR8DuctingNewHVACString" value="#{measureBean.number7BInstallR8DuctingNewHVACString}" >
-                                                                    <f:selectItem itemLabel="Select One " itemValue="0" />
-                                                                    <f:selectItem itemLabel="Install R-8 Radiant Barrier Ducting" itemValue="2" />
-                                                                    <p:ajax event="change" update="number7BInstallR8DuctingNewHVACString, number7BInstallR8DuctingNewHVACResult, hpTotal" />
-                                                                </h:selectOneMenu>
-                                                            </td>
-                                                            <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
-                                                            <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft7b}" >
-                                                                    <p:ajax event="keyup" update="number7BInstallR8DuctingNewHVACResult, hpTotal" />
-                                                                </h:inputText></td>
-                                                            <td class="resulttd"><h:outputText id="number7BInstallR8DuctingNewHVACResult" value=" = #{measureBean.number7BInstallR8DuctingNewHVACResult}" />
-                                                            </td>
-                                                        </tr></table>
-                                                </div>
-                                                <!-- 8a. New HVAC System (ERI Private Label) -->
-                                                <div>
-                                                    <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number8ANewHVACSystemERICheckBox}" >
-                                                                    <p:ajax event="change" update="number8ANewHVACSystemERIResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>   
-                                                            <td class="titletd"><h:outputText value="8a. New HVAC System (ERI Private Label):" /></td>
-                                                            <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number8ANewHVACSystemERIString" value="#{measureBean.number8ANewHVACSystemERIString}" >
-                                                                    <f:selectItem itemLabel="Select One " itemValue="0" />
-                                                                    <f:selectItem itemLabel="Install 16 Seer HVAC / 96% 2 Ton Split System" itemValue="8550.001" />
-                                                                    <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 2.5 Ton Split System" itemValue="8550.002" />
-                                                                    <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 3 Ton Split System" itemValue="9350" />
-                                                                    <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 3.5 Ton Split System" itemValue="10450" />
-                                                                    <f:selectItem itemLabel="Install 15 Seer HVAC/ 96% 5 Ton Split System" itemValue="11350" />
-                                                                    <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 2 Ton 2 Stage Heat Package System" itemValue="8550.003" />
-                                                                    <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 2.5 Ton 2 Stage Heat Package System" itemValue="8550.004" />
-                                                                    <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 3 Ton 2 Stage Heat Package System" itemValue="9100" />
-                                                                    <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 3.5 Ton 2 Stage Heat Package System" itemValue="9700" />
-                                                                    <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 4 Ton 2 Stage Heat Package System" itemValue="10100" />
-                                                                    <f:selectItem itemLabel="Install ERI 14 Seer HVAC/ 81% 5 Ton 2 Stage Heat Package System" itemValue="11100" />
-                                                                    <p:ajax event="change" update="number8ANewHVACSystemERIString, number8ANewHVACSystemERIResult, hpTotal" />
-                                                                </h:selectOneMenu>
-                                                            </td>
-                                                            <td class="sqftpricelable"><h:outputText value="price:  " /></td>
-                                                            <td class="sqftpricetd"><h:outputText style="width: 95%" value="#{measureBean.sqft8a}" /></td>
-                                                            <td class="resulttd"><h:outputText id="number8ANewHVACSystemERIResult" value=" = #{measureBean.number8ANewHVACSystemERIResult}" />
-                                                            </td>
-                                                        </tr></table>
-                                                </div>
-
-                                                <!-- 8b. New HVAC System (ERI Private Label) -->
-                                                <div>
-                                                    <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number8BNewHVACSystemERIPrivateCheckBox}" >
-                                                                    <p:ajax event="change" update="number8BNewHVACSystemERIPrivateResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td class="titletd"><h:outputText value="8b. New HVAC System (ERI Private Label):" /></td>
-                                                            <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number8BNewHVACSystemERIPrivateString" value="#{measureBean.number8BNewHVACSystemERIPrivateString}"  >
-                                                                    <f:selectItem itemLabel="Select One " itemValue="0" />
-                                                                    <f:selectItem itemLabel="Install 16 Seer HVAC / 96% 2 Ton Split System" itemValue="8550.001" />
-                                                                    <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 2.5 Ton Split System" itemValue="8550.002" />
-                                                                    <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 3 Ton Split System" itemValue="9350" />
-                                                                    <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 3.5 Ton Split System" itemValue="10450" />
-                                                                    <f:selectItem itemLabel="Install 15 Seer HVAC/ 96% 5 Ton Split System" itemValue="11350" />
-                                                                    <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 2 Ton 2 Stage Heat Package System" itemValue="8550.003" />
-                                                                    <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 2.5 Ton 2 Stage Heat Package System" itemValue="8550.004" />
-                                                                    <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 3 Ton 2 Stage Heat Package System" itemValue="9100" />
-                                                                    <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 3.5 Ton 2 Stage Heat Package System" itemValue="9700" />
-                                                                    <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 4 Ton 2 Stage Heat Package System" itemValue="10100" />
-                                                                    <f:selectItem itemLabel="Install ERI 14 Seer HVAC/ 81% 5 Ton 2 Stage Heat Package System" itemValue="11100" />
-                                                                    <p:ajax event="change" update="number8BNewHVACSystemERIPrivateString, number8BNewHVACSystemERIPrivateResult, hpTotal" />
-                                                                </h:selectOneMenu>
-                                                            </td>
-                                                            <td class="sqftpricelable"><p:outputLabel value="price:  " /></td>
-                                                            <td class="sqftpricetd"><p:outputLabel value="#{measureBean.sqft8b}"  /></td>
-                                                            <td class="resulttd" ><p:outputLabel id="number8BNewHVACSystemERIPrivateResult" value=" = #{measureBean.number8BNewHVACSystemERIPrivateResult}" />
-                                                            </td></tr></table>
-                                                </div>
-
-                                                <!-- 8bii. Includes 10 Year Parts and Labor/MERV 11 Filtration/UV Coil -->
-                                                <div>
-                                                    <table>
-                                                        <tr></tr>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number8BIIIncludes10YearPartsCheckBox}"  >
-                                                                    <p:ajax event="change" update="number8BIIIncludes10YearPartsResult , hpTotal"  /></h:selectBooleanCheckbox></td>
-                                                            <td class="titletd"><h:outputText value="8bii. Includes 10 Year Parts and Labor/MERV 11 Filtration/UV Coil:" /></td>
-                                                            <td class="fieldtd"><h:outputText id="h_outputTextid" value="Includes 10 Year Parts and Labor/MERV 11 Filtration UV Coil" /></td>
-                                                            <td class="sqftpricetd"><h:outputText value="price:  " /></td>
-                                                            <td class="sqftpricetd"><h:outputText style="width: 95%" value="#{measureBean.sqft8bii}" ></h:outputText></td>
-                                                            <td class="resulttd"><p:outputLabel id="number8BIIIncludes10YearPartsResult" value=" = #{measureBean.number8BIIIncludes10YearPartsResult}" />
-                                                            </td>
-                                                        </tr></table>
-                                                </div>
-
-                                                <!-- 9. Single/Dual Zone HVAC System -->
-
-                                                <div>
-                                                    <table>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number9SingleDualZoneHVACSystemCheckBox}"  >
-                                                                    <p:ajax event="change" update="number9SingleDualZoneHVACSystemResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td class="titletd"><h:outputText value="9. Single/Dual Zone HVAC System:" /></td>
-                                                            <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number9SingleDualZoneHVACSystemString" value="#{measureBean.number9SingleDualZoneHVACSystemString}" >
-                                                                    <f:selectItem itemLabel="Select One " itemValue="0" />
-                                                                    <f:selectItem itemLabel="Single Zone HVAC System" itemValue="0" />
-                                                                    <f:selectItem itemLabel="Dual Zone HVAC System" itemValue="1650" />
-                                                                    <p:ajax event="change" update="number9SingleDualZoneHVACSystemString, number9SingleDualZoneHVACSystemResult, hpTotal" />
-                                                                </h:selectOneMenu></td>
-                                                            <td class="sqftpricelable"><h:outputLabel value="price:  " /></td>
-                                                            <td class="sqftpricetd"><p:outputLabel style="width: 95%" value="#{measureBean.sqft9}"  >
-                                                                    <p:ajax event="keyup" update="number9SingleDualZoneHVACSystemResult, hpTotal" />
-                                                                </p:outputLabel></td>
-                                                            <td class="resulttd" ><p:outputLabel id="number9SingleDualZoneHVACSystemResult" value=" = #{measureBean.number9SingleDualZoneHVACSystemResult}" />
-                                                            </td>
-                                                        </tr></table>
-                                                </div>
-
-                                                <!-- 9.1a Miscellaneous Items HVAC -->
-                                                <div>
-                                                    <table>
-                                                        <tr><td class="checkbox"><h:selectBooleanCheckbox value="#{measureBean.number91aRelocateCondenserCheckBox}"  >
-                                                                    <p:ajax event="change" update="number91aRelocateCondenserInt, number91aRelocateCondenserResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td class="titletd" ><h:outputText value="9.1a." /></td>
-                                                            <td class="fieldtd"><h:outputText style="width: 95%" value="Relocate Condenser: " /></td>
-                                                            <td class="sqftpricelable"><h:outputText value="price:" /></td>
-                                                            <td class="sqftpricetd"><h:inputText style="width: 95%" id="number91aRelocateCondenserInt" value="#{measureBean.number91aRelocateCondenserInt}">  
-                                                                    <p:ajax event="keyup" update="number91aRelocateCondenserResult, hpTotal" /></h:inputText></td>
-                                                            <td class="resulttd" ><h:outputText id="number91aRelocateCondenserResult" value=" = #{measureBean.number91aRelocateCondenserResult}" /></td>
-                                                        </tr></table>
-                                                </div>
-
-                                                <!-- 9.1b Cut in Supply Vent w/ New Duct: -->
-                                                <div>
-                                                    <table>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number91bCutInSupplyVentNewDuctCheckBox}"  >
-                                                                    <p:ajax event="change" update="number91bCutInSupplyVentNewDuctInt, number91bCutInSupplyVentNewDuctResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td class="titletd" ><h:outputText value="9.1b." /></td>
-                                                            <td class="fieldtd"><h:outputText style="width: 95%" value="Cut in Supply Vent w/ New Duct: " /></td>
-                                                            <td class="sqftpricelable"><h:outputText value="price:" /></td>
-                                                            <td class="sqftpricetd"><h:inputText style="width: 95%" id="number91bCutInSupplyVentNewDuctInt" value="#{measureBean.number91bCutInSupplyVentNewDuctInt}">  
-                                                                    <p:ajax event="keyup" update="number91bCutInSupplyVentNewDuctResult, hpTotal" /></h:inputText></td>
-                                                            <td class="resulttd"><h:outputText id="number91bCutInSupplyVentNewDuctResult" value=" = #{measureBean.number91bCutInSupplyVentNewDuctResult}" />
-                                                            </td></tr></table>
-                                                </div>
-
-                                                <!-- 9.1c HVAC Cut In: -->
-                                                <div>
-                                                    <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number91cHVACCutInCheckBox}"  >
-                                                                    <p:ajax event="change" update="number91cHVACCutInInt, number91cHVACCutInResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td class="titletd" ><h:outputText value="9.1c." /></td>
-                                                            <td class="fieldtd"><h:outputText style="width: 95%" value="HVAC Cut In: " /></td>
-                                                            <td class="sqftpricelable"><h:outputText value="price:" /></td>
-                                                            <td class="sqftpricetd"><h:inputText style="width: 95%" id="number91cHVACCutInInt" value="#{measureBean.number91cHVACCutInInt}">  
-                                                                    <p:ajax event="keyup" update="number91cHVACCutInResult, hpTotal" />
-                                                                </h:inputText></td>
-                                                            <td class="resulttd"><h:outputText id="number91cHVACCutInResult" value=" = #{measureBean.number91cHVACCutInResult}" /></td>
-                                                        </tr></table>
-                                                </div>
-
-                                                <!-- 9.1d Duct Seal Only: -->
-                                                <div>
-                                                    <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number91dDuctSealOnlyCheckBox}"  >
-                                                                    <p:ajax event="change" update="number91dDuctSealOnlyInt, number91dDuctSealOnlyResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td class="titletd" ><h:outputText value="9.1d." /></td>
-                                                            <td class="fieldtd"><h:outputText style="width: 95%" value="Duct Seal Only: " /></td>
-                                                            <td class="sqftpricelable"><h:outputText value="price:" /></td>
-                                                            <td class="sqftpricetd"><h:inputText style="width: 95%" id="number91dDuctSealOnlyInt" value="#{measureBean.number91dDuctSealOnlyInt}">  
-                                                                    <p:ajax event="keyup" update="number91dDuctSealOnlyResult, hpTotal" />
-                                                                </h:inputText>
-                                                            </td>
-                                                            <td class="resulttd"><p:outputLabel id="number91dDuctSealOnlyResult" value=" = #{measureBean.number91dDuctSealOnlyResult}" />
-                                                            </td>
-                                                        </tr></table>
-                                                </div>
-
-                                                <!-- 9.1e New Line Set: -->
-                                                <div>
-                                                    <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number91eNewLineSetCheckBox}"  >
-                                                                    <p:ajax event="change" update="number91eNewLineSetInt, number91eNewLineSetResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td class="titletd" ><h:outputText value="9.1e." /></td>
-                                                            <td class="fieldtd"><h:outputText style="width: 95%" value="New Line Set: " /></td>
-                                                            <td class="sqftpricelable"><h:outputText value="price:" /></td>
-                                                            <td class="sqftpricetd"><h:inputText style="width: 95%" id="number91eNewLineSetInt" value="#{measureBean.number91eNewLineSetInt}">  
-                                                                    <p:ajax event="keyup" update="number91eNewLineSetResult, hpTotal" />
-                                                                </h:inputText></td>
-                                                            <td class="resulttd"><h:outputText id="number91eNewLineSetResult" value=" = #{measureBean.number91eNewLineSetResult}" />
-                                                            </td></tr></table>
-                                                </div>
-
-                                                <!-- 9.1f Enlarge Return Air / Add Return: -->
-                                                <div>
-                                                    <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number91fEnlargeReturnAirCheckBox}"  >
-                                                                    <p:ajax event="change" update="number91fEnlargeReturnAirInt, number91fEnlargeReturnAirResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td class="titletd" ><h:outputText value="9.1f." /></td>
-                                                            <td class="fieldtd"><h:outputText style="width: 95%" value="Cut in Supply Vent w/ New Duct: " /></td>
-                                                            <td class="sqftpricelable"><h:outputText value="price:" /></td>
-                                                            <td class="sqftpricetd"><h:inputText style="width: 95%" id="number91fEnlargeReturnAirInt" value="#{measureBean.number91fEnlargeReturnAirInt}">  
-                                                                    <p:ajax event="keyup" update="number91fEnlargeReturnAirResult, hpTotal" />
-                                                                </h:inputText></td>
-                                                            <td class="resulttd" ><h:outputText id="number91fEnlargeReturnAirResult" value=" = #{measureBean.number91fEnlargeReturnAirResult}" /></td>
-                                                        </tr></table>
-                                                </div>
-                                                <!-- 9.2 Notes: -->
-                                                <div>
-                                                    <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number92NotesCheckBox}"  /></td>
-                                                            <td class="titletd" ><h:outputText value="9.2 Notes " /></td>
-                                                            <td class="fieldtd"><h:inputTextarea  rows="6" cols="50" value="#{measureBean.number92NotesString}" /></td>
-                                                            <td class="sqftpricelable" />
-                                                            <td class="sqftpricetd" />
-                                                            <td class="resulttd"  />
-                                                        </tr></table>
-                                                </div>
-                                                <!-- 9.3 Cost per KW: -->
-                                                <div>
-                                                    <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number93CostPerKWCheckBox}"  >
-                                                                    <p:ajax event="change" update="number93CostPerKWResalt, number93DCKWsResalt"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td class="titletd" ><h:outputText value="9.3a. Cost per KW: " /></td>
-                                                            <td class="fieldtd"><h:inputText value="#{measureBean.number93CostPerKWInt}"  >
-                                                                    <p:ajax event="keyup" update="number93CostPerKWResalt"  />
-                                                                </h:inputText></td>
-                                                            <td class="sqftpricelable" />
-                                                            <td class="sqftpricetd" />
-                                                            <td class="resulttd"  ><h:outputText id="number93CostPerKWResalt" value="#{measureBean.number93CostPerKWResalt}" /></td>
-                                                        </tr>
-                                                        
-                                                        
-                                                        
-                                                        
-                                                        <tr><td class="checkboxtd" />
-                                                            <td class="titletd" ><h:outputText value="9.3b. DC KWs: " /></td>
-                                                            <td class="fieldtd"><h:inputText value="#{measureBean.number93DCKWsInt}"  >
-                                                                    <p:ajax event="keyup" update="number93DCKWsResalt"  />
-                                                                </h:inputText></td>
-                                                            <td class="sqftpricelable" />
-                                                            <td class="sqftpricetd" />
-                                                            <td class="resulttd"  ><h:outputText id="number93DCKWsResalt" value="#{measureBean.number93DCKWsResalt}" /></td>
                                                         </tr>
                                                     </table>
-                                                </div>
 
-                                            </td>
-                                        </tr></table>    
+                                                    <!-- 14. Permits: -->
+                                                    <div>
+                                                        <table>
+                                                            <tr><td class="checkboxtd" />
+                                                                <td class="rightFieldtd" ><h:outputText style="width: 95%" value="14. Permits" /></td>
+                                                                <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            </tr>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number14PermitsCheckBox}" >
+                                                                        <p:ajax event="change" update="number14PermitsResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Includes all permits 3rd party verification as needed BPI test in and test out" /></td>
+                                                                <td class="rightItd" />
+                                                                <td  class="rightJtd" />
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number14PermitsResult" value="#{measureBean.number14PermitsResult}" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+
+
+                                                    <!-- 15. Install battery-operated CO and smoke detectors as needed: -->
+                                                    <div>
+                                                        <table>
+                                                            <tr><td class="checkboxtd" />
+                                                                <td class="rightFieldtd" ><h:outputText style="width: 95%" value="15. Install battery-operated CO and smoke detectors as needed" /></td>
+                                                                <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            </tr>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number15InstallBatteryOperatedCheckBox}" >
+                                                                        <p:ajax event="change" update="number15InstallBatteryOperatedResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Install battery-operated CO and smoke detectors as needed (no charge)" /></td>
+                                                                <td class="rightItd" />
+                                                                <td  class="rightJtd" />
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number15InstallBatteryOperatedResult" value="#{measureBean.number15InstallBatteryOperatedResult}" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+
+                                                    <!-- 15A. Install KW DC Solar System: -->
+                                                    <div>
+                                                        <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number15AInstallKWDCSolarSystemCheckBox}" >
+                                                                        <p:ajax event="change" update="number15aInstallKWDCSolarSystemInt, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td  class="rightFieldtd"><h:outputText id="number15aInstallKWDCSolarSystemInt" style="width: 95%" value="15A. Install #{measureBean.number15aInstallKWDCSolarSystemInt} KW DC Solar System" /></td>
+                                                                <td class="rightItd" />
+                                                                <td  class="rightJtd" ><h:inputText style="width: 95%"  value="#{measureBean.number15aInstallKWDCSolarSystemInt}" >
+                                                                        <p:ajax event="keyup" update="number15aInstallKWDCSolarSystemInt, hpTotal"  />
+                                                                    </h:inputText>
+                                                                </td>
+                                                                <td  class="resulttd"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+
+                                                    <!-- 15B-F.  -->
+                                                    <div><table><tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number15BIncludesExtrudedAluminumCheckBox}" /></td>
+                                                                <td  class="rightFieldtd"><h:outputText style="width: 95%" value="15b.Includes Extruded Aluminum Roof Mount Racking" /></td>
+                                                                <td class="rightItd" />
+                                                                <td  class="rightJtd" />
+                                                                <td  class="resulttd"></td>
+                                                            </tr>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number15CSolarEdgeWithPowerOptimizersCheckBox}" /></td>
+                                                                <td  class="rightFieldtd"><h:outputText style="width: 95%" value="15c.SolarEdge with Power Optimizers" /></td>
+                                                                <td class="rightItd" />
+                                                                <td  class="rightJtd" />
+                                                                <td  class="resulttd"></td>
+                                                            </tr>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number15DIncludesSystemPVProductionCheckBox}" /></td>
+                                                                <td  class="rightFieldtd"><h:outputText style="width: 95%" value="15d.Includes system PV production monitoring" /></td>
+                                                                <td class="rightItd" />
+                                                                <td  class="rightJtd" />
+                                                                <td  class="resulttd"></td>
+                                                            </tr>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number15EIncludesAllPermitsCheckBox}" /></td>
+                                                                <td  class="rightFieldtd"><h:outputText style="width: 95%" value="15e.Includes all permits, engineering, NEM approval, interconnection and PTO system initiation" /></td>
+                                                                <td class="rightItd" />
+                                                                <td  class="rightJtd" />
+                                                                <td  class="resulttd"></td>
+                                                            </tr>
+                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number15FCanadianSolar270WattCheckBox}" /></td>
+                                                                <td  class="rightFieldtd"><h:outputText style="width: 95%" value="15f.Canadian Solar 270 Watt Investment Grade Panels" /></td>
+                                                                <td class="rightItd" />
+                                                                <td  class="rightJtd" />
+                                                                <td  class="resulttd"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+
+                                                </td></tr></table>
+
+                                    </div>
+                                    <div class="blockbottom" >
+                                        <p:commandButton value="toDashBoard" action="dashboard.xhtml" />
+                                    </div></h:form>
                                 </div>
-
-                                <div class="measuresblock2" >
-                                    <h3><h:outputText value="person ID, person name"  />
-                                        <h:commandButton class="printButton" value="send result to Excell" action="#{measureBean.printToExcel()}" />
-                                        <h:commandButton value="roof picture" action="roofpicture.html" />
-                                    </h3>
-                                    <table class="measure"><tr><td>
-                                                <!-- second column -->
-                                                <!-- 10. Install Windows: -->
-                                                <div>
-                                                    <table><tr><td class="checkboxtd" />
-                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%" value="10.Install Windows" /></td>
-                                                            <td class="rightItd" ><h:outputText style="width: 95%" value="# of windows" /></td>
-                                                            <td class="rightJtd" ><h:outputText style="width: 95%" value="total united inches" /></td>
-                                                            <td class="resulttd" ><h:outputText style="width: 95%" value="Cost" /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="checkboxtd"><h:selectBooleanCheckbox id="number10InstallWindowsCheckBox" value="#{measureBean.number10InstallWindowsCheckBox}" >
-                                                                    <p:ajax event="change" update="number10numOfWindows, number10InstallResult, number10LinearFeetResult, hpTotal, number103AllGlazingCheckBox, number104WindowsToMatcCheckBox"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td class="rightJtd" ><h:outputText style="width: 95%" id="number10numOfWindows" value="Install #{measureBean.number10numOfWindows} Monte Verde High Performance Retrofit Windows" /></td>
-                                                            <td class="rightItd" ><h:inputText style="width: 95%" value="#{measureBean.number10numOfWindows}" >
-                                                                    <p:ajax event="keyup" update="number10numOfWindows"  /></h:inputText></td>
-                                                            <td class="sqftpricetd" ><h:inputText style="width: 95%" value="#{measureBean.number10TotalUnitedInchesInt}" >
-                                                                    <p:ajax event="keyup" update="number10InstallResult, hpTotal"  /></h:inputText></td>
-                                                            <td class="resulttd" ><h:outputText style="width: 95%" id="number10InstallResult" value="#{measureBean.number10InstallResult}" /></td>
-                                                        </tr>
-                                                        <tr><td class="checkboxtd"></td>
-                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%" value="If new construction is selected, it is at a higher cost" /></td>
-                                                            <td class="rightItd" ><h:outputText style="width: 95%" value="#of sliders" /></td>
-                                                            <td class="rightJtd" ><h:outputText style="width: 95%" value="linear Feet" /></td>
-                                                            <td class="resulttd" ></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="checkboxtd" />
-                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%" id="number10numOfSliders" value="AND #{measureBean.number10numOfSliders} Sliders" /></td>
-                                                            <td class="rightItd" ><h:inputText style="width: 95%" value="#{measureBean.number10numOfSliders}" >
-                                                                    <p:ajax event="keyup" update="number10numOfSliders"  /></h:inputText></td>
-                                                            <td class="rightJtd" ><h:inputText style="width: 95%" value="#{measureBean.number10LinearFeet}" >
-                                                                    <p:ajax event="keyup" update="number10LinearFeetResult, hpTotal"  /></h:inputText></td>
-                                                            <td class="resulttd" ><h:outputText style="width: 95%" id="number10LinearFeetResult" value="#{measureBean.number10LinearFeetResult}" /></td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-
-                                                <!-- 10.1a. Install Windows: -->
-                                                <div>
-                                                    <table><tr><td class="checkboxtd" />
-                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%" value="10.1a Misc. Items (Windows, per lin. Ft.)" /></td>
-                                                            <td class="rightItd" ><h:outputText style="width: 95%" value="lin. Ft. where applicable" /></td>
-                                                            <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                            <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number101ACutInDoorCheckBox}" >
-                                                                    <p:ajax event="change" update="number101ACutInDoorResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Cut In Door / Window" /></td>
-                                                            <td class="rightItd" />
-                                                            <td  class="rightJtd"><h:inputText style="width: 95%" value="#{measureBean.number101ACutInDoorInt}" >
-                                                                    <p:ajax event="keyup" update="number101ACutInDoorResult, hpTotal"  /></h:inputText></td>
-                                                            <td  class="resulttd"><h:outputText style="width: 95%" id="number101ACutInDoorResult" value="#{measureBean.number101ACutInDoorResult}" /></td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-
-                                                <!-- 10.1b. Add Header: -->
-                                                <div>
-                                                    <table><tr>
-                                                            <td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number101BAddHeaderCheckBox}" >
-                                                                    <p:ajax event="change" update="number101BAddHeaderResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Add Header / Enlarge Opening" /></td>
-                                                            <td class="rightItd" />
-                                                            <td  class="rightJtd"><h:inputText style="width: 95%" value="#{measureBean.number101BAddHeaderInt}" >
-                                                                    <p:ajax event="keyup" update="number101BAddHeaderResult, hpTotal"  /></h:inputText></td>
-                                                            <td  class="resulttd"><h:outputText style="width: 95%" id="number101BAddHeaderResult" value="#{measureBean.number101BAddHeaderResult}" /></td>
-                                                        </tr>
-                                                        <tr><td class="checkboxtd" />
-                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%" value="New Construction ($325. per hole/window)" /></td>
-                                                            <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                            <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                            <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-
-                                                <!-- 10.2. Misc. Items (Windows, Bulk): -->
-                                                <div>
-                                                    <table>
-                                                        <tr><td class="checkboxtd" />
-                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%" value="10.2 Misc. Items (Windows, Bulk)" /></td>
-                                                            <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                            <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                            <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-
-                                                <!-- 10.2. Misc. Items (Windows, Bulk): -->
-                                                <div>
-                                                    <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number102ACutDownWindowCheckBox}" >
-                                                                    <p:ajax event="change" update="number102ACutDownWindowResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Cut Down Window no Electric" /></td>
-                                                            <td class="rightItd" />
-                                                            <td  class="rightJtd" />
-                                                            <td  class="resulttd"><h:outputText style="width: 95%" id="number102ACutDownWindowResult" value="#{measureBean.number102ACutDownWindowResult}" /></td>
-                                                        </tr>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number102BElectricalReroutesCheckBox}" >
-                                                                    <p:ajax event="change" update="number102BElectricalReroutesResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Electrical Reroutes" /></td>
-                                                            <td class="rightItd" />
-                                                            <td  class="rightJtd" />
-                                                            <td  class="resulttd"><h:outputText style="width: 95%" id="number102BElectricalReroutesResult" value="#{measureBean.number102BElectricalReroutesResult}" /></td>
-                                                        </tr>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number102CGardenWindow4CheckBox}" >
-                                                                    <p:ajax event="change" update="number102CGardenWindow4Result, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Garden Window 4" /></td>
-                                                            <td class="rightItd" />
-                                                            <td  class="rightJtd" />
-                                                            <td  class="resulttd"><h:outputText style="width: 95%" id="number102CGardenWindow4Result" value="#{measureBean.number102CGardenWindow4Result}" /></td>
-                                                        </tr>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number102DGardenWindow6CheckBox}" >
-                                                                    <p:ajax event="change" update="number102DGardenWindow6Result, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Garden Window 6" /></td>
-                                                            <td class="rightItd" />
-                                                            <td  class="rightJtd" />
-                                                            <td  class="resulttd"><h:outputText style="width: 95%" id="number102DGardenWindow6Result" value="#{measureBean.number102DGardenWindow6Result}" /></td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-
-                                                <!-- 10.3. All glazing is Triple lowE, tempered where required by code and obscured in bathrooms as required by customer: -->
-                                                <table>
-                                                    <tr><td class="checkboxtd" />
-                                                        <td class="rightFieldtd" ><h:outputText style="width: 95%" value="10.3 All glazing is Triple lowE, tempered where required by code and obscured in bathrooms as required by customer" /></td>
-                                                        <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                    </tr>
-                                                    <tr><td class="checkboxtd"><h:selectBooleanCheckbox id="number103AllGlazingCheckBox" style="width: 95%" value="#{measureBean.number103AllGlazingCheckBox}" >
-                                                            </h:selectBooleanCheckbox></td>
-                                                        <td  class="rightFieldtd"><h:outputText style="width: 95%" value="All glazing is Triple lowE, tempered where required by code and obscured in bathrooms as required by customer" /></td>
-                                                        <td class="rightItd" />
-                                                        <td  class="rightJtd" />
-                                                        <td  class="resulttd" />
-                                                    </tr>
-                                                </table>
-
-                                                <!-- 10.4. Windows to match existing configuration with white vinyl frames, including bug screens and Argon gas-filled glass pack: -->
-                                                <table>
-                                                    <tr><td class="checkboxtd" />
-                                                        <td class="rightFieldtd" ><h:outputText style="width: 95%" value="10.4 Windows to match existing configuration with white vinyl frames, including bug screens and Argon gas-filled glass pack" /></td>
-                                                        <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                    </tr>
-                                                    <tr><td class="checkboxtd" />
-                                                        <td class="rightFieldtd" ><h:outputText style="width: 95%" value="If grids are selected, they are an added cost" /></td>
-                                                        <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                    </tr>
-                                                    <tr><td class="checkboxtd"><h:selectBooleanCheckbox id="number104WindowsToMatcCheckBox" style="width: 95%" value="#{measureBean.number104WindowsToMatcCheckBox}" >
-                                                            </h:selectBooleanCheckbox></td>
-                                                        <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Windows to match existing configuration with white vinyl frames, including bug screens and Argon gas-filled glass pack" /></td>
-                                                        <td class="rightItd" />
-                                                        <td  class="rightJtd" />
-                                                        <td  class="resulttd" />
-                                                    </tr>
-                                                    <tr><td class="checkboxtd" />
-                                                        <td class="rightFieldtd" ><h:outputText style="width: 95%" value="If grids are selected, they are an added cost" /></td>
-                                                        <td class="rightItd" ><h:outputText style="width: 95%" value="$0.25 per UI" /></td>
-                                                        <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                    </tr>
-                                                </table>
-
-                                                <!-- 11. Install Pool Pump: -->
-                                                <div>
-                                                    <table>
-                                                        <tr><td class="checkboxtd" />
-                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%" value="11. Install Pool Pump" /></td>
-                                                            <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                            <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                            <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        </tr>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number11InstallPoolPumpCheckBox}" >
-                                                                    <p:ajax event="change" update="number11InstallPoolPumpResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Pentair 3HP Intelliflo Variable Speed Pool Pump" /></td>
-                                                            <td class="rightItd" />
-                                                            <td  class="rightJtd" />
-                                                            <td  class="resulttd"><h:outputText style="width: 95%" id="number11InstallPoolPumpResult" value="#{measureBean.number11InstallPoolPumpResult}" /></td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-
-                                                <!-- 12. Install Whole House Fan: -->
-                                                <table>
-                                                    <tr><td class="checkboxtd" />
-                                                        <td class="rightFieldtd" ><h:outputText style="width: 95%" value="12. Install Whole House Fan" /></td>
-                                                        <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                    </tr>
-                                                    <tr><td class="checkboxtd" ><h:selectBooleanCheckbox value="#{measureBean.number12InstallWholeHouseFanCheckBox}"  >
-                                                                <p:ajax event="change" update="number12InstallWholeHouseFanResult, hpTotal"  />
-                                                            </h:selectBooleanCheckbox>
-                                                        </td>
-                                                        <td class="rightFieldtd"><h:selectOneMenu style="width: 95%" id="number12InstallWholeHouseFanInt" value="#{measureBean.number12InstallWholeHouseFanInt}" >
-                                                                <f:selectItem itemLabel="Select One " itemValue="0" />
-                                                                <f:selectItem itemLabel="Direct Drive (Home Depot)" itemValue="900" />
-                                                                <f:selectItem itemLabel="Quiet Cool WH Fan Tri 2.5 2500 CFM" itemValue="1350" />
-                                                                <f:selectItem itemLabel="Quiet Cool WH Fan Tri 3.3 3300 CFM" itemValue="1550" />
-                                                                <f:selectItem itemLabel="Quiet Cool WH Fan Tri 4.8 4800 CFM" itemValue="1800" />
-                                                                <p:ajax event="change" update="number12InstallWholeHouseFanInt, number12InstallWholeHouseFanResult, hpTotal" />
-                                                            </h:selectOneMenu>
-                                                        </td>
-                                                        <td class="rightItd" />
-                                                        <td class="rightJtd"  />
-                                                        <td class="resulttd"><h:outputText id="number12InstallWholeHouseFanResult" value="#{measureBean.number12InstallWholeHouseFanResult}" />
-                                                        </td>
-                                                    </tr>
-
-
-                                                </table>
-
-                                                <!-- 13. Install Water Heater: -->
-                                                <table>
-                                                    <tr><td class="checkboxtd" />
-                                                        <td class="rightFieldtd" ><h:outputText style="width: 95%" value="13. Install Water Heater" /></td>
-                                                        <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                    </tr>
-                                                    <tr><td class="checkboxtd" ><h:selectBooleanCheckbox value="#{measureBean.number13InstallWaterHeaterCheckBox}"  >
-                                                                <p:ajax event="change" update="number13InstallWaterHeaterResult, hpTotal"  />
-                                                            </h:selectBooleanCheckbox>
-                                                        </td>
-                                                        <td class="rightFieldtd"><h:selectOneMenu style="width: 95%" id="number13InstallWaterHeaterInt" value="#{measureBean.number13InstallWaterHeaterDouble}" >
-                                                                <f:selectItem itemLabel="Select One " itemValue="0" />
-                                                                <f:selectItem itemLabel="Install 40 Gallon Gas Water Heater" itemValue="1200" />
-                                                                <f:selectItem itemLabel="Install 50 Gallon Gas Water Heater" itemValue="1400" />
-                                                                <f:selectItem itemLabel="Install 40 Gallon Electric Water Heater" itemValue="1200.001" />
-                                                                <f:selectItem itemLabel="Install 50 Gallon Electric Water Heater" itemValue= "1400.001" />
-                                                                <f:selectItem itemLabel="Install 75 Gallon Water Heater" itemValue= "1900" />
-                                                                <p:ajax event="change" update="number13InstallWaterHeaterInt, number13InstallWaterHeaterResult, hpTotal" />
-                                                            </h:selectOneMenu>
-                                                        </td>
-                                                        <td class="rightItd" />
-                                                        <td class="rightJtd"  />
-                                                        <td class="resulttd"><h:outputText id="number13InstallWaterHeaterResult" value="#{measureBean.number13InstallWaterHeaterResult}" />
-                                                        </td>
-                                                    </tr>
-                                                </table>
-
-                                                <!-- 14. Permits: -->
-                                                <div>
-                                                    <table>
-                                                        <tr><td class="checkboxtd" />
-                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%" value="14. Permits" /></td>
-                                                            <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                            <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                            <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        </tr>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number14PermitsCheckBox}" >
-                                                                    <p:ajax event="change" update="number14PermitsResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Includes all permits 3rd party verification as needed BPI test in and test out" /></td>
-                                                            <td class="rightItd" />
-                                                            <td  class="rightJtd" />
-                                                            <td  class="resulttd"><h:outputText style="width: 95%" id="number14PermitsResult" value="#{measureBean.number14PermitsResult}" /></td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-
-
-                                                <!-- 15. Install battery-operated CO and smoke detectors as needed: -->
-                                                <div>
-                                                    <table>
-                                                        <tr><td class="checkboxtd" />
-                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%" value="15. Install battery-operated CO and smoke detectors as needed" /></td>
-                                                            <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                            <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                            <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
-                                                        </tr>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number15InstallBatteryOperatedCheckBox}" >
-                                                                    <p:ajax event="change" update="number15InstallBatteryOperatedResult, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Install battery-operated CO and smoke detectors as needed (no charge)" /></td>
-                                                            <td class="rightItd" />
-                                                            <td  class="rightJtd" />
-                                                            <td  class="resulttd"><h:outputText style="width: 95%" id="number15InstallBatteryOperatedResult" value="#{measureBean.number15InstallBatteryOperatedResult}" /></td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-
-                                                <!-- 15A. Install KW DC Solar System: -->
-                                                <div>
-                                                    <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number15AInstallKWDCSolarSystemCheckBox}" >
-                                                                    <p:ajax event="change" update="number15aInstallKWDCSolarSystemInt, hpTotal"  />
-                                                                </h:selectBooleanCheckbox></td>
-                                                            <td  class="rightFieldtd"><h:outputText id="number15aInstallKWDCSolarSystemInt" style="width: 95%" value="15A. Install #{measureBean.number15aInstallKWDCSolarSystemInt} KW DC Solar System" /></td>
-                                                            <td class="rightItd" />
-                                                            <td  class="rightJtd" ><h:inputText style="width: 95%"  value="#{measureBean.number15aInstallKWDCSolarSystemInt}" >
-                                                                    <p:ajax event="keyup" update="number15aInstallKWDCSolarSystemInt, hpTotal"  />
-                                                                </h:inputText>
-                                                            </td>
-                                                            <td  class="resulttd"></td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-
-                                                <!-- 15B-F.  -->
-                                                <div><table><tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number15BIncludesExtrudedAluminumCheckBox}" /></td>
-                                                            <td  class="rightFieldtd"><h:outputText style="width: 95%" value="15b.Includes Extruded Aluminum Roof Mount Racking" /></td>
-                                                            <td class="rightItd" />
-                                                            <td  class="rightJtd" />
-                                                            <td  class="resulttd"></td>
-                                                        </tr>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number15CSolarEdgeWithPowerOptimizersCheckBox}" /></td>
-                                                            <td  class="rightFieldtd"><h:outputText style="width: 95%" value="15c.SolarEdge with Power Optimizers" /></td>
-                                                            <td class="rightItd" />
-                                                            <td  class="rightJtd" />
-                                                            <td  class="resulttd"></td>
-                                                        </tr>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number15DIncludesSystemPVProductionCheckBox}" /></td>
-                                                            <td  class="rightFieldtd"><h:outputText style="width: 95%" value="15d.Includes system PV production monitoring" /></td>
-                                                            <td class="rightItd" />
-                                                            <td  class="rightJtd" />
-                                                            <td  class="resulttd"></td>
-                                                        </tr>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number15EIncludesAllPermitsCheckBox}" /></td>
-                                                            <td  class="rightFieldtd"><h:outputText style="width: 95%" value="15e.Includes all permits, engineering, NEM approval, interconnection and PTO system initiation" /></td>
-                                                            <td class="rightItd" />
-                                                            <td  class="rightJtd" />
-                                                            <td  class="resulttd"></td>
-                                                        </tr>
-                                                        <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number15FCanadianSolar270WattCheckBox}" /></td>
-                                                            <td  class="rightFieldtd"><h:outputText style="width: 95%" value="15f.Canadian Solar 270 Watt Investment Grade Panels" /></td>
-                                                            <td class="rightItd" />
-                                                            <td  class="rightJtd" />
-                                                            <td  class="resulttd"></td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-
-                                            </td></tr></table>
-
-                                </div>
-                                <div class="blockbottom" >
-                                    <p:commandButton value="toDashBoard" action="dashboard.xhtml" />
-                                </div>
-                            </div>
-                        </td></tr>
-                </table>
+                            </td></tr>
+                    </table>
             </ui:define>
         </ui:composition>
     </body>
