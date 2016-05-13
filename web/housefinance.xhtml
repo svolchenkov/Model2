@@ -199,23 +199,60 @@
                                         <!-- 2.Evaluate HP -->
                                         <div class="block11House" >
                                             <table class="tableHouse" ><tr>
-                                                        <td class="titleHouse" ><h:outputText value="2.Evaluate HP" /></td>
-                                                        <td class="textAreaHouse" >
-                                                            <table>
-                                                                <tr><td ><h:commandButton value="to evaluation HP + solar" action="#{finance.receiveWayToMeasures()}" /></td></tr>
-                                                                <tr><td ><h:outputText value="total HP + Solar:" /></td><td ><h:outputText id="total" value="#{measureBean.total}" /></td></tr>
-                                                            </table>
-                                                        </td>        
-                                                        <td class="checkBoxHouse" ><p:selectBooleanButton id="value1" onLabel="Yes" offLabel="No" value="#{finance.checkingAvailableFinancing1CheckBox}" >
-                                                                <p:ajax event="change" update="checkingAvailableFinancing1Done, total" />
-                                                            </p:selectBooleanButton></td>
-                                                        <td class="doneHouse" ><h:outputText class="h4House" id="checkingAvailableFinancing1Done" value="#{finance.checkingAvailableFinancing1Done}" /></td>
-                                                    </tr></table>
-                                            
-                                            </div>
+                                                    <td class="titleHouse" ><h:outputText value="2.Evaluate HP" /></td>
+                                                    <td class="textAreaHouse" >
+                                                        <table>
+                                                            <tr><td ><h:commandButton value="to evaluation HP + solar" action="#{finance.receiveWayToMeasures()}" /></td></tr>
+                                                            <tr><td ><h:outputText value="total HP + Solar:" /></td><td ><h:outputText id="total" value="#{measureBean.total}" /></td></tr>
+                                                        </table>
+                                                    </td>        
+                                                    <td class="checkBoxHouse" ><p:selectBooleanButton id="value1" onLabel="Yes" offLabel="No" value="#{finance.checkingAvailableFinancing1CheckBox}" >
+                                                            <p:ajax event="change" update="checkingAvailableFinancing1Done, total" />
+                                                        </p:selectBooleanButton></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="checkingAvailableFinancing1Done" value="#{finance.checkingAvailableFinancing1Done}" /></td>
+                                                </tr></table>
+                                        </div>
+
+                                        <!-- 3.Receiving draft agreement -->
+
+                                        <div class="block11House" ><table class="tableHouse" ><tr>
+                                                    <td class="titleHouse" ><h:outputText value="3.Receiving draft agreement" /></td>
+                                                    <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="53" value="#{finance.receivingDraftAgreement3String}" /></td>
+                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.receivingDraftAgreement3CheckBox}" >
+                                                            <p:ajax event="change" update="receivingDraftAgreement3Done" />
+                                                        </p:selectBooleanButton></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="receivingDraftAgreement3Done" value="#{finance.receivingDraftAgreement3Done}" /></td>
+                                                </tr></table></div>
+
+                                        <!-- 4.Gathering DOB, SS# -->
+                                                    
+                                                    <div class="block11House" ><table class="tableHouse" ><tr>
+                                                                <td class="titleHouse" ><h:outputText value="4.Gathering DOB, SS#" /></td>
+                                                                <td class="textAreaHouse" >
+                                                                    <table><tr><td><h:outputText value="DOB: " /> </td>
+                                                                            <td><p:calendar effect="fold" yearRange="c-75:c-21" navigator="true" value="#{finance.gatheringDOBSSN4Date}"  >
+                                                                                    <p:ajax event="dateSelect" update="gatheringDOBSSN4Date" />
+                                                                                </p:calendar></td>
+                                                                            <td><h:outputText id="gatheringDOBSSN4Date" value="#{finance.gatheringDOBSSN4Date}"  /></td></tr>
+                                                                        <tr><td ><h:outputText value="SS#" /></td><td  ><h:inputText maxlength="12" lang="12" value="#{finance.gatheringDOBSSN4String}" >
+                                                                                    <p:ajax event="keyup" update="gatheringDOBSSN4String" />
+                                                                                </h:inputText></td>
+                                                                            <td><h:outputText id="gatheringDOBSSN4String" value="#{finance.gatheringDOBSSN4String}"  /></td></tr>
+                                                                    </table>
+                                                                </td>
+                                                                <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.gatheringDOBSSN4CheckBox}" >
+                                                                        <p:ajax event="change" update="gatheringDOBSSN4Done" />
+                                                                    </p:selectBooleanButton></td>
+                                                                <td class="doneHouse" ><h:outputText class="h4House" id="gatheringDOBSSN4Done" value="#{finance.gatheringDOBSSN4Done}" /></td>
+                                                            </tr></table></div>
+
+
+
+
                                     </div>
                                 </td>
                             </tr></table>
+                        <h:commandButton value="tostring" action="#{finance.toString()}" />
                     </h:form>
                 </div>
             </ui:define>

@@ -8,6 +8,7 @@ package beans;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,6 +36,15 @@ public class Finance implements Serializable {
     private String evaluateHP2Button;
     private boolean evaluateHP2CheckBox;
     private String evaluateHP2Done;
+    
+    private String receivingDraftAgreement3String;
+    private boolean receivingDraftAgreement3CheckBox;
+    private String receivingDraftAgreement3Done;
+    
+    private Date gatheringDOBSSN4Date;
+    private String gatheringDOBSSN4String;
+    private boolean gatheringDOBSSN4CheckBox;
+    private String gatheringDOBSSN4Done;
     
     /**
      * Creates a new instance of Finance
@@ -180,6 +190,83 @@ public class Finance implements Serializable {
         this.evaluateHP2Done = evaluateHP2Done;
     }
     
+    //********************* 3.Receiving draft agreement  *********************
+
+    public String getReceivingDraftAgreement3String() {
+        return receivingDraftAgreement3String;
+    }
+
+    public void setReceivingDraftAgreement3String(String receivingDraftAgreement3String) {
+        this.receivingDraftAgreement3String = receivingDraftAgreement3String;
+    }
+
+    public boolean isReceivingDraftAgreement3CheckBox() {
+        return receivingDraftAgreement3CheckBox;
+    }
+
+    public void setReceivingDraftAgreement3CheckBox(boolean receivingDraftAgreement3CheckBox) {
+        this.receivingDraftAgreement3CheckBox = receivingDraftAgreement3CheckBox;
+    }
+
+    public String getReceivingDraftAgreement3Done() {
+        if ( isReceivingDraftAgreement3CheckBox() == true ) {
+            receivingDraftAgreement3Done = "done";
+        } else {
+            receivingDraftAgreement3Done = "";
+        }
+        return receivingDraftAgreement3Done;
+    }
+
+    public void setReceivingDraftAgreement3Done(String receivingDraftAgreement3Done) {
+        this.receivingDraftAgreement3Done = receivingDraftAgreement3Done;
+    }
+    
+    //************************** 4.Gathering DOB, SS# ************************
+
+    public Date getGatheringDOBSSN4Date() {
+        return gatheringDOBSSN4Date;
+    }
+
+    public void setGatheringDOBSSN4Date(Date gatheringDOBSSN4Date) {
+        this.gatheringDOBSSN4Date = gatheringDOBSSN4Date;
+    }
+
+    public String getGatheringDOBSSN4String() {
+        return gatheringDOBSSN4String;
+    }
+
+    public void setGatheringDOBSSN4String(String gatheringDOBSSN4String) {
+        this.gatheringDOBSSN4String = gatheringDOBSSN4String;
+    }
+
+    public boolean isGatheringDOBSSN4CheckBox() {
+        return gatheringDOBSSN4CheckBox;
+    }
+
+    public void setGatheringDOBSSN4CheckBox(boolean gatheringDOBSSN4CheckBox) {
+        this.gatheringDOBSSN4CheckBox = gatheringDOBSSN4CheckBox;
+    }
+
+    public String getGatheringDOBSSN4Done() {
+        if ( isGatheringDOBSSN4CheckBox() == true ) {
+            gatheringDOBSSN4Done = "done";
+        } else {
+            gatheringDOBSSN4Done = "";
+        }
+        return gatheringDOBSSN4Done;
+    }
+
+    public void setGatheringDOBSSN4Done(String gatheringDOBSSN4Done) {
+        this.gatheringDOBSSN4Done = gatheringDOBSSN4Done;
+    }
+    
     //********************
+
+    @Override
+    public String toString() {
+        return "Finance{" + "gatheringDOBSSN4Date=" + gatheringDOBSSN4Date + '}';
+    }
+    
+    
     
 }
