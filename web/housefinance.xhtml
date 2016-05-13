@@ -225,28 +225,42 @@
                                                 </tr></table></div>
 
                                         <!-- 4.Gathering DOB, SS# -->
-                                                    
-                                                    <div class="block11House" ><table class="tableHouse" ><tr>
-                                                                <td class="titleHouse" ><h:outputText value="4.Gathering DOB, SS#" /></td>
-                                                                <td class="textAreaHouse" >
-                                                                    <table><tr><td><h:outputText value="DOB: " /> </td>
-                                                                            <td><p:calendar effect="fold" yearRange="c-75:c-21" navigator="true" value="#{finance.gatheringDOBSSN4Date}"  >
-                                                                                    <p:ajax event="dateSelect" update="gatheringDOBSSN4Date" />
-                                                                                </p:calendar></td>
-                                                                            <td><h:outputText id="gatheringDOBSSN4Date" value="#{finance.gatheringDOBSSN4Date}"  /></td></tr>
-                                                                        <tr><td ><h:outputText value="SS#" /></td><td  ><h:inputText maxlength="12" lang="12" value="#{finance.gatheringDOBSSN4String}" >
-                                                                                    <p:ajax event="keyup" update="gatheringDOBSSN4String" />
-                                                                                </h:inputText></td>
-                                                                            <td><h:outputText id="gatheringDOBSSN4String" value="#{finance.gatheringDOBSSN4String}"  /></td></tr>
-                                                                    </table>
-                                                                </td>
-                                                                <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.gatheringDOBSSN4CheckBox}" >
-                                                                        <p:ajax event="change" update="gatheringDOBSSN4Done" />
-                                                                    </p:selectBooleanButton></td>
-                                                                <td class="doneHouse" ><h:outputText class="h4House" id="gatheringDOBSSN4Done" value="#{finance.gatheringDOBSSN4Done}" /></td>
-                                                            </tr></table></div>
 
+                                        <div class="block11House" ><table class="tableHouse" ><tr>
+                                                    <td class="titleHouse" ><h:outputText value="4.Gathering DOB, SS#" /></td>
+                                                    <td class="textAreaHouse" >
+                                                        <table><tr><td><h:outputText value="DOB: " /> </td>
+                                                                <td><p:calendar effect="fold" yearRange="c-50:c+50" navigator="true" value="#{finance.gatheringDOBSSN4Date}"  >
+                                                                        <p:ajax event="dateSelect" update="gatheringDOBSSN4Date" />
+                                                                    </p:calendar></td>
+                                                                <td><h:outputText id="gatheringDOBSSN4Date" value="#{finance.gatheringDOBSSN4Date}"  /></td></tr>
+                                                            <tr><td ><h:outputText value="SS#" /></td><td  ><h:inputText maxlength="12" lang="12" value="#{finance.gatheringDOBSSN4String}" >
+                                                                        <p:ajax event="keyup" update="gatheringDOBSSN4String" />
+                                                                    </h:inputText></td>
+                                                                <td><h:outputText id="gatheringDOBSSN4String" value="#{finance.gatheringDOBSSN4String}"  /></td></tr>
+                                                        </table>
+                                                    </td>
+                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.gatheringDOBSSN4CheckBox}" >
+                                                            <p:ajax event="change" update="gatheringDOBSSN4Done" />
+                                                        </p:selectBooleanButton></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="gatheringDOBSSN4Done" value="#{finance.gatheringDOBSSN4Done}" /></td>
+                                                </tr></table></div>
 
+                                        <!-- 5. Signing ERI Ageement -->
+                                        <div class="block11House" ><table class="tableHouse" ><tr>
+                                                    <td class="titleHouse" ><h:outputText value="5. Signing ERI Ageement" /></td>
+                                                    <td class="textAreaHouse" >
+                                                        <table><tr><td><h:outputText value="Upload file: " /> </td>
+                                                                <td><p:fileUpload value="#{finance.signingERIAgeement5FileUpload}" mode="simple" skinSimple="true"/></td></tr>
+                                                                <tr><td></td><td><p:commandButton value="Submit" ajax="false" actionListener="#{finance.signingERIAgeement5upload()}" disabled="false" /></td></tr>
+                                                        </table>
+                                                        <table><tr><td  ><h:inputTextarea rows="3" cols="55" value="#{finance.signingERIAgeement5String}" /></td></tr></table>
+                                                    </td>
+                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.signingERIAgeement5CheckBox}" >
+                                                            <p:ajax event="change" update="signingERIAgeement5Done" />
+                                                        </p:selectBooleanButton></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="signingERIAgeement5Done" value="#{finance.signingERIAgeement5Done}" /></td>
+                                                </tr></table></div>
 
 
                                     </div>

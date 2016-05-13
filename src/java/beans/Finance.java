@@ -11,6 +11,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.UploadedFile;
 
 /**
  *
@@ -45,6 +50,11 @@ public class Finance implements Serializable {
     private String gatheringDOBSSN4String;
     private boolean gatheringDOBSSN4CheckBox;
     private String gatheringDOBSSN4Done;
+    
+    private UploadedFile signingERIAgeement5FileUpload;
+    private String signingERIAgeement5String;
+    private boolean signingERIAgeement5CheckBox;
+    private String signingERIAgeement5Done;
     
     /**
      * Creates a new instance of Finance
@@ -259,6 +269,68 @@ public class Finance implements Serializable {
     public void setGatheringDOBSSN4Done(String gatheringDOBSSN4Done) {
         this.gatheringDOBSSN4Done = gatheringDOBSSN4Done;
     }
+    
+    // ************* 5. Signing ERI Ageement ****************************
+
+    public UploadedFile getSigningERIAgeement5FileUpload() {
+        return signingERIAgeement5FileUpload;
+    }
+
+    public void setSigningERIAgeement5FileUpload(UploadedFile signingERIAgeement5FileUpload) {
+        this.signingERIAgeement5FileUpload = signingERIAgeement5FileUpload;
+    }
+
+    public String getSigningERIAgeement5String() {
+        return signingERIAgeement5String;
+    }
+
+    public void setSigningERIAgeement5String(String signingERIAgeement5String) {
+        this.signingERIAgeement5String = signingERIAgeement5String;
+    }
+
+    public boolean isSigningERIAgeement5CheckBox() {
+        return signingERIAgeement5CheckBox;
+    }
+
+    public void setSigningERIAgeement5CheckBox(boolean signingERIAgeement5CheckBox) {
+        this.signingERIAgeement5CheckBox = signingERIAgeement5CheckBox;
+    }
+
+    public String getSigningERIAgeement5Done() {
+        if ( isSigningERIAgeement5CheckBox() == true ) {
+            signingERIAgeement5Done = "done";
+        } else {
+            signingERIAgeement5Done = "";
+        }
+        return signingERIAgeement5Done;
+    }
+
+    public void setSigningERIAgeement5Done(String signingERIAgeement5Done) {
+        this.signingERIAgeement5Done = signingERIAgeement5Done;
+    }
+    
+    public void signingERIAgeement5upload() {
+        if( signingERIAgeement5FileUpload != null ) {
+            FacesMessage message = new FacesMessage("Succesful", signingERIAgeement5FileUpload.getFileName() + " is uploaded.");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     //********************
 
