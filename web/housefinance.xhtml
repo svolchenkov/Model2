@@ -318,9 +318,33 @@
                                                         </p:selectBooleanButton></td>
                                                     <td class="doneHouse" ><h:outputText class="h4House" id="signingContractByCustomer9Done" value="#{finance.signingContractByCustomer9Done}" /></td>
                                                 </tr></table></div>
-                                        
-                                        
-                                        
+                                        <!-- 10.All docs completed -->
+                                        <div class="block11House" ><h:form><table class="tableHouse" ><tr>
+                                                        <td class="titleHouse" ><h:outputText value="10.All docs completed" /></td>
+                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{finance.allDocsCompleted10String}" /></td>
+                                                        <td class="checkBoxHouse" ><p:selectBooleanButton id="value1" onLabel="Yes" offLabel="No" value="#{finance.allDocsCompleted10CheckBox}" >
+                                                                <p:ajax event="change" update="allDocsCompleted10Done" />
+                                                            </p:selectBooleanButton></td>
+                                                        <td class="doneHouse" ><h:outputText class="h4House" id="allDocsCompleted10Done" value="#{finance.allDocsCompleted10Done}" /></td>
+                                                    </tr></table></h:form></div>
+                                        <!-- 11.Notice to proceed -->
+                                        <div class="block11House" ><h:form><table class="tableHouse" ><tr>
+                                                        <td class="titleHouse" ><h:outputText value="11.Notice to proceed" /></td>
+                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{finance.noticeToProceed11String}" /></td>
+                                                        <td class="checkBoxHouse" ><p:selectBooleanButton id="value1" onLabel="Yes" offLabel="No" value="#{finance.noticeToProceed11CheckBox}" >
+                                                                <p:ajax event="change" update="noticeToProceed11Done" />
+                                                            </p:selectBooleanButton></td>
+                                                        <td class="doneHouse" ><h:outputText class="h4House" id="noticeToProceed11Done" value="#{finance.noticeToProceed11Done}" /></td>
+                                                    </tr></table></h:form></div>
+                                        <!-- 12.give # for concierge -->
+                                        <div class="block11House" ><h:form><table class="tableHouse" ><tr>
+                                                        <td class="titleHouse" ><h:outputText value="12.Give # for concierge" /></td>
+                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{finance.giveNForConcierge12String}" /></td>
+                                                        <td class="checkBoxHouse" ><p:selectBooleanButton id="value1" onLabel="Yes" offLabel="No" value="#{finance.giveNForConcierge12CheckBox}" >
+                                                                <p:ajax event="change" update="giveNForConcierge12Done" />
+                                                            </p:selectBooleanButton></td>
+                                                        <td class="doneHouse" ><h:outputText class="h4House" id="giveNForConcierge12Done" value="#{finance.giveNForConcierge12Done}" /></td>
+                                                    </tr></table></h:form></div>
                                         
 
                                     </div>

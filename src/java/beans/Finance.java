@@ -27,55 +27,66 @@ public class Finance implements Serializable {
 
     private int state;
     private Map<Integer, String> states;
-    
+
     private String dataReceivedFromSales0String;
     private boolean dataReceivedFromSales0CheckBox;
     private String dataReceivedFromSales0Done;
-    
+
     private String checkingAvailableFinancing1YgreenString;
     private String checkingAvailableFinancing1CalFirstString;
     private String checkingAvailableFinancing1HeroString;
     private boolean checkingAvailableFinancing1CheckBox;
     private String checkingAvailableFinancing1Done;
-    
+
     private String evaluateHP2Button;
     private boolean evaluateHP2CheckBox;
     private String evaluateHP2Done;
-    
+
     private String receivingDraftAgreement3String;
     private boolean receivingDraftAgreement3CheckBox;
     private String receivingDraftAgreement3Done;
-    
+
     private Date gatheringDOBSSN4Date;
     private String gatheringDOBSSN4String;
     private boolean gatheringDOBSSN4CheckBox;
     private String gatheringDOBSSN4Done;
-    
+
     private UploadedFile signingERIAgeement5FileUpload;
     private String signingERIAgeement5String;
     private boolean signingERIAgeement5CheckBox;
     private String signingERIAgeement5Done;
-    
+
     private String applyToFinancing6String;
     private boolean applyToFinancing6CheckBox;
     private String applyToFinancing6Done;
-    
+
     private UploadedFile financingDocsReceived7FileUpload;
     private String financingDocsReceived7String;
     private boolean financingDocsReceived7CheckBox;
     private String financingDocsReceived7Done;
-    
+
     private Date scheduleAppointmentByCustomer8Date;
     private String scheduleAppointmentByCustomer8String;
     private boolean scheduleAppointmentByCustomer8CheckBox;
     private String scheduleAppointmentByCustomer8Done;
-    
+
     private UploadedFile signingContractByCustomer9FileUpload;
     private String signingContractByCustomer9String;
     private boolean signingContractByCustomer9CheckBox;
     private String signingContractByCustomer9Done;
+
+    private String allDocsCompleted10String;
+    private boolean allDocsCompleted10CheckBox;
+    private String allDocsCompleted10Done;
     
+    private String noticeToProceed11String;
+    private boolean noticeToProceed11CheckBox;
+    private String noticeToProceed11Done;
     
+    private String giveNForConcierge12String;
+    private boolean giveNForConcierge12CheckBox;
+    private String giveNForConcierge12Done;
+
     /**
      * Creates a new instance of Finance
      */
@@ -93,9 +104,9 @@ public class Finance implements Serializable {
         states.put(9, "Signing contract by customer");
         states.put(10, "All docs completed");
         states.put(11, "Notice to proceed");
-        states.put(12, "# gave to concierge");
+        states.put(12, "give # for concierge");
     }
-    
+
     public int getState() {
         return state;
     }
@@ -111,9 +122,8 @@ public class Finance implements Serializable {
     public void setStates(Map<Integer, String> states) {
         this.states = states;
     }
-    
-    // *********  0.Data received from Sales ************************
 
+    // *********  0.Data received from Sales ************************
     public String getDataReceivedFromSales0String() {
         return dataReceivedFromSales0String;
     }
@@ -127,10 +137,10 @@ public class Finance implements Serializable {
     }
 
     public void setDataReceivedFromSales0CheckBox(boolean dataReceivedFromSales0CheckBox) {
-        this.dataReceivedFromSales0CheckBox = dataReceivedFromSales0CheckBox;
+            this.dataReceivedFromSales0CheckBox = dataReceivedFromSales0CheckBox;
     }
 
-    public String getDataReceivedFromSales0Done() {
+public String getDataReceivedFromSales0Done() {
         if ( isDataReceivedFromSales0CheckBox() == true ) {
             dataReceivedFromSales0Done = "done";
         } else {
@@ -498,6 +508,99 @@ public class Finance implements Serializable {
         }
     }
     
+    //---------------- 10.All docs completed -----------------------------
+
+    public String getAllDocsCompleted10String() {
+        return allDocsCompleted10String;
+    }
+
+    public void setAllDocsCompleted10String(String allDocsCompleted10String) {
+        this.allDocsCompleted10String = allDocsCompleted10String;
+    }
+
+    public boolean isAllDocsCompleted10CheckBox() {
+        return allDocsCompleted10CheckBox;
+    }
+
+    public void setAllDocsCompleted10CheckBox(boolean allDocsCompleted10CheckBox) {
+        this.allDocsCompleted10CheckBox = allDocsCompleted10CheckBox;
+    }
+
+    public String getAllDocsCompleted10Done() {
+        if ( isAllDocsCompleted10CheckBox() == true ) {
+            this.allDocsCompleted10Done = "done";
+        } else {
+            this.allDocsCompleted10Done = "";
+        }
+        return allDocsCompleted10Done;
+    }
+
+    public void setAllDocsCompleted10Done(String allDocsCompleted10Done) {
+        this.allDocsCompleted10Done = allDocsCompleted10Done;
+    }
+    
+    // ----------------------- 11.Notice to proceed -----------------------
+
+    public String getNoticeToProceed11String() {
+        return noticeToProceed11String;
+    }
+
+    public void setNoticeToProceed11String(String noticeToProceed11String) {
+        this.noticeToProceed11String = noticeToProceed11String;
+    }
+
+    public boolean isNoticeToProceed11CheckBox() {
+        return noticeToProceed11CheckBox;
+    }
+
+    public void setNoticeToProceed11CheckBox(boolean noticeToProceed11CheckBox) {
+        this.noticeToProceed11CheckBox = noticeToProceed11CheckBox;
+    }
+
+    public String getNoticeToProceed11Done() {
+        if ( isNoticeToProceed11CheckBox() == true ) {
+            this.noticeToProceed11Done = "done";
+        } else {
+            this.noticeToProceed11Done = "";
+        }
+        return noticeToProceed11Done;
+    }
+
+    public void setNoticeToProceed11Done(String noticeToProceed11Done) {
+        this.noticeToProceed11Done = noticeToProceed11Done;
+    }
+    
+    // ------------ 12.give # for concierge ------------------------------
+
+    public String getGiveNForConcierge12String() {
+        return giveNForConcierge12String;
+    }
+
+    public void setGiveNForConcierge12String(String giveNForConcierge12String) {
+        this.giveNForConcierge12String = giveNForConcierge12String;
+    }
+
+    public boolean isGiveNForConcierge12CheckBox() {
+        return giveNForConcierge12CheckBox;
+    }
+
+    public void setGiveNForConcierge12CheckBox(boolean giveNForConcierge12CheckBox) {
+        this.giveNForConcierge12CheckBox = giveNForConcierge12CheckBox;
+    }
+
+    public String getGiveNForConcierge12Done() {
+        if ( isGatheringDOBSSN4CheckBox() == true ) {
+            this.giveNForConcierge12Done = "done";
+        } else {
+            this.giveNForConcierge12Done = "";
+        }
+        return giveNForConcierge12Done;
+    }
+
+    public void setGiveNForConcierge12Done(String giveNForConcierge12Done) {
+        this.giveNForConcierge12Done = giveNForConcierge12Done;
+    }
+    
     
     
     
@@ -513,7 +616,7 @@ public class Finance implements Serializable {
     //********************
 
     @Override
-    public String toString() {
+        public String toString() {
         return "Finance{" + "gatheringDOBSSN4Date=" + gatheringDOBSSN4Date + '}';
     }
     
