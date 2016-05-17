@@ -5,12 +5,14 @@
  */
 package beans;
 
+import ejb.DBsave;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
@@ -25,6 +27,11 @@ import org.primefaces.model.UploadedFile;
 @SessionScoped
 public class Finance implements Serializable {
 
+    @EJB
+    private DBsave dBsave;
+    
+    private int customerID;
+    
     private int state;
     private Map<Integer, String> states;
 
@@ -105,8 +112,17 @@ public class Finance implements Serializable {
         states.put(10, "All docs completed");
         states.put(11, "Notice to proceed");
         states.put(12, "give # for concierge");
+        
     }
 
+    public DBsave getdBsave() {
+        return dBsave;
+    }
+
+    public void setdBsave(DBsave dBsave) {
+        this.dBsave = dBsave;
+    }
+    
     public int getState() {
         return state;
     }
@@ -201,10 +217,6 @@ public String getDataReceivedFromSales0Done() {
     }
     
     //*********** 2.Evaluate HP ****************************************
-
-    public String receiveWayToMeasures () {
-        return "measures";
-    }
     
     public String getEvaluateHP2Button() {
         return evaluateHP2Button;
@@ -600,12 +612,7 @@ public String getDataReceivedFromSales0Done() {
     public void setGiveNForConcierge12Done(String giveNForConcierge12Done) {
         this.giveNForConcierge12Done = giveNForConcierge12Done;
     }
-    
-    
-    
-    
-    
-    
+
     
     
     
@@ -614,7 +621,24 @@ public String getDataReceivedFromSales0Done() {
     
     
     //********************
+    
+    public int getCustomerID () {
+        return customerID;
+    }
+    
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
+    }
 
+    public String wayToDashBoard() {
+        dBsave.setFinance(this);
+        return "dashboard";
+    }
+    
+    public String receiveWayToMeasures () {
+        return "measures";
+    }
+    
     @Override
         public String toString() {
         return "Finance{" + "gatheringDOBSSN4Date=" + gatheringDOBSSN4Date + '}';

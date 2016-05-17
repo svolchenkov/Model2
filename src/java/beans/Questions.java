@@ -5,6 +5,7 @@
  */
 package beans;
 
+import ejb.DBsave;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -22,7 +23,6 @@ public class Questions implements Serializable {
     /**
      * Creates a new instance of SaleStart
      */
-    
 
     private int customerID;
     private Date firstMeeting;

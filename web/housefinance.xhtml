@@ -13,9 +13,14 @@
             <ui:define name="content">
                 <div id="mainBlockHouse" >
                     <h:form>
+                        <div class="block0House" >
+                                        <div >
+                                            <h:outputText class="topButtonsHouse" value="person ID, person name"  />
+                                            <h:commandButton class="topButtonsHouse" value="to dashBord" action="#{finance.wayToDashBoard()}" />
+                                        </div>
+                                    </div>
                         <table ><tr>
-                                <td>
-                                    <div class="block1House" >
+                                <td><div class="block1House" >
                                         <h:form><table class="tableHouse">
                                                 <tr>
                                                     <td><h:outputText value="First meeting: " /> </td>

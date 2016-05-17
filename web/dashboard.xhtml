@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./template.xhtml">
+
+            <ui:define name="content">
+                <div id="mainBlockDashBoard" >
+                    <h:form>
+
+                        <div class="block0DashBoard">
+                            <h:form></h:form>
+                        </div>
+
+                        <table class="tableDashBoard" ><tr><td>
+                                    <div class="block1DashBoard" >
+                                        <h:form>
+                                            <h3>solar bar</h3>
+                                        </h:form>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="block2DashBoard" >
+                                        <h:form>
+                                            <h3>cost</h3>
+                                            <table>
+                                                <tr><td class="titleDashBoard"><h:outputText value="Cost per KW: " /></td>
+                                                    <td class="textAreaDashBoard" ><h:inputText style="width: 95%;" value="#{dashBoard.costPerKW}" /></td>
+                                                    <td class="checkBoxDashBoard" ></td><td class="doneDashBoard" ></td></tr>
+                                            </table>
+                                            <table>
+                                                <tr><td class="titleDashBoard"><h:outputText value="DC KWs: " /></td>
+                                                    <td class="textAreaDashBoard" ><h:inputText style="width: 95%;" value="#{dashBoard.dcKW}" /></td>
+                                                    <td class="checkBoxDashBoard" ></td><td class="doneDashBoard" ></td></tr>
+                                            </table>
+                                            <p class="pDashBoard"></p>
+                                            <table>
+                                                <tr><td class="titleDashBoard"><h:outputText value="PGE Rebate Amoun: " /></td>
+                                                    <td class="textAreaDashBoard" ><h:inputText style="width: 95%;" value="#{dashBoard.costPerKW}" /></td>
+                                                    <td class="checkBoxDashBoard" ></td><td class="doneDashBoard" ></td></tr>
+                                            </table>
+                                            <table>
+                                                <tr><td class="titleDashBoard"><h:outputText value="SMUD Rebate Amount: " /></td>
+                                                    <td class="textAreaDashBoard" ><h:inputText style="width: 95%;" value="#{dashBoard.smUDRabateAmount}" /></td>
+                                                    <td class="checkBoxDashBoard" ></td><td class="doneDashBoard" ></td></tr>
+                                            </table>
+                                            <p class="pDashBoard"></p>
+                                            <table>
+                                                <tr><td class="titleDashBoard"><h:outputText value="Wholesale Cost: " /></td>
+                                                    <td class="textAreaDashBoard" ><h:inputText style="width: 95%;" value="#{dashBoard.wholeCost}" /></td>
+                                                    <td class="checkBoxDashBoard" ></td><td class="doneDashBoard" ></td></tr>
+                                            </table>
+                                        </h:form>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr><td>
+                                    <div class="block3DashBoard" >
+                                        <h:form>
+                                            <h3>finance</h3>
+                                        </h:form>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="block4DashBoard" >
+                                        <h:form>
+                                            <h3>diagram</h3>
+                                        </h:form>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+
+
+
+
+                    </h:form>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

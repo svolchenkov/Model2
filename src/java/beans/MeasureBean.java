@@ -6,6 +6,7 @@
 package beans;
 
 import com.sun.org.apache.bcel.internal.generic.D2F;
+import ejb.DBsave;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -24,8 +25,11 @@ public class MeasureBean implements Serializable {
 
     @EJB
     private MeasureEJB measureEJB;
+    
+    Finance finance;
 
     private double total;
+    private int customerID;
 
     private boolean number1InsulatAtticBlownCheckBox;
     private String number1InsulatAtticBlownString;
@@ -176,6 +180,11 @@ public class MeasureBean implements Serializable {
     private boolean number15EIncludesAllPermitsCheckBox;
     private boolean number15FCanadianSolar270WattCheckBox;
 
+    
+    // Calculate whole cost
+    private double wholeCost;
+    private double solarCost;
+    
     /**
      * Creates a new instance of MeasureBean
      */
@@ -191,10 +200,16 @@ public class MeasureBean implements Serializable {
     public String wayToHouseFinance () {
         return "housefinance";
     }
+
+    public Finance getFinance() {
+        return finance;
+    }
+
+    public void setFinance(Finance finance) {
+        this.finance = finance;
+    }
     
     //******************** 1. Number1InsulatAtticBlown***************************
-    
-    
 
     public int getSqft1() {
         return sqft1;
@@ -1377,10 +1392,34 @@ public class MeasureBean implements Serializable {
     public void setTotal(double total) {
         this.total = total;
     }
+    
+    public double getWholeCost() {
+        return wholeCost;
+    }
+
+    public void setWholeCost(double wholeCost) {
+        this.wholeCost = wholeCost;
+    }
+
+    public double getSolarCost() {
+        return solarCost;
+    }
+
+    public void setSolarCost(double solarCost) {
+        this.solarCost = solarCost;
+    }
+
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
+    }
+    
     //************************************************
+    
     public String goToDashboard() {
-        
-        
         return "dashboard.xhtml";
     }
 }
