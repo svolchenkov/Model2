@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.ejb.EJB;
 import db.CreateHibernateSession;
+import db.manage.HouseManage;
 import org.hibernate.SessionFactory;
 
 /**
@@ -21,11 +22,9 @@ import org.hibernate.SessionFactory;
 @SessionScoped
 public class QuestionsBean implements Serializable {
 
-    private CreateHibernateSession createHibernateSession;
-
-    /**
-     * Creates a new instance of SaleStart
-     */
+    @EJB
+    private HouseManage houseManaged;
+    
     private int customerID;
     private Date firstMeeting;
     private Date followUpWithES;
@@ -371,7 +370,7 @@ public class QuestionsBean implements Serializable {
     }
 
     public void saveQuestionsHouse() {
-        SessionFactory sf = CreateHibernateSession.getSessionFactory();
+        houseManaged.addHouse();
     }
 
 }

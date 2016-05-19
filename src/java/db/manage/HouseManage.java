@@ -14,6 +14,7 @@ import org.hibernate.SessionFactory;
 
 import db.enttity.CustomerEntity;
 import org.hibernate.HibernateException;
+import org.hibernate.cfg.AnnotationConfiguration;
 
 /**
  *
@@ -33,16 +34,20 @@ public class HouseManage {
         int result = 1;
         Session session = sessionFactory.openSession();
         CustomerEntity customerEntity = new CustomerEntity();
-        customerEntity.setId(0);
+        customerEntity.setId(4);
         customerEntity.setFirstName1("firstName1");
+        System.out.println("3");
         try {
             session.beginTransaction();
-            session.save(customerEntity);
+            System.out.println("2");
+            session.save( customerEntity );
+            System.out.println("3");
             session.getTransaction().commit();
         } catch ( HibernateException e )  {
-            System.err.println("addHouse broken" + e.getMessage());
+            System.err.println("addHouse broken: " + e.getMessage());
         } finally {
             customerEntity = null;
+            System.gc();
             session.close();
         }
 

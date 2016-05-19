@@ -15,6 +15,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
@@ -22,16 +23,28 @@ import org.hibernate.service.ServiceRegistry;
  *
  * @author Sergey
  */
-
 public class CreateHibernateSession {
 
     private static SessionFactory sessionFactory;
     private static ServiceRegistry serviceRegistry;
 
     private static SessionFactory configureSessionFactory() {
-        Configuration config = new Configuration().configure();
-        serviceRegistry = new StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();
-        sessionFactory = config.buildSessionFactory(serviceRegistry);
+
+//        Configuration config = new Configuration();
+////        config.addClass(db.enttity.CustomerEntity.class);
+//        config.configure();
+//        serviceRegistry = new StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();
+//        sessionFactory = config.buildSessionFactory(serviceRegistry);
+
+//        Configuration configuration = new Configuration().addClass(db.enttity.CustomerEntity.class);
+
+        sessionFactory = new AnnotationConfiguration().
+                configure().addAnnotatedClass(db.enttity.CustomerEntity.class).
+                addAnnotatedClass(db.enttity.AdvisorsEntity.class).
+                addAnnotatedClass(db.enttity.AmbasadorsEntity.class).
+                addAnnotatedClass(db.enttity.DirectorEntity.class)
+                .buildSessionFactory();
+
         return sessionFactory;
 
     }
