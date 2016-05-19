@@ -6,7 +6,6 @@
 package beans;
 
 import com.sun.org.apache.bcel.internal.generic.D2F;
-import ejb.DBsave;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -26,7 +25,7 @@ public class MeasureBean implements Serializable {
     @EJB
     private MeasureEJB measureEJB;
     
-    Finance finance;
+    FinanceBean finance;
 
     private double total;
     private int customerID;
@@ -201,11 +200,11 @@ public class MeasureBean implements Serializable {
         return "housefinance";
     }
 
-    public Finance getFinance() {
+    public FinanceBean getFinance() {
         return finance;
     }
 
-    public void setFinance(Finance finance) {
+    public void setFinance(FinanceBean finance) {
         this.finance = finance;
     }
     

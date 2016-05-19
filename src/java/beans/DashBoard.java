@@ -5,7 +5,6 @@
  */
 package beans;
 
-import ejb.DBsave;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -65,16 +64,6 @@ public class DashBoard implements Serializable {
         this.customerID = customerID;
     }
     
-    public void filling () {
-//        this.wholeCost = dBsave.getMeasureBean().getTotal();
-//        this.grossHPCost = getWholeCost() / getMarginPercentage();
-//        this.toalRabateAmount = getPgErebateAmount() + getSmUDRabateAmount();
-//        this.netHPCost = getGrossHPCost() - getToalRabateAmount();
-//        this.solarCost = getCostPerKW() * getDcKW();
-//        this.combinedGrossCost = getSolarCost() + getGrossHPCost();
-//        this.financedTotal = getCombinedGrossCost() - getToalRabateAmount();
-    }
-    
     public String wayToHouseFinance () {
         return "housefinance";
     }
@@ -117,22 +106,18 @@ public class DashBoard implements Serializable {
             this.wholeCost = getMeasureBean().getTotal();
         }
         this.wholeCost = getMeasureBean().getTotal();
-        filling();
         return wholeCost;
     }
 
     public void setWholeCost(double wholeCost) {
-        filling();
         this.wholeCost = wholeCost;
     }
 
     public double getMarginPercentage() {
-        filling();
         return marginPercentage;
     }
 
     public void setMarginPercentage(double marginPercentage) {
-        filling();
         this.marginPercentage = marginPercentage / 100;
     }
 

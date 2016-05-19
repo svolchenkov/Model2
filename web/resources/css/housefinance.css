@@ -74,8 +74,18 @@
     width: 70px;
 }
 
-.topButtonsHouse {
+.topButtonsHouseLeft {
     padding-right: 30px;
     padding-left: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: darkred;
+}
+
+.topButtonsHouseRight {
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
     color: darkred;
 }
