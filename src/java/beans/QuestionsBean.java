@@ -390,7 +390,7 @@ public class QuestionsBean implements Serializable {
     }
 
     public void saveQuestionsHouse() {
-        houseManaged.addHouse(this);
+        houseManaged.addOrUpdateHouse(this);
     }
 
     public void receiveQuestionsHouseByCaseID() {

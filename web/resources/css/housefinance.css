@@ -75,11 +75,8 @@
 }
 
 .topButtonsHouseLeft {
-    padding-right: 30px;
-    padding-left: 30px;
-    margin-left: 10px;
-    margin-right: 10px;
-    color: darkred;
+    position: relative;
+    left: 110px;
 }
 
 .topButtonsHouseRight {

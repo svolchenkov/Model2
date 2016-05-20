@@ -18,7 +18,6 @@ import org.hibernate.cfg.AnnotationConfiguration;
 
 import beans.QuestionsBean;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -80,7 +79,7 @@ public class HouseManage {
         return customerEntity;
     }
 
-    public int addHouse(QuestionsBean questionsBean) {
+    public int addOrUpdateHouse(QuestionsBean questionsBean) {
         int result = 1;
 
         Session session = sessionFactory.openSession();
@@ -117,12 +116,15 @@ public class HouseManage {
         customerEntity.setCustomAddUser(questionsBean.getCustomAddUser());
         customerEntity.setMileage(questionsBean.getMileage());
         customerEntity.setFinanceId(questionsBean.getFinanceID());
-        customerEntity.setId(new BigDecimal(receiveNextCustomerID()));
-        customerEntity.setCaseId(questionsBean.getCaseID());
-
         try {
             session.beginTransaction();
-            session.save(customerEntity);
+            if ( questionsBean.getCustomerID() == -1 ) {
+                customerEntity.setId(new BigDecimal(receiveNextCustomerID()));
+                session.save(customerEntity);
+            } else {
+                customerEntity.setId(new BigDecimal(questionsBean.getCustomerID()));
+                session.update(customerEntity);
+            }
             session.getTransaction().commit();
         } catch (HibernateException e) {
             System.err.println("addHouse broken: " + e.getMessage());
