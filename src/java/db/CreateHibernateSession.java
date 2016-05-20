@@ -39,11 +39,8 @@ public class CreateHibernateSession {
 //        Configuration configuration = new Configuration().addClass(db.enttity.CustomerEntity.class);
 
         sessionFactory = new AnnotationConfiguration().
-                configure().addAnnotatedClass(db.enttity.CustomerEntity.class).
-                addAnnotatedClass(db.enttity.AdvisorsEntity.class).
-                addAnnotatedClass(db.enttity.AmbasadorsEntity.class).
-                addAnnotatedClass(db.enttity.DirectorEntity.class)
-                .buildSessionFactory();
+                configure().addAnnotatedClass(db.entity.CustomerEntity.class).
+                buildSessionFactory();
 
         return sessionFactory;
 
@@ -51,7 +48,6 @@ public class CreateHibernateSession {
 
     public static SessionFactory getSessionFactory() {
         return configureSessionFactory();
-
     }
 
 }

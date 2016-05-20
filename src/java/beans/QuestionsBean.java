@@ -11,7 +11,9 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.ejb.EJB;
 import db.CreateHibernateSession;
+import db.entity.CustomerEntity;
 import db.manage.HouseManage;
+import java.math.BigDecimal;
 import org.hibernate.SessionFactory;
 
 /**
@@ -24,8 +26,9 @@ public class QuestionsBean implements Serializable {
 
     @EJB
     private HouseManage houseManaged;
-    
+
     private int customerID;
+    private int caseID;
     private Date firstMeeting;
     private Date followUpWithES;
     private String advisor;
@@ -55,8 +58,17 @@ public class QuestionsBean implements Serializable {
     private int numberOfAppointments;
     private String CustomAddUser;
     private int mileage;
+    private int financeID;
 
     public QuestionsBean() {
+    }
+
+    public int getCaseID() {
+        return caseID;
+    }
+
+    public void setCaseID(int caseID) {
+        this.caseID = caseID;
     }
 
     public int getCustomerID() {
@@ -299,6 +311,14 @@ public class QuestionsBean implements Serializable {
         this.mileage = mileage;
     }
 
+    public int getFinanceID() {
+        return financeID;
+    }
+
+    public void setFinanceID(int financeID) {
+        this.financeID = financeID;
+    }
+
     public void submit() {
         System.out.println("" + this.toString());
     }
@@ -370,7 +390,50 @@ public class QuestionsBean implements Serializable {
     }
 
     public void saveQuestionsHouse() {
-        houseManaged.addHouse();
+        houseManaged.addHouse(this);
+    }
+
+    public void receiveQuestionsHouseByCaseID() {
+        CustomerEntity customerEntity = houseManaged.getHouseByCaseID(this.caseID);
+        setCaseID(customerEntity.getCaseId());
+        setFirstMeeting(customerEntity.getFirstMeeting());
+        setFollowUpWithES(customerEntity.getFollowUpWithEs());
+        setAdvisor(customerEntity.getAdvisorsId());
+        setAmbassador(customerEntity.getAmbasadorsId());
+        setFirstName1(customerEntity.getFirstName1());
+        setLastName1(customerEntity.getLastName1());
+        setEmail1(customerEntity.getEmail1());
+        setPhone1(customerEntity.getPhone1());
+        setFirstName2(customerEntity.getFirstName2());
+        setLastName2(customerEntity.getLastName2());
+        setEmail2(customerEntity.getEmail2());
+        setPhone2(customerEntity.getPhone2());
+        setAddress(customerEntity.getAddress());
+        setCity(customerEntity.getCity());
+        setZip(customerEntity.getZip());
+        setSquareFootage(customerEntity.getSquareFootage());
+        setYearHome(customerEntity.getYearHome());
+        setEffciencyUpgrades(customerEntity.getEffciencyUpgrades());
+        setFicoScore(customerEntity.getFicoScore());
+        setStateQualifierMedianIncome75K(customerEntity.getStateQualifierIncome75k());
+        setFreePGEWeatherStripping(customerEntity.getFreePgeWeatherStripping());
+        String[] str = new String[1];
+        str[0] = customerEntity.getReasonForCareProgram();
+        setReasonForCareProgram(str);
+        setTimeTravelExplained(customerEntity.getTimeTravelExplained());
+        setQualifyToSpeakWithHub(customerEntity.getQualifySpeakWithHub());
+        setAdditionalNOTES(customerEntity.getAdditionalNotes());
+        setDirector(customerEntity.getDirectorId());
+        setNumberOfAppointments(customerEntity.getNumberOfAppointments());
+        setCustomAddUser(customerEntity.getCustomAddUser());
+        setMileage(customerEntity.getMileage());
+        setFinanceID(customerEntity.getFinanceId());setCustomerID(customerEntity.getId().intValueExact());
+        setCaseID(customerEntity.getCaseId());
+        
+    }
+
+    public void addAdvisor() {
+//        advisorManage.addAdvisor();
     }
 
 }

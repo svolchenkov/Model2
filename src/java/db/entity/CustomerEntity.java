@@ -3,23 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package db.enttity;
+package db.entity;
 
-import db.enttity.AmbasadorsEntity;
-import db.enttity.AdvisorsEntity;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -38,18 +32,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class CustomerEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "ID")
-    private int id;
     @Column(name = "FIRST_MEETING")
     @Temporal(TemporalType.TIMESTAMP)
     private Date firstMeeting;
     @Column(name = "FOLLOW_UP_WITH_ES")
     @Temporal(TemporalType.TIMESTAMP)
     private Date followUpWithEs;
+    @Size(max = 100)
+    @Column(name = "ADVISORS_ID")
+    private String advisorsId;
+    @Size(max = 100)
+    @Column(name = "AMBASADORS_ID")
+    private String ambasadorsId;
     @Size(max = 100)
     @Column(name = "FIRST_NAME1")
     private String firstName1;
@@ -81,16 +75,16 @@ public class CustomerEntity implements Serializable {
     @Column(name = "CITY")
     private String city;
     @Column(name = "ZIP")
-    private Long zip;
+    private Integer zip;
     @Column(name = "SQUARE_FOOTAGE")
-    private Long squareFootage;
+    private Integer squareFootage;
     @Column(name = "YEAR_HOME")
-    private Short yearHome;
+    private Integer yearHome;
     @Size(max = 100)
     @Column(name = "EFFCIENCY_UPGRADES")
     private String effciencyUpgrades;
     @Column(name = "FICO_SCORE")
-    private BigInteger ficoScore;
+    private Integer ficoScore;
     @Size(max = 100)
     @Column(name = "STATE_QUALIFIER_INCOME75K")
     private String stateQualifierIncome75k;
@@ -110,35 +104,30 @@ public class CustomerEntity implements Serializable {
     @Column(name = "ADDITIONAL_NOTES")
     private String additionalNotes;
     @Size(max = 100)
+    @Column(name = "DIRECTOR_ID")
+    private String directorId;
     @Column(name = "NUMBER_OF_APPOINTMENTS")
-    private String numberOfAppointments;
+    private Integer numberOfAppointments;
     @Size(max = 100)
     @Column(name = "CUSTOM_ADD_USER")
     private String customAddUser;
     @Column(name = "MILEAGE")
-    private BigInteger mileage;
-    @JoinColumn(name = "ADVISORS_ID", referencedColumnName = "ID")
-    @ManyToOne
-    private AdvisorsEntity advisorsId;
-    @JoinColumn(name = "AMBASADORS_ID", referencedColumnName = "ID")
-    @ManyToOne
-    private AmbasadorsEntity ambasadorsId;
-    @JoinColumn(name = "DIRECTOR_ID", referencedColumnName = "ID")
-    @ManyToOne
-    private DirectorEntity directorId;
+    private Integer mileage;
+    @Column(name = "FINANCE_ID")
+    private Integer financeId;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "ID")
+    private BigDecimal id;
+    @Column(name = "CASE_ID")
+    private Integer caseId;
 
     public CustomerEntity() {
     }
 
-    public CustomerEntity(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
+    public CustomerEntity(BigDecimal id) {
         this.id = id;
     }
 
@@ -156,6 +145,22 @@ public class CustomerEntity implements Serializable {
 
     public void setFollowUpWithEs(Date followUpWithEs) {
         this.followUpWithEs = followUpWithEs;
+    }
+
+    public String getAdvisorsId() {
+        return advisorsId;
+    }
+
+    public void setAdvisorsId(String advisorsId) {
+        this.advisorsId = advisorsId;
+    }
+
+    public String getAmbasadorsId() {
+        return ambasadorsId;
+    }
+
+    public void setAmbasadorsId(String ambasadorsId) {
+        this.ambasadorsId = ambasadorsId;
     }
 
     public String getFirstName1() {
@@ -238,27 +243,27 @@ public class CustomerEntity implements Serializable {
         this.city = city;
     }
 
-    public Long getZip() {
+    public Integer getZip() {
         return zip;
     }
 
-    public void setZip(Long zip) {
+    public void setZip(Integer zip) {
         this.zip = zip;
     }
 
-    public Long getSquareFootage() {
+    public Integer getSquareFootage() {
         return squareFootage;
     }
 
-    public void setSquareFootage(Long squareFootage) {
+    public void setSquareFootage(Integer squareFootage) {
         this.squareFootage = squareFootage;
     }
 
-    public Short getYearHome() {
+    public Integer getYearHome() {
         return yearHome;
     }
 
-    public void setYearHome(Short yearHome) {
+    public void setYearHome(Integer yearHome) {
         this.yearHome = yearHome;
     }
 
@@ -270,11 +275,11 @@ public class CustomerEntity implements Serializable {
         this.effciencyUpgrades = effciencyUpgrades;
     }
 
-    public BigInteger getFicoScore() {
+    public Integer getFicoScore() {
         return ficoScore;
     }
 
-    public void setFicoScore(BigInteger ficoScore) {
+    public void setFicoScore(Integer ficoScore) {
         this.ficoScore = ficoScore;
     }
 
@@ -326,11 +331,19 @@ public class CustomerEntity implements Serializable {
         this.additionalNotes = additionalNotes;
     }
 
-    public String getNumberOfAppointments() {
+    public String getDirectorId() {
+        return directorId;
+    }
+
+    public void setDirectorId(String directorId) {
+        this.directorId = directorId;
+    }
+
+    public Integer getNumberOfAppointments() {
         return numberOfAppointments;
     }
 
-    public void setNumberOfAppointments(String numberOfAppointments) {
+    public void setNumberOfAppointments(Integer numberOfAppointments) {
         this.numberOfAppointments = numberOfAppointments;
     }
 
@@ -342,58 +355,53 @@ public class CustomerEntity implements Serializable {
         this.customAddUser = customAddUser;
     }
 
-    public BigInteger getMileage() {
+    public Integer getMileage() {
         return mileage;
     }
 
-    public void setMileage(BigInteger mileage) {
+    public void setMileage(Integer mileage) {
         this.mileage = mileage;
     }
 
-    public AdvisorsEntity getAdvisorsId() {
-        return advisorsId;
+    public Integer getFinanceId() {
+        return financeId;
     }
 
-    public void setAdvisorsId(AdvisorsEntity advisorsId) {
-        this.advisorsId = advisorsId;
+    public void setFinanceId(Integer financeId) {
+        this.financeId = financeId;
     }
 
-    public AmbasadorsEntity getAmbasadorsId() {
-        return ambasadorsId;
+    public BigDecimal getId() {
+        return id;
     }
 
-    public void setAmbasadorsId(AmbasadorsEntity ambasadorsId) {
-        this.ambasadorsId = ambasadorsId;
+    public void setId(BigDecimal id) {
+        this.id = id;
     }
 
-    public DirectorEntity getDirectorId() {
-        return directorId;
+    public Integer getCaseId() {
+        return caseId;
     }
 
-    public void setDirectorId(DirectorEntity directorId) {
-        this.directorId = directorId;
+    public void setCaseId(Integer caseId) {
+        this.caseId = caseId;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 71 * hash + this.id;
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof CustomerEntity)) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final CustomerEntity other = (CustomerEntity) obj;
-        if (this.id != other.id) {
+        CustomerEntity other = (CustomerEntity) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -401,7 +409,7 @@ public class CustomerEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "db.Customer[ id=" + id + " ]";
+        return "db.entity.Customer[ id=" + id + " ]";
     }
     
 }

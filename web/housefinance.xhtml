@@ -15,10 +15,13 @@
                     <h:form>
                         <div class="block0House" >
                                         <div >
+                                            <h:commandButton class="topButtonsHouseRight" value="save House data" action="#{questions.saveQuestionsHouse()}" />
+                                            <h:outputText class="topButtonsHouseLeft" value="CaseID:"   />
+                                            <h:inputText class="topButtonsHouseLeft" maxlength="5" value="#{questions.caseID}" />
+                                            <h:commandButton class="topButtonsHouseLeft" value="receive house" action="#{questions.receiveQuestionsHouseByCaseID()}" />
                                             <h:outputText class="topButtonsHouseLeft" value="person ID: #{questions.customerID}"   />
                                             <h:outputText id="firstName1onTop" class="topButtonsHouseLeft" value="person name: #{questions.firstName1}"  />
                                             <h:commandButton class="topButtonsHouseRight" value="to dashBord" action="#{finance.wayToDashBoard()}" />
-                                            <h:commandButton class="topButtonsHouseRight" value="save House data" action="#{questions.saveQuestionsHouse()}" />
                                         </div>
                                     </div>
                         <table ><tr>
@@ -39,6 +42,7 @@
                                                             <f:selectItem itemLabel="Diosdado Cervania" itemValue="Diosdado Cervania" />
                                                             <f:selectItem itemLabel="Eduardo Cusion" itemValue="Eduardo Cusion" />
                                                         </p:selectOneMenu></td>
+                                                    <td><h:commandButton value="add advisor"  /></td>
                                                 </tr>
                                                 <tr><td><h:outputText value="Ambassador Addition: " /></td>
                                                     <td><p:selectOneMenu id="ambassador" value="#{questions.ambassador}" style="width:200px">
