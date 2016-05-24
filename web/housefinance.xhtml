@@ -21,8 +21,8 @@
                                         <td class="titleHouse"><h:outputText id="firstName1onTop" value="#{questions.firstName1}"  /></td>
                                         <td class="titleHouse"><h:commandButton value="receive house" action="#{questions.receiveQuestionsHouseByCaseID()}" /></td>
                                         <td class="titleHouse"><h:commandButton value="save House" action="#{questions.saveQuestionsHouse()}" /></td>
-                                        <td class="titleHouse"><h:commandButton value="save Finance" action="#{finance.saveFinance()}" /></td>
-                                        <td class="titleHouse"><h:commandButton value="to dashBord" action="#{finance.wayToDashBoard()}" /></td>
+                                        <td class="titleHouse"><h:commandButton value="save Finance" action="#{financeBean.saveFinance()}" /></td>
+                                        <td class="titleHouse"><h:commandButton value="to dashBord" action="#{financeBean.wayToDashBoard()}" /></td>
                                     </tr></table>
                             </div>
                         </div>
@@ -181,35 +181,35 @@
                                         <!-- 0.Data received from Sales -->
                                         <div class="block11House" ><table class="tableHouse" ><tr>
                                                         <td class="titleHouse" ><h:outputText value="0.Data received from Sales" /></td>
-                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{finance.dataReceivedFromSales0String}" /></td>
-                                                        <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.dataReceivedFromSales0CheckBox}" >
+                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{financeBean.dataReceivedFromSales0String}" /></td>
+                                                        <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{financeBean.dataReceivedFromSales0CheckBox}" >
                                                                 <p:ajax event="change" update="dataReceivedFromSales0String" />
                                                             </p:selectBooleanButton></td>
-                                                        <td class="doneHouse" ><h:outputText class="h4House" id="dataReceivedFromSales0String" value="#{finance.dataReceivedFromSales0Done}" /></td>
+                                                        <td class="doneHouse" ><h:outputText class="h4House" id="dataReceivedFromSales0String" value="#{financeBean.dataReceivedFromSales0Done}" /></td>
                                                     </tr></table></div>
                                         <!-- 1.Checking available financing / Total available financing -->
                                         <div class="block11House" ><table class="tableHouse" ><tr>
                                                         <td class="titleHouse" ><h:outputText value="1.Total available financing" /></td>
                                                         <td class="textAreaHouse" >
                                                             <table>
-                                                                <tr><td ><h:outputText value="Ygreen" /></td><td ><h:inputText maxlength="6" lang="6" value="#{finance.checkingAvailableFinancing1YgreenString}" >
+                                                                <tr><td ><h:outputText value="Ygreen" /></td><td ><h:inputText maxlength="6" lang="6" value="#{financeBean.checkingAvailableFinancing1YgreenString}" >
                                                                             <p:ajax event="keyup" update="checkingAvailableFinancing1YgreenString" />
                                                                         </h:inputText></td>
-                                                                    <td><h:outputText id="checkingAvailableFinancing1YgreenString" value="#{finance.checkingAvailableFinancing1YgreenString}" /></td></tr>
-                                                                <tr><td ><h:outputText value="CalFirst" /></td><td  ><h:inputText maxlength="6" lang="6" value="#{finance.checkingAvailableFinancing1CalFirstString}" >
+                                                                    <td><h:outputText id="checkingAvailableFinancing1YgreenString" value="#{financeBean.checkingAvailableFinancing1YgreenString}" /></td></tr>
+                                                                <tr><td ><h:outputText value="CalFirst" /></td><td  ><h:inputText maxlength="6" lang="6" value="#{financeBean.checkingAvailableFinancing1CalFirstString}" >
                                                                             <p:ajax event="keyup" update="checkingAvailableFinancing1CalFirstString" />
                                                                         </h:inputText></td>
-                                                                    <td><h:outputText id="checkingAvailableFinancing1CalFirstString" value="#{finance.checkingAvailableFinancing1CalFirstString}"  /></td></tr>
-                                                                <tr><td ><h:outputText value="Hero" /></td><td  ><h:inputText  maxlength="6" lang="6" value="#{finance.checkingAvailableFinancing1HeroString}" >
+                                                                    <td><h:outputText id="checkingAvailableFinancing1CalFirstString" value="#{financeBean.checkingAvailableFinancing1CalFirstString}"  /></td></tr>
+                                                                <tr><td ><h:outputText value="Hero" /></td><td  ><h:inputText  maxlength="6" lang="6" value="#{financeBean.checkingAvailableFinancing1HeroString}" >
                                                                             <p:ajax event="keyup" update="checkingAvailableFinancing1HeroString" />
                                                                         </h:inputText></td>
-                                                                    <td><h:outputText id="checkingAvailableFinancing1HeroString" value="#{finance.checkingAvailableFinancing1HeroString}" /></td></tr>
+                                                                    <td><h:outputText id="checkingAvailableFinancing1HeroString" value="#{financeBean.checkingAvailableFinancing1HeroString}" /></td></tr>
                                                             </table>
                                                         </td>        
-                                                        <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.checkingAvailableFinancing1CheckBox}" >
+                                                        <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{financeBean.checkingAvailableFinancing1CheckBox}" >
                                                                 <p:ajax event="change" update="checkingAvailableFinancing1Done" />
                                                             </p:selectBooleanButton></td>
-                                                        <td class="doneHouse" ><h:outputText class="h4House" id="checkingAvailableFinancing1Done" value="#{finance.checkingAvailableFinancing1Done}" /></td>
+                                                        <td class="doneHouse" ><h:outputText class="h4House" id="checkingAvailableFinancing1Done" value="#{financeBean.checkingAvailableFinancing1Done}" /></td>
                                                     </tr></table></div>
                                         <!-- 2.Evaluate HP -->
                                         <div class="block11House" >
@@ -217,14 +217,14 @@
                                                     <td class="titleHouse" ><h:outputText value="2.Evaluate HP" /></td>
                                                     <td class="textAreaHouse" >
                                                         <table>
-                                                            <tr><td ><h:commandButton value="to evaluation HP + solar" action="#{finance.receiveWayToMeasures()}" /></td></tr>
+                                                            <tr><td ><h:commandButton value="to evaluation HP + solar" action="#{financeBean.receiveWayToMeasures()}" /></td></tr>
                                                             <tr><td ><h:outputText value="total HP + Solar:" /></td><td ><h:outputText id="total" value="#{measureBean.total}" /></td></tr>
                                                         </table>
                                                     </td>        
-                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.evaluateHP2CheckBox}" >
+                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{financeBean.evaluateHP2CheckBox}" >
                                                             <p:ajax event="change" update="evaluateHP2Done, total" />
                                                         </p:selectBooleanButton></td>
-                                                    <td class="doneHouse" ><h:outputText class="h4House" id="evaluateHP2Done" value="#{finance.evaluateHP2Done}" /></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="evaluateHP2Done" value="#{financeBean.evaluateHP2Done}" /></td>
                                                 </tr></table>
                                         </div>
 
@@ -232,11 +232,11 @@
 
                                         <div class="block11House" ><table class="tableHouse" ><tr>
                                                     <td class="titleHouse" ><h:outputText value="3.Receiving draft agreement" /></td>
-                                                    <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{finance.receivingDraftAgreement3String}" /></td>
-                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.receivingDraftAgreement3CheckBox}" >
+                                                    <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{financeBean.receivingDraftAgreement3String}" /></td>
+                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{financeBean.receivingDraftAgreement3CheckBox}" >
                                                             <p:ajax event="change" update="receivingDraftAgreement3Done" />
                                                         </p:selectBooleanButton></td>
-                                                    <td class="doneHouse" ><h:outputText class="h4House" id="receivingDraftAgreement3Done" value="#{finance.receivingDraftAgreement3Done}" /></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="receivingDraftAgreement3Done" value="#{financeBean.receivingDraftAgreement3Done}" /></td>
                                                 </tr></table></div>
 
                                         <!-- 4.Gathering DOB, SS# -->
@@ -244,20 +244,20 @@
                                                     <td class="titleHouse" ><h:outputText value="4.Gathering DOB, SS#" /></td>
                                                     <td class="textAreaHouse" >
                                                         <table><tr><td><h:outputText value="DOB: " /> </td>
-                                                                <td><p:calendar effect="fold" yearRange="c-50:c+50" navigator="true" value="#{finance.gatheringDOBSSN4Date}"  >
+                                                                <td><p:calendar effect="fold" yearRange="c-50:c+50" navigator="true" value="#{financeBean.gatheringDOBSSN4Date}"  >
                                                                         <p:ajax event="dateSelect" update="gatheringDOBSSN4Date" />
                                                                     </p:calendar></td>
-                                                                <td><h:outputText id="gatheringDOBSSN4Date" value="#{finance.gatheringDOBSSN4Date}"  /></td></tr>
-                                                            <tr><td ><h:outputText value="SS#" /></td><td  ><h:inputText maxlength="12" lang="12" value="#{finance.gatheringDOBSSN4String}" >
+                                                                <td><h:outputText id="gatheringDOBSSN4Date" value="#{financeBean.gatheringDOBSSN4Date}"  /></td></tr>
+                                                            <tr><td ><h:outputText value="SS#" /></td><td  ><h:inputText maxlength="12" lang="12" value="#{financeBean.gatheringDOBSSN4String}" >
                                                                         <p:ajax event="keyup" update="gatheringDOBSSN4String" />
                                                                     </h:inputText></td>
-                                                                <td><h:outputText id="gatheringDOBSSN4String" value="#{finance.gatheringDOBSSN4String}"  /></td></tr>
+                                                                <td><h:outputText id="gatheringDOBSSN4String" value="#{financeBean.gatheringDOBSSN4String}"  /></td></tr>
                                                         </table>
                                                     </td>
-                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.gatheringDOBSSN4CheckBox}" >
+                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{financeBean.gatheringDOBSSN4CheckBox}" >
                                                             <p:ajax event="change" update="gatheringDOBSSN4Done" />
                                                         </p:selectBooleanButton></td>
-                                                    <td class="doneHouse" ><h:outputText class="h4House" id="gatheringDOBSSN4Done" value="#{finance.gatheringDOBSSN4Done}" /></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="gatheringDOBSSN4Done" value="#{financeBean.gatheringDOBSSN4Done}" /></td>
                                                 </tr></table></div>
 
                                         <!-- 5. Signing ERI Ageement -->
@@ -265,25 +265,25 @@
                                                     <td class="titleHouse" ><h:outputText value="5. Signing ERI Ageement" /></td>
                                                     <td class="textAreaHouse" >
                                                         <table><tr><td><h:outputText value="Upload file: " /> </td>
-                                                                <td><p:fileUpload value="#{finance.signingERIAgeement5FileUpload}" mode="simple" skinSimple="true"/></td></tr>
-                                                            <tr><td></td><td><p:commandButton value="Submit" ajax="false" actionListener="#{finance.signingERIAgeement5upload()}" disabled="false" /></td></tr>
+                                                                <td><p:fileUpload value="#{financeBean.signingERIAgeement5FileUpload}" mode="simple" skinSimple="true"/></td></tr>
+                                                            <tr><td></td><td><p:commandButton value="Submit" ajax="false" actionListener="#{financeBean.signingERIAgeement5upload()}" disabled="false" /></td></tr>
                                                         </table>
-                                                        <table><tr><td  ><h:inputTextarea rows="3" cols="52" value="#{finance.signingERIAgeement5String}" /></td></tr></table>
+                                                        <table><tr><td  ><h:inputTextarea rows="3" cols="52" value="#{financeBean.signingERIAgeement5String}" /></td></tr></table>
                                                     </td>
-                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.signingERIAgeement5CheckBox}" >
+                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{financeBean.signingERIAgeement5CheckBox}" >
                                                             <p:ajax event="change" update="signingERIAgeement5Done" />
                                                         </p:selectBooleanButton></td>
-                                                    <td class="doneHouse" ><h:outputText class="h4House" id="signingERIAgeement5Done" value="#{finance.signingERIAgeement5Done}" /></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="signingERIAgeement5Done" value="#{financeBean.signingERIAgeement5Done}" /></td>
                                                 </tr></table></div>
 
                                         <!-- 6. Apply to financing -->
                                         <div class="block11House" ><table class="tableHouse" ><tr>
                                                     <td class="titleHouse" ><h:outputText value="6.Apply to financing" /></td>
-                                                    <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{finance.applyToFinancing6String}" /></td>
-                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.applyToFinancing6CheckBox}" >
+                                                    <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{financeBean.applyToFinancing6String}" /></td>
+                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{financeBean.applyToFinancing6CheckBox}" >
                                                             <p:ajax event="change" update="applyToFinancing6Done" />
                                                         </p:selectBooleanButton></td>
-                                                    <td class="doneHouse" ><h:outputText class="h4House" id="applyToFinancing6Done" value="#{finance.applyToFinancing6Done}" /></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="applyToFinancing6Done" value="#{financeBean.applyToFinancing6Done}" /></td>
                                                 </tr></table></div>
 
                                         <!-- 7.Financing docs received -->
@@ -291,81 +291,81 @@
                                                     <td class="titleHouse" ><h:outputText value="7.Financing docs received" /></td>
                                                     <td class="textAreaHouse" >
                                                         <table><tr><td><h:outputText value="Upload file: " /> </td>
-                                                                <td><p:fileUpload value="#{finance.financingDocsReceived7FileUpload}" mode="simple" skinSimple="true"/></td></tr>
-                                                            <tr><td></td><td><p:commandButton value="Submit" ajax="false" actionListener="#{finance.financingDocsReceived7upload()}" disabled="false" /></td></tr>
+                                                                <td><p:fileUpload value="#{financeBean.financingDocsReceived7FileUpload}" mode="simple" skinSimple="true"/></td></tr>
+                                                            <tr><td></td><td><p:commandButton value="Submit" ajax="false" actionListener="#{financeBean.financingDocsReceived7upload()}" disabled="false" /></td></tr>
                                                         </table>
-                                                        <table><tr><td  ><h:inputTextarea rows="3" cols="52" value="#{finance.financingDocsReceived7String}" /></td></tr></table>
+                                                        <table><tr><td  ><h:inputTextarea rows="3" cols="52" value="#{financeBean.financingDocsReceived7String}" /></td></tr></table>
                                                     </td>
-                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.financingDocsReceived7CheckBox}" >
+                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{financeBean.financingDocsReceived7CheckBox}" >
                                                             <p:ajax event="change" update="financingDocsReceived7Done" />
                                                         </p:selectBooleanButton></td>
-                                                    <td class="doneHouse" ><h:outputText class="h4House" id="financingDocsReceived7Done" value="#{finance.financingDocsReceived7Done}" /></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="financingDocsReceived7Done" value="#{financeBean.financingDocsReceived7Done}" /></td>
                                                 </tr></table></div>
                                         <!-- 8.Schedule appointment by customer -->
                                         <div class="block11House" ><table class="tableHouse" ><tr>
                                                     <td class="titleHouse" ><h:outputText value="8.Schedule appointment by customer" /></td>
                                                     <td class="textAreaHouse" >
                                                         <table><tr><td><h:outputText value="Day of meeting: " /> </td>
-                                                                <td><p:calendar effect="fold"  value="#{finance.scheduleAppointmentByCustomer8Date}" pattern="MM/dd/yyyy HH:mm:ss" >
+                                                                <td><p:calendar effect="fold"  value="#{financeBean.scheduleAppointmentByCustomer8Date}" pattern="MM/dd/yyyy HH:mm:ss" >
                                                                         <p:ajax event="dateSelect" update="scheduleAppointmentByCustomer8Date" />
                                                                     </p:calendar></td>
-                                                                <td><h:outputText id="scheduleAppointmentByCustomer8Date" value="#{finance.scheduleAppointmentByCustomer8Date}"  /></td></tr>
+                                                                <td><h:outputText id="scheduleAppointmentByCustomer8Date" value="#{financeBean.scheduleAppointmentByCustomer8Date}"  /></td></tr>
                                                         </table>
-                                                        <table><tr><td><h:inputTextarea rows="3" cols="52" value="#{finance.scheduleAppointmentByCustomer8String}" /></td></tr></table>
+                                                        <table><tr><td><h:inputTextarea rows="3" cols="52" value="#{financeBean.scheduleAppointmentByCustomer8String}" /></td></tr></table>
                                                     </td>
-                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.scheduleAppointmentByCustomer8CheckBox}" >
+                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{financeBean.scheduleAppointmentByCustomer8CheckBox}" >
                                                             <p:ajax event="change" update="scheduleAppointmentByCustomer8Done" />
                                                         </p:selectBooleanButton></td>
-                                                    <td class="doneHouse" ><h:outputText class="h4House" id="scheduleAppointmentByCustomer8Done" value="#{finance.scheduleAppointmentByCustomer8Done}" /></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="scheduleAppointmentByCustomer8Done" value="#{financeBean.scheduleAppointmentByCustomer8Done}" /></td>
                                                 </tr></table></div>
                                         <!-- 9.Signing contract by customer -->
                                         <div class="block11House" ><table class="tableHouse" ><tr>
                                                     <td class="titleHouse" ><h:outputText value="9.Signing contract by customer" /></td>
                                                     <td class="textAreaHouse" >
                                                         <table><tr><td><h:outputText value="Upload file: " /> </td>
-                                                                <td><p:fileUpload value="#{finance.signingContractByCustomer9FileUpload}" mode="simple" skinSimple="true"/></td></tr>
-                                                            <tr><td></td><td><p:commandButton value="Submit" ajax="false" actionListener="#{finance.signingContractByCustomer9upload()}" disabled="false" /></td></tr>
+                                                                <td><p:fileUpload value="#{financeBean.signingContractByCustomer9FileUpload}" mode="simple" skinSimple="true"/></td></tr>
+                                                            <tr><td></td><td><p:commandButton value="Submit" ajax="false" actionListener="#{financeBean.signingContractByCustomer9upload()}" disabled="false" /></td></tr>
                                                         </table>
-                                                        <table><tr><td  ><h:inputTextarea rows="3" cols="52" value="#{finance.signingContractByCustomer9String}" /></td></tr></table>
+                                                        <table><tr><td  ><h:inputTextarea rows="3" cols="52" value="#{financeBean.signingContractByCustomer9String}" /></td></tr></table>
                                                     </td>
-                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.signingContractByCustomer9CheckBox}" >
+                                                    <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{financeBean.signingContractByCustomer9CheckBox}" >
                                                             <p:ajax event="change" update="signingContractByCustomer9Done" />
                                                         </p:selectBooleanButton></td>
-                                                    <td class="doneHouse" ><h:outputText class="h4House" id="signingContractByCustomer9Done" value="#{finance.signingContractByCustomer9Done}" /></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="signingContractByCustomer9Done" value="#{financeBean.signingContractByCustomer9Done}" /></td>
                                                 </tr></table></div>
                                         <!-- 10.All docs completed -->
                                         <div class="block11House" ><table class="tableHouse" ><tr>
                                                         <td class="titleHouse" ><h:outputText value="10.All docs completed" /></td>
-                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{finance.allDocsCompleted10String}" /></td>
-                                                        <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.allDocsCompleted10CheckBox}" >
+                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{financeBean.allDocsCompleted10String}" /></td>
+                                                        <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{financeBean.allDocsCompleted10CheckBox}" >
                                                                 <p:ajax event="change" update="allDocsCompleted10Done" />
                                                             </p:selectBooleanButton></td>
-                                                        <td class="doneHouse" ><h:outputText class="h4House" id="allDocsCompleted10Done" value="#{finance.allDocsCompleted10Done}" /></td>
+                                                        <td class="doneHouse" ><h:outputText class="h4House" id="allDocsCompleted10Done" value="#{financeBean.allDocsCompleted10Done}" /></td>
                                                     </tr></table></div>
                                         <!-- 11.Notice to proceed -->
                                         <div class="block11House" ><table class="tableHouse" ><tr>
                                                         <td class="titleHouse" ><h:outputText value="11.Notice to proceed" /></td>
-                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{finance.noticeToProceed11String}" /></td>
-                                                        <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.noticeToProceed11CheckBox}" >
+                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{financeBean.noticeToProceed11String}" /></td>
+                                                        <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{financeBean.noticeToProceed11CheckBox}" >
                                                                 <p:ajax event="change" update="noticeToProceed11Done" />
                                                             </p:selectBooleanButton></td>
-                                                        <td class="doneHouse" ><h:outputText class="h4House" id="noticeToProceed11Done" value="#{finance.noticeToProceed11Done}" /></td>
+                                                        <td class="doneHouse" ><h:outputText class="h4House" id="noticeToProceed11Done" value="#{financeBean.noticeToProceed11Done}" /></td>
                                                     </tr></table></div>
                                         <!-- 12.give # for concierge -->
                                         <div class="block11House" ><table class="tableHouse" ><tr>
                                                         <td class="titleHouse" ><h:outputText value="12.Give # for concierge" /></td>
-                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{finance.giveNForConcierge12String}" /></td>
-                                                        <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.giveNForConcierge12CheckBox}" >
+                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{financeBean.giveNForConcierge12String}" /></td>
+                                                        <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{financeBean.giveNForConcierge12CheckBox}" >
                                                                 <p:ajax event="change" update="giveNForConcierge12Done" />
                                                             </p:selectBooleanButton></td>
-                                                        <td class="doneHouse" ><h:outputText class="h4House" id="giveNForConcierge12Done" value="#{finance.giveNForConcierge12Done}" /></td>
+                                                        <td class="doneHouse" ><h:outputText class="h4House" id="giveNForConcierge12Done" value="#{financeBean.giveNForConcierge12Done}" /></td>
                                                     </tr></table></div>
 
 
                                     </div>
                                 </td>
                             </tr></table>
-                        <h:commandButton value="tostring" action="#{finance.toString()}" />
+                        <h:commandButton value="tostring" action="#{financeBean.toString()}" />
                     </h:form>
                 </div>
             </ui:define>

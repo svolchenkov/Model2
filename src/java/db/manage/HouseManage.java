@@ -39,7 +39,7 @@ public class HouseManage {
         sessionFactory = CreateHibernateSession.getSessionFactory();
     }
 
-    public CustomerEntity getHouseByCaseID(int caseID) {
+    public CustomerEntity receiveHouseByCaseID(int caseID) {
         CustomerEntity customerEntity = null;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
