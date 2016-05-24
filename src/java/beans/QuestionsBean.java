@@ -61,6 +61,7 @@ public class QuestionsBean implements Serializable {
     private int financeID;
 
     public QuestionsBean() {
+        
     }
 
     public int getCaseID() {
@@ -68,6 +69,7 @@ public class QuestionsBean implements Serializable {
     }
 
     public void setCaseID(int caseID) {
+        
         this.caseID = caseID;
     }
 
