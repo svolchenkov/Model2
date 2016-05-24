@@ -5,6 +5,7 @@
  */
 package beans;
 
+import db.manage.FinanceManage;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -19,6 +20,8 @@ import ejb.FinanceEJB;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
+import db.entity.FinanceEntity;
+
 /**
  *
  * @author Sergey
@@ -26,12 +29,13 @@ import org.primefaces.model.UploadedFile;
 @Named(value = "finance")
 @SessionScoped
 public class FinanceBean implements Serializable {
-    
+
     @EJB
-    private FinanceEJB homeFinance;
+    private FinanceManage financeManage;
 
     private int customerID;
-    
+    private int caseID;
+
     private int state;
     private Map<Integer, String> states;
 
@@ -85,11 +89,11 @@ public class FinanceBean implements Serializable {
     private String allDocsCompleted10String;
     private boolean allDocsCompleted10CheckBox;
     private String allDocsCompleted10Done;
-    
+
     private String noticeToProceed11String;
     private boolean noticeToProceed11CheckBox;
     private String noticeToProceed11Done;
-    
+
     private String giveNForConcierge12String;
     private boolean giveNForConcierge12CheckBox;
     private String giveNForConcierge12Done;
@@ -112,9 +116,17 @@ public class FinanceBean implements Serializable {
         states.put(10, "All docs completed");
         states.put(11, "Notice to proceed");
         states.put(12, "give # for concierge");
-        
+
     }
-    
+
+    public int getCaseID() {
+        return caseID;
+    }
+
+    public void setCaseID(int caseID) {
+        this.caseID = caseID;
+    }
+
     public int getState() {
         return state;
     }
@@ -145,11 +157,11 @@ public class FinanceBean implements Serializable {
     }
 
     public void setDataReceivedFromSales0CheckBox(boolean dataReceivedFromSales0CheckBox) {
-            this.dataReceivedFromSales0CheckBox = dataReceivedFromSales0CheckBox;
+        this.dataReceivedFromSales0CheckBox = dataReceivedFromSales0CheckBox;
     }
 
-public String getDataReceivedFromSales0Done() {
-        if ( isDataReceivedFromSales0CheckBox() == true ) {
+    public String getDataReceivedFromSales0Done() {
+        if (isDataReceivedFromSales0CheckBox() == true) {
             dataReceivedFromSales0Done = "done";
         } else {
             dataReceivedFromSales0Done = "";
@@ -162,7 +174,6 @@ public String getDataReceivedFromSales0Done() {
     }
 
     //******************** 1.Checking available financing *****************
-
     public String getCheckingAvailableFinancing1YgreenString() {
         return checkingAvailableFinancing1YgreenString;
     }
@@ -186,7 +197,7 @@ public String getDataReceivedFromSales0Done() {
     public void setCheckingAvailableFinancing1HeroString(String checkingAvailableFinancing1HeroString) {
         this.checkingAvailableFinancing1HeroString = checkingAvailableFinancing1HeroString;
     }
-    
+
     public boolean isCheckingAvailableFinancing1CheckBox() {
         return checkingAvailableFinancing1CheckBox;
     }
@@ -196,7 +207,7 @@ public String getDataReceivedFromSales0Done() {
     }
 
     public String getCheckingAvailableFinancing1Done() {
-        if ( isCheckingAvailableFinancing1CheckBox() == true ) {
+        if (isCheckingAvailableFinancing1CheckBox() == true) {
             this.checkingAvailableFinancing1Done = "done";
         } else {
             this.checkingAvailableFinancing1Done = "";
@@ -207,9 +218,8 @@ public String getDataReceivedFromSales0Done() {
     public void setCheckingAvailableFinancing1Done(String checkingAvailableFinancing1Done) {
         this.checkingAvailableFinancing1Done = checkingAvailableFinancing1Done;
     }
-    
+
     //*********** 2.Evaluate HP ****************************************
-    
     public String getEvaluateHP2Button() {
         return evaluateHP2Button;
     }
@@ -217,7 +227,7 @@ public String getDataReceivedFromSales0Done() {
     public void setEvaluateHP2Button(String evaluateHP2Button) {
         this.evaluateHP2Button = evaluateHP2Button;
     }
-    
+
     public boolean isEvaluateHP2CheckBox() {
         return evaluateHP2CheckBox;
     }
@@ -227,15 +237,19 @@ public String getDataReceivedFromSales0Done() {
     }
 
     public String getEvaluateHP2Done() {
+        if ( isEvaluateHP2CheckBox() == true ) {
+            evaluateHP2Done = "done";
+        } else {
+            evaluateHP2Done = "";
+        }
         return evaluateHP2Done;
     }
 
     public void setEvaluateHP2Done(String evaluateHP2Done) {
         this.evaluateHP2Done = evaluateHP2Done;
     }
-    
-    //********************* 3.Receiving draft agreement  *********************
 
+    //********************* 3.Receiving draft agreement  *********************
     public String getReceivingDraftAgreement3String() {
         return receivingDraftAgreement3String;
     }
@@ -253,7 +267,7 @@ public String getDataReceivedFromSales0Done() {
     }
 
     public String getReceivingDraftAgreement3Done() {
-        if ( isReceivingDraftAgreement3CheckBox() == true ) {
+        if (isReceivingDraftAgreement3CheckBox() == true) {
             receivingDraftAgreement3Done = "done";
         } else {
             receivingDraftAgreement3Done = "";
@@ -264,9 +278,8 @@ public String getDataReceivedFromSales0Done() {
     public void setReceivingDraftAgreement3Done(String receivingDraftAgreement3Done) {
         this.receivingDraftAgreement3Done = receivingDraftAgreement3Done;
     }
-    
-    //************************** 4.Gathering DOB, SS# ************************
 
+    //************************** 4.Gathering DOB, SS# ************************
     public Date getGatheringDOBSSN4Date() {
         return gatheringDOBSSN4Date;
     }
@@ -292,7 +305,7 @@ public String getDataReceivedFromSales0Done() {
     }
 
     public String getGatheringDOBSSN4Done() {
-        if ( isGatheringDOBSSN4CheckBox() == true ) {
+        if (isGatheringDOBSSN4CheckBox() == true) {
             gatheringDOBSSN4Done = "done";
         } else {
             gatheringDOBSSN4Done = "";
@@ -303,9 +316,8 @@ public String getDataReceivedFromSales0Done() {
     public void setGatheringDOBSSN4Done(String gatheringDOBSSN4Done) {
         this.gatheringDOBSSN4Done = gatheringDOBSSN4Done;
     }
-    
-    // ************* 5. Signing ERI Ageement ****************************
 
+    // ************* 5. Signing ERI Ageement ****************************
     public UploadedFile getSigningERIAgeement5FileUpload() {
         return signingERIAgeement5FileUpload;
     }
@@ -331,7 +343,7 @@ public String getDataReceivedFromSales0Done() {
     }
 
     public String getSigningERIAgeement5Done() {
-        if ( isSigningERIAgeement5CheckBox() == true ) {
+        if (isSigningERIAgeement5CheckBox() == true) {
             signingERIAgeement5Done = "done";
         } else {
             signingERIAgeement5Done = "";
@@ -342,16 +354,15 @@ public String getDataReceivedFromSales0Done() {
     public void setSigningERIAgeement5Done(String signingERIAgeement5Done) {
         this.signingERIAgeement5Done = signingERIAgeement5Done;
     }
-    
+
     public void signingERIAgeement5upload() {
-        if( signingERIAgeement5FileUpload != null ) {
+        if (signingERIAgeement5FileUpload != null) {
             FacesMessage message = new FacesMessage("Succesful", signingERIAgeement5FileUpload.getFileName() + " is uploaded.");
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
     }
-    
-    //********************* 6. Apply to financing  *********************
 
+    //********************* 6. Apply to financing  *********************
     public String getApplyToFinancing6String() {
         return applyToFinancing6String;
     }
@@ -369,7 +380,7 @@ public String getDataReceivedFromSales0Done() {
     }
 
     public String getApplyToFinancing6Done() {
-        if ( isApplyToFinancing6CheckBox() == true ) {
+        if (isApplyToFinancing6CheckBox() == true) {
             applyToFinancing6Done = "done";
         } else {
             applyToFinancing6Done = "";
@@ -381,8 +392,7 @@ public String getDataReceivedFromSales0Done() {
         this.applyToFinancing6Done = applyToFinancing6Done;
     }
 
-   // *************** 7. Financing docs received *******************
-
+    // *************** 7. Financing docs received *******************
     public UploadedFile getFinancingDocsReceived7FileUpload() {
         return financingDocsReceived7FileUpload;
     }
@@ -408,7 +418,7 @@ public String getDataReceivedFromSales0Done() {
     }
 
     public String getFinancingDocsReceived7Done() {
-        if ( isFinancingDocsReceived7CheckBox() == true ) {
+        if (isFinancingDocsReceived7CheckBox() == true) {
             financingDocsReceived7Done = "done";
         } else {
             financingDocsReceived7Done = "";
@@ -419,16 +429,15 @@ public String getDataReceivedFromSales0Done() {
     public void setFinancingDocsReceived7Done(String financingDocsReceived7Done) {
         this.financingDocsReceived7Done = financingDocsReceived7Done;
     }
-    
+
     public void financingDocsReceived7upload() {
-        if( financingDocsReceived7FileUpload != null ) {
+        if (financingDocsReceived7FileUpload != null) {
             FacesMessage message = new FacesMessage("Succesful", financingDocsReceived7FileUpload.getFileName() + " is uploaded.");
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
     }
-    
-    //************ 8.Schedule appointment by customer ************************
 
+    //************ 8.Schedule appointment by customer ************************
     public Date getScheduleAppointmentByCustomer8Date() {
         return scheduleAppointmentByCustomer8Date;
     }
@@ -454,7 +463,7 @@ public String getDataReceivedFromSales0Done() {
     }
 
     public String getScheduleAppointmentByCustomer8Done() {
-        if ( isScheduleAppointmentByCustomer8CheckBox() == true ) {
+        if (isScheduleAppointmentByCustomer8CheckBox() == true) {
             scheduleAppointmentByCustomer8Done = "done";
         } else {
             scheduleAppointmentByCustomer8Done = "";
@@ -465,9 +474,8 @@ public String getDataReceivedFromSales0Done() {
     public void setScheduleAppointmentByCustomer8Done(String scheduleAppointmentByCustomer8Done) {
         this.scheduleAppointmentByCustomer8Done = scheduleAppointmentByCustomer8Done;
     }
-    
-    // ********************** 9.Signing contract by customer *****************
 
+    // ********************** 9.Signing contract by customer *****************
     public UploadedFile getSigningContractByCustomer9FileUpload() {
         return signingContractByCustomer9FileUpload;
     }
@@ -493,7 +501,7 @@ public String getDataReceivedFromSales0Done() {
     }
 
     public String getSigningContractByCustomer9Done() {
-        if ( isSigningContractByCustomer9CheckBox() == true ) {
+        if (isSigningContractByCustomer9CheckBox() == true) {
             signingContractByCustomer9Done = "done";
         } else {
             signingContractByCustomer9Done = "";
@@ -504,16 +512,15 @@ public String getDataReceivedFromSales0Done() {
     public void setSigningContractByCustomer9Done(String signingContractByCustomer9Done) {
         this.signingContractByCustomer9Done = signingContractByCustomer9Done;
     }
-    
+
     public void signingContractByCustomer9upload() {
-        if( signingContractByCustomer9FileUpload != null ) {
+        if (signingContractByCustomer9FileUpload != null) {
             FacesMessage message = new FacesMessage("Succesful", signingContractByCustomer9FileUpload.getFileName() + " is uploaded.");
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
     }
-    
-    //---------------- 10.All docs completed -----------------------------
 
+    //---------------- 10.All docs completed -----------------------------
     public String getAllDocsCompleted10String() {
         return allDocsCompleted10String;
     }
@@ -531,7 +538,7 @@ public String getDataReceivedFromSales0Done() {
     }
 
     public String getAllDocsCompleted10Done() {
-        if ( isAllDocsCompleted10CheckBox() == true ) {
+        if (isAllDocsCompleted10CheckBox() == true) {
             this.allDocsCompleted10Done = "done";
         } else {
             this.allDocsCompleted10Done = "";
@@ -542,9 +549,8 @@ public String getDataReceivedFromSales0Done() {
     public void setAllDocsCompleted10Done(String allDocsCompleted10Done) {
         this.allDocsCompleted10Done = allDocsCompleted10Done;
     }
-    
-    // ----------------------- 11.Notice to proceed -----------------------
 
+    // ----------------------- 11.Notice to proceed -----------------------
     public String getNoticeToProceed11String() {
         return noticeToProceed11String;
     }
@@ -562,7 +568,7 @@ public String getDataReceivedFromSales0Done() {
     }
 
     public String getNoticeToProceed11Done() {
-        if ( isNoticeToProceed11CheckBox() == true ) {
+        if (isNoticeToProceed11CheckBox() == true) {
             this.noticeToProceed11Done = "done";
         } else {
             this.noticeToProceed11Done = "";
@@ -573,9 +579,8 @@ public String getDataReceivedFromSales0Done() {
     public void setNoticeToProceed11Done(String noticeToProceed11Done) {
         this.noticeToProceed11Done = noticeToProceed11Done;
     }
-    
-    // ------------ 12.give # for concierge ------------------------------
 
+    // ------------ 12.give # for concierge ------------------------------
     public String getGiveNForConcierge12String() {
         return giveNForConcierge12String;
     }
@@ -593,7 +598,7 @@ public String getDataReceivedFromSales0Done() {
     }
 
     public String getGiveNForConcierge12Done() {
-        if ( isGatheringDOBSSN4CheckBox() == true ) {
+        if (isGiveNForConcierge12CheckBox() == true) {
             this.giveNForConcierge12Done = "done";
         } else {
             this.giveNForConcierge12Done = "";
@@ -605,39 +610,96 @@ public String getDataReceivedFromSales0Done() {
         this.giveNForConcierge12Done = giveNForConcierge12Done;
     }
 
-    
-    
-    
-    
-    
-    
-    
     //********************
-    
-    public int getCustomerID () {
+    public int getCustomerID() {
         return customerID;
     }
-    
+
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
 
-    public void saveFinance () {
+    public void saveFinance() {
+        financeManage.addOrUpdateFinance(this);
     }
-    
+
+    public void fillFinance(int caseID) {
+        FinanceEntity financeEntity = financeManage.receiveFinanceByCaseID(caseID);
+
+        setCustomerID(financeEntity.getCustomerId());
+        setCaseID(financeEntity.getCaseId());
+        setDataReceivedFromSales0String(financeEntity.getDatareceivedfromsales0string());
+
+//    private boolean dataReceivedFromSales0CheckBox;
+//    private String dataReceivedFromSales0Done;
+//
+//    private String checkingAvailableFinancing1YgreenString;
+//    private String checkingAvailableFinancing1CalFirstString;
+//    private String checkingAvailableFinancing1HeroString;
+//    private boolean checkingAvailableFinancing1CheckBox;
+//    private String checkingAvailableFinancing1Done;
+//
+//    private String evaluateHP2Button;
+//    private boolean evaluateHP2CheckBox;
+//    private String evaluateHP2Done;
+//
+//    private String receivingDraftAgreement3String;
+//    private boolean receivingDraftAgreement3CheckBox;
+//    private String receivingDraftAgreement3Done;
+//
+//    private Date gatheringDOBSSN4Date;
+//    private String gatheringDOBSSN4String;
+//    private boolean gatheringDOBSSN4CheckBox;
+//    private String gatheringDOBSSN4Done;
+//
+//    private UploadedFile signingERIAgeement5FileUpload;
+//    private String signingERIAgeement5String;
+//    private boolean signingERIAgeement5CheckBox;
+//    private String signingERIAgeement5Done;
+//
+//    private String applyToFinancing6String;
+//    private boolean applyToFinancing6CheckBox;
+//    private String applyToFinancing6Done;
+//
+//    private UploadedFile financingDocsReceived7FileUpload;
+//    private String financingDocsReceived7String;
+//    private boolean financingDocsReceived7CheckBox;
+//    private String financingDocsReceived7Done;
+//
+//    private Date scheduleAppointmentByCustomer8Date;
+//    private String scheduleAppointmentByCustomer8String;
+//    private boolean scheduleAppointmentByCustomer8CheckBox;
+//    private String scheduleAppointmentByCustomer8Done;
+//
+//    private UploadedFile signingContractByCustomer9FileUpload;
+//    private String signingContractByCustomer9String;
+//    private boolean signingContractByCustomer9CheckBox;
+//    private String signingContractByCustomer9Done;
+//
+//    private String allDocsCompleted10String;
+//    private boolean allDocsCompleted10CheckBox;
+//    private String allDocsCompleted10Done;
+//
+//    private String noticeToProceed11String;
+//    private boolean noticeToProceed11CheckBox;
+//    private String noticeToProceed11Done;
+//
+//    private String giveNForConcierge12String;
+//    private boolean giveNForConcierge12CheckBox;
+//    private String giveNForConcierge12Done;
+    }
+
     public String wayToDashBoard() {
         return "dashboard";
     }
-    
-    public String receiveWayToMeasures () {
+
+    public String receiveWayToMeasures() {
         return "measures";
     }
-    
+
     @Override
-        public String toString() {
+    public String toString() {
         return "Finance{" + "gatheringDOBSSN4Date=" + gatheringDOBSSN4Date + '}';
     }
-    
-    
-    
+
 }

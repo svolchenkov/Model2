@@ -40,7 +40,6 @@ public class HouseManage {
     }
 
     public CustomerEntity getHouseByCaseID(int caseID) {
-        System.out.println( " caseID =  " + caseID);
         CustomerEntity customerEntity = null;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
@@ -137,7 +136,7 @@ public class HouseManage {
     }
 
     public int receiveNextCustomerID() {
-        int resalt = 0;
+        int result = 0;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
@@ -145,8 +144,7 @@ public class HouseManage {
             Criteria cr = session.createCriteria(CustomerEntity.class);
             cr.setProjection(Projections.rowCount());
             List rowCount = cr.list();
-            resalt = Integer.valueOf(rowCount.get(0).toString());
-            System.out.println("Total Coint Customer: " + rowCount.get(0));
+            result = Integer.valueOf(rowCount.get(0).toString());
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {
@@ -156,7 +154,7 @@ public class HouseManage {
         } finally {
             session.close();
         }
-        return resalt;
+        return result;
     }
 
 }
