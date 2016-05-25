@@ -437,10 +437,11 @@ public class QuestionsBean implements Serializable {
         setCaseID(customerEntity.getCaseId());
         
         financeBean.fillFinance(caseID);
-        if ( financeBean.getCaseID() == -1 ) {
-            financeBean.setCaseID(this.getCaseID());
-            financeBean.setCustomerID(this.getCustomerID());
-        }
+        
+//        if ( financeBean.getCaseID() == -1 ) {
+//            financeBean.setCaseID(this.getCaseID());
+//            financeBean.setCustomerID(this.getCustomerID());
+//        }
         
     }
 

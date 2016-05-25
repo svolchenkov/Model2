@@ -21,6 +21,7 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
 import db.entity.FinanceEntity;
+import javax.inject.Inject;
 
 /**
  *
@@ -32,6 +33,8 @@ public class FinanceBean implements Serializable {
 
     @EJB
     private FinanceManage financeManage;
+    @Inject
+    QuestionsBean questionsBean;
 
     private int customerID;
     private int caseID;
@@ -116,6 +119,8 @@ public class FinanceBean implements Serializable {
         states.put(10, "All docs completed");
         states.put(11, "Notice to proceed");
         states.put(12, "give # for concierge");
+        
+        fillFinance(caseID);
 
     }
 
@@ -624,9 +629,9 @@ public class FinanceBean implements Serializable {
     }
 
     public void fillFinance(int caseID) {
-
+        System.out.println("1");
         FinanceEntity financeEntity = financeManage.receiveFinanceByCaseID(caseID);
-
+        System.out.println("2");
         if ( financeEntity.getCaseId() != -1 ) {
 
             setCustomerID(financeEntity.getCustomerId());
@@ -643,7 +648,7 @@ public class FinanceBean implements Serializable {
             setCheckingAvailableFinancing1Done(financeEntity.getCheckingavailablefinancing1d());
 
             setEvaluateHP2Button(financeEntity.getEvaluatehp2button());
-            setEvaluateHP2CheckBox((boolean) (financeEntity.getEvaluatehp2checkbox() == 1) ? true : false);
+            setEvaluateHP2CheckBox((boolean) (financeEntity.getEvaluatehp2checkbox() == 1) ? true : false); 
             setEvaluateHP2Done(financeEntity.getEvaluatehp2done());
 
             setReceivingDraftAgreement3String(financeEntity.getReceivingdraftagreement3string());
@@ -708,7 +713,48 @@ public class FinanceBean implements Serializable {
 
     @Override
     public String toString() {
-        return "Finance{" + "gatheringDOBSSN4Date=" + gatheringDOBSSN4Date + '}';
+        return "FinanceBean{" + "financeManage=" + financeManage + ", customerID=" 
+                + customerID + ", caseID=" + caseID + ", state=" + state + ", states=" 
+                + states + ", dataReceivedFromSales0String=" + dataReceivedFromSales0String 
+                + ", dataReceivedFromSales0CheckBox=" + dataReceivedFromSales0CheckBox 
+                + ", dataReceivedFromSales0Done=" + dataReceivedFromSales0Done 
+                + ", checkingAvailableFinancing1YgreenString=" + checkingAvailableFinancing1YgreenString 
+                + ", checkingAvailableFinancing1CalFirstString=" + checkingAvailableFinancing1CalFirstString 
+                + ", checkingAvailableFinancing1HeroString=" + checkingAvailableFinancing1HeroString 
+                + ", checkingAvailableFinancing1CheckBox=" + checkingAvailableFinancing1CheckBox 
+                + ", checkingAvailableFinancing1Done=" + checkingAvailableFinancing1Done 
+                + ", evaluateHP2Button=" + evaluateHP2Button + ", evaluateHP2CheckBox=" 
+                + evaluateHP2CheckBox + ", evaluateHP2Done=" + evaluateHP2Done 
+                + ", receivingDraftAgreement3String=" + receivingDraftAgreement3String 
+                + ", receivingDraftAgreement3CheckBox=" + receivingDraftAgreement3CheckBox 
+                + ", receivingDraftAgreement3Done=" + receivingDraftAgreement3Done 
+                + ", gatheringDOBSSN4Date=" + gatheringDOBSSN4Date + ", gatheringDOBSSN4String=" 
+                + gatheringDOBSSN4String + ", gatheringDOBSSN4CheckBox=" + gatheringDOBSSN4CheckBox 
+                + ", gatheringDOBSSN4Done=" + gatheringDOBSSN4Done + ", signingERIAgeement5FileUpload=" 
+                + signingERIAgeement5FileUpload + ", signingERIAgeement5String=" + signingERIAgeement5String 
+                + ", signingERIAgeement5CheckBox=" + signingERIAgeement5CheckBox + ", signingERIAgeement5Done=" 
+                + signingERIAgeement5Done + ", applyToFinancing6String=" + applyToFinancing6String 
+                + ", applyToFinancing6CheckBox=" + applyToFinancing6CheckBox + ", applyToFinancing6Done=" 
+                + applyToFinancing6Done + ", financingDocsReceived7FileUpload=" + financingDocsReceived7FileUpload 
+                + ", financingDocsReceived7String=" + financingDocsReceived7String 
+                + ", financingDocsReceived7CheckBox=" + financingDocsReceived7CheckBox 
+                + ", financingDocsReceived7Done=" + financingDocsReceived7Done 
+                + ", scheduleAppointmentByCustomer8Date=" + scheduleAppointmentByCustomer8Date 
+                + ", scheduleAppointmentByCustomer8String=" + scheduleAppointmentByCustomer8String 
+                + ", scheduleAppointmentByCustomer8CheckBox=" + scheduleAppointmentByCustomer8CheckBox 
+                + ", scheduleAppointmentByCustomer8Done=" + scheduleAppointmentByCustomer8Done 
+                + ", signingContractByCustomer9FileUpload=" + signingContractByCustomer9FileUpload 
+                + ", signingContractByCustomer9String=" + signingContractByCustomer9String 
+                + ", signingContractByCustomer9CheckBox=" + signingContractByCustomer9CheckBox 
+                + ", signingContractByCustomer9Done=" + signingContractByCustomer9Done 
+                + ", allDocsCompleted10String=" + allDocsCompleted10String + ", allDocsCompleted10CheckBox=" 
+                + allDocsCompleted10CheckBox + ", allDocsCompleted10Done=" + allDocsCompleted10Done 
+                + ", noticeToProceed11String=" + noticeToProceed11String + ", noticeToProceed11CheckBox=" 
+                + noticeToProceed11CheckBox + ", noticeToProceed11Done=" + noticeToProceed11Done 
+                + ", giveNForConcierge12String=" + giveNForConcierge12String + ", giveNForConcierge12CheckBox=" 
+                + giveNForConcierge12CheckBox + ", giveNForConcierge12Done=" + giveNForConcierge12Done + '}';
     }
+
+    
 
 }

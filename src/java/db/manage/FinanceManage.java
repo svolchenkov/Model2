@@ -52,8 +52,10 @@ public class FinanceManage {
                 financeEntity.setId(BigDecimal.valueOf(-1));
                 financeEntity.setCustomerId(-1);
                 financeEntity.setDatareceivedfromsales0string("Empty yet");
+                System.out.println("empty");
             } else {
                 financeEntity = (FinanceEntity) finances.get(0);
+                System.out.println("ok");
             }
             tx.commit();
         } catch (HibernateException e) {
@@ -77,6 +79,11 @@ public class FinanceManage {
             cr.setProjection(Projections.rowCount());
             List rowCount = cr.list();
             result = Integer.valueOf(rowCount.get(0).toString());
+            
+            
+            result = 0;
+            
+            
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {
@@ -146,6 +153,9 @@ public class FinanceManage {
         financeEntity.setGivenforconcierge12done(financeBean.getGiveNForConcierge12Done());
         financeEntity.setCustomerId(financeBean.getCustomerID());
         financeEntity.setCaseId(financeBean.getCaseID());
+        
+        System.out.println("" + financeEntity.getCaseId() + " " + financeEntity.getCustomerId());
+        
         try {
             session.beginTransaction();
             if (financeEntity.getCustomerId() == -1) {
@@ -156,6 +166,7 @@ public class FinanceManage {
                 session.update(financeEntity);
             }
             session.getTransaction().commit();
+            result = 0;
         } catch (HibernateException e) {
             System.err.println("addFinance broken: " + e.getMessage());
         } finally {
