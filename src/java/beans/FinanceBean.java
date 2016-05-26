@@ -242,7 +242,7 @@ public class FinanceBean implements Serializable {
     }
 
     public String getEvaluateHP2Done() {
-        if (isEvaluateHP2CheckBox() == true) {
+        if ( isEvaluateHP2CheckBox() == true ) {
             evaluateHP2Done = "done";
         } else {
             evaluateHP2Done = "";
@@ -633,16 +633,67 @@ public class FinanceBean implements Serializable {
         if ( financeEntity.getCaseId() != -1 ) {
         setCustomerID(financeEntity.getCustomerId());
         setCaseID(financeEntity.getCaseId());
-
         setDataReceivedFromSales0String(financeEntity.getDatareceivedfromsales0string());
-        setDataReceivedFromSales0Done(financeEntity.getDatareceivedfromsales0done());
-        setDataReceivedFromSales0CheckBox((boolean) (financeEntity.getDatareceivedfromsales0checkbox() == 1 ? true : false));
 
-        setCheckingAvailableFinancing1YgreenString(financeEntity.getCheckingavailablefinancing1y());
-        setCheckingAvailableFinancing1CalFirstString(financeEntity.getCheckingavailablefinancing1ca());
-        setCheckingAvailableFinancing1HeroString(financeEntity.getCheckingavailablefinancing1he());
-        setCheckingAvailableFinancing1CheckBox((boolean) (financeEntity.getCheckingavailablefinancing1che() == 1 ? true : false));
-        setCheckingAvailableFinancing1Done(financeEntity.getCheckingavailablefinancing1d());
+//    private boolean dataReceivedFromSales0CheckBox;
+//    private String dataReceivedFromSales0Done;
+//
+//    private String checkingAvailableFinancing1YgreenString;
+//    private String checkingAvailableFinancing1CalFirstString;
+//    private String checkingAvailableFinancing1HeroString;
+//    private boolean checkingAvailableFinancing1CheckBox;
+//    private String checkingAvailableFinancing1Done;
+//
+//    private String evaluateHP2Button;
+//    private boolean evaluateHP2CheckBox;
+//    private String evaluateHP2Done;
+//
+//    private String receivingDraftAgreement3String;
+//    private boolean receivingDraftAgreement3CheckBox;
+//    private String receivingDraftAgreement3Done;
+//
+//    private Date gatheringDOBSSN4Date;
+//    private String gatheringDOBSSN4String;
+//    private boolean gatheringDOBSSN4CheckBox;
+//    private String gatheringDOBSSN4Done;
+//
+//    private UploadedFile signingERIAgeement5FileUpload;
+//    private String signingERIAgeement5String;
+//    private boolean signingERIAgeement5CheckBox;
+//    private String signingERIAgeement5Done;
+//
+//    private String applyToFinancing6String;
+//    private boolean applyToFinancing6CheckBox;
+//    private String applyToFinancing6Done;
+//
+//    private UploadedFile financingDocsReceived7FileUpload;
+//    private String financingDocsReceived7String;
+//    private boolean financingDocsReceived7CheckBox;
+//    private String financingDocsReceived7Done;
+//
+//    private Date scheduleAppointmentByCustomer8Date;
+//    private String scheduleAppointmentByCustomer8String;
+//    private boolean scheduleAppointmentByCustomer8CheckBox;
+//    private String scheduleAppointmentByCustomer8Done;
+//
+//    private UploadedFile signingContractByCustomer9FileUpload;
+//    private String signingContractByCustomer9String;
+//    private boolean signingContractByCustomer9CheckBox;
+//    private String signingContractByCustomer9Done;
+//
+//    private String allDocsCompleted10String;
+//    private boolean allDocsCompleted10CheckBox;
+//    private String allDocsCompleted10Done;
+//
+//    private String noticeToProceed11String;
+//    private boolean noticeToProceed11CheckBox;
+//    private String noticeToProceed11Done;
+//
+//    private String giveNForConcierge12String;
+//    private boolean giveNForConcierge12CheckBox;
+//    private String giveNForConcierge12Done;
+    }
+
 
         setEvaluateHP2Button(financeEntity.getEvaluatehp2button());
         setEvaluateHP2CheckBox((boolean) (financeEntity.getEvaluatehp2checkbox() == 1 ? true : false));
@@ -691,15 +742,17 @@ public class FinanceBean implements Serializable {
         setNoticeToProceed11Done(financeEntity.getNoticetoproceed11done());
 
 }
-    }
+    
 
 public String wayToDashBoard() {
+
         return "dashboard";
     }
 
     public String receiveWayToMeasures() {
         return "measures";
     }
+
 
 
 }

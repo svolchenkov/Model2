@@ -48,11 +48,10 @@ public class FinanceManage {
             List finances = query.list();
             if (finances.isEmpty()) {
                 financeEntity = new FinanceEntity();
-                financeEntity.setCaseId(-1);
+                financeEntity.setCaseId(0);
                 financeEntity.setId(BigDecimal.valueOf(-1));
                 financeEntity.setCustomerId(-1);
-                financeEntity.setDatareceivedfromsales0string("Empty yet");
-                System.out.println("empty");
+                financeEntity.setDatareceivedfromsales0string("Didn't find");
             } else {
                 financeEntity = (FinanceEntity) finances.get(0);
                 System.out.println("ok");
