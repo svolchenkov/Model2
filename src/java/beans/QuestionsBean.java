@@ -14,6 +14,7 @@ import db.CreateHibernateSession;
 import db.entity.CustomerEntity;
 import db.manage.HouseManage;
 import java.math.BigDecimal;
+import javax.inject.Inject;
 import org.hibernate.SessionFactory;
 
 /**
@@ -26,11 +27,8 @@ public class QuestionsBean implements Serializable {
 
     @EJB
     private HouseManage houseManaged;
-<<<<<<< OURS
     @Inject
     FinanceBean financeBean;
-=======
->>>>>>> THEIRS
 
     private int customerID;
     private int caseID;
@@ -435,7 +433,7 @@ public class QuestionsBean implements Serializable {
         setMileage(customerEntity.getMileage());
         setFinanceID(customerEntity.getFinanceId());setCustomerID(customerEntity.getId().intValueExact());
         setCaseID(customerEntity.getCaseId());
-<<<<<<< OURS
+
         financeBean.fillFinance(caseID);
         
 //        if ( financeBean.getCaseID() == -1 ) {
@@ -443,8 +441,6 @@ public class QuestionsBean implements Serializable {
 //            financeBean.setCustomerID(this.getCustomerID());
 //        }
 
-=======
->>>>>>> THEIRS
         
     }
 
