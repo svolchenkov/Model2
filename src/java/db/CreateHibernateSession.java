@@ -39,9 +39,7 @@ public class CreateHibernateSession {
 //        Configuration configuration = new Configuration().addClass(db.enttity.CustomerEntity.class);
 
         sessionFactory = new AnnotationConfiguration().
-                configure().
-                addAnnotatedClass(db.entity.CustomerEntity.class).
-                addAnnotatedClass(db.entity.FinanceEntity.class).
+                configure().addAnnotatedClass(db.entity.CustomerEntity.class).
                 buildSessionFactory();
 
         return sessionFactory;

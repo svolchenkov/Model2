@@ -28,7 +28,7 @@ public class QuestionsBean implements Serializable {
     @EJB
     private HouseManage houseManaged;
     @Inject
-    private FinanceBean financeBean;
+    FinanceBean financeBean;
 
     private int customerID;
     private int caseID;
@@ -62,7 +62,6 @@ public class QuestionsBean implements Serializable {
     private String CustomAddUser;
     private int mileage;
     private int financeID;
-    
 
     public QuestionsBean() {
         
@@ -73,6 +72,7 @@ public class QuestionsBean implements Serializable {
     }
 
     public void setCaseID(int caseID) {
+        
         this.caseID = caseID;
     }
 
@@ -395,12 +395,11 @@ public class QuestionsBean implements Serializable {
     }
 
     public void saveQuestionsHouse() {
-        financeBean.saveFinance();
         houseManaged.addOrUpdateHouse(this);
     }
 
     public void receiveQuestionsHouseByCaseID() {
-        CustomerEntity customerEntity = houseManaged.receiveHouseByCaseID(this.caseID);
+        CustomerEntity customerEntity = houseManaged.getHouseByCaseID(this.caseID);
         setCaseID(customerEntity.getCaseId());
         setFirstMeeting(customerEntity.getFirstMeeting());
         setFollowUpWithES(customerEntity.getFollowUpWithEs());
@@ -435,13 +434,13 @@ public class QuestionsBean implements Serializable {
         setMileage(customerEntity.getMileage());
         setFinanceID(customerEntity.getFinanceId());setCustomerID(customerEntity.getId().intValueExact());
         setCaseID(customerEntity.getCaseId());
-        
         financeBean.fillFinance(caseID);
         
 //        if ( financeBean.getCaseID() == -1 ) {
 //            financeBean.setCaseID(this.getCaseID());
 //            financeBean.setCustomerID(this.getCustomerID());
 //        }
+
         
     }
 
