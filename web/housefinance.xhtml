@@ -20,7 +20,7 @@
                                         <td class="titleHouse"><h:outputText value="person name:" /></td>
                                         <td class="titleHouse"><h:outputText id="firstName1onTop" value="#{questions.firstName1}"  /></td>
                                         <td class="titleHouse"><h:commandButton id="receiveQuestionsHouseByCaseID" value="receive house" action="#{questions.receiveQuestionsHouseByCaseID()}" >
-                                                
+                                                <p:ajax event="change" update="main_form" />
                                             </h:commandButton>
                                         
                                         </td>
