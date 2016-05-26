@@ -627,6 +627,7 @@ public class FinanceBean implements Serializable {
     }
 
     public void fillFinance(int caseID) {
+        
         FinanceEntity financeEntity = financeManage.receiveFinanceByCaseID(caseID);
 
         if (financeEntity.getCaseId() != -1) {

@@ -12,14 +12,18 @@
 
             <ui:define name="content">
                 <div id="mainBlockHouse" >
-                    <h:form>
+                    <h:form id="main_form" >
                         <div class="block0House" >
                             <div >
                                 <table><tr><td><h:outputText value="CaseID:"   /></td>
                                         <td class="titleHouse"><h:inputText value="#{questions.caseID}" /></td>
                                         <td class="titleHouse"><h:outputText value="person name:" /></td>
                                         <td class="titleHouse"><h:outputText id="firstName1onTop" value="#{questions.firstName1}"  /></td>
-                                        <td class="titleHouse"><h:commandButton value="receive house" action="#{questions.receiveQuestionsHouseByCaseID()}" /></td>
+                                        <td class="titleHouse"><h:commandButton id="receiveQuestionsHouseByCaseID" value="receive house" action="#{questions.receiveQuestionsHouseByCaseID()}" >
+                                                <p:ajax event="change" update="main_form" />
+                                            </h:commandButton>
+                                        
+                                        </td>
                                         <td class="titleHouse"><h:commandButton value="save House" action="#{questions.saveQuestionsHouse()}" /></td>
                                         <td class="titleHouse"><h:commandButton value="save Finance" action="#{finance.saveFinance()}" /></td>
                                         <td class="titleHouse"><h:commandButton value="to dashBord" action="#{finance.wayToDashBoard()}" /></td>
