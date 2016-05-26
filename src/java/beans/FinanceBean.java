@@ -119,8 +119,6 @@ public class FinanceBean implements Serializable {
         states.put(10, "All docs completed");
         states.put(11, "Notice to proceed");
         states.put(12, "give # for concierge");
-        
-        fillFinance(caseID);
 
     }
 
