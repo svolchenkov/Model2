@@ -10,12 +10,9 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.Date;
 import javax.ejb.EJB;
-import db.CreateHibernateSession;
 import db.entity.CustomerEntity;
 import db.manage.HouseManage;
-import java.math.BigDecimal;
 import javax.inject.Inject;
-import org.hibernate.SessionFactory;
 
 /**
  *
@@ -30,8 +27,8 @@ public class QuestionsBean implements Serializable {
     @Inject
     FinanceBean financeBean;
 
-    private int customerID;
-    private int caseID;
+    private int customerID = 0;
+    private int caseID = 0;
     private Date firstMeeting;
     private Date followUpWithES;
     private String advisor;
@@ -46,11 +43,11 @@ public class QuestionsBean implements Serializable {
     private String phone2;
     private String address;
     private String city;
-    private int zip;
-    private int squareFootage;
-    private int yearHome;
+    private int zip = 0;
+    private int squareFootage = 0;
+    private int yearHome = 0;
     private String EffciencyUpgrades;
-    private int ficoScore;
+    private int ficoScore = 0;
     private String stateQualifierMedianIncome75K;
     private String freePGEWeatherStripping;
     private String[] reasonForCareProgram;
@@ -60,8 +57,8 @@ public class QuestionsBean implements Serializable {
     private String director;
     private int numberOfAppointments;
     private String CustomAddUser;
-    private int mileage;
-    private int financeID;
+    private int mileage = 0;
+    private int financeID = 0;
 
     public QuestionsBean() {
     }
@@ -398,7 +395,9 @@ public class QuestionsBean implements Serializable {
     }
 
     public void receiveQuestionsHouseByCaseID() {
+        
         CustomerEntity customerEntity = houseManaged.getHouseByCaseID(this.caseID);
+        
         setCaseID(customerEntity.getCaseId());
         setFirstMeeting(customerEntity.getFirstMeeting());
         setFollowUpWithES(customerEntity.getFollowUpWithEs());

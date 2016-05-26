@@ -636,61 +636,61 @@ public class FinanceBean implements Serializable {
 
             setDataReceivedFromSales0String(financeEntity.getDatareceivedfromsales0string());
             setDataReceivedFromSales0Done(financeEntity.getDatareceivedfromsales0done());
-            setDataReceivedFromSales0CheckBox((boolean) (financeEntity.getDatareceivedfromsales0checkbox() == 1 ? true : false));
+//            setDataReceivedFromSales0CheckBox((boolean) (financeEntity.getDatareceivedfromsales0checkbox() == 1 ? true : false)); 
 
             setCheckingAvailableFinancing1YgreenString(financeEntity.getCheckingavailablefinancing1y());
             setCheckingAvailableFinancing1CalFirstString(financeEntity.getCheckingavailablefinancing1ca());
             setCheckingAvailableFinancing1HeroString(financeEntity.getCheckingavailablefinancing1he());
-            setCheckingAvailableFinancing1CheckBox((boolean) (financeEntity.getCheckingavailablefinancing1che() == 1 ? true : false));
+//            setCheckingAvailableFinancing1CheckBox((boolean) (financeEntity.getCheckingavailablefinancing1che() == 1 ? true : false)); 
             setCheckingAvailableFinancing1Done(financeEntity.getCheckingavailablefinancing1d());
 
             setEvaluateHP2Button(financeEntity.getEvaluatehp2button());
-            setEvaluateHP2CheckBox((boolean) (financeEntity.getEvaluatehp2checkbox() == 1 ? true : false));
+//            setEvaluateHP2CheckBox((boolean) (financeEntity.getEvaluatehp2checkbox() == 1 ? true : false)); 
             setEvaluateHP2Done(financeEntity.getEvaluatehp2done());
 
             setReceivingDraftAgreement3String(financeEntity.getReceivingdraftagreement3string());
-            setReceivingDraftAgreement3CheckBox((boolean) (financeEntity.getReceivingdraftagreement3ch() == 1 ? true : false));
+//            setReceivingDraftAgreement3CheckBox((boolean) (financeEntity.getReceivingdraftagreement3ch() == 1 ? true : false)); 
             setReceivingDraftAgreement3Done(financeEntity.getReceivingdraftagreement3done());
 
             setGatheringDOBSSN4Date(financeEntity.getGatheringdobssn4date());
             setGatheringDOBSSN4String(financeEntity.getGatheringdobssn4string());
-            setGatheringDOBSSN4CheckBox((boolean) (financeEntity.getGatheringdobssn4che() == 1 ? true : false));
+//            setGatheringDOBSSN4CheckBox((boolean) (financeEntity.getGatheringdobssn4che() == 1 ? true : false)); 
             setGatheringDOBSSN4Done(financeEntity.getGivenforconcierge12done());
 
 //        setSigningERIAgeement5FileUpload(signingERIAgeement5FileUpload);
             setSigningERIAgeement5String(financeEntity.getSigningeriageement5string());
-            setSigningERIAgeement5CheckBox((boolean) (financeEntity.getSigningeriageement5che() == 1 ? true : false));
+//            setSigningERIAgeement5CheckBox((boolean) (financeEntity.getSigningeriageement5che() == 1 ? true : false)); 
             setSigningERIAgeement5Done(financeEntity.getSigningeriageement5done());
 
             setApplyToFinancing6String(financeEntity.getApplytofinancing6string());
-            setApplyToFinancing6CheckBox((boolean) (financeEntity.getAlldocscompleted10checkbox() == 1 ? true : false));
+//            setApplyToFinancing6CheckBox((boolean) (financeEntity.getAlldocscompleted10checkbox() == 1 ? true : false)); 
             setApplyToFinancing6Done(financeEntity.getApplytofinancing6done());
 
 //        setFinancingDocsReceived7FileUpload(financingDocsReceived7FileUpload);
             setFinancingDocsReceived7String(financeEntity.getFinancingdocsreceived7string());
-            setFinancingDocsReceived7CheckBox((boolean) (financeEntity.getFinancingdocsreceived7che() == 1 ? true : false));
+//            setFinancingDocsReceived7CheckBox((boolean) (financeEntity.getFinancingdocsreceived7che() == 1 ? true : false)); 
             setFinancingDocsReceived7Done(financeEntity.getFinancingdocsreceived7do());
 
             setScheduleAppointmentByCustomer8Date(financeEntity.getScheduleappointmentby8d());
             setScheduleAppointmentByCustomer8String(financeEntity.getScheduleappointmentby8st());
-            setScheduleAppointmentByCustomer8CheckBox((boolean) (financeEntity.getScheduleappointmentby8che() == 1 ? true : false));
+//            setScheduleAppointmentByCustomer8CheckBox((boolean) (financeEntity.getScheduleappointmentby8che() == 1 ? true : false)); 
             setScheduleAppointmentByCustomer8Done(financeEntity.getScheduleappointmentby8do());
 
 //        setSigningContractByCustomer9FileUpload(signingContractByCustomer9FileUpload);
             setSigningContractByCustomer9String(financeEntity.getSigningcontractbycustomer9st());
-            setSigningContractByCustomer9CheckBox((boolean) (financeEntity.getSigningcontractbycustomer9che() == 1 ? true : false));
+//            setSigningContractByCustomer9CheckBox((boolean) (financeEntity.getSigningcontractbycustomer9che() == 1 ? true : false)); 
             setSigningContractByCustomer9Done(financeEntity.getSigningcontractbycustomer9done());
 
             setAllDocsCompleted10String(financeEntity.getAlldocscompleted10string());
             setAllDocsCompleted10Done(financeEntity.getAlldocscompleted10do());
-            setAllDocsCompleted10CheckBox((boolean) (financeEntity.getAlldocscompleted10checkbox() == 1 ? true : false));
+//            setAllDocsCompleted10CheckBox((boolean) (financeEntity.getAlldocscompleted10checkbox() == 1 ? true : false)); 
 
             setNoticeToProceed11String(financeEntity.getNoticetoproceed11string());
-            setNoticeToProceed11CheckBox((boolean) (financeEntity.getNoticetoproceed11checkbox() == 1 ? true : false));
+//            setNoticeToProceed11CheckBox((boolean) (financeEntity.getNoticetoproceed11checkbox() == 1 ? true : false)); 
             setNoticeToProceed11Done(financeEntity.getNoticetoproceed11done());
 
             setGiveNForConcierge12String(financeEntity.getGivenforconcierge12string());
-            setGiveNForConcierge12CheckBox((boolean) (financeEntity.getGivenforconcierge12checkbox() == 1 ? true : false));
+//            setGiveNForConcierge12CheckBox((boolean) (financeEntity.getGivenforconcierge12checkbox() == 1 ? true : false)); 
             setNoticeToProceed11Done(financeEntity.getNoticetoproceed11done());
 
         }
