@@ -68,7 +68,6 @@ public class QuestionsBean implements Serializable {
     }
 
     public void setCaseID(int caseID) {
-        
         this.caseID = caseID;
     }
 
@@ -394,11 +393,10 @@ public class QuestionsBean implements Serializable {
         houseManaged.addOrUpdateHouse(this);
     }
 
-    public void receiveQuestionsHouseByCaseID() {
-        
-        CustomerEntity customerEntity = houseManaged.getHouseByCaseID(this.caseID);
-        
-        setCaseID(customerEntity.getCaseId());
+    public void receiveQuestionsHouseByCaseID(int caseID) {
+
+        CustomerEntity customerEntity = houseManaged.getHouseByCaseID(caseID);
+
         setFirstMeeting(customerEntity.getFirstMeeting());
         setFollowUpWithES(customerEntity.getFollowUpWithEs());
         setAdvisor(customerEntity.getAdvisorsId());
@@ -430,17 +428,15 @@ public class QuestionsBean implements Serializable {
         setNumberOfAppointments(customerEntity.getNumberOfAppointments());
         setCustomAddUser(customerEntity.getCustomAddUser());
         setMileage(customerEntity.getMileage());
-        setFinanceID(customerEntity.getFinanceId());setCustomerID(customerEntity.getId().intValueExact());
-        setCaseID(customerEntity.getCaseId());
+        setFinanceID(customerEntity.getFinanceId());
+        setCustomerID(customerEntity.getId().intValueExact());
 
-        financeBean.fillFinance(caseID);
-        
+//        financeBean.fillFinance(caseID);
+
 //        if ( financeBean.getCaseID() == -1 ) {
 //            financeBean.setCaseID(this.getCaseID());
 //            financeBean.setCustomerID(this.getCustomerID());
 //        }
-
-        
     }
 
     public void addAdvisor() {
