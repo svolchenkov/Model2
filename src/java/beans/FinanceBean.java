@@ -694,14 +694,17 @@ public class FinanceBean implements Serializable {
             setNoticeToProceed11Done(financeEntity.getNoticetoproceed11done());
 
         }
+
     }
 
     public String wayToDashBoard() {
+
         return "dashboard";
     }
 
     public String receiveWayToMeasures() {
         return "measures";
+
     }
 
 }
