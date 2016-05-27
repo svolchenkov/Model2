@@ -14,6 +14,7 @@ import db.entity.CustomerEntity;
 import db.manage.HouseManage;
 import db.manage.PropertiesManage;
 import java.util.Calendar;
+import java.util.List;
 import javax.inject.Inject;
 
 /**
@@ -75,6 +76,11 @@ public class QuestionsBean implements Serializable {
                 + "_" + calendar.get(Calendar.DAY_OF_MONTH) + "_" +
                 + propertiesManage.receiveCaseIdAddition();
         return "housefinance.xhtml";
+    }
+    
+    public List<CustomerEntity> findHouseByCaseId (String caseId) {
+        List<CustomerEntity> customers = houseManaged.getHouseByLikeCaseID(caseId);
+        return customers;
     }
     
     public String getCaseID() {
@@ -443,7 +449,8 @@ public class QuestionsBean implements Serializable {
         setCustomAddUser(customerEntity.getCustomAddUser());
         setMileage(customerEntity.getMileage());
         setFinanceID(customerEntity.getFinanceId());
-        setCustomerID(customerEntity.getId());
+        setCustomerID(0);
+        setCaseID(customerEntity.getCaseId());
 
     }
 

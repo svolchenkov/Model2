@@ -5,9 +5,12 @@
  */
 package beans;
 
+import db.entity.CustomerEntity;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
+import javax.inject.Inject;
 
 /**
  *
@@ -17,12 +20,51 @@ import java.io.Serializable;
 @SessionScoped
 public class IndexBean implements Serializable {
 
+    @Inject
+    QuestionsBean questionsBean;
+    
+    private String findHouseInputText;
+    private List<CustomerEntity> customers;
+    private CustomerEntity customerEntity;
+    
     public IndexBean() {
     }
     
+    public String wayToHouseFinance (String caseId) {
+        System.out.println("caseId = " + caseId);
+        questionsBean.receiveQuestionsHouseByCaseID(caseId);
+        return "housefinance.xhtml";
+    }
+    
     public String findHouse() {
-        
-        return "";
+        if ( getFindHouseInputText().length() != 0 ) {
+           customers = questionsBean.findHouseByCaseId( getFindHouseInputText() ); 
+        }
+        return "index.xhtml";
+    }
+
+    public String getFindHouseInputText() {
+        return findHouseInputText;
+    }
+
+    public void setFindHouseInputText(String findHouseInputText) {
+        this.findHouseInputText = findHouseInputText;
+    }
+
+    public List<CustomerEntity> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(List<CustomerEntity> customers) {
+        this.customers = customers;
+    }
+
+    public CustomerEntity getCustomerEntity() {
+        return customerEntity;
+    }
+
+    public void setCustomerEntity(CustomerEntity customerEntity) {
+        this.customerEntity = customerEntity;
     }
     
 }

@@ -37,6 +37,29 @@ public class HouseManage {
         sessionFactory = CreateHibernateSession.getSessionFactory();
     }
 
+    public List<CustomerEntity> getHouseByLikeCaseID(String caseID) {
+        List<CustomerEntity> customers = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            System.out.println("caseID = " + caseID);
+            String sql = "SELECT * FROM CUSTOMER WHERE CASE_ID " + "LIKE '%" + caseID + "%'";
+            SQLQuery query = session.createSQLQuery(sql);
+            query.addEntity(CustomerEntity.class);
+            customers = query.list();
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return customers;
+    }
+    
     public CustomerEntity getHouseByCaseID(String caseID) {
         CustomerEntity customerEntity = null;
         Session session = sessionFactory.openSession();
@@ -129,26 +152,28 @@ public class HouseManage {
         return result;
     }
 
-    public int receiveNextCustomerID() {
-        int result = 0;
-        Session session = sessionFactory.openSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            Criteria cr = session.createCriteria(CustomerEntity.class);
-            cr.setProjection(Projections.rowCount());
-            List rowCount = cr.list();
-            result = Integer.valueOf(rowCount.get(0).toString());
-            tx.commit();
-        } catch (HibernateException e) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-        return result;
-    }
+//    public int receiveNextCustomerID() {
+//        int result = 0;
+//        Session session = sessionFactory.openSession();
+//        Transaction tx = null;
+//        try {
+//            tx = session.beginTransaction();
+//            Criteria cr = session.createCriteria(CustomerEntity.class);
+//            cr.setProjection(Projections.rowCount());
+//            List rowCount = cr.list();
+//            result = Integer.valueOf(rowCount.get(0).toString());
+//            tx.commit();
+//        } catch (HibernateException e) {
+//            if (tx != null) {
+//                tx.rollback();
+//            }
+//            e.printStackTrace();
+//        } finally {
+//            session.close();
+//        }
+//        return result;
+//    }
+    
+    
 
 }
