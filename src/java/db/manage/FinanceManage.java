@@ -78,11 +78,7 @@ public class FinanceManage {
             cr.setProjection(Projections.rowCount());
             List rowCount = cr.list();
             result = Integer.valueOf(rowCount.get(0).toString());
-            
-            
             result = 0;
-            
-            
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {

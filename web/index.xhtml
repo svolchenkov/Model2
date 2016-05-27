@@ -1,45 +1,64 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Energy squad</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link type="text/css" rel="stylesheet" href="resources/css/default.css"/>
+        <link type="text/css" rel="stylesheet" href="resources/css/cssLayout.css"/>
+        <link type="text/css" rel="stylesheet" href="resources/css/housefinance.css" />
+        <link type="text/css" rel="stylesheet" href="resources/css/measures.css" />
+        <link type="text/css" rel="stylesheet" href="resources/css/dashboard.css" />
+        <link type="text/css" rel="stylesheet" href="resources/css/index.css" />
     </h:head>
-    <h:body>
-        <h:form>
-            Energy Squad
-            <h3><h:outputText value="Let's get started" /></h3>
-            <h:commandButton value="new house" action="#{questions.receiveNewHouse()}" />
-            <h3></h3>
-            <h:commandButton value="search house" action="#{index.findHouse()}" />
-            <h:inputText value="#{index.findHouseInputText}" />
-            <h3>Table</h3>
-            <h:form id="formContracts">
-                <p:dataTable style="width: 1000px" id="basicDT" resizableColumns="true" var="customer" value="#{index.customers}">
-                    <f:facet name="header">
-                        Customers, Houses, and same thing more
-                    </f:facet>
-                    <p:column headerText="caseId" sortBy="#{customer.caseId}" >
-                        <h:outputText value="#{customer.caseId}" />
-                    </p:column>
-                    <p:column headerText="FirstName" sortBy="#{customer.firstName1}" >
-                        <h:outputText value="#{customer.firstName1}" />
-                    </p:column>
-                    <p:column headerText="Phone">
-                        <h:outputText value="#{customer.phone1}" />
-                    </p:column>
-                    <p:column headerText="Zip">
-                        <h:outputText value="#{customer.zip}" />
-                    </p:column>
-                    <p:column style="width:170px;text-align: center">
-                        <h:commandButton styleClass="buttonIndex" value="->" action="#{index.wayToHouseFinance(customer.caseId)}" />
-                    </p:column>
-                </p:dataTable>
-            </h:form>
-            
-        </h:form>
-    </h:body>
+    <body>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="content">
+                <div id="mainBlockIndex" >
+                    <h:form>
+                        <div class="block0Index" >
+                            <div>
+                                <h:commandButton value="new house" action="#{questions.receiveNewHouse()}" />
+                                <h:commandButton value="search house" action="#{index.findHouse()}" />
+                                <h:inputText value="#{index.findHouseInputText}" />
+                            </div>
+                        </div>
+                        <table ><tr><td><div class="block1Index" >
+                                        <h3><h:outputText value="Let's get started" /></h3>
+
+                                        <h3></h3>
+
+                                        <h3>Table</h3>
+                                        <h:form id="formContracts">
+                                            <p:dataTable style="width: 1000px" id="basicDT" resizableColumns="true" var="customer" value="#{index.customers}">
+                                                <f:facet name="header">
+                                                    Customers, Houses, and same thing more
+                                                </f:facet>
+                                                <p:column headerText="caseId" sortBy="#{customer.caseId}" >
+                                                    <h:outputText value="#{customer.caseId}" />
+                                                </p:column>
+                                                <p:column headerText="FirstName" sortBy="#{customer.firstName1}" >
+                                                    <h:outputText value="#{customer.firstName1}" />
+                                                </p:column>
+                                                <p:column headerText="Phone">
+                                                    <h:outputText value="#{customer.phone1}" />
+                                                </p:column>
+                                                <p:column headerText="Zip">
+                                                    <h:outputText value="#{customer.zip}" />
+                                                </p:column>
+                                                <p:column style="width:170px;text-align: center">
+                                                    <h:commandButton styleClass="buttonIndex" value="->" action="#{index.wayToHouseFinance(customer.caseId)}" />
+                                                </p:column>
+                                            </p:dataTable>
+                                        </h:form>
+                                    </div></td></tr></table>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </body>
 </html>
 

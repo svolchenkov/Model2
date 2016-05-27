@@ -11,3 +11,92 @@ and open the template in the editor.
 .buttonIndex {
     background: white url('../img/button_next.png') no-repeat top;
 }
+h1#fan {
+    background: url(../img/index.png) no-repeat;
+    width: 980px;
+    height: 450px;
+}
+
+#mainBlockIndex {
+    margin:auto;
+    width:1440px;
+}
+.block0Index{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:1417px;
+    height:25px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+.block1Index, .block2Index{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:1400px;
+    height:1450px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+.block11Index{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:670px;
+    height:s50px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+.h4Index {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  14px;
+    font-weight: normal;
+    margin: auto;
+    padding: 0px;
+    text-align: center;
+    color: green;
+}
+.tableIndex {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  12px;
+    font-weight: normal;
+    margin: auto;
+    padding: 0px;
+    text-align: left;
+    color: darkblue;
+}
+.titleIndex {
+    width: 150px;
+}
+.textAreaIndex {
+    width: 400px;
+}
+.textArea2titleIndex {
+    width: 150px;
+}
+.textArea2fieldIndex {
+    width: 150px;
+}
+.checkBoxIndex {
+    width: 50px;
+}
+.doneIndex {
+    width: 70px;
+}
+
+.topButtonsIndexLeft {
+    position: relative;
+    left: 110px;
+}
+
+.topButtonsIndexRight {
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: darkred;
+}
