@@ -18,6 +18,7 @@ import org.hibernate.cfg.AnnotationConfiguration;
 
 import beans.QuestionsBean;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -51,8 +52,8 @@ public class HouseManage {
             List customers = query.list();
             if ( customers.isEmpty() ) {
                 customerEntity = new CustomerEntity();
-                customerEntity.setCaseId(0);
-                customerEntity.setId(BigDecimal.valueOf(-1));
+                customerEntity.setCaseId(BigDecimal.valueOf(-1));
+                customerEntity.setId(BigInteger.valueOf(-1));
                 customerEntity.setZip(0);
                 customerEntity.setSquareFootage(0);
                 customerEntity.setYearHome(0);
@@ -60,7 +61,6 @@ public class HouseManage {
                 customerEntity.setNumberOfAppointments(0);
                 customerEntity.setMileage(0);
                 customerEntity.setFinanceId(0);
-                customerEntity.setCaseId(0);
                 customerEntity.setFirstName1("Didn't find");
                 
             } else {
@@ -82,9 +82,11 @@ public class HouseManage {
         int result = 1;
 
         Session session = sessionFactory.openSession();
-        CustomerEntity customerEntity = new CustomerEntity();
+        
+        //look for house in DB
+        CustomerEntity customerEntity = getHouseByCaseID(questionsBean.getCaseID());
 
-        customerEntity.setCaseId(questionsBean.getCaseID());
+        customerEntity.setCaseId(BigDecimal.valueOf(questionsBean.getCaseID()));
         customerEntity.setFirstMeeting(questionsBean.getFirstMeeting());
         customerEntity.setFollowUpWithEs(questionsBean.getFollowUpWithES());
         customerEntity.setAdvisorsId(questionsBean.getAdvisor());
@@ -115,13 +117,14 @@ public class HouseManage {
         customerEntity.setCustomAddUser(questionsBean.getCustomAddUser());
         customerEntity.setMileage(questionsBean.getMileage());
         customerEntity.setFinanceId(questionsBean.getFinanceID());
+        
         try {
             session.beginTransaction();
             if ( questionsBean.getCustomerID() == -1 ) {
-                customerEntity.setId(new BigDecimal(receiveNextCustomerID()));
+//                customerEntity.setCaseId(BigDecimal.valueOf(receiveNextCustomerID()));
                 session.save(customerEntity);
             } else {
-                customerEntity.setId(new BigDecimal(questionsBean.getCustomerID()));
+//                customerEntity.setId(new BigDecimal(questionsBean.getCustomerID()));
                 session.update(customerEntity);
             }
             session.getTransaction().commit();

@@ -7,6 +7,7 @@ package db.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -28,7 +29,40 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "CUSTOMER")
 @XmlRootElement
-
+@NamedQueries({
+    @NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c"),
+    @NamedQuery(name = "Customer.findByFirstMeeting", query = "SELECT c FROM Customer c WHERE c.firstMeeting = :firstMeeting"),
+    @NamedQuery(name = "Customer.findByFollowUpWithEs", query = "SELECT c FROM Customer c WHERE c.followUpWithEs = :followUpWithEs"),
+    @NamedQuery(name = "Customer.findByAdvisorsId", query = "SELECT c FROM Customer c WHERE c.advisorsId = :advisorsId"),
+    @NamedQuery(name = "Customer.findByAmbasadorsId", query = "SELECT c FROM Customer c WHERE c.ambasadorsId = :ambasadorsId"),
+    @NamedQuery(name = "Customer.findByFirstName1", query = "SELECT c FROM Customer c WHERE c.firstName1 = :firstName1"),
+    @NamedQuery(name = "Customer.findByLastName1", query = "SELECT c FROM Customer c WHERE c.lastName1 = :lastName1"),
+    @NamedQuery(name = "Customer.findByEmail1", query = "SELECT c FROM Customer c WHERE c.email1 = :email1"),
+    @NamedQuery(name = "Customer.findByPhone1", query = "SELECT c FROM Customer c WHERE c.phone1 = :phone1"),
+    @NamedQuery(name = "Customer.findByFirstName2", query = "SELECT c FROM Customer c WHERE c.firstName2 = :firstName2"),
+    @NamedQuery(name = "Customer.findByLastName2", query = "SELECT c FROM Customer c WHERE c.lastName2 = :lastName2"),
+    @NamedQuery(name = "Customer.findByEmail2", query = "SELECT c FROM Customer c WHERE c.email2 = :email2"),
+    @NamedQuery(name = "Customer.findByPhone2", query = "SELECT c FROM Customer c WHERE c.phone2 = :phone2"),
+    @NamedQuery(name = "Customer.findByAddress", query = "SELECT c FROM Customer c WHERE c.address = :address"),
+    @NamedQuery(name = "Customer.findByCity", query = "SELECT c FROM Customer c WHERE c.city = :city"),
+    @NamedQuery(name = "Customer.findByZip", query = "SELECT c FROM Customer c WHERE c.zip = :zip"),
+    @NamedQuery(name = "Customer.findBySquareFootage", query = "SELECT c FROM Customer c WHERE c.squareFootage = :squareFootage"),
+    @NamedQuery(name = "Customer.findByYearHome", query = "SELECT c FROM Customer c WHERE c.yearHome = :yearHome"),
+    @NamedQuery(name = "Customer.findByEffciencyUpgrades", query = "SELECT c FROM Customer c WHERE c.effciencyUpgrades = :effciencyUpgrades"),
+    @NamedQuery(name = "Customer.findByFicoScore", query = "SELECT c FROM Customer c WHERE c.ficoScore = :ficoScore"),
+    @NamedQuery(name = "Customer.findByStateQualifierIncome75k", query = "SELECT c FROM Customer c WHERE c.stateQualifierIncome75k = :stateQualifierIncome75k"),
+    @NamedQuery(name = "Customer.findByFreePgeWeatherStripping", query = "SELECT c FROM Customer c WHERE c.freePgeWeatherStripping = :freePgeWeatherStripping"),
+    @NamedQuery(name = "Customer.findByReasonForCareProgram", query = "SELECT c FROM Customer c WHERE c.reasonForCareProgram = :reasonForCareProgram"),
+    @NamedQuery(name = "Customer.findByTimeTravelExplained", query = "SELECT c FROM Customer c WHERE c.timeTravelExplained = :timeTravelExplained"),
+    @NamedQuery(name = "Customer.findByQualifySpeakWithHub", query = "SELECT c FROM Customer c WHERE c.qualifySpeakWithHub = :qualifySpeakWithHub"),
+    @NamedQuery(name = "Customer.findByAdditionalNotes", query = "SELECT c FROM Customer c WHERE c.additionalNotes = :additionalNotes"),
+    @NamedQuery(name = "Customer.findByDirectorId", query = "SELECT c FROM Customer c WHERE c.directorId = :directorId"),
+    @NamedQuery(name = "Customer.findByNumberOfAppointments", query = "SELECT c FROM Customer c WHERE c.numberOfAppointments = :numberOfAppointments"),
+    @NamedQuery(name = "Customer.findByCustomAddUser", query = "SELECT c FROM Customer c WHERE c.customAddUser = :customAddUser"),
+    @NamedQuery(name = "Customer.findByMileage", query = "SELECT c FROM Customer c WHERE c.mileage = :mileage"),
+    @NamedQuery(name = "Customer.findByFinanceId", query = "SELECT c FROM Customer c WHERE c.financeId = :financeId"),
+    @NamedQuery(name = "Customer.findById", query = "SELECT c FROM Customer c WHERE c.id = :id"),
+    @NamedQuery(name = "Customer.findByCaseId", query = "SELECT c FROM Customer c WHERE c.caseId = :caseId")})
 public class CustomerEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -115,20 +149,20 @@ public class CustomerEntity implements Serializable {
     private Integer mileage;
     @Column(name = "FINANCE_ID")
     private Integer financeId;
+    @Column(name = "ID")
+    private BigInteger id;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ID")
-    private BigDecimal id;
     @Column(name = "CASE_ID")
-    private Integer caseId;
+    private BigDecimal caseId;
 
     public CustomerEntity() {
     }
 
-    public CustomerEntity(BigDecimal id) {
-        this.id = id;
+    public CustomerEntity(BigDecimal caseId) {
+        this.caseId = caseId;
     }
 
     public Date getFirstMeeting() {
@@ -371,26 +405,26 @@ public class CustomerEntity implements Serializable {
         this.financeId = financeId;
     }
 
-    public BigDecimal getId() {
+    public BigInteger getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(BigInteger id) {
         this.id = id;
     }
 
-    public Integer getCaseId() {
+    public BigDecimal getCaseId() {
         return caseId;
     }
 
-    public void setCaseId(Integer caseId) {
+    public void setCaseId(BigDecimal caseId) {
         this.caseId = caseId;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (caseId != null ? caseId.hashCode() : 0);
         return hash;
     }
 
@@ -401,7 +435,7 @@ public class CustomerEntity implements Serializable {
             return false;
         }
         CustomerEntity other = (CustomerEntity) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.caseId == null && other.caseId != null) || (this.caseId != null && !this.caseId.equals(other.caseId))) {
             return false;
         }
         return true;
@@ -409,7 +443,7 @@ public class CustomerEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "db.entity.Customer[ id=" + id + " ]";
+        return "db.entity.Customer[ caseId=" + caseId + " ]";
     }
     
 }
