@@ -12,6 +12,8 @@ import java.util.Date;
 import javax.ejb.EJB;
 import db.entity.CustomerEntity;
 import db.manage.HouseManage;
+import db.manage.PropertiesManage;
+import java.util.Calendar;
 import javax.inject.Inject;
 
 /**
@@ -26,9 +28,11 @@ public class QuestionsBean implements Serializable {
     private HouseManage houseManaged;
     @Inject
     FinanceBean financeBean;
+    @EJB
+    PropertiesManage propertiesManage;
 
     private int customerID = 0;
-    private int caseID = 0;
+    private String caseID = "0";
     private Date firstMeeting;
     private Date followUpWithES;
     private String advisor;
@@ -63,11 +67,21 @@ public class QuestionsBean implements Serializable {
     public QuestionsBean() {
     }
 
-    public int getCaseID() {
+    public String receiveNewHouse() {
+        Date date = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        this.caseID = "C_" + calendar.get(Calendar.YEAR) + "_" + calendar.get(Calendar.MONTH)
+                + "_" + calendar.get(Calendar.DAY_OF_MONTH) + "_" +
+                + propertiesManage.receiveCaseIdAddition();
+        return "housefinance.xhtml";
+    }
+    
+    public String getCaseID() {
         return caseID;
     }
 
-    public void setCaseID(int caseID) {
+    public void setCaseID(String caseID) {
         this.caseID = caseID;
     }
 
@@ -373,7 +387,8 @@ public class QuestionsBean implements Serializable {
 
     @Override
     public String toString() {
-        return "Questions{" + "customerID=" + customerID + ", firstMeeting=" + firstMeeting
+        return ", timeTravelExplained="
+                + "Questions{" + "customerID=" + customerID + ", firstMeeting=" + firstMeeting
                 + ", followUpWithES=" + followUpWithES + ", advisor=" + advisor + ", ambassador="
                 + ambassador + ", firstName1=" + firstName1 + ", lastName1=" + lastName1
                 + ", email1=" + email1 + ", phone1=" + phone1 + ", firstName2=" + firstName2
@@ -382,7 +397,6 @@ public class QuestionsBean implements Serializable {
                 + squareFootage + ", yearHome=" + yearHome + ", EffciencyUpgrades="
                 + EffciencyUpgrades + ", ficoScore=" + ficoScore + ", stateQualifierMedianIncome75K="
                 + stateQualifierMedianIncome75K + ", freePGEWeatherStripping=" + freePGEWeatherStripping
-                + ", reasonForCareProgram=" + printReasonforCareProgram() + ", timeTravelExplained="
                 + timeTravelExplained + ", qualifyToSpeakWithHub=" + qualifyToSpeakWithHub
                 + ", additionalNOTES=" + additionalNOTES + ", director=" + director
                 + ", numberOfAppointments=" + numberOfAppointments + ", CustomAddUser="
@@ -392,8 +406,8 @@ public class QuestionsBean implements Serializable {
     public void saveQuestionsHouse() {
         houseManaged.addOrUpdateHouse(this);
     }
-
-    public void receiveQuestionsHouseByCaseID(int caseID) {
+    
+    public void receiveQuestionsHouseByCaseID(String caseID) {
 
         CustomerEntity customerEntity = houseManaged.getHouseByCaseID(caseID);
 
@@ -429,14 +443,8 @@ public class QuestionsBean implements Serializable {
         setCustomAddUser(customerEntity.getCustomAddUser());
         setMileage(customerEntity.getMileage());
         setFinanceID(customerEntity.getFinanceId());
-        setCustomerID(customerEntity.getId().intValueExact());
+        setCustomerID(customerEntity.getId());
 
-//        financeBean.fillFinance(caseID);
-
-//        if ( financeBean.getCaseID() == -1 ) {
-//            financeBean.setCaseID(this.getCaseID());
-//            financeBean.setCustomerID(this.getCustomerID());
-//        }
     }
 
     public void addAdvisor() {

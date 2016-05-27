@@ -9,7 +9,9 @@
         <h:form>
             Hello from Facelets
             <h3><h:outputText value="Let's get started" /></h3>
-            <h:commandButton value="to house + finance data" action="housefinance" />
+            <h:commandButton value="new house" action="#{questions.receiveNewHouse()}" />
+            <h3></h3>
+            <h:commandButton value="search house" />
         </h:form>
     </h:body>
 </html>

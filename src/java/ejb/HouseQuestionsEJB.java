@@ -5,8 +5,10 @@
  */
 package ejb;
 
+import db.CreateHibernateSession;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import org.hibernate.SessionFactory;
 
 /**
  *
@@ -15,8 +17,13 @@ import javax.ejb.Stateless;
 @Stateless
 @LocalBean
 public class HouseQuestionsEJB {
+    
+    private final SessionFactory sessionFactory;
 
     public HouseQuestionsEJB() {
+        sessionFactory = CreateHibernateSession.getSessionFactory();
     }
+    
+    
     
 }

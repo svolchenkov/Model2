@@ -5,18 +5,8 @@
  */
 package db;
 
-import java.io.File;
-import java.util.Date;
-import javax.ejb.LocalBean;
-import javax.ejb.Stateful;
-import javax.ejb.Stateless;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 /**
@@ -41,6 +31,7 @@ public class CreateHibernateSession {
         sessionFactory = new AnnotationConfiguration().
                 configure().addAnnotatedClass(db.entity.CustomerEntity.class).
                 configure().addAnnotatedClass(db.entity.FinanceEntity.class).
+                configure().addAnnotatedClass(db.entity.PropertiesEntity.class).
                 buildSessionFactory();
 
         return sessionFactory;

@@ -14,12 +14,9 @@ import org.hibernate.SessionFactory;
 
 import db.entity.CustomerEntity;
 import org.hibernate.HibernateException;
-import org.hibernate.cfg.AnnotationConfiguration;
 
 import beans.QuestionsBean;
 import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.Date;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
@@ -40,29 +37,21 @@ public class HouseManage {
         sessionFactory = CreateHibernateSession.getSessionFactory();
     }
 
-    public CustomerEntity getHouseByCaseID(int caseID) {
+    public CustomerEntity getHouseByCaseID(String caseID) {
         CustomerEntity customerEntity = null;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String sql = "SELECT * FROM CUSTOMER WHERE CASE_ID = " + caseID;
+            System.out.println("caseID = " + caseID);
+            String sql = "SELECT * FROM CUSTOMER WHERE CASE_ID = " + "'" + caseID + "'";
+            System.out.println("sql = " + sql);
             SQLQuery query = session.createSQLQuery(sql);
             query.addEntity(CustomerEntity.class);
             List customers = query.list();
             if ( customers.isEmpty() ) {
                 customerEntity = new CustomerEntity();
-                customerEntity.setCaseId(BigDecimal.valueOf(-1));
-                customerEntity.setId(BigInteger.valueOf(-1));
-                customerEntity.setZip(0);
-                customerEntity.setSquareFootage(0);
-                customerEntity.setYearHome(0);
-                customerEntity.setFicoScore(0);
-                customerEntity.setNumberOfAppointments(0);
-                customerEntity.setMileage(0);
-                customerEntity.setFinanceId(0);
-                customerEntity.setFirstName1("Didn't find");
-                
+                customerEntity.setNew1(1);
             } else {
                 customerEntity = (CustomerEntity) customers.get(0);
             }
@@ -78,15 +67,11 @@ public class HouseManage {
         return customerEntity;
     }
 
-    public int addOrUpdateHouse(QuestionsBean questionsBean) {
-        int result = 1;
-
-        Session session = sessionFactory.openSession();
+    private CustomerEntity fillFields ( QuestionsBean questionsBean ) {
         
-        //look for house in DB
         CustomerEntity customerEntity = getHouseByCaseID(questionsBean.getCaseID());
-
-        customerEntity.setCaseId(BigDecimal.valueOf(questionsBean.getCaseID()));
+        
+        customerEntity.setCaseId(questionsBean.getCaseID());
         customerEntity.setFirstMeeting(questionsBean.getFirstMeeting());
         customerEntity.setFollowUpWithEs(questionsBean.getFollowUpWithES());
         customerEntity.setAdvisorsId(questionsBean.getAdvisor());
@@ -117,14 +102,20 @@ public class HouseManage {
         customerEntity.setCustomAddUser(questionsBean.getCustomAddUser());
         customerEntity.setMileage(questionsBean.getMileage());
         customerEntity.setFinanceId(questionsBean.getFinanceID());
-        
+        return customerEntity;
+    }
+    
+    public int addOrUpdateHouse(QuestionsBean questionsBean) {
+        int result = 1;
+        Session session = sessionFactory.openSession();
+        CustomerEntity customerEntity = fillFields(questionsBean);
+
         try {
             session.beginTransaction();
-            if ( questionsBean.getCustomerID() == -1 ) {
-//                customerEntity.setCaseId(BigDecimal.valueOf(receiveNextCustomerID()));
+            if ( customerEntity.getNew1() == 1 ) {
+                customerEntity.setNew1(0);
                 session.save(customerEntity);
             } else {
-//                customerEntity.setId(new BigDecimal(questionsBean.getCustomerID()));
                 session.update(customerEntity);
             }
             session.getTransaction().commit();
