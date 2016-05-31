@@ -37,7 +37,7 @@ public class FinanceBean implements Serializable {
     QuestionsBean questionsBean;
 
     private int customerID;
-    private int caseID;
+    private String caseID;
 
     private int state;
     private Map<Integer, String> states;
@@ -122,11 +122,16 @@ public class FinanceBean implements Serializable {
 
     }
 
-    public int getCaseID() {
+    public void receiveNewFinance() {
+        cleanFinanceBean();
+        setCaseID(questionsBean.getCaseID());
+    }
+
+    public String getCaseID() {
         return caseID;
     }
 
-    public void setCaseID(int caseID) {
+    public void setCaseID(String caseID) {
         this.caseID = caseID;
     }
 
@@ -626,76 +631,74 @@ public class FinanceBean implements Serializable {
         financeManage.addOrUpdateFinance(this);
     }
 
-    public void fillFinance(int caseID) {
-        
+    public void fillFinance(String caseID) {
+
         FinanceEntity financeEntity = financeManage.receiveFinanceByCaseID(caseID);
 
-        if (financeEntity.getCaseId() != -1) {
+//        if (financeEntity.getCaseId() != -1) {
+        setCustomerID(financeEntity.getCustomerId());
+        setCaseID(financeEntity.getCaseId());
 
-            setCustomerID(financeEntity.getCustomerId());
-            setCaseID(financeEntity.getCaseId());
-
-            setDataReceivedFromSales0String(financeEntity.getDatareceivedfromsales0string());
-            setDataReceivedFromSales0Done(financeEntity.getDatareceivedfromsales0done());
+        setDataReceivedFromSales0String(financeEntity.getDatareceivedfromsales0string());
+        setDataReceivedFromSales0Done(financeEntity.getDatareceivedfromsales0done());
 //            setDataReceivedFromSales0CheckBox((boolean) (financeEntity.getDatareceivedfromsales0checkbox() == 1 ? true : false)); 
 
-            setCheckingAvailableFinancing1YgreenString(financeEntity.getCheckingavailablefinancing1y());
-            setCheckingAvailableFinancing1CalFirstString(financeEntity.getCheckingavailablefinancing1ca());
-            setCheckingAvailableFinancing1HeroString(financeEntity.getCheckingavailablefinancing1he());
+        setCheckingAvailableFinancing1YgreenString(financeEntity.getCheckingavailablefinancing1y());
+        setCheckingAvailableFinancing1CalFirstString(financeEntity.getCheckingavailablefinancing1ca());
+        setCheckingAvailableFinancing1HeroString(financeEntity.getCheckingavailablefinancing1he());
 //            setCheckingAvailableFinancing1CheckBox((boolean) (financeEntity.getCheckingavailablefinancing1che() == 1 ? true : false)); 
-            setCheckingAvailableFinancing1Done(financeEntity.getCheckingavailablefinancing1d());
+        setCheckingAvailableFinancing1Done(financeEntity.getCheckingavailablefinancing1d());
 
-            setEvaluateHP2Button(financeEntity.getEvaluatehp2button());
+        setEvaluateHP2Button(financeEntity.getEvaluatehp2button());
 //            setEvaluateHP2CheckBox((boolean) (financeEntity.getEvaluatehp2checkbox() == 1 ? true : false)); 
-            setEvaluateHP2Done(financeEntity.getEvaluatehp2done());
+        setEvaluateHP2Done(financeEntity.getEvaluatehp2done());
 
-            setReceivingDraftAgreement3String(financeEntity.getReceivingdraftagreement3string());
+        setReceivingDraftAgreement3String(financeEntity.getReceivingdraftagreement3string());
 //            setReceivingDraftAgreement3CheckBox((boolean) (financeEntity.getReceivingdraftagreement3ch() == 1 ? true : false)); 
-            setReceivingDraftAgreement3Done(financeEntity.getReceivingdraftagreement3done());
+        setReceivingDraftAgreement3Done(financeEntity.getReceivingdraftagreement3done());
 
-            setGatheringDOBSSN4Date(financeEntity.getGatheringdobssn4date());
-            setGatheringDOBSSN4String(financeEntity.getGatheringdobssn4string());
+        setGatheringDOBSSN4Date(financeEntity.getGatheringdobssn4date());
+        setGatheringDOBSSN4String(financeEntity.getGatheringdobssn4string());
 //            setGatheringDOBSSN4CheckBox((boolean) (financeEntity.getGatheringdobssn4che() == 1 ? true : false)); 
-            setGatheringDOBSSN4Done(financeEntity.getGivenforconcierge12done());
+        setGatheringDOBSSN4Done(financeEntity.getGivenforconcierge12done());
 
 //        setSigningERIAgeement5FileUpload(signingERIAgeement5FileUpload);
-            setSigningERIAgeement5String(financeEntity.getSigningeriageement5string());
+        setSigningERIAgeement5String(financeEntity.getSigningeriageement5string());
 //            setSigningERIAgeement5CheckBox((boolean) (financeEntity.getSigningeriageement5che() == 1 ? true : false)); 
-            setSigningERIAgeement5Done(financeEntity.getSigningeriageement5done());
+        setSigningERIAgeement5Done(financeEntity.getSigningeriageement5done());
 
-            setApplyToFinancing6String(financeEntity.getApplytofinancing6string());
+        setApplyToFinancing6String(financeEntity.getApplytofinancing6string());
 //            setApplyToFinancing6CheckBox((boolean) (financeEntity.getAlldocscompleted10checkbox() == 1 ? true : false)); 
-            setApplyToFinancing6Done(financeEntity.getApplytofinancing6done());
+        setApplyToFinancing6Done(financeEntity.getApplytofinancing6done());
 
 //        setFinancingDocsReceived7FileUpload(financingDocsReceived7FileUpload);
-            setFinancingDocsReceived7String(financeEntity.getFinancingdocsreceived7string());
+        setFinancingDocsReceived7String(financeEntity.getFinancingdocsreceived7string());
 //            setFinancingDocsReceived7CheckBox((boolean) (financeEntity.getFinancingdocsreceived7che() == 1 ? true : false)); 
-            setFinancingDocsReceived7Done(financeEntity.getFinancingdocsreceived7do());
+        setFinancingDocsReceived7Done(financeEntity.getFinancingdocsreceived7do());
 
-            setScheduleAppointmentByCustomer8Date(financeEntity.getScheduleappointmentby8d());
-            setScheduleAppointmentByCustomer8String(financeEntity.getScheduleappointmentby8st());
+        setScheduleAppointmentByCustomer8Date(financeEntity.getScheduleappointmentby8d());
+        setScheduleAppointmentByCustomer8String(financeEntity.getScheduleappointmentby8st());
 //            setScheduleAppointmentByCustomer8CheckBox((boolean) (financeEntity.getScheduleappointmentby8che() == 1 ? true : false)); 
-            setScheduleAppointmentByCustomer8Done(financeEntity.getScheduleappointmentby8do());
+        setScheduleAppointmentByCustomer8Done(financeEntity.getScheduleappointmentby8do());
 
 //        setSigningContractByCustomer9FileUpload(signingContractByCustomer9FileUpload);
-            setSigningContractByCustomer9String(financeEntity.getSigningcontractbycustomer9st());
+        setSigningContractByCustomer9String(financeEntity.getSigningcontractbycustomer9st());
 //            setSigningContractByCustomer9CheckBox((boolean) (financeEntity.getSigningcontractbycustomer9che() == 1 ? true : false)); 
-            setSigningContractByCustomer9Done(financeEntity.getSigningcontractbycustomer9done());
+        setSigningContractByCustomer9Done(financeEntity.getSigningcontractbycustomer9done());
 
-            setAllDocsCompleted10String(financeEntity.getAlldocscompleted10string());
-            setAllDocsCompleted10Done(financeEntity.getAlldocscompleted10do());
+        setAllDocsCompleted10String(financeEntity.getAlldocscompleted10string());
+        setAllDocsCompleted10Done(financeEntity.getAlldocscompleted10do());
 //            setAllDocsCompleted10CheckBox((boolean) (financeEntity.getAlldocscompleted10checkbox() == 1 ? true : false)); 
 
-            setNoticeToProceed11String(financeEntity.getNoticetoproceed11string());
+        setNoticeToProceed11String(financeEntity.getNoticetoproceed11string());
 //            setNoticeToProceed11CheckBox((boolean) (financeEntity.getNoticetoproceed11checkbox() == 1 ? true : false)); 
-            setNoticeToProceed11Done(financeEntity.getNoticetoproceed11done());
+        setNoticeToProceed11Done(financeEntity.getNoticetoproceed11done());
 
-            setGiveNForConcierge12String(financeEntity.getGivenforconcierge12string());
+        setGiveNForConcierge12String(financeEntity.getGivenforconcierge12string());
 //            setGiveNForConcierge12CheckBox((boolean) (financeEntity.getGivenforconcierge12checkbox() == 1 ? true : false)); 
-            setNoticeToProceed11Done(financeEntity.getNoticetoproceed11done());
+        setNoticeToProceed11Done(financeEntity.getNoticetoproceed11done());
 
-        }
-
+//        }
     }
 
     public String wayToDashBoard() {
@@ -706,6 +709,69 @@ public class FinanceBean implements Serializable {
     public String receiveWayToMeasures() {
         return "measures";
 
+    }
+
+    public void cleanFinanceBean() {
+        setCustomerID(0);
+        setState(0);
+        setDataReceivedFromSales0String("");
+        setDataReceivedFromSales0CheckBox(false);
+        setDataReceivedFromSales0Done("");
+
+        setCheckingAvailableFinancing1YgreenString("");
+        setCheckingAvailableFinancing1CalFirstString("");
+        setCheckingAvailableFinancing1HeroString("");
+        setCheckingAvailableFinancing1CheckBox(false);
+        setCheckingAvailableFinancing1Done("");
+
+        setEvaluateHP2Button("");
+        setEvaluateHP2CheckBox(false);
+        setEvaluateHP2Done("");
+
+        setReceivingDraftAgreement3String("");
+        setReceivingDraftAgreement3CheckBox(false);
+        setReceivingDraftAgreement3Done("");
+
+        setGatheringDOBSSN4Date(null);
+        setGatheringDOBSSN4String("");
+        setGatheringDOBSSN4CheckBox(false);
+        setGatheringDOBSSN4Done("");
+
+        setSigningERIAgeement5FileUpload(null);
+        setSigningERIAgeement5String("");
+        setSigningERIAgeement5CheckBox(false);
+        setSigningERIAgeement5Done("");
+
+        setApplyToFinancing6String("");
+        setApplyToFinancing6CheckBox(false);
+        setApplyToFinancing6Done("");
+
+        setFinancingDocsReceived7FileUpload(null);
+        setFinancingDocsReceived7String("");
+        setFinancingDocsReceived7CheckBox(false);
+        setFinancingDocsReceived7Done("");
+
+        setScheduleAppointmentByCustomer8Date(null);
+        setScheduleAppointmentByCustomer8String("");
+        setScheduleAppointmentByCustomer8CheckBox(false);
+        setScheduleAppointmentByCustomer8Done("");
+
+        setSigningContractByCustomer9FileUpload(null);
+        setSigningContractByCustomer9String("");
+        setSigningContractByCustomer9CheckBox(false);
+        setSigningContractByCustomer9Done("");
+
+        setAllDocsCompleted10String("");
+        setAllDocsCompleted10CheckBox(false);
+        setAllDocsCompleted10Done("");
+
+        setNoticeToProceed11String("");
+        setNoticeToProceed11CheckBox(false);
+        setNoticeToProceed11Done("");
+
+        setGiveNForConcierge12String("");
+        setGiveNForConcierge12CheckBox(false);
+        setGiveNForConcierge12Done("");
     }
 
 }

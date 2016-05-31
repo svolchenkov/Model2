@@ -15,6 +15,7 @@ import db.manage.HouseManage;
 import db.manage.PropertiesManage;
 import java.util.Calendar;
 import java.util.List;
+import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 
 /**
@@ -69,12 +70,15 @@ public class QuestionsBean implements Serializable {
     }
 
     public String receiveNewHouse() {
+        cleanQuestionsHouseBean();
+        financeBean.cleanFinanceBean();
         Date date = new Date();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         this.caseID = "C_" + calendar.get(Calendar.YEAR) + "_" + calendar.get(Calendar.MONTH)
                 + "_" + calendar.get(Calendar.DAY_OF_MONTH) + "_" +
                 + propertiesManage.receiveCaseIdAddition();
+        financeBean.setCaseID(this.caseID);
         return "housefinance.xhtml";
     }
     
@@ -346,8 +350,8 @@ public class QuestionsBean implements Serializable {
     public void reset() {
         Date date = new Date();
         int customerID = 0;
-        Date firstMeeting = date;
-        setFollowUpWithES(date);
+        setFirstMeeting(null);
+        setFollowUpWithES(null);
         setAdvisor("select");
         setAmbassador("select");
         setFirstName1("");
@@ -375,8 +379,6 @@ public class QuestionsBean implements Serializable {
         setNumberOfAppointments(0);
         setCustomAddUser("");
         setMileage(0);
-
-        System.out.println("" + this.toString());
     }
 
     public String printReasonforCareProgram() {
@@ -411,6 +413,7 @@ public class QuestionsBean implements Serializable {
 
     public void saveQuestionsHouse() {
         houseManaged.addOrUpdateHouse(this);
+        financeBean.saveFinance();
     }
     
     public void receiveQuestionsHouseByCaseID(String caseID) {
@@ -458,4 +461,8 @@ public class QuestionsBean implements Serializable {
 //        advisorManage.addAdvisor();
     }
 
+   private void cleanQuestionsHouseBean() {
+       reset();
+   }
+    
 }

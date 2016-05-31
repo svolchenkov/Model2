@@ -6,7 +6,7 @@
 package db.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -32,19 +32,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class FinanceEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Id
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "ID")
-    private BigDecimal id;
+    private BigInteger id;
     @Column(name = "STATE_CURRENT")
     private Integer stateCurrent;
     @Size(max = 300)
     @Column(name = "DATARECEIVEDFROMSALES0STRING")
     private String datareceivedfromsales0string;
     @Column(name = "DATARECEIVEDFROMSALES0CHECKBOX")
-    private Short datareceivedfromsales0checkbox;
+    private Integer datareceivedfromsales0checkbox;
     @Size(max = 5)
     @Column(name = "DATARECEIVEDFROMSALES0DONE")
     private String datareceivedfromsales0done;
@@ -58,7 +54,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "CHECKINGAVAILABLEFINANCING1HE")
     private String checkingavailablefinancing1he;
     @Column(name = "CHECKINGAVAILABLEFINANCING1CHE")
-    private Short checkingavailablefinancing1che;
+    private Integer checkingavailablefinancing1che;
     @Size(max = 5)
     @Column(name = "CHECKINGAVAILABLEFINANCING1D")
     private String checkingavailablefinancing1d;
@@ -66,7 +62,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "EVALUATEHP2BUTTON")
     private String evaluatehp2button;
     @Column(name = "EVALUATEHP2CHECKBOX")
-    private Short evaluatehp2checkbox;
+    private Integer evaluatehp2checkbox;
     @Size(max = 5)
     @Column(name = "EVALUATEHP2DONE")
     private String evaluatehp2done;
@@ -74,7 +70,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "RECEIVINGDRAFTAGREEMENT3STRING")
     private String receivingdraftagreement3string;
     @Column(name = "RECEIVINGDRAFTAGREEMENT3CH")
-    private Short receivingdraftagreement3ch;
+    private Integer receivingdraftagreement3ch;
     @Size(max = 5)
     @Column(name = "RECEIVINGDRAFTAGREEMENT3DONE")
     private String receivingdraftagreement3done;
@@ -85,7 +81,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "GATHERINGDOBSSN4STRING")
     private String gatheringdobssn4string;
     @Column(name = "GATHERINGDOBSSN4CHE")
-    private Short gatheringdobssn4che;
+    private Integer gatheringdobssn4che;
     @Size(max = 5)
     @Column(name = "GATHERINGDOBSSN4DONE")
     private String gatheringdobssn4done;
@@ -96,7 +92,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "SIGNINGERIAGEEMENT5STRING")
     private String signingeriageement5string;
     @Column(name = "SIGNINGERIAGEEMENT5CHE")
-    private Short signingeriageement5che;
+    private Integer signingeriageement5che;
     @Size(max = 5)
     @Column(name = "SIGNINGERIAGEEMENT5DONE")
     private String signingeriageement5done;
@@ -104,7 +100,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "APPLYTOFINANCING6STRING")
     private String applytofinancing6string;
     @Column(name = "APPLYTOFINANCING6CHECKBOX")
-    private Short applytofinancing6checkbox;
+    private Integer applytofinancing6checkbox;
     @Size(max = 5)
     @Column(name = "APPLYTOFINANCING6DONE")
     private String applytofinancing6done;
@@ -115,7 +111,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "FINANCINGDOCSRECEIVED7STRING")
     private String financingdocsreceived7string;
     @Column(name = "FINANCINGDOCSRECEIVED7CHE")
-    private Short financingdocsreceived7che;
+    private Integer financingdocsreceived7che;
     @Size(max = 5)
     @Column(name = "FINANCINGDOCSRECEIVED7DO")
     private String financingdocsreceived7do;
@@ -126,7 +122,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "SCHEDULEAPPOINTMENTBY8ST")
     private String scheduleappointmentby8st;
     @Column(name = "SCHEDULEAPPOINTMENTBY8CHE")
-    private Short scheduleappointmentby8che;
+    private Integer scheduleappointmentby8che;
     @Size(max = 5)
     @Column(name = "SCHEDULEAPPOINTMENTBY8DO")
     private String scheduleappointmentby8do;
@@ -137,7 +133,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "SIGNINGCONTRACTBYCUSTOMER9ST")
     private String signingcontractbycustomer9st;
     @Column(name = "SIGNINGCONTRACTBYCUSTOMER9CHE")
-    private Short signingcontractbycustomer9che;
+    private Integer signingcontractbycustomer9che;
     @Size(max = 5)
     @Column(name = "SIGNINGCONTRACTBYCUSTOMER9DONE")
     private String signingcontractbycustomer9done;
@@ -145,7 +141,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "ALLDOCSCOMPLETED10STRING")
     private String alldocscompleted10string;
     @Column(name = "ALLDOCSCOMPLETED10CHECKBOX")
-    private Short alldocscompleted10checkbox;
+    private Integer alldocscompleted10checkbox;
     @Size(max = 5)
     @Column(name = "ALLDOCSCOMPLETED10DO")
     private String alldocscompleted10do;
@@ -153,7 +149,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "NOTICETOPROCEED11STRING")
     private String noticetoproceed11string;
     @Column(name = "NOTICETOPROCEED11CHECKBOX")
-    private Short noticetoproceed11checkbox;
+    private Integer noticetoproceed11checkbox;
     @Size(max = 5)
     @Column(name = "NOTICETOPROCEED11DONE")
     private String noticetoproceed11done;
@@ -161,27 +157,33 @@ public class FinanceEntity implements Serializable {
     @Column(name = "GIVENFORCONCIERGE12STRING")
     private String givenforconcierge12string;
     @Column(name = "GIVENFORCONCIERGE12CHECKBOX")
-    private Short givenforconcierge12checkbox;
+    private Integer givenforconcierge12checkbox;
     @Size(max = 5)
     @Column(name = "GIVENFORCONCIERGE12DONE")
     private String givenforconcierge12done;
     @Column(name = "CUSTOMER_ID")
     private Integer customerId;
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
     @Column(name = "CASE_ID")
-    private Integer caseId;
+    private String caseId;
+    @Column(name = "NEW")
+    private Integer new1;
 
     public FinanceEntity() {
     }
 
-//    public FinanceEntity(BigDecimal id) {
-//        this.id = id;
-//    }
+    public FinanceEntity(String caseId) {
+        this.caseId = caseId;
+    }
 
-    public BigDecimal getId() {
+    public BigInteger getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(BigInteger id) {
         this.id = id;
     }
 
@@ -201,11 +203,11 @@ public class FinanceEntity implements Serializable {
         this.datareceivedfromsales0string = datareceivedfromsales0string;
     }
 
-    public Short getDatareceivedfromsales0checkbox() {
+    public Integer getDatareceivedfromsales0checkbox() {
         return datareceivedfromsales0checkbox;
     }
 
-    public void setDatareceivedfromsales0checkbox(Short datareceivedfromsales0checkbox) {
+    public void setDatareceivedfromsales0checkbox(Integer datareceivedfromsales0checkbox) {
         this.datareceivedfromsales0checkbox = datareceivedfromsales0checkbox;
     }
 
@@ -241,11 +243,11 @@ public class FinanceEntity implements Serializable {
         this.checkingavailablefinancing1he = checkingavailablefinancing1he;
     }
 
-    public Short getCheckingavailablefinancing1che() {
+    public Integer getCheckingavailablefinancing1che() {
         return checkingavailablefinancing1che;
     }
 
-    public void setCheckingavailablefinancing1che(Short checkingavailablefinancing1che) {
+    public void setCheckingavailablefinancing1che(Integer checkingavailablefinancing1che) {
         this.checkingavailablefinancing1che = checkingavailablefinancing1che;
     }
 
@@ -265,11 +267,11 @@ public class FinanceEntity implements Serializable {
         this.evaluatehp2button = evaluatehp2button;
     }
 
-    public Short getEvaluatehp2checkbox() {
+    public Integer getEvaluatehp2checkbox() {
         return evaluatehp2checkbox;
     }
 
-    public void setEvaluatehp2checkbox(Short evaluatehp2checkbox) {
+    public void setEvaluatehp2checkbox(Integer evaluatehp2checkbox) {
         this.evaluatehp2checkbox = evaluatehp2checkbox;
     }
 
@@ -289,11 +291,11 @@ public class FinanceEntity implements Serializable {
         this.receivingdraftagreement3string = receivingdraftagreement3string;
     }
 
-    public Short getReceivingdraftagreement3ch() {
+    public Integer getReceivingdraftagreement3ch() {
         return receivingdraftagreement3ch;
     }
 
-    public void setReceivingdraftagreement3ch(Short receivingdraftagreement3ch) {
+    public void setReceivingdraftagreement3ch(Integer receivingdraftagreement3ch) {
         this.receivingdraftagreement3ch = receivingdraftagreement3ch;
     }
 
@@ -321,11 +323,11 @@ public class FinanceEntity implements Serializable {
         this.gatheringdobssn4string = gatheringdobssn4string;
     }
 
-    public Short getGatheringdobssn4che() {
+    public Integer getGatheringdobssn4che() {
         return gatheringdobssn4che;
     }
 
-    public void setGatheringdobssn4che(Short gatheringdobssn4che) {
+    public void setGatheringdobssn4che(Integer gatheringdobssn4che) {
         this.gatheringdobssn4che = gatheringdobssn4che;
     }
 
@@ -353,11 +355,11 @@ public class FinanceEntity implements Serializable {
         this.signingeriageement5string = signingeriageement5string;
     }
 
-    public Short getSigningeriageement5che() {
+    public Integer getSigningeriageement5che() {
         return signingeriageement5che;
     }
 
-    public void setSigningeriageement5che(Short signingeriageement5che) {
+    public void setSigningeriageement5che(Integer signingeriageement5che) {
         this.signingeriageement5che = signingeriageement5che;
     }
 
@@ -377,11 +379,11 @@ public class FinanceEntity implements Serializable {
         this.applytofinancing6string = applytofinancing6string;
     }
 
-    public Short getApplytofinancing6checkbox() {
+    public Integer getApplytofinancing6checkbox() {
         return applytofinancing6checkbox;
     }
 
-    public void setApplytofinancing6checkbox(Short applytofinancing6checkbox) {
+    public void setApplytofinancing6checkbox(Integer applytofinancing6checkbox) {
         this.applytofinancing6checkbox = applytofinancing6checkbox;
     }
 
@@ -409,11 +411,11 @@ public class FinanceEntity implements Serializable {
         this.financingdocsreceived7string = financingdocsreceived7string;
     }
 
-    public Short getFinancingdocsreceived7che() {
+    public Integer getFinancingdocsreceived7che() {
         return financingdocsreceived7che;
     }
 
-    public void setFinancingdocsreceived7che(Short financingdocsreceived7che) {
+    public void setFinancingdocsreceived7che(Integer financingdocsreceived7che) {
         this.financingdocsreceived7che = financingdocsreceived7che;
     }
 
@@ -441,11 +443,11 @@ public class FinanceEntity implements Serializable {
         this.scheduleappointmentby8st = scheduleappointmentby8st;
     }
 
-    public Short getScheduleappointmentby8che() {
+    public Integer getScheduleappointmentby8che() {
         return scheduleappointmentby8che;
     }
 
-    public void setScheduleappointmentby8che(Short scheduleappointmentby8che) {
+    public void setScheduleappointmentby8che(Integer scheduleappointmentby8che) {
         this.scheduleappointmentby8che = scheduleappointmentby8che;
     }
 
@@ -473,11 +475,11 @@ public class FinanceEntity implements Serializable {
         this.signingcontractbycustomer9st = signingcontractbycustomer9st;
     }
 
-    public Short getSigningcontractbycustomer9che() {
+    public Integer getSigningcontractbycustomer9che() {
         return signingcontractbycustomer9che;
     }
 
-    public void setSigningcontractbycustomer9che(Short signingcontractbycustomer9che) {
+    public void setSigningcontractbycustomer9che(Integer signingcontractbycustomer9che) {
         this.signingcontractbycustomer9che = signingcontractbycustomer9che;
     }
 
@@ -497,11 +499,11 @@ public class FinanceEntity implements Serializable {
         this.alldocscompleted10string = alldocscompleted10string;
     }
 
-    public Short getAlldocscompleted10checkbox() {
+    public Integer getAlldocscompleted10checkbox() {
         return alldocscompleted10checkbox;
     }
 
-    public void setAlldocscompleted10checkbox(Short alldocscompleted10checkbox) {
+    public void setAlldocscompleted10checkbox(Integer alldocscompleted10checkbox) {
         this.alldocscompleted10checkbox = alldocscompleted10checkbox;
     }
 
@@ -521,11 +523,11 @@ public class FinanceEntity implements Serializable {
         this.noticetoproceed11string = noticetoproceed11string;
     }
 
-    public Short getNoticetoproceed11checkbox() {
+    public Integer getNoticetoproceed11checkbox() {
         return noticetoproceed11checkbox;
     }
 
-    public void setNoticetoproceed11checkbox(Short noticetoproceed11checkbox) {
+    public void setNoticetoproceed11checkbox(Integer noticetoproceed11checkbox) {
         this.noticetoproceed11checkbox = noticetoproceed11checkbox;
     }
 
@@ -545,11 +547,11 @@ public class FinanceEntity implements Serializable {
         this.givenforconcierge12string = givenforconcierge12string;
     }
 
-    public Short getGivenforconcierge12checkbox() {
+    public Integer getGivenforconcierge12checkbox() {
         return givenforconcierge12checkbox;
     }
 
-    public void setGivenforconcierge12checkbox(Short givenforconcierge12checkbox) {
+    public void setGivenforconcierge12checkbox(Integer givenforconcierge12checkbox) {
         this.givenforconcierge12checkbox = givenforconcierge12checkbox;
     }
 
@@ -569,18 +571,26 @@ public class FinanceEntity implements Serializable {
         this.customerId = customerId;
     }
 
-    public Integer getCaseId() {
+    public String getCaseId() {
         return caseId;
     }
 
-    public void setCaseId(Integer caseId) {
+    public void setCaseId(String caseId) {
         this.caseId = caseId;
+    }
+
+    public Integer getNew1() {
+        return new1;
+    }
+
+    public void setNew1(Integer new1) {
+        this.new1 = new1;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (caseId != null ? caseId.hashCode() : 0);
         return hash;
     }
 
@@ -591,7 +601,7 @@ public class FinanceEntity implements Serializable {
             return false;
         }
         FinanceEntity other = (FinanceEntity) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.caseId == null && other.caseId != null) || (this.caseId != null && !this.caseId.equals(other.caseId))) {
             return false;
         }
         return true;
@@ -599,7 +609,7 @@ public class FinanceEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "db.entity.FinanceEntity[ id=" + id + " ]";
+        return "db.entity.Finance[ caseId=" + caseId + " ]";
     }
     
 }
