@@ -27,7 +27,7 @@ import javax.inject.Inject;
 public class QuestionsBean implements Serializable {
 
     @EJB
-    private HouseManage houseManaged;
+    private HouseManage houseManage;
     @Inject
     FinanceBean financeBean;
     @Inject
@@ -74,12 +74,12 @@ public class QuestionsBean implements Serializable {
     public String receiveNewHouse() {
         cleanQuestionsHouseBean();
         financeBean.cleanFinanceBean();
-        financeBean.setNew1(1);
+//        financeBean.setNew1(1);
         measureBean.cleanMeasureBean();
         Date date = new Date();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        this.caseID = "C_" + calendar.get(Calendar.YEAR) + "_" + calendar.get(Calendar.MONTH)
+        this.caseID = "C_" + calendar.get(Calendar.YEAR) + "_" + (calendar.get(Calendar.MONTH)+1)
                 + "_" + calendar.get(Calendar.DAY_OF_MONTH) + "_" +
                 + propertiesManage.receiveCaseIdAddition();
         financeBean.setCaseID(this.caseID);
@@ -88,7 +88,7 @@ public class QuestionsBean implements Serializable {
     }
     
     public List<CustomerEntity> findHouseByCaseId (String caseId) {
-        List<CustomerEntity> customers = houseManaged.getHouseByLikeCaseID(caseId);
+        List<CustomerEntity> customers = houseManage.getHouseByLikeCaseID(caseId);
         return customers;
     }
     
@@ -417,14 +417,22 @@ public class QuestionsBean implements Serializable {
     }
 
     public void saveQuestionsHouse() {
-        houseManaged.addOrUpdateHouse(this);
+        /*
+        1.We have QuestionsBean (current)
+        2.HouseManage.addOrUpdateHouse(this); this receive data from HouseManage.fillFields(questionsBean);
+            if new1 = 1 (house new) it call save, if new1 = 0 it call update
+        3.HouseManage.fillFields(questionsBean); receive data from HouseManage.getHouseByCaseID(String caseID), 
+            filled fields in received houseEntity and return this houseEWntity
+        4.HouseManage.getHouseByCaseID(String caseID)  if caseId found in DB, new1 = 0 (this new house), 
+            if caseId didn't find in db, new1 = 1 (this new house), return houseEntity (empty or filled)
+        */
+        houseManage.addOrUpdateHouse(this);
         financeBean.saveFinance();
-        System.out.println("saveFinance() called");
     }
     
     public void receiveQuestionsHouseByCaseID(String caseID) {
 
-        CustomerEntity customerEntity = houseManaged.getHouseByCaseID(caseID);
+        CustomerEntity customerEntity = houseManage.getHouseByCaseID(caseID);
 
         setFirstMeeting(customerEntity.getFirstMeeting());
         setFollowUpWithES(customerEntity.getFollowUpWithEs());

@@ -9,7 +9,10 @@ and open the template in the editor.
 */
 
 .buttonIndex {
-    background: white url('../img/button_next.png') no-repeat top;
+    /*background: white url('../img/button_next.png') no-repeat top;*/
+    background: lightblue;
+    width: 40px;
+    height: 20px;
 }
 h1#fan {
     background: url(../img/index.png) no-repeat;

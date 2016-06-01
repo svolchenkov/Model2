@@ -285,6 +285,8 @@ public class MeasureEntity implements Serializable {
     private Serializable wholecost;
     @Column(name = "SOLARCOST")
     private Serializable solarcost;
+    @Column(name = "NEW1")
+    private Integer new1;
 
     public MeasureEntity() {
     }
@@ -1243,6 +1245,14 @@ public class MeasureEntity implements Serializable {
 
     public void setSolarcost(Serializable solarcost) {
         this.solarcost = solarcost;
+    }
+
+    public Integer getNew1() {
+        return new1;
+    }
+
+    public void setNew1(Integer new1) {
+        this.new1 = new1;
     }
 
     @Override

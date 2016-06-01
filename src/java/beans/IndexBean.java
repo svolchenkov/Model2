@@ -33,6 +33,13 @@ public class IndexBean implements Serializable {
     }
     
     public String wayToHouseFinance (String caseId) {
+        
+        /*
+        1.IndexBean.wayToHouseFinance
+        2.questionsBean.receiveQuestionsHouseByCaseID(caseId)
+        3.houseManage.getHouseByCaseID(caseID) here new1 = 0
+        */
+        
         questionsBean.receiveQuestionsHouseByCaseID(caseId);
         financeBean.receiveFinanceBeanByCaseID(caseId);
         return "housefinance.xhtml";

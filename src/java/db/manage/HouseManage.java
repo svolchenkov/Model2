@@ -150,28 +150,4 @@ public class HouseManage {
         return result;
     }
 
-//    public int receiveNextCustomerID() {
-//        int result = 0;
-//        Session session = sessionFactory.openSession();
-//        Transaction tx = null;
-//        try {
-//            tx = session.beginTransaction();
-//            Criteria cr = session.createCriteria(CustomerEntity.class);
-//            cr.setProjection(Projections.rowCount());
-//            List rowCount = cr.list();
-//            result = Integer.valueOf(rowCount.get(0).toString());
-//            tx.commit();
-//        } catch (HibernateException e) {
-//            if (tx != null) {
-//                tx.rollback();
-//            }
-//            e.printStackTrace();
-//        } finally {
-//            session.close();
-//        }
-//        return result;
-//    }
-    
-    
-
 }
