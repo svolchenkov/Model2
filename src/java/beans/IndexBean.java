@@ -22,6 +22,8 @@ public class IndexBean implements Serializable {
 
     @Inject
     QuestionsBean questionsBean;
+    @Inject
+    FinanceBean financeBean;
     
     private String findHouseInputText;
     private List<CustomerEntity> customers;
@@ -31,8 +33,8 @@ public class IndexBean implements Serializable {
     }
     
     public String wayToHouseFinance (String caseId) {
-        System.out.println("caseId = " + caseId);
         questionsBean.receiveQuestionsHouseByCaseID(caseId);
+        financeBean.receiveFinanceBeanByCaseID(caseId);
         return "housefinance.xhtml";
     }
     

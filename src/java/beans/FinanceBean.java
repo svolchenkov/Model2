@@ -38,6 +38,7 @@ public class FinanceBean implements Serializable {
 
     private int customerID;
     private String caseID;
+    private int new1;
 
     private int state;
     private Map<Integer, String> states;
@@ -121,7 +122,77 @@ public class FinanceBean implements Serializable {
         states.put(12, "give # for concierge");
 
     }
+    
+    public void receiveFinanceBeanByCaseID(String caseID){
+        FinanceEntity financeEntity = financeManage.receiveFinanceByCaseID(caseID);
+        
+        setNew1(financeEntity.getNew1());
+        
+        setCustomerID(financeEntity.getCustomerId());
+        setState(financeEntity.getStateCurrent());
+        setDataReceivedFromSales0String(financeEntity.getDatareceivedfromsales0string());
+        setDataReceivedFromSales0CheckBox((financeEntity.getDatareceivedfromsales0checkbox() == 1));
+        setDataReceivedFromSales0Done(financeEntity.getDatareceivedfromsales0done());
 
+        setCheckingAvailableFinancing1YgreenString(financeEntity.getCheckingavailablefinancing1y());
+        setCheckingAvailableFinancing1CalFirstString(financeEntity.getCheckingavailablefinancing1ca());
+        setCheckingAvailableFinancing1HeroString(financeEntity.getCheckingavailablefinancing1he());
+        setCheckingAvailableFinancing1CheckBox((financeEntity.getCheckingavailablefinancing1che() == 1));
+        setCheckingAvailableFinancing1Done(financeEntity.getCheckingavailablefinancing1d());
+
+        setEvaluateHP2Button(financeEntity.getEvaluatehp2button());
+        setEvaluateHP2CheckBox((financeEntity.getEvaluatehp2checkbox() == 1));
+        setEvaluateHP2Done(financeEntity.getEvaluatehp2done());
+
+        setReceivingDraftAgreement3String(financeEntity.getReceivingdraftagreement3string());
+        setReceivingDraftAgreement3CheckBox(financeEntity.getReceivingdraftagreement3ch() == 1);
+        setReceivingDraftAgreement3Done(financeEntity.getReceivingdraftagreement3done());
+
+        setGatheringDOBSSN4Date(financeEntity.getGatheringdobssn4date());
+        setGatheringDOBSSN4String(financeEntity.getGatheringdobssn4string());
+        setGatheringDOBSSN4CheckBox((financeEntity.getGatheringdobssn4che() == 1));
+        setGatheringDOBSSN4Done(financeEntity.getGatheringdobssn4done());
+
+//        setSigningERIAgeement5FileUpload(financeEntity.getSigningeriageement5fileupload());
+        setSigningERIAgeement5String(financeEntity.getSigningeriageement5string());
+        setSigningERIAgeement5CheckBox((financeEntity.getSigningeriageement5che() == 1)); 
+        setSigningERIAgeement5Done(financeEntity.getSigningeriageement5done());
+
+        setApplyToFinancing6String(financeEntity.getApplytofinancing6string());
+        setApplyToFinancing6CheckBox(financeEntity.getApplytofinancing6checkbox() == 1);
+        setApplyToFinancing6Done(financeEntity.getApplytofinancing6done());
+
+//        setFinancingDocsReceived7FileUpload(financeEntity.getFinancingdocsreceived7fileupl());
+        setFinancingDocsReceived7String(financeEntity.getFinancingdocsreceived7string());
+        setFinancingDocsReceived7CheckBox((financeEntity.getFinancingdocsreceived7che() == 1));
+        setFinancingDocsReceived7Done(financeEntity.getFinancingdocsreceived7do());
+
+        setScheduleAppointmentByCustomer8Date(financeEntity.getScheduleappointmentby8d());
+        setScheduleAppointmentByCustomer8String(financeEntity.getScheduleappointmentby8st());
+        setScheduleAppointmentByCustomer8CheckBox((financeEntity.getScheduleappointmentby8che() == 1));
+        setScheduleAppointmentByCustomer8Done(financeEntity.getScheduleappointmentby8do());
+
+//        setSigningContractByCustomer9FileUpload(financeEntity.getSigningcontractbycustomer9fi());
+        setSigningContractByCustomer9String(financeEntity.getSigningcontractbycustomer9st());
+        setSigningContractByCustomer9CheckBox((financeEntity.getSigningcontractbycustomer9che() == 1));
+        setSigningContractByCustomer9Done(financeEntity.getSigningcontractbycustomer9done());
+
+        setAllDocsCompleted10String(financeEntity.getAlldocscompleted10string());
+        setAllDocsCompleted10CheckBox((financeEntity.getAlldocscompleted10checkbox() == 1));
+        setAllDocsCompleted10Done(financeEntity.getApplytofinancing6done());
+
+        setNoticeToProceed11String(financeEntity.getNoticetoproceed11string());
+        setNoticeToProceed11CheckBox((financeEntity.getNoticetoproceed11checkbox() == 1));
+        setNoticeToProceed11Done(financeEntity.getNoticetoproceed11done());
+
+        setGiveNForConcierge12String(financeEntity.getGivenforconcierge12string());
+        setGiveNForConcierge12CheckBox((financeEntity.getGivenforconcierge12checkbox() == 1 ));
+        setGiveNForConcierge12Done(financeEntity.getGivenforconcierge12done());
+        
+        setCaseID(financeEntity.getCaseId());
+        
+    }
+            
     public void receiveNewFinance() {
         cleanFinanceBean();
         setCaseID(questionsBean.getCaseID());
@@ -698,7 +769,16 @@ public class FinanceBean implements Serializable {
 //            setGiveNForConcierge12CheckBox((boolean) (financeEntity.getGivenforconcierge12checkbox() == 1 ? true : false)); 
         setNoticeToProceed11Done(financeEntity.getNoticetoproceed11done());
 
-//        }
+        setNew1(financeEntity.getNew1());
+        
+    }
+
+    public int getNew1() {
+        return new1;
+    }
+
+    public void setNew1(int new1) {
+        this.new1 = new1;
     }
 
     public String wayToDashBoard() {

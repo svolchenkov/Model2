@@ -30,6 +30,8 @@ public class QuestionsBean implements Serializable {
     private HouseManage houseManaged;
     @Inject
     FinanceBean financeBean;
+    @Inject
+    MeasureBean measureBean;
     @EJB
     PropertiesManage propertiesManage;
 
@@ -72,6 +74,8 @@ public class QuestionsBean implements Serializable {
     public String receiveNewHouse() {
         cleanQuestionsHouseBean();
         financeBean.cleanFinanceBean();
+        financeBean.setNew1(1);
+        measureBean.cleanMeasureBean();
         Date date = new Date();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
@@ -79,6 +83,7 @@ public class QuestionsBean implements Serializable {
                 + "_" + calendar.get(Calendar.DAY_OF_MONTH) + "_" +
                 + propertiesManage.receiveCaseIdAddition();
         financeBean.setCaseID(this.caseID);
+        measureBean.setCaseId(this.caseID);
         return "housefinance.xhtml";
     }
     
@@ -414,6 +419,7 @@ public class QuestionsBean implements Serializable {
     public void saveQuestionsHouse() {
         houseManaged.addOrUpdateHouse(this);
         financeBean.saveFinance();
+        System.out.println("saveFinance() called");
     }
     
     public void receiveQuestionsHouseByCaseID(String caseID) {

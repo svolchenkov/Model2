@@ -270,8 +270,8 @@ public class FinanceEntity implements Serializable {
     public Integer getEvaluatehp2checkbox() {
         return evaluatehp2checkbox;
     }
-
-    public void setEvaluatehp2checkbox(Integer evaluatehp2checkbox) {
+    
+    public void setEvaluateHP2CheckBox(Integer evaluatehp2checkbox) {
         this.evaluatehp2checkbox = evaluatehp2checkbox;
     }
 

@@ -24,10 +24,11 @@ public class MeasureBean implements Serializable {
 
     @EJB
     private MeasureEJB measureEJB;
-    
+
     FinanceBean finance;
 
     private double total;
+    private String CaseId;
     private int customerID;
 
     private boolean number1InsulatAtticBlownCheckBox;
@@ -179,11 +180,10 @@ public class MeasureBean implements Serializable {
     private boolean number15EIncludesAllPermitsCheckBox;
     private boolean number15FCanadianSolar270WattCheckBox;
 
-    
     // Calculate whole cost
     private double wholeCost;
     private double solarCost;
-    
+
     /**
      * Creates a new instance of MeasureBean
      */
@@ -191,12 +191,11 @@ public class MeasureBean implements Serializable {
     }
 
     //****************** 0 **********************************
-    
     public void printToExcel() {
         measureEJB.printToExcel(this);
     }
-    
-    public String wayToHouseFinance () {
+
+    public String wayToHouseFinance() {
         return "housefinance";
     }
 
@@ -207,9 +206,8 @@ public class MeasureBean implements Serializable {
     public void setFinance(FinanceBean finance) {
         this.finance = finance;
     }
-    
-    //******************** 1. Number1InsulatAtticBlown***************************
 
+    //******************** 1. Number1InsulatAtticBlown***************************
     public int getSqft1() {
         return sqft1;
     }
@@ -1370,6 +1368,15 @@ public class MeasureBean implements Serializable {
     }
 
     //*********************************************************************
+
+    public String getCaseId() {
+        return CaseId;
+    }
+
+    public void setCaseId(String CaseId) {
+        this.CaseId = CaseId;
+    }
+    
     public double getTotal() {
         this.total = getNumber1InsulatAtticBlownResult() + getNumber2RemoveAndReplaceResult()
                 + getNumber3InstallBattedInsulationResult() + getNumber4SealDuctingCodeComplianceResult()
@@ -1391,7 +1398,7 @@ public class MeasureBean implements Serializable {
     public void setTotal(double total) {
         this.total = total;
     }
-    
+
     public double getWholeCost() {
         return wholeCost;
     }
@@ -1415,10 +1422,170 @@ public class MeasureBean implements Serializable {
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
-    
+
     //************************************************
-    
     public String goToDashboard() {
         return "dashboard.xhtml";
     }
+
+    //************************************************
+    public void cleanMeasureBean() {
+
+        setTotal(0);
+        setCustomerID(0);
+
+        setNumber1InsulatAtticBlownCheckBox(false);
+        setNumber1InsulatAtticBlownString("");
+        setSqft1(0);
+        setNumber1InsulatAtticBlownResult(0);
+
+        setNumber2RemoveAndReplaceCheckBox(false);
+        setSqft2(0);
+        setNumber2RemoveAndReplaceResult(0);
+
+        setNumber3InstallBattedInsulationCheckBox(false);
+        setSqft3(0);
+        setNumber3InstallBattedInsulationResult(0);
+
+        setNumber4SealDuctingCodeComplianceCheckBox(false);
+        setNumber4SealDuctingCodeComplianceString("");
+        setSqft4(0);
+        setNumber4SealDuctingCodeComplianceResult(0);
+
+        setSqft5(0);
+        setNumber5AirSealPackageCheckBox(false);
+        setNumber5AirSealPackageString("");
+        setNumber5AirSealPackageResult(0);
+
+        setSqft6(0);
+        setNumber6CAZAreaReportCheckBox(false);
+        setNumber6CAZAreaReportString("");
+        setNumber6CAZAreaReportResult(0);
+
+        setSqft7a(0);
+        setNumber7AInstallDuctingStandaloneCheckBox(false);
+        setNumber7AInstallDuctingStandaloneString("");
+        setNumber7AInstallDuctingStandaloneResult(0);
+
+        setSqft7b(0);
+        setNumber7BInstallR8DuctingNewHVACCheckBox(false);
+        setNumber7BInstallR8DuctingNewHVACString("");
+        setNumber7BInstallR8DuctingNewHVACResult(0);
+
+        setSqft8a(0);
+        setNumber8ANewHVACSystemERICheckBox(false);
+        setNumber8ANewHVACSystemERIString("");
+        setNumber8ANewHVACSystemERIResult(0);
+
+        setSqft8b(0);
+        setNumber8BNewHVACSystemERIPrivateCheckBox(false);
+        setNumber8BNewHVACSystemERIPrivateString("");
+        setNumber8BNewHVACSystemERIPrivateResult(0);
+
+        setSqft8bii(0);
+        setNumber8BIIIncludes10YearPartsCheckBox(false);
+        setNumber8BIIIncludes10YearPartsString("");
+        setNumber8BIIIncludes10YearPartsResult(0);
+
+        setSqft9(0);
+        setNumber9SingleDualZoneHVACSystemCheckBox(false);
+        setNumber9SingleDualZoneHVACSystemString("");
+        setNumber9SingleDualZoneHVACSystemResult(0);
+
+        setSqft91(0);
+        setNumber91aRelocateCondenserCheckBox(false);
+        setNumber91aRelocateCondenserInt(0);
+        setNumber91aRelocateCondenserResult(0);
+
+        setNumber91bCutInSupplyVentNewDuctCheckBox(false);
+        setNumber91bCutInSupplyVentNewDuctInt(0);
+        setNumber91bCutInSupplyVentNewDuctResult(0);
+
+        setNumber91cHVACCutInCheckBox(false);
+        setNumber91cHVACCutInInt(0);
+        setNumber91cHVACCutInResult(0);
+
+        setNumber91dDuctSealOnlyCheckBox(false);
+        setNumber91dDuctSealOnlyInt(0);
+        setNumber91dDuctSealOnlyResult(0);
+
+        setNumber91eNewLineSetCheckBox(false);
+        setNumber91eNewLineSetInt(0);
+        setNumber91eNewLineSetResult(0);
+
+        setNumber91fEnlargeReturnAirCheckBox(false);
+        setNumber91fEnlargeReturnAirInt(0);
+        setNumber91fEnlargeReturnAirResult(0);
+
+        setNumber92NotesCheckBox(false);
+        setNumber92NotesString("");
+
+        setNumber93CostPerKWCheckBox(false);
+        setNumber93CostPerKWInt(0);
+        setNumber93CostPerKWResalt(0);
+        setNumber93DCKWsInt(0);
+        setNumber93DCKWsResalt(0);
+
+        setNumber10InstallWindowsCheckBox(false);
+        setNumber10numOfWindows("");
+        setNumber10TotalUnitedInchesInt(0);
+        setNumber10InstallResult(0);
+        setNumber10numOfSliders("");
+        setNumber10LinearFeet("");
+        setNumber10LinearFeetResult(0);
+
+        setNumber101ACutInDoorCheckBox(false);
+        setNumber101ACutInDoorInt(0);
+        setNumber101ACutInDoorResult(0);
+
+        setNumber101BAddHeaderCheckBox(false);
+        setNumber101BAddHeaderInt(0);
+        setNumber101BAddHeaderResult(0);
+
+        setNumber102ACutDownWindowCheckBox(false);
+        setNumber102ACutDownWindowResult(0);
+
+        setNumber102BElectricalReroutesCheckBox(false);
+        setNumber102BElectricalReroutesResult(0);
+
+        setNumber102CGardenWindow4CheckBox(false);
+        setNumber102CGardenWindow4Result(0);
+
+        setNumber102DGardenWindow6CheckBox(false);
+        setNumber102DGardenWindow6Result(0);
+
+        setNumber103AllGlazingCheckBox(false);
+        setNumber104WindowsToMatcCheckBox(false);
+
+        setNumber11InstallPoolPumpCheckBox(false);
+        setNumber11InstallPoolPumpResult(0);
+
+        setNumber12InstallWholeHouseFanCheckBox(false);
+        setNumber12InstallWholeHouseFanInt(0);
+        setNumber12InstallWholeHouseFanResult(0);
+
+        setNumber13InstallWaterHeaterCheckBox(false);
+        setNumber13InstallWaterHeaterDouble(0);
+        setNumber13InstallWaterHeaterResult(0);
+
+        setNumber14PermitsCheckBox(false);
+        setNumber14PermitsResult(0);
+
+        setNumber15InstallBatteryOperatedCheckBox(false);
+        setNumber15InstallBatteryOperatedResult(0);
+
+        setNumber15AInstallKWDCSolarSystemCheckBox(false);
+        setNumber15aInstallKWDCSolarSystemInt(0);
+
+        setNumber15BIncludesExtrudedAluminumCheckBox(false);
+        setNumber15CSolarEdgeWithPowerOptimizersCheckBox(false);
+        setNumber15DIncludesSystemPVProductionCheckBox(false);
+        setNumber15EIncludesAllPermitsCheckBox(false);
+        setNumber15FCanadianSolar270WattCheckBox(false);
+
+        // Calculate whole cost
+//    private double wholeCost;
+//    private double solarCost;
+    }
+
 }

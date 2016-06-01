@@ -29,26 +29,39 @@ import org.hibernate.criterion.Projections;
 @Stateless
 @LocalBean
 public class FinanceManage {
-    
+
     private final SessionFactory sessionFactory;
-    
+
     public FinanceManage() {
         sessionFactory = CreateHibernateSession.getSessionFactory();
     }
-    
+
     public FinanceEntity receiveFinanceByCaseID(String caseID) {
         FinanceEntity financeEntity = null;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String sql = "SELECT * FROM FINANCE WHERE CASE_ID = "  + "'" + caseID + "'";
+            String sql = "SELECT * FROM FINANCE WHERE CASE_ID = " + "'" + caseID + "'";
             SQLQuery query = session.createSQLQuery(sql);
             query.addEntity(FinanceEntity.class);
             List finances = query.list();
-            if ( finances.isEmpty() ) {
+            if (finances.isEmpty()) {
                 financeEntity = new FinanceEntity();
                 financeEntity.setNew1(1);
+                financeEntity.setDatareceivedfromsales0checkbox(0);
+                financeEntity.setCheckingavailablefinancing1che(0);
+                financeEntity.setEvaluateHP2CheckBox(0);
+                financeEntity.setReceivingdraftagreement3ch(0);
+                financeEntity.setGatheringdobssn4che(0);
+                financeEntity.setSigningeriageement5che(0);
+                financeEntity.setApplytofinancing6checkbox(0);
+                financeEntity.setFinancingdocsreceived7che(0);
+                financeEntity.setScheduleappointmentby8che(0);
+                financeEntity.setSigningcontractbycustomer9che(0);
+                financeEntity.setAlldocscompleted10checkbox(0);
+                financeEntity.setNoticetoproceed11checkbox(0);
+                financeEntity.setGivenforconcierge12checkbox(0);   
             } else {
                 financeEntity = (FinanceEntity) finances.get(0);
             }
@@ -63,11 +76,10 @@ public class FinanceManage {
         }
         return financeEntity;
     }
-    
-    private FinanceEntity fillFields ( FinanceBean financeBean ) {
-        
+
+    private FinanceEntity fillFields(FinanceBean financeBean) {
         FinanceEntity financeEntity = receiveFinanceByCaseID(financeBean.getCaseID());
-        
+
         financeEntity.setStateCurrent(0);
         financeEntity.setDatareceivedfromsales0string(financeBean.getDataReceivedFromSales0String());
 //        financeEntity.setDatareceivedfromsales0checkbox((short) (financeBean.isDataReceivedFromSales0CheckBox() ? 1 : 0));
@@ -78,8 +90,10 @@ public class FinanceManage {
 //        financeEntity.setCheckingavailablefinancing1che((short) (financeBean.isCheckingAvailableFinancing1CheckBox() ? 1 : 0));
         financeEntity.setCheckingavailablefinancing1d(financeBean.getCheckingAvailableFinancing1Done());
         financeEntity.setEvaluatehp2button(financeBean.getEvaluateHP2Button());
-        financeBean.setEvaluateHP2CheckBox(financeBean.isEvaluateHP2CheckBox());
-        financeBean.setEvaluateHP2Done(financeBean.getEvaluateHP2Done());
+        
+        financeEntity.setEvaluateHP2CheckBox(financeBean.isEvaluateHP2CheckBox() == true ? 1 : 0);
+        financeEntity.setEvaluatehp2done(financeBean.getEvaluateHP2Done());
+        
         financeEntity.setReceivingdraftagreement3string(financeBean.getReceivingDraftAgreement3String());
 //        financeEntity.setReceivingdraftagreement3ch((short) (financeBean.isReceivingDraftAgreement3CheckBox() ? 1 : 0));
         financeEntity.setReceivingdraftagreement3done(financeBean.getReceivingDraftAgreement3Done());
@@ -120,24 +134,21 @@ public class FinanceManage {
         financeEntity.setGivenforconcierge12done(financeBean.getGiveNForConcierge12Done());
         financeEntity.setCustomerId(financeBean.getCustomerID());
         financeEntity.setCaseId(financeBean.getCaseID());
-    
-        return financeEntity;
         
+        return financeEntity;
+
     }
-    
+
     public int addOrUpdateFinance(FinanceBean financeBean) {
         int result = 1;
-        
         Session session = sessionFactory.openSession();
-        FinanceEntity financeEntity = fillFields(financeBean);
-        
+        FinanceEntity financeEntity = fillFields(financeBean); 
         try {
             session.beginTransaction();
-            if ( financeEntity.getNew1() == 1 ) {
+            if (financeEntity.getNew1() == 1) {
                 financeEntity.setNew1(0);
                 session.save(financeEntity);
             } else {
-//                financeEntity.setId(new BigDecimal(financeBean.getCustomerID()));
                 session.update(financeEntity);
             }
             session.getTransaction().commit();
@@ -151,5 +162,5 @@ public class FinanceManage {
         }
         return result;
     }
-    
+
 }

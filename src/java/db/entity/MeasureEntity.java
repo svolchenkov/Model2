@@ -6,7 +6,6 @@
 package db.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,15 +25,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "MEASURE")
 @XmlRootElement
 
-public class MeasurenEntity implements Serializable {
+public class MeasureEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 50)
     @Column(name = "CASE_ID")
-    private BigDecimal caseId;
+    private String caseId;
     @Column(name = "TOTAL")
     private Integer total;
     @Column(name = "CUSTOMERID")
@@ -287,18 +286,18 @@ public class MeasurenEntity implements Serializable {
     @Column(name = "SOLARCOST")
     private Serializable solarcost;
 
-    public MeasurenEntity() {
+    public MeasureEntity() {
     }
 
-    public MeasurenEntity(BigDecimal caseId) {
+    public MeasureEntity(String caseId) {
         this.caseId = caseId;
     }
 
-    public BigDecimal getCaseId() {
+    public String getCaseId() {
         return caseId;
     }
 
-    public void setCaseId(BigDecimal caseId) {
+    public void setCaseId(String caseId) {
         this.caseId = caseId;
     }
 
@@ -1256,10 +1255,10 @@ public class MeasurenEntity implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof MeasurenEntity)) {
+        if (!(object instanceof MeasureEntity)) {
             return false;
         }
-        MeasurenEntity other = (MeasurenEntity) object;
+        MeasureEntity other = (MeasureEntity) object;
         if ((this.caseId == null && other.caseId != null) || (this.caseId != null && !this.caseId.equals(other.caseId))) {
             return false;
         }

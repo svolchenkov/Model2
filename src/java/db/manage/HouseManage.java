@@ -43,7 +43,6 @@ public class HouseManage {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            System.out.println("caseID = " + caseID);
             String sql = "SELECT * FROM CUSTOMER WHERE CASE_ID " + "LIKE '%" + caseID + "%'";
             SQLQuery query = session.createSQLQuery(sql);
             query.addEntity(CustomerEntity.class);
@@ -68,7 +67,6 @@ public class HouseManage {
             tx = session.beginTransaction();
             System.out.println("caseID = " + caseID);
             String sql = "SELECT * FROM CUSTOMER WHERE CASE_ID = " + "'" + caseID + "'";
-            System.out.println("sql = " + sql);
             SQLQuery query = session.createSQLQuery(sql);
             query.addEntity(CustomerEntity.class);
             List customers = query.list();

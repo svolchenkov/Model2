@@ -22,10 +22,12 @@
                                     
                                     <div class="block0Measures" >
                                         <div >
+                                            <h:outputText class="topButtonsMeasures" value="case id: #{measureBean.caseId}" />
                                             <h:outputText class="topButtonsMeasures" id="hpTotal" value="total: #{measureBean.total} $" />
-                                            <h:outputText class="topButtonsMeasures" value="person ID, person name"  />
+                                            <h:outputText class="topButtonsMeasures" value="person name: #{questions.firstName1}"  />
                                             <h:commandButton class="topButtonsMeasures" value="send result to Excell" action="#{measureBean.printToExcel()}" />
                                             <h:commandButton class="topButtonsMeasures" value="to house + finance" action="#{measureBean.wayToHouseFinance()}" />
+                                            <h:commandButton class="topButtonsMeasures" value="back to index" action="index" />
                                             <h:commandButton class="topButtonsMeasures" value="roof picture" action="roofpicture.html" />
                                         </div>
                                     </div>

@@ -21,10 +21,8 @@
                                         <td class="titleHouse"><h:outputText id="firstName1onTop" value="#{questions.firstName1}"  /></td>
                                         <td class="titleHouse"><h:commandButton value="back to index" action="index" /></td>
                                         <td class="titleHouse"><h:commandButton value="save" action="#{questions.saveQuestionsHouse()}" /></td>
-                                        <td class="titleHouse"><h:commandButton value="test new Finance" action="#{finance.receiveNewFinance()}" /></td>
-                                        <td class="titleHouse"><h:commandButton value="test save Finance" action="#{finance.saveFinance()}" /></td>
                                         <td class="titleHouse"><h:commandButton value="to dashBord" action="#{finance.wayToDashBoard()}" /></td>
-                                        <td class="titleHouse"><h:outputText value="f #{finance.caseID}" /></td>
+                                        <td class="titleHouse"><h:outputText value="f case id: #{finance.caseID}" /></td>
                                     </tr></table>
                             </div>
                         </div>
@@ -172,8 +170,7 @@
                                             <tr><td><h:outputText value=" " /></td> 
                                                 <td><p:commandButton id="submit" value="test submit" action="#{questions.submit()}" style="color: green"/>
                                                     <p:outputLabel value=".." />
-                                                    <p:commandButton id="reset" value="test reset" action="#{questions.reset()}" style="color: red" />
-                                                    <p:commandButton id="toString" value="test toString" action="#{questions.toString()}" style="color: blue" /></td>
+                                                    <p:commandButton id="reset" value="test reset" action="#{questions.reset()}" style="color: red" /></td>
                                             </tr>
                                         </table>
                                     </div> 
