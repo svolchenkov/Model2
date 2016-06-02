@@ -10,7 +10,7 @@
 .block0House{
     float:left;
     margin:3px 3px 3px 5px;
-    width:1417px;
+    width:1425px;
     height:25px;
     padding: 5px;
     text-align: center;
@@ -55,8 +55,15 @@
     text-align: left;
     color: darkblue;
 }
-.titleHouse {
-    width: 150px;
+.topButtonsHouse {
+    padding-left: 50px;
+    color: darkred;
+}
+.topPersonNameHouse {
+    padding-right: 30px;
+    padding-left: 30px;
+    width: 100px;
+    color: darkred;
 }
 .textAreaHouse {
     width: 400px;

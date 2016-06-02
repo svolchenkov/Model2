@@ -15,15 +15,22 @@
                     <h:form id="main_form" >
                         <div class="block0House" >
                             <div >
-                                <table><tr><td><h:outputText value="CaseID:"   /></td>
-                                        <td class="titleHouse"><h:outputText value="#{questions.caseID}" /></td>
-                                        <td class="titleHouse"><h:outputText value="person name:" /></td>
-                                        <td class="titleHouse"><h:outputText id="firstName1onTop" value="#{questions.firstName1}"  /></td>
-                                        <td class="titleHouse"><h:commandButton value="back to index" action="index" /></td>
-                                        <td class="titleHouse"><h:commandButton value="save" action="#{questions.saveQuestionsHouse()}" /></td>
-                                        <td class="titleHouse"><h:commandButton value="to dashBord" action="#{finance.wayToDashBoard()}" /></td>
-                                        <td class="titleHouse"><h:commandButton value="to test" action="dashboardtest.html" /></td>
-                                        <td class="titleHouse"><h:outputText value="f case id: #{finance.caseID}" /></td>
+                                <table style="color: darkred; text-align: center;"><tr>
+                                            <td>House</td>
+                                    </tr></table>
+                            </div>
+                        </div>
+                        <div class="block0House" >
+                            <div >
+                                <table style="color: darkred"><tr><td><h:outputText value="CaseID:"   /></td>
+                                        <td class="topButtonsHouse"><h:outputText value="#{questions.caseID}" /></td>
+                                        <td class="topButtonsHouse"><h:outputText value="person name:" /></td>
+                                        <td class="topPersonNameHouse"><h:outputText id="firstName1onTop" value="#{questions.firstName1}"  /></td>
+                                        <td style="color: #D20005"><h:commandButton value="back to index" action="index" /></td>
+                                        <td class="topButtonsHouse"><h:commandButton value="save" action="#{questions.saveQuestionsHouse()}" /></td>
+                                        <td class="topButtonsHouse"><h:commandButton value="to dashBord" action="#{finance.wayToDashBoard()}" /></td>
+                                        <td class="topButtonsHouse"><h:commandButton value="to test" action="dashboardtest.html" /></td>
+                                        <td class="topButtonsHouse"><h:outputText value="f case id: #{finance.caseID}" /></td>
                                     </tr></table>
                             </div>
                         </div>
@@ -36,7 +43,7 @@
                                             </tr>
                                             <tr><td><h:outputText value="Follow Up With ES: " /></td>
                                                 <td><p:calendar id="followUpWithES" value="#{questions.followUpWithES}" showOn="button" /></td>
-                                                <td><p:commandButton id="sendEmailNotification" value="send e-mail notification" action="#{questions.sendNotification()}" /></td>
+                                                <td><h:commandButton id="sendEmailNotification" value="send e-mail notification" action="#{questions.sendNotification()}" /></td>
                                             </tr>
                                             <tr><td><h:outputText value="Advisor: " /></td>
                                                 <td><p:selectOneMenu id="advisor" value="#{questions.advisor}" style="width:200px">
@@ -45,7 +52,6 @@
                                                         <f:selectItem itemLabel="Diosdado Cervania" itemValue="Diosdado Cervania" />
                                                         <f:selectItem itemLabel="Eduardo Cusion" itemValue="Eduardo Cusion" />
                                                     </p:selectOneMenu></td>
-                                                <td><h:commandButton value="add advisor"  /></td>
                                             </tr>
                                             <tr><td><h:outputText value="Ambassador Addition: " /></td>
                                                 <td><p:selectOneMenu id="ambassador" value="#{questions.ambassador}" style="width:200px">
