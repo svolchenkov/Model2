@@ -74,8 +74,8 @@ public class QuestionsBean implements Serializable {
     public String receiveNewHouse() {
         cleanQuestionsHouseBean();
         financeBean.cleanFinanceBean();
-//        financeBean.setNew1(1);
         measureBean.cleanMeasureBean();
+        
         Date date = new Date();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
@@ -426,6 +426,7 @@ public class QuestionsBean implements Serializable {
         4.HouseManage.getHouseByCaseID(String caseID)  if caseId found in DB, new1 = 0 (this new house), 
             if caseId didn't find in db, new1 = 1 (this new house), return houseEntity (empty or filled)
         */
+        measureBean.saveMeasure();
         houseManage.addOrUpdateHouse(this);
         financeBean.saveFinance();
     }

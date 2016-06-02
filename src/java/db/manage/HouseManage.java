@@ -65,7 +65,6 @@ public class HouseManage {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            System.out.println("caseID = " + caseID);
             String sql = "SELECT * FROM CUSTOMER WHERE CASE_ID = " + "'" + caseID + "'";
             SQLQuery query = session.createSQLQuery(sql);
             query.addEntity(CustomerEntity.class);

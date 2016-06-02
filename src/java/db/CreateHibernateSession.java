@@ -32,6 +32,7 @@ public class CreateHibernateSession {
                 configure().addAnnotatedClass(db.entity.CustomerEntity.class).
                 configure().addAnnotatedClass(db.entity.FinanceEntity.class).
                 configure().addAnnotatedClass(db.entity.PropertiesEntity.class).
+                configure().addAnnotatedClass(db.entity.MeasureEntity.class).
                 buildSessionFactory();
 
         return sessionFactory;

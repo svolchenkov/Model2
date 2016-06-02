@@ -24,6 +24,8 @@ public class IndexBean implements Serializable {
     QuestionsBean questionsBean;
     @Inject
     FinanceBean financeBean;
+    @Inject
+    MeasureBean measureBean;
     
     private String findHouseInputText;
     private List<CustomerEntity> customers;
@@ -40,8 +42,10 @@ public class IndexBean implements Serializable {
         3.houseManage.getHouseByCaseID(caseID) here new1 = 0
         */
         
+        measureBean.receiveMeasureByCaseId(caseId);
         questionsBean.receiveQuestionsHouseByCaseID(caseId);
         financeBean.receiveFinanceBeanByCaseID(caseId);
+        
         return "housefinance.xhtml";
     }
     

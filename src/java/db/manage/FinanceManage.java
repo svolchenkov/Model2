@@ -48,20 +48,58 @@ public class FinanceManage {
             List finances = query.list();
             if (finances.isEmpty()) {
                 financeEntity = new FinanceEntity();
+                financeEntity.setCaseId(caseID);
                 financeEntity.setNew1(1);
+                financeEntity.setStateCurrent(0);
+                financeEntity.setDatareceivedfromsales0string("");
                 financeEntity.setDatareceivedfromsales0checkbox(0);
+                financeEntity.setDatareceivedfromsales0done("");
+                financeEntity.setCheckingavailablefinancing1y("");
+                financeEntity.setCheckingavailablefinancing1ca("");
+                financeEntity.setCheckingavailablefinancing1he("");
                 financeEntity.setCheckingavailablefinancing1che(0);
+                financeEntity.setCheckingavailablefinancing1d("");
+                financeEntity.setEvaluatehp2button("");
                 financeEntity.setEvaluateHP2CheckBox(0);
+                financeEntity.setEvaluatehp2done("");
+                financeEntity.setReceivingdraftagreement3string("");
                 financeEntity.setReceivingdraftagreement3ch(0);
+                financeEntity.setReceivingdraftagreement3done("");
+                financeEntity.setGatheringdobssn4date(null);
+                financeEntity.setGatheringdobssn4string("");
                 financeEntity.setGatheringdobssn4che(0);
+                financeEntity.setGatheringdobssn4done("");
+//        financeEntity.setSigningeriageement5fileupload(financeBean.getSigningERIAgeement5FileUpload());
+                financeEntity.setSigningeriageement5string("");
                 financeEntity.setSigningeriageement5che(0);
+                financeEntity.setSigningeriageement5done("");
+                financeEntity.setApplytofinancing6string("");
                 financeEntity.setApplytofinancing6checkbox(0);
+                financeEntity.setApplytofinancing6done("");
+//        financeEntity.setFinancingdocsreceived7fileupl(financeBean.getFinancingDocsReceived7FileUpload());
+                financeEntity.setFinancingdocsreceived7string("");
                 financeEntity.setFinancingdocsreceived7che(0);
+                financeEntity.setFinancingdocsreceived7do("");
+                financeEntity.setScheduleappointmentby8d(null);
+                financeEntity.setScheduleappointmentby8st("");
                 financeEntity.setScheduleappointmentby8che(0);
+                financeEntity.setScheduleappointmentby8do("");
+//        financeEntity.setSigningcontractbycustomer9fi(financeBean.getSigningContractByCustomer9FileUpload());
+                financeEntity.setSigningcontractbycustomer9st("");
                 financeEntity.setSigningcontractbycustomer9che(0);
+                financeEntity.setSigningcontractbycustomer9done("");
+                financeEntity.setAlldocscompleted10string("");
                 financeEntity.setAlldocscompleted10checkbox(0);
+                financeEntity.setAlldocscompleted10do("");
+                financeEntity.setNoticetoproceed11string("");
                 financeEntity.setNoticetoproceed11checkbox(0);
-                financeEntity.setGivenforconcierge12checkbox(0);   
+                financeEntity.setNoticetoproceed11done("");
+                financeEntity.setGivenforconcierge12string("");
+                financeEntity.setGivenforconcierge12checkbox(0);
+                financeEntity.setGivenforconcierge12done("");
+                financeEntity.setGivenforconcierge12checkbox(0);
+                financeEntity.setGivenforconcierge12done("");
+                financeEntity.setCustomerId(0);
             } else {
                 financeEntity = (FinanceEntity) finances.get(0);
             }
@@ -82,59 +120,59 @@ public class FinanceManage {
 
         financeEntity.setStateCurrent(0);
         financeEntity.setDatareceivedfromsales0string(financeBean.getDataReceivedFromSales0String());
-//        financeEntity.setDatareceivedfromsales0checkbox((short) (financeBean.isDataReceivedFromSales0CheckBox() ? 1 : 0));
+        financeEntity.setDatareceivedfromsales0checkbox(financeBean.isDataReceivedFromSales0CheckBox() ? 1 : 0);
         financeEntity.setDatareceivedfromsales0done(financeBean.getDataReceivedFromSales0Done());
         financeEntity.setCheckingavailablefinancing1y(financeBean.getCheckingAvailableFinancing1YgreenString());
         financeEntity.setCheckingavailablefinancing1ca(financeBean.getCheckingAvailableFinancing1CalFirstString());
         financeEntity.setCheckingavailablefinancing1he(financeBean.getCheckingAvailableFinancing1HeroString());
-//        financeEntity.setCheckingavailablefinancing1che((short) (financeBean.isCheckingAvailableFinancing1CheckBox() ? 1 : 0));
+        financeEntity.setCheckingavailablefinancing1che(financeBean.isCheckingAvailableFinancing1CheckBox() ? 1 : 0);
         financeEntity.setCheckingavailablefinancing1d(financeBean.getCheckingAvailableFinancing1Done());
         financeEntity.setEvaluatehp2button(financeBean.getEvaluateHP2Button());
-        
+
         financeEntity.setEvaluateHP2CheckBox(financeBean.isEvaluateHP2CheckBox() == true ? 1 : 0);
         financeEntity.setEvaluatehp2done(financeBean.getEvaluateHP2Done());
-        
+
         financeEntity.setReceivingdraftagreement3string(financeBean.getReceivingDraftAgreement3String());
-//        financeEntity.setReceivingdraftagreement3ch((short) (financeBean.isReceivingDraftAgreement3CheckBox() ? 1 : 0));
+        financeEntity.setReceivingdraftagreement3ch(financeBean.isReceivingDraftAgreement3CheckBox() ? 1 : 0);
         financeEntity.setReceivingdraftagreement3done(financeBean.getReceivingDraftAgreement3Done());
         financeEntity.setGatheringdobssn4date(financeBean.getGatheringDOBSSN4Date());
         financeEntity.setGatheringdobssn4string(financeBean.getGatheringDOBSSN4String());
-//        financeEntity.setGatheringdobssn4che((short) (financeBean.isGatheringDOBSSN4CheckBox() ? 1 : 0));
+        financeEntity.setGatheringdobssn4che(financeBean.isGatheringDOBSSN4CheckBox() ? 1 : 0);
         financeEntity.setGatheringdobssn4done(financeBean.getGatheringDOBSSN4Done());
 
 //        financeEntity.setSigningeriageement5fileupload(financeBean.getSigningERIAgeement5FileUpload());
         financeEntity.setSigningeriageement5string(financeBean.getSigningERIAgeement5String());
-//        financeEntity.setSigningeriageement5che((short) (financeBean.isSigningERIAgeement5CheckBox() ? 1 : 0));
+        financeEntity.setSigningeriageement5che(financeBean.isSigningERIAgeement5CheckBox() ? 1 : 0);
         financeEntity.setSigningeriageement5done(financeBean.getSigningERIAgeement5Done());
         financeEntity.setApplytofinancing6string(financeBean.getApplyToFinancing6String());
-//        financeEntity.setApplytofinancing6checkbox((short) (financeBean.isApplyToFinancing6CheckBox() ? 1 : 0));
+        financeEntity.setApplytofinancing6checkbox(financeBean.isApplyToFinancing6CheckBox() ? 1 : 0);
         financeEntity.setApplytofinancing6done(financeBean.getAllDocsCompleted10Done());
 //        financeEntity.setFinancingdocsreceived7fileupl(financeBean.getFinancingDocsReceived7FileUpload());
         financeEntity.setFinancingdocsreceived7string(financeBean.getFinancingDocsReceived7String());
-//        financeEntity.setFinancingdocsreceived7che((short) (financeBean.isFinancingDocsReceived7CheckBox() ? 1 : 0));
+        financeEntity.setFinancingdocsreceived7che(financeBean.isFinancingDocsReceived7CheckBox() ? 1 : 0);
         financeEntity.setFinancingdocsreceived7do(financeBean.getFinancingDocsReceived7Done());
         financeEntity.setScheduleappointmentby8d(financeBean.getScheduleAppointmentByCustomer8Date());
         financeEntity.setScheduleappointmentby8st(financeBean.getFinancingDocsReceived7String());
-//        financeEntity.setScheduleappointmentby8che((short) (financeBean.isScheduleAppointmentByCustomer8CheckBox() ? 1 : 0));
+        financeEntity.setScheduleappointmentby8che(financeBean.isScheduleAppointmentByCustomer8CheckBox() ? 1 : 0);
         financeEntity.setScheduleappointmentby8do(financeBean.getScheduleAppointmentByCustomer8Done());
 //        financeEntity.setSigningcontractbycustomer9fi(financeBean.getSigningContractByCustomer9FileUpload());
         financeEntity.setSigningcontractbycustomer9st(financeBean.getSigningContractByCustomer9String());
-//        financeEntity.setSigningcontractbycustomer9che((short) (financeBean.isSigningContractByCustomer9CheckBox() ? 1 : 0));
+        financeEntity.setSigningcontractbycustomer9che(financeBean.isSigningContractByCustomer9CheckBox() ? 1 : 0);
         financeEntity.setSigningcontractbycustomer9done(financeBean.getSigningContractByCustomer9Done());
         financeEntity.setAlldocscompleted10string(financeBean.getAllDocsCompleted10String());
-//        financeEntity.setAlldocscompleted10checkbox((short) (financeBean.isAllDocsCompleted10CheckBox() ? 1 : 0));
+        financeEntity.setAlldocscompleted10checkbox(financeBean.isAllDocsCompleted10CheckBox() ? 1 : 0);
         financeEntity.setAlldocscompleted10do(financeBean.getAllDocsCompleted10Done());
         financeEntity.setNoticetoproceed11string(financeBean.getNoticeToProceed11String());
-//        financeEntity.setNoticetoproceed11checkbox((short) (financeBean.isNoticeToProceed11CheckBox() ? 1 : 0));
+        financeEntity.setNoticetoproceed11checkbox(financeBean.isNoticeToProceed11CheckBox() ? 1 : 0);
         financeEntity.setNoticetoproceed11done(financeBean.getNoticeToProceed11Done());
         financeEntity.setGivenforconcierge12string(financeBean.getGiveNForConcierge12String());
-//        financeEntity.setGivenforconcierge12checkbox((short) (financeBean.isGiveNForConcierge12CheckBox() ? 1 : 0));
+        financeEntity.setGivenforconcierge12checkbox(financeBean.isGiveNForConcierge12CheckBox() ? 1 : 0);
         financeEntity.setGivenforconcierge12done(financeBean.getGiveNForConcierge12Done());
-//        financeEntity.setGivenforconcierge12checkbox((short) (financeBean.isGiveNForConcierge12CheckBox() ? 1 : 0));
+        financeEntity.setGivenforconcierge12checkbox(financeBean.isGiveNForConcierge12CheckBox() ? 1 : 0);
         financeEntity.setGivenforconcierge12done(financeBean.getGiveNForConcierge12Done());
         financeEntity.setCustomerId(financeBean.getCustomerID());
         financeEntity.setCaseId(financeBean.getCaseID());
-        
+
         return financeEntity;
 
     }
@@ -142,7 +180,7 @@ public class FinanceManage {
     public int addOrUpdateFinance(FinanceBean financeBean) {
         int result = 1;
         Session session = sessionFactory.openSession();
-        FinanceEntity financeEntity = fillFields(financeBean); 
+        FinanceEntity financeEntity = fillFields(financeBean);
         try {
             session.beginTransaction();
             if (financeEntity.getNew1() == 1) {
