@@ -1,0 +1,151 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 2, 2016, 2:58:16 PM
+    Author     : Sergey
+*/
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 16, 2016, 10:45:45 AM
+    Author     : Sergey
+*/
+
+#bodyes {
+    background-color: #dddddd;
+}
+
+#mainBlockESDashBoard {
+    margin:auto;
+    width:1440px;
+}
+.block0ESDashBoard{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:1418px;
+    height:35px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+.block1ESDashBoard, .block2ESDashBoard{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:700px;
+    height:400px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+.block3ESDashBoard, .block4ESDashBoard{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:700px;
+    height:400px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+.block11ESDashBoard{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:670px;
+    height:50px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
+.h4ESDashBoard {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  14px;
+    font-weight: normal;
+    margin: auto;
+    padding: 0px;
+    text-align: center;
+    color: green;
+}
+.tableESDashBoard {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  12px;
+    font-weight: normal;
+    margin: auto;
+    padding: 0px;
+    text-align: left;
+    color: darkblue;
+}
+.buttonESDashBoard {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 4px;
+    cursor: pointer;
+}
+h4 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  15px;
+    font-weight: normal;
+    margin: 0px;
+    padding: 0px;
+    color: darkred;
+}
+
+h5 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  12px;
+    font-weight: normal;
+    margin: 0px;
+    padding: 0px;
+    color: darkred;
+}
+
+/*------------- Cost Summary ----------------------*/
+table#costSummary {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  14px;
+    font-weight: normal;
+    text-align: left;
+    margin: 10px;
+    padding: 10px;
+    color: darkblue;
+    border-collapse: collapse;
+    border: 1px solid black;
+    
+}
+
+td {
+    margin: 10px;
+    padding: 10px;
+    border-collapse: collapse;
+    width: 300px;
+    border: 1px solid black;
+}
+.buttonCostSummaryESDashBoard {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0 0 10px;
+    cursor: pointer;
+    float: left;
+}

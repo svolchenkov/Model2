@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>DashBoard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="resources/css/esdashboard.css">
+        <script src="resources/js/esdashboard.js"></script>
+    </head>
+    <body id="bodyes" >
+        <form>
+            <div id="mainBlockESDashBoard" >
+                <div class="block0ESDashBoard">
+                    DashBoard
+                    <a class="buttonESDashBoard" href="housefinance.xhtml" >to housefinance</a>
+                    <a class="buttonESDashBoard" onclick="receiveData()" >downloading data</a>
+
+                    <input id="numb">
+                    <button type="button" onclick="test()">Submit</button>
+                    
+                </div>
+                <div class="block1ESDashBoard" >
+                    <h4>Measures</h4>
+                </div>
+                <div class="block2ESDashBoard" >
+                    <h4>Cost Summary</h4>
+                    <table id="costSummary">
+                        <tr><td id="wholesaleCost">Wholesale Cost<td id="wholesaleCostData"></td></tr>
+                        <tr><td id="marginPercentage">Margin Percentage</td><td id="marginPercentageData" ></td></tr>
+                        <tr><td>Gross HP Cost</td><td></td></tr>
+                        <tr><td>Net HP Cost</td><td></td></tr>
+                        <tr><td>Solar Cost</td><td></td></tr>
+                        <tr><td>Combined Gross Cost</td><td></td></tr>
+                        <tr><td>Total Rebate Amount</td><td></td></tr>
+                        <tr><td>Financed Total</td><td></td></tr>
+                    </table>
+                    <a class="buttonCostSummaryESDashBoard" href="housefinance.xhtml" >to housefinance</a>
+                </div>
+                <div class="block3ESDashBoard" >
+                    <h4>Finance summary</h4>
+                </div>
+                <div class="block4ESDashBoard" >
+                    <h4>Plan</h4>
+                </div>
+
+            </div>
+        </form>
+    </body>
+</html>
