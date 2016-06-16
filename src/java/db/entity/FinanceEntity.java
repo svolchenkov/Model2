@@ -35,12 +35,12 @@ public class FinanceEntity implements Serializable {
     @Column(name = "ID")
     private BigInteger id;
     @Column(name = "STATE_CURRENT")
-    private Integer stateCurrent;
+    private Integer stateCurrent = 0;
     @Size(max = 300)
     @Column(name = "DATARECEIVEDFROMSALES0STRING")
     private String datareceivedfromsales0string;
     @Column(name = "DATARECEIVEDFROMSALES0CHECKBOX")
-    private Integer datareceivedfromsales0checkbox;
+    private Integer datareceivedfromsales0checkbox = 0;
     @Size(max = 5)
     @Column(name = "DATARECEIVEDFROMSALES0DONE")
     private String datareceivedfromsales0done;
@@ -54,7 +54,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "CHECKINGAVAILABLEFINANCING1HE")
     private String checkingavailablefinancing1he;
     @Column(name = "CHECKINGAVAILABLEFINANCING1CHE")
-    private Integer checkingavailablefinancing1che;
+    private Integer checkingavailablefinancing1che = 0;
     @Size(max = 5)
     @Column(name = "CHECKINGAVAILABLEFINANCING1D")
     private String checkingavailablefinancing1d;
@@ -62,7 +62,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "EVALUATEHP2BUTTON")
     private String evaluatehp2button;
     @Column(name = "EVALUATEHP2CHECKBOX")
-    private Integer evaluatehp2checkbox;
+    private Integer evaluatehp2checkbox = 0;
     @Size(max = 5)
     @Column(name = "EVALUATEHP2DONE")
     private String evaluatehp2done;
@@ -70,7 +70,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "RECEIVINGDRAFTAGREEMENT3STRING")
     private String receivingdraftagreement3string;
     @Column(name = "RECEIVINGDRAFTAGREEMENT3CH")
-    private Integer receivingdraftagreement3ch;
+    private Integer receivingdraftagreement3ch = 0;
     @Size(max = 5)
     @Column(name = "RECEIVINGDRAFTAGREEMENT3DONE")
     private String receivingdraftagreement3done;
@@ -81,7 +81,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "GATHERINGDOBSSN4STRING")
     private String gatheringdobssn4string;
     @Column(name = "GATHERINGDOBSSN4CHE")
-    private Integer gatheringdobssn4che;
+    private Integer gatheringdobssn4che = 0;
     @Size(max = 5)
     @Column(name = "GATHERINGDOBSSN4DONE")
     private String gatheringdobssn4done;
@@ -92,7 +92,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "SIGNINGERIAGEEMENT5STRING")
     private String signingeriageement5string;
     @Column(name = "SIGNINGERIAGEEMENT5CHE")
-    private Integer signingeriageement5che;
+    private Integer signingeriageement5che = 0;
     @Size(max = 5)
     @Column(name = "SIGNINGERIAGEEMENT5DONE")
     private String signingeriageement5done;
@@ -100,7 +100,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "APPLYTOFINANCING6STRING")
     private String applytofinancing6string;
     @Column(name = "APPLYTOFINANCING6CHECKBOX")
-    private Integer applytofinancing6checkbox;
+    private Integer applytofinancing6checkbox = 0;
     @Size(max = 5)
     @Column(name = "APPLYTOFINANCING6DONE")
     private String applytofinancing6done;
@@ -111,7 +111,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "FINANCINGDOCSRECEIVED7STRING")
     private String financingdocsreceived7string;
     @Column(name = "FINANCINGDOCSRECEIVED7CHE")
-    private Integer financingdocsreceived7che;
+    private Integer financingdocsreceived7che = 0;
     @Size(max = 5)
     @Column(name = "FINANCINGDOCSRECEIVED7DO")
     private String financingdocsreceived7do;
@@ -122,7 +122,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "SCHEDULEAPPOINTMENTBY8ST")
     private String scheduleappointmentby8st;
     @Column(name = "SCHEDULEAPPOINTMENTBY8CHE")
-    private Integer scheduleappointmentby8che;
+    private Integer scheduleappointmentby8che = 0;
     @Size(max = 5)
     @Column(name = "SCHEDULEAPPOINTMENTBY8DO")
     private String scheduleappointmentby8do;
@@ -133,7 +133,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "SIGNINGCONTRACTBYCUSTOMER9ST")
     private String signingcontractbycustomer9st;
     @Column(name = "SIGNINGCONTRACTBYCUSTOMER9CHE")
-    private Integer signingcontractbycustomer9che;
+    private Integer signingcontractbycustomer9che = 0;
     @Size(max = 5)
     @Column(name = "SIGNINGCONTRACTBYCUSTOMER9DONE")
     private String signingcontractbycustomer9done;
@@ -141,7 +141,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "ALLDOCSCOMPLETED10STRING")
     private String alldocscompleted10string;
     @Column(name = "ALLDOCSCOMPLETED10CHECKBOX")
-    private Integer alldocscompleted10checkbox;
+    private Integer alldocscompleted10checkbox = 0;
     @Size(max = 5)
     @Column(name = "ALLDOCSCOMPLETED10DO")
     private String alldocscompleted10do;
@@ -149,7 +149,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "NOTICETOPROCEED11STRING")
     private String noticetoproceed11string;
     @Column(name = "NOTICETOPROCEED11CHECKBOX")
-    private Integer noticetoproceed11checkbox;
+    private Integer noticetoproceed11checkbox = 0;
     @Size(max = 5)
     @Column(name = "NOTICETOPROCEED11DONE")
     private String noticetoproceed11done;
@@ -157,12 +157,12 @@ public class FinanceEntity implements Serializable {
     @Column(name = "GIVENFORCONCIERGE12STRING")
     private String givenforconcierge12string;
     @Column(name = "GIVENFORCONCIERGE12CHECKBOX")
-    private Integer givenforconcierge12checkbox;
+    private Integer givenforconcierge12checkbox = 0;
     @Size(max = 5)
     @Column(name = "GIVENFORCONCIERGE12DONE")
     private String givenforconcierge12done;
     @Column(name = "CUSTOMER_ID")
-    private Integer customerId;
+    private Integer customerId = 0;
     @Id
     @Basic(optional = false)
     @NotNull
@@ -170,7 +170,7 @@ public class FinanceEntity implements Serializable {
     @Column(name = "CASE_ID")
     private String caseId;
     @Column(name = "NEW")
-    private Integer new1;
+    private Integer new1 = 0;
 
     public FinanceEntity() {
     }

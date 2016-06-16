@@ -7,15 +7,10 @@ package db.manage;
 
 import beans.MeasureBean;
 import db.CreateHibernateSession;
-import db.entity.CustomerEntity;
-import db.entity.FinanceEntity;
 import db.entity.MeasureEntity;
-import java.io.Serializable;
 import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.persistence.Column;
-import javax.validation.constraints.Size;
 import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -168,6 +163,10 @@ public class MeasureManage {
                 measureEntity.setNumber15fcanadiansocheckbox(0);
                 measureEntity.setWholecost(0);
                 measureEntity.setSolarcost(0);
+                measureEntity.setMarginpercentage(0);
+                measureEntity.setPgeRebateAmount(0);
+                measureEntity.setPgeRebatePoints(0);
+                measureEntity.setSmudRebateAmount(0);
             } else {
                 measureEntity = (MeasureEntity) measures.get(0);
             }
@@ -306,7 +305,11 @@ public class MeasureManage {
         measureEntity.setNumber15fcanadiansocheckbox(measureBean.isNumber15FCanadianSolar270WattCheckBox() == true ? 1 : 0);
         measureEntity.setWholecost(measureBean.getWholeCost());
         measureEntity.setSolarcost(measureBean.getSolarCost());
-
+        measureEntity.setMarginpercentage(measureBean.getMarginPercentage());
+        measureEntity.setPgeRebateAmount(measureBean.getPgeRebateAmount());
+        measureEntity.setPgeRebatePoints(measureBean.getPgeRebatePoints());
+        measureEntity.setSmudRebateAmount(measureBean.getSmudRebateAmount());
+        
         return measureEntity;
 
     }

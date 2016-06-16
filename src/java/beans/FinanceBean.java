@@ -131,7 +131,7 @@ public class FinanceBean implements Serializable {
         setCustomerID(financeEntity.getCustomerId());
         setState(financeEntity.getStateCurrent());
         setDataReceivedFromSales0String(financeEntity.getDatareceivedfromsales0string());
-        setDataReceivedFromSales0CheckBox((financeEntity.getDatareceivedfromsales0checkbox() == 1));
+        setDataReceivedFromSales0CheckBox(1 == financeEntity.getDatareceivedfromsales0checkbox());
         setDataReceivedFromSales0Done(financeEntity.getDatareceivedfromsales0done());
 
         setCheckingAvailableFinancing1YgreenString(financeEntity.getCheckingavailablefinancing1y());

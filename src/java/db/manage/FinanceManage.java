@@ -6,21 +6,16 @@
 package db.manage;
 
 import beans.FinanceBean;
-import beans.QuestionsBean;
 import db.CreateHibernateSession;
-import db.entity.CustomerEntity;
 import db.entity.FinanceEntity;
-import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Projections;
 
 /**
  *

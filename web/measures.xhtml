@@ -13,13 +13,13 @@
         <ui:composition template="./template.xhtml">
             <ui:define name="content">
                 <table class="measure">
-                        <tr><td>
-                                <div id="measuresMainBlock" >
-                                    <h:form>
+                    <tr><td>
+                            <div id="measuresMainBlock" >
+                                <h:form>
                                     <div class="block0Measures" >
                                         <h3><p:outputLabel value="Home Performance/Solar Pricing Tool" /></h3>
                                     </div>
-                                    
+
                                     <div class="block0Measures" >
                                         <div >
                                             <h:outputText class="topButtonsMeasures" value="case id: #{measureBean.caseId}" />
@@ -31,7 +31,7 @@
                                             <h:commandButton class="topButtonsMeasures" value="roof picture" action="roofpicture.html" />
                                         </div>
                                     </div>
-                                    
+
                                     <div class="measuresblock1" >
                                         <table ><tr><td>
                                                     <!-- 1. Number1InsulatAtticBlown -->
@@ -74,7 +74,7 @@
                                                                 <td class="resulttd"><h:outputText id="number2RemoveAndReplaceResult" value=" = #{measureBean.number2RemoveAndReplaceResult}" />
                                                                 </td>
                                                             </tr></table>
-                                                        </div>
+                                                    </div>
                                                     <!-- 3. Crawl Space Insulation -->
                                                     <div>
                                                         <table>
@@ -319,17 +319,17 @@
 
                                                     <!-- 9.1a Miscellaneous Items HVAC -->
                                                     <div>
-                                                            <table>
-                                                                <tr><td class="checkbox"><h:selectBooleanCheckbox value="#{measureBean.number91aRelocateCondenserCheckBox}"  >
-                                                                            <p:ajax event="change" update="number91aRelocateCondenserInt, number91aRelocateCondenserResult, hpTotal"  />
-                                                                        </h:selectBooleanCheckbox></td>
-                                                                    <td class="titletd" ><h:outputText value="9.1a." /></td>
-                                                                    <td class="fieldtd"><h:outputText style="width: 95%" value="Relocate Condenser: " /></td>
-                                                                    <td class="sqftpricelable"><h:outputText value="price:" /></td>
-                                                                    <td class="sqftpricetd"><h:inputText style="width: 95%" id="number91aRelocateCondenserInt" value="#{measureBean.number91aRelocateCondenserInt}">  
-                                                                            <p:ajax event="keyup" update="number91aRelocateCondenserResult, hpTotal" /></h:inputText></td>
-                                                                    <td class="resulttd" ><h:outputText id="number91aRelocateCondenserResult" value=" = #{measureBean.number91aRelocateCondenserResult}" /></td>
-                                                                </tr></table>
+                                                        <table>
+                                                            <tr><td class="checkbox"><h:selectBooleanCheckbox value="#{measureBean.number91aRelocateCondenserCheckBox}"  >
+                                                                        <p:ajax event="change" update="number91aRelocateCondenserInt, number91aRelocateCondenserResult, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox></td>
+                                                                <td class="titletd" ><h:outputText value="9.1a." /></td>
+                                                                <td class="fieldtd"><h:outputText style="width: 95%" value="Relocate Condenser: " /></td>
+                                                                <td class="sqftpricelable"><h:outputText value="price:" /></td>
+                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" id="number91aRelocateCondenserInt" value="#{measureBean.number91aRelocateCondenserInt}">  
+                                                                        <p:ajax event="keyup" update="number91aRelocateCondenserResult, hpTotal" /></h:inputText></td>
+                                                                <td class="resulttd" ><h:outputText id="number91aRelocateCondenserResult" value=" = #{measureBean.number91aRelocateCondenserResult}" /></td>
+                                                            </tr></table>
                                                     </div>
 
                                                     <!-- 9.1b Cut in Supply Vent w/ New Duct: -->
@@ -418,6 +418,7 @@
                                                                 <td class="resulttd"  />
                                                             </tr></table>
                                                     </div>
+                                                    <hr></hr>
                                                     <!-- 9.3 Cost per KW: -->
                                                     <div>
                                                         <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number93CostPerKWCheckBox}"  >
@@ -442,7 +443,39 @@
                                                             </tr>
                                                         </table>
                                                     </div>
-
+                                                    <!-- 9.4 Retail Price: -->
+                                                    <hr></hr>
+                                                    <div>
+                                                        <table><tr><td class="checkboxtd" />
+                                                                <td class="titletd" ><h:outputText value="9.4 Retail Price " /></td>
+                                                                <td class="fieldtd"></td>
+                                                                <td class="sqftpricelable" />
+                                                                <td class="sqftpricetd" />
+                                                                <td class="resulttd"  ></td>
+                                                            </tr>
+                                                            <tr><td class="checkboxtd" />
+                                                                <td class="titletd" ><h:outputText value="PGE Rebate Points " /></td>
+                                                                <td class="fieldtd"><h:inputText value="#{measureBean.pgeRebatePoints}"  ></h:inputText></td>
+                                                                <td class="sqftpricelable" />
+                                                                <td class="sqftpricetd" />
+                                                                <td class="resulttd"  ></td>
+                                                            </tr>
+                                                            <tr><td class="checkboxtd" />
+                                                                <td class="titletd" ><h:outputText value="PGE Rebate Amount " /></td>
+                                                                <td class="fieldtd"><h:inputText value="#{measureBean.pgeRebateAmount}"  ></h:inputText></td>
+                                                                <td class="sqftpricelable" />
+                                                                <td class="sqftpricetd" />
+                                                                <td class="resulttd"  ></td>
+                                                            </tr>
+                                                            <tr><td class="checkboxtd" />
+                                                                <td class="titletd" ><h:outputText value="SMUD Rebate Amount " /></td>
+                                                                <td class="fieldtd"><h:inputText value="#{measureBean.smudRebateAmount}"  ></h:inputText></td>
+                                                                <td class="sqftpricelable" />
+                                                                <td class="sqftpricetd" />
+                                                                <td class="resulttd"  ></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
                                                 </td>
                                             </tr></table>    
                                     </div>
@@ -800,9 +833,9 @@
                                     <div class="blockbottom" >
                                         <p:commandButton value="toDashBoard" action="dashboard.xhtml" />
                                     </div></h:form>
-                                </div>
-                            </td></tr>
-                    </table>
+                            </div>
+                        </td></tr>
+                </table>
             </ui:define>
         </ui:composition>
     </body>

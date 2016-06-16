@@ -174,10 +174,7 @@
                                                 <td><h:inputText  value="#{questions.mileage}" /></td>
                                             </tr>
 
-                                            <tr><td><h:outputText value=" " /></td> 
-                                                <td><p:commandButton id="submit" value="test submit" action="#{questions.submit()}" style="color: green"/>
-                                                    <p:outputLabel value=".." />
-                                                    <p:commandButton id="reset" value="test reset" action="#{questions.reset()}" style="color: red" /></td>
+                                            <tr><td>  <h:commandButton id="reset" value="reset" action="#{questions.reset()}" /></td>
                                             </tr>
                                         </table>
                                     </div> 
@@ -187,7 +184,7 @@
                                         <!-- 0.Data received from Sales -->
                                         <div class="block11House" ><table class="tableHouse" ><tr>
                                                         <td class="titleHouse" ><h:outputText value="0.Data received from Sales" /></td>
-                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{finance.dataReceivedFromSales0String}" /></td>
+                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="43" value="#{finance.dataReceivedFromSales0String}" /></td>
                                                         <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.dataReceivedFromSales0CheckBox}" >
                                                                 <p:ajax event="change" update="dataReceivedFromSales0String" />
                                                             </p:selectBooleanButton></td>
@@ -195,8 +192,8 @@
                                                     </tr></table></div>
                                         <!-- 1.Checking available financing / Total available financing -->
                                         <div class="block11House" ><table class="tableHouse" ><tr>
-                                                        <td class="titleHouse" ><h:outputText value="1.Total available financing" /></td>
-                                                        <td class="textAreaHouse" >
+                                                    <td class="titleHouse" ><h:outputText value="1.Total available financing" /></td>
+                                                    <td class="textAreaHouse" >
                                                             <table>
                                                                 <tr><td ><h:outputText value="Ygreen" /></td><td ><h:inputText maxlength="6" lang="6" value="#{finance.checkingAvailableFinancing1YgreenString}" >
                                                                             <p:ajax event="keyup" update="checkingAvailableFinancing1YgreenString" />
@@ -215,7 +212,7 @@
                                                         <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.checkingAvailableFinancing1CheckBox}" >
                                                                 <p:ajax event="change" update="checkingAvailableFinancing1Done" />
                                                             </p:selectBooleanButton></td>
-                                                        <td class="doneHouse" ><h:outputText class="h4House" id="checkingAvailableFinancing1Done" value="#{finance.checkingAvailableFinancing1Done}" /></td>
+                                                    <td class="doneHouse" ><h:outputText class="h4House" id="checkingAvailableFinancing1Done" value="#{finance.checkingAvailableFinancing1Done}" /></td>
                                                     </tr></table></div>
                                         <!-- 2.Evaluate HP -->
                                         <div class="block11House" >
@@ -238,7 +235,7 @@
 
                                         <div class="block11House" ><table class="tableHouse" ><tr>
                                                     <td class="titleHouse" ><h:outputText value="3.Receiving draft agreement" /></td>
-                                                    <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{finance.receivingDraftAgreement3String}" /></td>
+                                                    <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="43" value="#{finance.receivingDraftAgreement3String}" /></td>
                                                     <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.receivingDraftAgreement3CheckBox}" >
                                                             <p:ajax event="change" update="receivingDraftAgreement3Done" />
                                                         </p:selectBooleanButton></td>
@@ -274,7 +271,7 @@
                                                                 <td><p:fileUpload value="#{finance.signingERIAgeement5FileUpload}" mode="simple" skinSimple="true"/></td></tr>
                                                             <tr><td></td><td><p:commandButton value="Submit" ajax="false" actionListener="#{finance.signingERIAgeement5upload()}" disabled="false" /></td></tr>
                                                         </table>
-                                                        <table><tr><td  ><h:inputTextarea rows="3" cols="52" value="#{finance.signingERIAgeement5String}" /></td></tr></table>
+                                                        <table><tr><td  ><h:inputTextarea rows="3" cols="43" value="#{finance.signingERIAgeement5String}" /></td></tr></table>
                                                     </td>
                                                     <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.signingERIAgeement5CheckBox}" >
                                                             <p:ajax event="change" update="signingERIAgeement5Done" />
@@ -285,7 +282,7 @@
                                         <!-- 6. Apply to financing -->
                                         <div class="block11House" ><table class="tableHouse" ><tr>
                                                     <td class="titleHouse" ><h:outputText value="6.Apply to financing" /></td>
-                                                    <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{finance.applyToFinancing6String}" /></td>
+                                                    <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="43" value="#{finance.applyToFinancing6String}" /></td>
                                                     <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.applyToFinancing6CheckBox}" >
                                                             <p:ajax event="change" update="applyToFinancing6Done" />
                                                         </p:selectBooleanButton></td>
@@ -300,7 +297,7 @@
                                                                 <td><p:fileUpload value="#{finance.financingDocsReceived7FileUpload}" mode="simple" skinSimple="true"/></td></tr>
                                                             <tr><td></td><td><p:commandButton value="Submit" ajax="false" actionListener="#{finance.financingDocsReceived7upload()}" disabled="false" /></td></tr>
                                                         </table>
-                                                        <table><tr><td  ><h:inputTextarea rows="3" cols="52" value="#{finance.financingDocsReceived7String}" /></td></tr></table>
+                                                        <table><tr><td  ><h:inputTextarea rows="3" cols="43" value="#{finance.financingDocsReceived7String}" /></td></tr></table>
                                                     </td>
                                                     <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.financingDocsReceived7CheckBox}" >
                                                             <p:ajax event="change" update="financingDocsReceived7Done" />
@@ -317,7 +314,7 @@
                                                                     </p:calendar></td>
                                                                 <td><h:outputText id="scheduleAppointmentByCustomer8Date" value="#{finance.scheduleAppointmentByCustomer8Date}"  /></td></tr>
                                                         </table>
-                                                        <table><tr><td><h:inputTextarea rows="3" cols="52" value="#{finance.scheduleAppointmentByCustomer8String}" /></td></tr></table>
+                                                        <table><tr><td><h:inputTextarea rows="3" cols="43" value="#{finance.scheduleAppointmentByCustomer8String}" /></td></tr></table>
                                                     </td>
                                                     <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.scheduleAppointmentByCustomer8CheckBox}" >
                                                             <p:ajax event="change" update="scheduleAppointmentByCustomer8Done" />
@@ -332,7 +329,7 @@
                                                                 <td><p:fileUpload value="#{finance.signingContractByCustomer9FileUpload}" mode="simple" skinSimple="true"/></td></tr>
                                                             <tr><td></td><td><p:commandButton value="Submit" ajax="false" actionListener="#{finance.signingContractByCustomer9upload()}" disabled="false" /></td></tr>
                                                         </table>
-                                                        <table><tr><td  ><h:inputTextarea rows="3" cols="52" value="#{finance.signingContractByCustomer9String}" /></td></tr></table>
+                                                        <table><tr><td  ><h:inputTextarea rows="3" cols="43" value="#{finance.signingContractByCustomer9String}" /></td></tr></table>
                                                     </td>
                                                     <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.signingContractByCustomer9CheckBox}" >
                                                             <p:ajax event="change" update="signingContractByCustomer9Done" />
@@ -342,7 +339,7 @@
                                         <!-- 10.All docs completed -->
                                         <div class="block11House" ><table class="tableHouse" ><tr>
                                                         <td class="titleHouse" ><h:outputText value="10.All docs completed" /></td>
-                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{finance.allDocsCompleted10String}" /></td>
+                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="43" value="#{finance.allDocsCompleted10String}" /></td>
                                                         <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.allDocsCompleted10CheckBox}" >
                                                                 <p:ajax event="change" update="allDocsCompleted10Done" />
                                                             </p:selectBooleanButton></td>
@@ -351,7 +348,7 @@
                                         <!-- 11.Notice to proceed -->
                                         <div class="block11House" ><table class="tableHouse" ><tr>
                                                         <td class="titleHouse" ><h:outputText value="11.Notice to proceed" /></td>
-                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{finance.noticeToProceed11String}" /></td>
+                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="43" value="#{finance.noticeToProceed11String}" /></td>
                                                         <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.noticeToProceed11CheckBox}" >
                                                                 <p:ajax event="change" update="noticeToProceed11Done" />
                                                             </p:selectBooleanButton></td>
@@ -360,18 +357,15 @@
                                         <!-- 12.give # for concierge -->
                                         <div class="block11House" ><table class="tableHouse" ><tr>
                                                         <td class="titleHouse" ><h:outputText value="12.Give # for concierge" /></td>
-                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="52" value="#{finance.giveNForConcierge12String}" /></td>
+                                                        <td class="textAreaHouse" ><h:inputTextarea rows="3" cols="43" value="#{finance.giveNForConcierge12String}" /></td>
                                                         <td class="checkBoxHouse" ><p:selectBooleanButton onLabel="Yes" offLabel="No" value="#{finance.giveNForConcierge12CheckBox}" >
                                                                 <p:ajax event="change" update="giveNForConcierge12Done" />
                                                             </p:selectBooleanButton></td>
                                                         <td class="doneHouse" ><h:outputText class="h4House" id="giveNForConcierge12Done" value="#{finance.giveNForConcierge12Done}" /></td>
                                                     </tr></table></div>
-
-
                                     </div>
                                 </td>
                             </tr></table>
-                        <h:commandButton value="tostring" action="#{finance.toString()}" />
                     </h:form>
                 </div>
             </ui:define>

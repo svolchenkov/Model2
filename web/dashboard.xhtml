@@ -2,85 +2,56 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
-
         <ui:composition template="./template.xhtml">
-
             <ui:define name="content">
                 <div id="mainBlockDashBoard" >
                     <h:form>
-
                         <div class="block0DashBoard">
-                            <h:form></h:form>
+                            DashBoard
+                            <h:commandButton class="buttonDashBoard" value="to housefinance" action="housefinance.xhtml" />
                         </div>
-
                         <table class="tableDashBoard" ><tr><td>
                                     <div class="block1DashBoard" >
-                                        <h:form>
-                                            <h3>solar bar</h3>
-                                        </h:form>
+                                            <h4>Measures</h4>
                                     </div>
                                 </td>
-
                                 <td>
                                     <div class="block2DashBoard" >
-                                        <h:form>
-                                            <h3>cost</h3>
-                                            <table>
-                                                <tr><td class="titleDashBoard"><h:outputText value="Cost per KW: " /></td>
-                                                    <td class="textAreaDashBoard" ><h:inputText style="width: 95%;" value="#{dashBoard.costPerKW}" /></td>
-                                                    <td class="checkBoxDashBoard" ></td><td class="doneDashBoard" ></td></tr>
+                                            <h4>Cost</h4>
+                                            <table class="tableCostSummaryDashBoard">
+                                                <tr><td class="tdDashBoard" >Wholesale Cost</td><td class="tdDashBoard" ><h:outputText value="#{dashBoardBean.wholeCost}" /></td></tr>
+                                                <tr><td class="tdDashBoard" >Margin Percentage</td><td class="tdDashBoard" >
+                                                        <h:inputText value="#{dashBoardBean.marginPercentage}" >
+                                                            <p:ajax event="keyup" update="grossHPCost, netHPCost, solarCost, combinedGrossCost, financedTotal" />
+                                                        </h:inputText></td></tr>
+                                                <tr><td class="tdDashBoard" >Gross HP Cost</td><td class="tdDashBoard" ><h:outputText id="grossHPCost" value="#{dashBoardBean.grossHPCost}" /></td></tr>
+                                                <tr><td class="tdDashBoard" >Net HP Cost</td><td class="tdDashBoard" ><h:outputText id="netHPCost" value="#{dashBoardBean.netHPCost}" /></td></tr>
+                                                <tr><td class="tdDashBoard" >Solar Cost</td><td class="tdDashBoard" ><h:outputText id="solarCost" value="#{dashBoardBean.solarCost}" /></td></tr>
+                                                <tr><td class="tdDashBoard" >Combined Gross Cost</td><td class="tdDashBoard" ><h:outputText id="combinedGrossCost" value="#{dashBoardBean.combinedGrossCost}" /></td></tr>
+                                                <tr><td class="tdDashBoard" >Total Rebate Amount</td><td class="tdDashBoard" ><h:outputText value="#{dashBoardBean.toalRabateAmount}" /></td></tr>
+                                                <tr><td class="tdDashBoard" >Financed Total</td><td class="tdDashBoard" ><h:outputText id="financedTotal" value="#{dashBoardBean.financedTotal}" /></td></tr>
                                             </table>
-                                            <table>
-                                                <tr><td class="titleDashBoard"><h:outputText value="DC KWs: " /></td>
-                                                    <td class="textAreaDashBoard" ><h:inputText style="width: 95%;" value="#{dashBoard.dcKW}" /></td>
-                                                    <td class="checkBoxDashBoard" ></td><td class="doneDashBoard" ></td></tr>
-                                            </table>
-                                            <p class="pDashBoard"></p>
-                                            <table>
-                                                <tr><td class="titleDashBoard"><h:outputText value="PGE Rebate Amoun: " /></td>
-                                                    <td class="textAreaDashBoard" ><h:inputText style="width: 95%;" value="#{dashBoard.costPerKW}" /></td>
-                                                    <td class="checkBoxDashBoard" ></td><td class="doneDashBoard" ></td></tr>
-                                            </table>
-                                            <table>
-                                                <tr><td class="titleDashBoard"><h:outputText value="SMUD Rebate Amount: " /></td>
-                                                    <td class="textAreaDashBoard" ><h:inputText style="width: 95%;" value="#{dashBoard.smUDRabateAmount}" /></td>
-                                                    <td class="checkBoxDashBoard" ></td><td class="doneDashBoard" ></td></tr>
-                                            </table>
-                                            <p class="pDashBoard"></p>
-                                            <table>
-                                                <tr><td class="titleDashBoard"><h:outputText value="Wholesale Cost: " /></td>
-                                                    
-                                                    <td class="checkBoxDashBoard" ></td><td class="doneDashBoard" ></td></tr>
-                                            </table>
-                                        </h:form>
+                                            <h:commandButton class="buttonDashBoard" value="Detail" action="housefinance.xhtml" />
                                     </div>
                                 </td>
                             </tr>
                             <tr><td>
                                     <div class="block3DashBoard" >
-                                        <h:form>
-                                            <h3>finance</h3>
-                                        </h:form>
+                                            <h4>Finance</h4>
                                     </div>
                                 </td>
 
                                 <td>
                                     <div class="block4DashBoard" >
-                                        <h:form>
-                                            <h3>diagram</h3>
-                                        </h:form>
+                                            <h4>Diagram</h4>
                                     </div>
                                 </td>
                             </tr>
                         </table>
-
-
-
-
-
                     </h:form>
                 </div>
             </ui:define>

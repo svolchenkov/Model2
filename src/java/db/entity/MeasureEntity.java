@@ -286,6 +286,14 @@ public class MeasureEntity implements Serializable {
     private double solarcost;
     @Column(name = "NEW1")
     private int new1;
+    @Column(name = "MARGINPERCENTAGE")
+    private int marginpercentage;
+    @Column(name = "PGEREBATEPOINTS")
+    private int pgeRebatePoints;
+    @Column(name = "PGEREBATEAMOUNT")
+    private int pgeRebateAmount;
+    @Column(name = "SMUDREBATEAMOUNT")
+    private int smudRebateAmount;
 
     public MeasureEntity() {
     }
@@ -1252,6 +1260,38 @@ public class MeasureEntity implements Serializable {
 
     public void setNew1(int new1) {
         this.new1 = new1;
+    }
+
+    public int getMarginpercentage() {
+        return marginpercentage;
+    }
+
+    public void setMarginpercentage(int marginpercentage) {
+        this.marginpercentage = marginpercentage;
+    }
+
+    public int getPgeRebatePoints() {
+        return pgeRebatePoints;
+    }
+
+    public void setPgeRebatePoints(int pgeRebatePoints) {
+        this.pgeRebatePoints = pgeRebatePoints;
+    }
+
+    public int getPgeRebateAmount() {
+        return pgeRebateAmount;
+    }
+
+    public void setPgeRebateAmount(int pgeRebateAmount) {
+        this.pgeRebateAmount = pgeRebateAmount;
+    }
+
+    public int getSmudRebateAmount() {
+        return smudRebateAmount;
+    }
+
+    public void setSmudRebateAmount(int smudRebateAmount) {
+        this.smudRebateAmount = smudRebateAmount;
     }
 
     @Override

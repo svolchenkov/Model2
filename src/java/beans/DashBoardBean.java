@@ -10,52 +10,50 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 
 /**
  *
  * @author Sergey
  */
-@Named(value = "dashBoard")
+@Named(value = "dashBoardBean")
 @SessionScoped
-public class DashBoard implements Serializable {
-    
+public class DashBoardBean implements Serializable {
+
+    @Inject
     MeasureBean measureBean;
-    
+
     private int customerID;
-    
+
     private double wholeCost;
-    private double marginPercentage;
+    private int marginPercentage;
     private double grossHPCost;
     private double netHPCost;
     private double solarCost;
     private double combinedGrossCost;
-    private double toalRabateAmount;
+    private int toalRabateAmount;
     private double financedTotal;
-    
+
     private double pgErebateAmount;
     private double smUDRabateAmount;
     private double costPerKW;
     private double dcKW;
-            
+
     /**
      * Creates a new instance of DashBoard
      */
-    public DashBoard() {
+    public DashBoardBean() {
     }
-    
-    // ----------- common ---------------------------------
 
+    // ----------- common ---------------------------------
     public MeasureBean getMeasureBean() {
-        MeasureBean measureBean = (MeasureBean) FacesContext.getCurrentInstance().
-		getExternalContext().getSessionMap().get("measureBean");
-        System.out.println("measureBean = " + measureBean.toString());
         return measureBean;
     }
 
     public void setMeasureBean(MeasureBean measureBean) {
         this.measureBean = measureBean;
     }
-    
+
     public int getCustomerID() {
         return customerID;
     }
@@ -63,24 +61,23 @@ public class DashBoard implements Serializable {
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
-    
-    public String wayToHouseFinance () {
+
+    public String wayToHouseFinance() {
         return "housefinance";
     }
-    
-    // ----------- solar bar ------------------------------
 
+    // ----------- solar bar ------------------------------
     public double getCostPerKW() {
         return costPerKW;
     }
 
     public void setCostPerKW(double costPerKW) {
-        if ( getMeasureBean() != null ) {
+        if (getMeasureBean() != null) {
             this.costPerKW = getMeasureBean().getNumber93CostPerKWInt();
         } else {
             this.costPerKW = 0;
         }
-        
+
         this.costPerKW = costPerKW;
     }
 
@@ -91,17 +88,12 @@ public class DashBoard implements Serializable {
     public void setDcKW(double dcKW) {
         this.dcKW = dcKW;
     }
-    
-    
-//    dBsave.getMeasureBean().setNumber93DCKWsInt((int) dCKWs);
-    
-    // ----------- cost -----------------------------------
 
-    
+//    dBsave.getMeasureBean().setNumber93DCKWsInt((int) dCKWs);
+    // ----------- cost -----------------------------------
     public double getWholeCost() {
-        System.out.println("getWholeCost");
-        if ( getMeasureBean() == null ) {
-             this.wholeCost = 0;
+        if (getMeasureBean() == null) {
+            this.wholeCost = 0;
         } else {
             this.wholeCost = getMeasureBean().getTotal();
         }
@@ -113,15 +105,24 @@ public class DashBoard implements Serializable {
         this.wholeCost = wholeCost;
     }
 
-    public double getMarginPercentage() {
+    public int getMarginPercentage() {
+        marginPercentage = measureBean.getMarginPercentage();
         return marginPercentage;
     }
 
-    public void setMarginPercentage(double marginPercentage) {
-        this.marginPercentage = marginPercentage / 100;
+    public void setMarginPercentage(int marginPercentage) {
+        this.marginPercentage = marginPercentage;
+        measureBean.setMarginPercentage(this.marginPercentage);
     }
 
     public double getGrossHPCost() {
+        if (getMarginPercentage() == 0) {
+            grossHPCost = 0;
+        } else {
+            double k = 10000 * getWholeCost() / getMarginPercentage();
+            int j = (int) Math.round(k);
+            grossHPCost = j * 1.0 / 100;
+        }
         return grossHPCost;
     }
 
@@ -130,6 +131,7 @@ public class DashBoard implements Serializable {
     }
 
     public double getNetHPCost() {
+        netHPCost = getGrossHPCost() - getToalRabateAmount();
         return netHPCost;
     }
 
@@ -138,6 +140,7 @@ public class DashBoard implements Serializable {
     }
 
     public double getSolarCost() {
+        solarCost = measureBean.getNumber93CostPerKWInt() * measureBean.getNumber93DCKWsInt();
         return solarCost;
     }
 
@@ -146,6 +149,7 @@ public class DashBoard implements Serializable {
     }
 
     public double getCombinedGrossCost() {
+        combinedGrossCost = getSolarCost() + getGrossHPCost();
         return combinedGrossCost;
     }
 
@@ -153,15 +157,17 @@ public class DashBoard implements Serializable {
         this.combinedGrossCost = combinedGrossCost;
     }
 
-    public double getToalRabateAmount() {
+    public int getToalRabateAmount() {
+        toalRabateAmount = Math.round(measureBean.getPgeRebateAmount() + measureBean.getSmudRebateAmount());
         return toalRabateAmount;
     }
 
-    public void setToalRabateAmount(double toalRabateAmount) {
+    public void setToalRabateAmount(int toalRabateAmount) {
         this.toalRabateAmount = toalRabateAmount;
     }
 
     public double getFinancedTotal() {
+        financedTotal = getCombinedGrossCost() - getToalRabateAmount();
         return financedTotal;
     }
 
@@ -184,13 +190,7 @@ public class DashBoard implements Serializable {
     public void setSmUDRabateAmount(double smUDRabateAmount) {
         this.smUDRabateAmount = smUDRabateAmount;
     }
-    
-    // ----------- finance --------------------------------
-    
-    // ----------- diagram --------------------------------
 
-    
-    
-    
-    
+    // ----------- finance --------------------------------
+    // ----------- diagram --------------------------------
 }

@@ -19,15 +19,7 @@ public class CreateHibernateSession {
     private static ServiceRegistry serviceRegistry;
 
     private static SessionFactory configureSessionFactory() {
-
-//        Configuration config = new Configuration();
-////        config.addClass(db.enttity.CustomerEntity.class);
-//        config.configure();
-//        serviceRegistry = new StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();
-//        sessionFactory = config.buildSessionFactory(serviceRegistry);
-
-//        Configuration configuration = new Configuration().addClass(db.enttity.CustomerEntity.class);
-
+        
         sessionFactory = new AnnotationConfiguration().
                 configure().addAnnotatedClass(db.entity.CustomerEntity.class).
                 configure().addAnnotatedClass(db.entity.FinanceEntity.class).

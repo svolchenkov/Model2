@@ -44,7 +44,6 @@ public class PropertiesManage {
             String sql = "SELECT * FROM PROPERTIES WHERE ID = 0";
             SQLQuery query = session.createSQLQuery(sql);
             query.addEntity(PropertiesEntity.class);
-//            query.setParameter(0, 0);
             List properties = query.list();
             if ( properties.isEmpty() ) {
                 System.err.println("properties have broken: class PropertiesManage ");

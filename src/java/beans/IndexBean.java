@@ -40,8 +40,8 @@ public class IndexBean implements Serializable {
         1.IndexBean.wayToHouseFinance
         2.questionsBean.receiveQuestionsHouseByCaseID(caseId)
         3.houseManage.getHouseByCaseID(caseID) here new1 = 0
-        */
-        
+         */
+
         measureBean.receiveMeasureByCaseId(caseId);
         questionsBean.receiveQuestionsHouseByCaseID(caseId);
         financeBean.receiveFinanceBeanByCaseID(caseId);
@@ -50,6 +50,7 @@ public class IndexBean implements Serializable {
     }
     
     public String findHouse() {
+        
         if ( getFindHouseInputText().length() != 0 ) {
            customers = questionsBean.findHouseByCaseId( getFindHouseInputText() ); 
         }

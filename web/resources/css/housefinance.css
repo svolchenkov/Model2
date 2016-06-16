@@ -65,6 +65,9 @@
     width: 100px;
     color: darkred;
 }
+.titleHouse {
+    width: 150px;
+}
 .textAreaHouse {
     width: 400px;
 }

@@ -32,171 +32,177 @@ public class MeasureBean implements Serializable {
 
     FinanceBean finance;
 
-    private double total;
-    private String caseId;
-    private int customerID;
-    private int new1;
+    private double total = 0;
+    private String caseId = "";
+    private int customerID = 0;
+    private int new1 = 0;
 
-    private boolean number1InsulatAtticBlownCheckBox;
-    private String number1InsulatAtticBlownString;
-    private int sqft1;
-    private double number1InsulatAtticBlownResult;
+    private boolean number1InsulatAtticBlownCheckBox = false;
+    private String number1InsulatAtticBlownString = "";
+    private int sqft1 = 0;
+    private double number1InsulatAtticBlownResult = 0;
 
-    private boolean number2RemoveAndReplaceCheckBox;
-    private int sqft2;
-    private double number2RemoveAndReplaceResult;
+    private boolean number2RemoveAndReplaceCheckBox = false;
+    private int sqft2 = 0;
+    private double number2RemoveAndReplaceResult = 0;
 
-    private boolean number3InstallBattedInsulationCheckBox;
-    private int sqft3;
-    private double number3InstallBattedInsulationResult;
+    private boolean number3InstallBattedInsulationCheckBox = false;
+    private int sqft3 = 0;
+    private double number3InstallBattedInsulationResult = 0;
 
-    private boolean number4SealDuctingCodeComplianceCheckBox;
-    private String number4SealDuctingCodeComplianceString;
-    private int sqft4;
-    private double number4SealDuctingCodeComplianceResult;
+    private boolean number4SealDuctingCodeComplianceCheckBox = false;
+    private String number4SealDuctingCodeComplianceString = "";
+    private int sqft4 = 0;
+    private double number4SealDuctingCodeComplianceResult = 0;
 
-    private int sqft5;
-    private boolean number5AirSealPackageCheckBox;
-    private String number5AirSealPackageString;
-    private double number5AirSealPackageResult;
+    private int sqft5 = 0;
+    private boolean number5AirSealPackageCheckBox = false;
+    private String number5AirSealPackageString = "";
+    private double number5AirSealPackageResult = 0;
 
-    private int sqft6;
-    private boolean number6CAZAreaReportCheckBox;
-    private String number6CAZAreaReportString;
-    private double number6CAZAreaReportResult;
+    private int sqft6 = 0;
+    private boolean number6CAZAreaReportCheckBox = false;
+    private String number6CAZAreaReportString = "";
+    private double number6CAZAreaReportResult = 0;
 
-    private int sqft7a;
-    private boolean number7AInstallDuctingStandaloneCheckBox;
-    private String number7AInstallDuctingStandaloneString;
-    private double number7AInstallDuctingStandaloneResult;
+    private int sqft7a = 0;
+    private boolean number7AInstallDuctingStandaloneCheckBox = false;
+    private String number7AInstallDuctingStandaloneString = "";
+    private double number7AInstallDuctingStandaloneResult = 0;
 
-    private int sqft7b;
-    private boolean number7BInstallR8DuctingNewHVACCheckBox;
-    private String number7BInstallR8DuctingNewHVACString;
-    private double number7BInstallR8DuctingNewHVACResult;
+    private int sqft7b = 0;
+    private boolean number7BInstallR8DuctingNewHVACCheckBox = false;
+    private String number7BInstallR8DuctingNewHVACString = "";
+    private double number7BInstallR8DuctingNewHVACResult = 0;
 
-    private int sqft8a;
-    private boolean number8ANewHVACSystemERICheckBox;
-    private String number8ANewHVACSystemERIString;
-    private double number8ANewHVACSystemERIResult;
+    private int sqft8a = 0;
+    private boolean number8ANewHVACSystemERICheckBox = false;
+    private String number8ANewHVACSystemERIString = "";
+    private double number8ANewHVACSystemERIResult = 0;
 
-    private int sqft8b;
-    private boolean number8BNewHVACSystemERIPrivateCheckBox;
-    private String number8BNewHVACSystemERIPrivateString;
-    private double number8BNewHVACSystemERIPrivateResult;
+    private int sqft8b = 0;
+    private boolean number8BNewHVACSystemERIPrivateCheckBox = false;
+    private String number8BNewHVACSystemERIPrivateString = "";
+    private double number8BNewHVACSystemERIPrivateResult = 0;
 
-    private int sqft8bii;
-    private boolean number8BIIIncludes10YearPartsCheckBox;
-    private String number8BIIIncludes10YearPartsString;
-    private double number8BIIIncludes10YearPartsResult;
+    private int sqft8bii = 0;
+    private boolean number8BIIIncludes10YearPartsCheckBox = false;
+    private String number8BIIIncludes10YearPartsString = "";
+    private double number8BIIIncludes10YearPartsResult = 0;
 
-    private int sqft9;
-    private boolean number9SingleDualZoneHVACSystemCheckBox;
-    private String number9SingleDualZoneHVACSystemString;
-    private double number9SingleDualZoneHVACSystemResult;
+    private int sqft9 = 0;
+    private boolean number9SingleDualZoneHVACSystemCheckBox = false;
+    private String number9SingleDualZoneHVACSystemString = "";
+    private double number9SingleDualZoneHVACSystemResult = 0;
 
-    private int sqft91;
-    private boolean number91aRelocateCondenserCheckBox;
-    private int number91aRelocateCondenserInt;
-    private double number91aRelocateCondenserResult;
+    private int sqft91 = 0;
+    private boolean number91aRelocateCondenserCheckBox = false;
+    private int number91aRelocateCondenserInt = 0;
+    private double number91aRelocateCondenserResult = 0;
 
-    private boolean number91bCutInSupplyVentNewDuctCheckBox;
-    private int number91bCutInSupplyVentNewDuctInt;
-    private double number91bCutInSupplyVentNewDuctResult;
+    private boolean number91bCutInSupplyVentNewDuctCheckBox = false;
+    private int number91bCutInSupplyVentNewDuctInt = 0;
+    private double number91bCutInSupplyVentNewDuctResult = 0;
 
-    private boolean number91cHVACCutInCheckBox;
-    private int number91cHVACCutInInt;
-    private double number91cHVACCutInResult;
+    private boolean number91cHVACCutInCheckBox = false;
+    private int number91cHVACCutInInt = 0;
+    private double number91cHVACCutInResult = 0;
 
-    private boolean number91dDuctSealOnlyCheckBox;
-    private int number91dDuctSealOnlyInt;
-    private double number91dDuctSealOnlyResult;
+    private boolean number91dDuctSealOnlyCheckBox = false;
+    private int number91dDuctSealOnlyInt = 0;
+    private double number91dDuctSealOnlyResult = 0;
 
-    private boolean number91eNewLineSetCheckBox;
-    private int number91eNewLineSetInt;
-    private double number91eNewLineSetResult;
+    private boolean number91eNewLineSetCheckBox = false;
+    private int number91eNewLineSetInt = 0;
+    private double number91eNewLineSetResult = 0;
 
-    private boolean number91fEnlargeReturnAirCheckBox;
-    private int number91fEnlargeReturnAirInt;
-    private double number91fEnlargeReturnAirResult;
+    private boolean number91fEnlargeReturnAirCheckBox = false;
+    private int number91fEnlargeReturnAirInt = 0;
+    private double number91fEnlargeReturnAirResult = 0;
 
-    private boolean number92NotesCheckBox;
-    private String number92NotesString;
+    private boolean number92NotesCheckBox = false;
+    private String number92NotesString = "";
 
-    private boolean number93CostPerKWCheckBox;
-    private int number93CostPerKWInt;
-    private double number93CostPerKWResalt;
-    private int number93DCKWsInt;
-    private double number93DCKWsResalt;
+    private boolean number93CostPerKWCheckBox = false;
+    private int number93CostPerKWInt = 0;
+    private double number93CostPerKWResalt = 0;
+    private int number93DCKWsInt = 0;
+    private double number93DCKWsResalt = 0;
 
-    private boolean number10InstallWindowsCheckBox;
-    private String number10numOfWindows;
-    private int number10TotalUnitedInchesInt;
-    private double number10InstallResult;
-    private String number10numOfSliders;
-    private String number10LinearFeet;
-    private double number10LinearFeetResult;
+    private boolean number10InstallWindowsCheckBox = false;
+    private String number10numOfWindows = "";
+    private int number10TotalUnitedInchesInt = 0;
+    private double number10InstallResult = 0;
+    private String number10numOfSliders = "";
+    private String number10LinearFeet = "";
+    private double number10LinearFeetResult = 0;
 
-    private boolean number101ACutInDoorCheckBox;
-    private int number101ACutInDoorInt;
-    private double number101ACutInDoorResult;
+    private boolean number101ACutInDoorCheckBox = false;
+    private int number101ACutInDoorInt = 0;
+    private double number101ACutInDoorResult = 0;
 
-    private boolean number101BAddHeaderCheckBox;
-    private int number101BAddHeaderInt;
-    private double number101BAddHeaderResult;
+    private boolean number101BAddHeaderCheckBox = false;
+    private int number101BAddHeaderInt = 0;
+    private double number101BAddHeaderResult = 0;
 
-    private boolean number102ACutDownWindowCheckBox;
-    private double number102ACutDownWindowResult;
+    private boolean number102ACutDownWindowCheckBox = false;
+    private double number102ACutDownWindowResult = 0;
 
-    private boolean number102BElectricalReroutesCheckBox;
-    private double number102BElectricalReroutesResult;
+    private boolean number102BElectricalReroutesCheckBox = false;
+    private double number102BElectricalReroutesResult = 0;
 
-    private boolean number102CGardenWindow4CheckBox;
-    private double number102CGardenWindow4Result;
+    private boolean number102CGardenWindow4CheckBox = false;
+    private double number102CGardenWindow4Result = 0;
 
-    private boolean number102DGardenWindow6CheckBox;
-    private double number102DGardenWindow6Result;
+    private boolean number102DGardenWindow6CheckBox = false;
+    private double number102DGardenWindow6Result = 0;
 
-    private boolean number103AllGlazingCheckBox;
-    private boolean number104WindowsToMatcCheckBox;
+    private boolean number103AllGlazingCheckBox = false;
+    private boolean number104WindowsToMatcCheckBox = false;
 
-    private boolean number11InstallPoolPumpCheckBox;
-    private double number11InstallPoolPumpResult;
+    private boolean number11InstallPoolPumpCheckBox = false;
+    private double number11InstallPoolPumpResult = 0;
 
-    private boolean number12InstallWholeHouseFanCheckBox;
-    private int number12InstallWholeHouseFanInt;
-    private double number12InstallWholeHouseFanResult;
+    private boolean number12InstallWholeHouseFanCheckBox = false;
+    private int number12InstallWholeHouseFanInt = 0;
+    private double number12InstallWholeHouseFanResult = 0;
 
-    private boolean number13InstallWaterHeaterCheckBox;
-    private double number13InstallWaterHeaterDouble;
-    private double number13InstallWaterHeaterResult;
+    private boolean number13InstallWaterHeaterCheckBox = false;
+    private double number13InstallWaterHeaterDouble = 0;
+    private double number13InstallWaterHeaterResult = 0;
 
-    private boolean number14PermitsCheckBox;
-    private double number14PermitsResult;
+    private boolean number14PermitsCheckBox = false;
+    private double number14PermitsResult = 0;
 
-    private boolean number15InstallBatteryOperatedCheckBox;
-    private double number15InstallBatteryOperatedResult;
+    private boolean number15InstallBatteryOperatedCheckBox = false;
+    private double number15InstallBatteryOperatedResult = 0;
 
-    private boolean number15AInstallKWDCSolarSystemCheckBox;
-    private int number15aInstallKWDCSolarSystemInt;
+    private boolean number15AInstallKWDCSolarSystemCheckBox = false;
+    private int number15aInstallKWDCSolarSystemInt = 0;
 
-    private boolean number15BIncludesExtrudedAluminumCheckBox;
-    private boolean number15CSolarEdgeWithPowerOptimizersCheckBox;
-    private boolean number15DIncludesSystemPVProductionCheckBox;
-    private boolean number15EIncludesAllPermitsCheckBox;
-    private boolean number15FCanadianSolar270WattCheckBox;
+    private boolean number15BIncludesExtrudedAluminumCheckBox = false;
+    private boolean number15CSolarEdgeWithPowerOptimizersCheckBox = false;
+    private boolean number15DIncludesSystemPVProductionCheckBox = false;
+    private boolean number15EIncludesAllPermitsCheckBox = false;
+    private boolean number15FCanadianSolar270WattCheckBox = false;
 
     // Calculate whole cost
-    private double wholeCost;
-    private double solarCost;
+    private double wholeCost = 0;
+    private double solarCost = 0;
+
+    private int marginPercentage = 0;
+
+    private int pgeRebatePoints = 0;
+    private int pgeRebateAmount = 0;
+    private int smudRebateAmount = 0;
 
     /**
      * Creates a new instance of MeasureBean
      */
     public MeasureBean() {
     }
-    
-    public void saveMeasure () {
+
+    public void saveMeasure() {
         measureManage.addOrUpdateMeasure(this);
     }
 
@@ -246,11 +252,15 @@ public class MeasureBean implements Serializable {
     }
 
     public double getNumber1InsulatAtticBlownResult() {
-        if (isNumber1InsulatAtticBlownCheckBox() == true) {
-            double k = Math.round(Double.valueOf(getNumber1InsulatAtticBlownString()) * 100);
-            this.number1InsulatAtticBlownResult = k / 100 * getSqft1();
+        if (!number1InsulatAtticBlownString.equals("")) {
+            if (isNumber1InsulatAtticBlownCheckBox() == true) {
+                double k = Math.round(Double.valueOf(getNumber1InsulatAtticBlownString()) * 100);
+                this.number1InsulatAtticBlownResult = k / 100 * getSqft1();
+            } else {
+                this.number1InsulatAtticBlownResult = 0;
+            }
         } else {
-            this.number1InsulatAtticBlownResult = 0;
+            number1InsulatAtticBlownResult = 0;
         }
         return number1InsulatAtticBlownResult;
     }
@@ -348,11 +358,15 @@ public class MeasureBean implements Serializable {
     }
 
     public double getNumber4SealDuctingCodeComplianceResult() {
-        if (isNumber4SealDuctingCodeComplianceCheckBox() == true) {
-            double k = Math.round(Double.valueOf(getNumber4SealDuctingCodeComplianceString()) * 100);
-            this.number4SealDuctingCodeComplianceResult = k / 100 * sqft4;
+        if (!number4SealDuctingCodeComplianceString.equals("")) {
+            if (isNumber4SealDuctingCodeComplianceCheckBox() == true) {
+                double k = Math.round(Double.valueOf(getNumber4SealDuctingCodeComplianceString()) * 100);
+                this.number4SealDuctingCodeComplianceResult = k / 100 * sqft4;
+            } else {
+                this.number4SealDuctingCodeComplianceResult = 0;
+            }
         } else {
-            this.number4SealDuctingCodeComplianceResult = 0;
+            number4SealDuctingCodeComplianceResult = 0;
         }
         return number4SealDuctingCodeComplianceResult;
     }
@@ -390,12 +404,16 @@ public class MeasureBean implements Serializable {
     }
 
     public double getNumber5AirSealPackageResult() {
-        if (isNumber5AirSealPackageCheckBox() == true) {
-            this.number5AirSealPackageResult = Double.valueOf(getNumber5AirSealPackageString()) * getSqft5();
-            double k = Math.round(this.number5AirSealPackageResult * 1000);
-            this.number5AirSealPackageResult = k / 1000;
+        if (!number5AirSealPackageString.equals("")) {
+            if (isNumber5AirSealPackageCheckBox() == true) {
+                this.number5AirSealPackageResult = Double.valueOf(getNumber5AirSealPackageString()) * getSqft5();
+                double k = Math.round(this.number5AirSealPackageResult * 1000);
+                this.number5AirSealPackageResult = k / 1000;
+            } else {
+                this.number5AirSealPackageString = "0";
+            }
         } else {
-            this.number5AirSealPackageString = "0";
+            number5AirSealPackageResult = 0;
         }
         return number5AirSealPackageResult;
     }
@@ -433,11 +451,15 @@ public class MeasureBean implements Serializable {
     }
 
     public double getNumber6CAZAreaReportResult() {
-        if (isNumber6CAZAreaReportCheckBox() == true) {
-            double k = Math.round(Double.valueOf(getNumber6CAZAreaReportString()) * 100);
-            this.number6CAZAreaReportResult = k / 100 * getSqft6();
+        if (!number6CAZAreaReportString.equals("")) {
+            if (isNumber6CAZAreaReportCheckBox() == true) {
+                double k = Math.round(Double.valueOf(getNumber6CAZAreaReportString()) * 100);
+                this.number6CAZAreaReportResult = k / 100 * getSqft6();
+            } else {
+                this.number6CAZAreaReportResult = 0;
+            }
         } else {
-            this.number6CAZAreaReportResult = 0;
+            number6CAZAreaReportResult = 0;
         }
         return number6CAZAreaReportResult;
     }
@@ -477,10 +499,14 @@ public class MeasureBean implements Serializable {
     }
 
     public double getNumber7AInstallDuctingStandaloneResult() {
-        if (isNumber7AInstallDuctingStandaloneCheckBox() == true) {
-            this.number7AInstallDuctingStandaloneResult = Double.valueOf(getNumber7AInstallDuctingStandaloneString()) * 1;
+        if (!number7AInstallDuctingStandaloneString.equals("")) {
+            if (isNumber7AInstallDuctingStandaloneCheckBox() == true) {
+                this.number7AInstallDuctingStandaloneResult = Double.valueOf(getNumber7AInstallDuctingStandaloneString()) * 1;
+            } else {
+                this.number7AInstallDuctingStandaloneResult = 0;
+            }
         } else {
-            this.number7AInstallDuctingStandaloneResult = 0;
+            number7AInstallDuctingStandaloneResult = 0;
         }
         return number7AInstallDuctingStandaloneResult;
     }
@@ -518,8 +544,12 @@ public class MeasureBean implements Serializable {
     }
 
     public double getNumber7BInstallR8DuctingNewHVACResult() {
-        if (isNumber7BInstallR8DuctingNewHVACCheckBox() == true) {
-            this.number7BInstallR8DuctingNewHVACResult = Double.valueOf(getNumber7BInstallR8DuctingNewHVACString()) * sqft7b;
+        if (!number7BInstallR8DuctingNewHVACString.equals("")) {
+            if (isNumber7BInstallR8DuctingNewHVACCheckBox() == true) {
+                this.number7BInstallR8DuctingNewHVACResult = Double.valueOf(getNumber7BInstallR8DuctingNewHVACString()) * sqft7b;
+            } else {
+                this.number7BInstallR8DuctingNewHVACResult = 0;
+            }
         } else {
             this.number7BInstallR8DuctingNewHVACResult = 0;
         }
@@ -562,11 +592,15 @@ public class MeasureBean implements Serializable {
     }
 
     public double getNumber8ANewHVACSystemERIResult() {
-        if (isNumber8ANewHVACSystemERICheckBox() == true) {
-            double k = Math.round(Double.valueOf(Double.valueOf(getNumber8ANewHVACSystemERIString())) * 100);
-            this.number8ANewHVACSystemERIResult = k / 100 * 1;
+        if (!number8ANewHVACSystemERIString.equals("")) {
+            if (isNumber8ANewHVACSystemERICheckBox() == true) {
+                double k = Math.round(Double.valueOf(Double.valueOf(getNumber8ANewHVACSystemERIString())) * 100);
+                this.number8ANewHVACSystemERIResult = k / 100 * 1;
+            } else {
+                this.number8ANewHVACSystemERIResult = 0;
+            }
         } else {
-            this.number8ANewHVACSystemERIResult = 0;
+            number8ANewHVACSystemERIResult = 0;
         }
         return number8ANewHVACSystemERIResult;
     }
@@ -604,11 +638,15 @@ public class MeasureBean implements Serializable {
     }
 
     public double getNumber8BNewHVACSystemERIPrivateResult() {
-        if (isNumber8BNewHVACSystemERIPrivateCheckBox() == true) {
-            double k = Math.round(Double.valueOf(getNumber8BNewHVACSystemERIPrivateString()) * 100);
-            this.number8BNewHVACSystemERIPrivateResult = k / 100 * 1;
+        if (!number8BNewHVACSystemERIPrivateString.equals("")) {
+            if (isNumber8BNewHVACSystemERIPrivateCheckBox() == true) {
+                double k = Math.round(Double.valueOf(getNumber8BNewHVACSystemERIPrivateString()) * 100);
+                this.number8BNewHVACSystemERIPrivateResult = k / 100 * 1;
+            } else {
+                this.number8BNewHVACSystemERIPrivateResult = 0;
+            }
         } else {
-            this.number8BNewHVACSystemERIPrivateResult = 0;
+            number8BNewHVACSystemERIPrivateResult = 0;
         }
         return number8BNewHVACSystemERIPrivateResult;
     }
@@ -636,9 +674,6 @@ public class MeasureBean implements Serializable {
     }
 
     public String getNumber8BIIIncludes10YearPartsString() {
-        if (this.number8BIIIncludes10YearPartsString == null) {
-            this.number8BIIIncludes10YearPartsString = "0";
-        }
         return number8BIIIncludes10YearPartsString;
     }
 
@@ -647,11 +682,15 @@ public class MeasureBean implements Serializable {
     }
 
     public double getNumber8BIIIncludes10YearPartsResult() {
-        if (isNumber8BIIIncludes10YearPartsCheckBox() == true) {
-            this.number8BIIIncludes10YearPartsResult = Double.valueOf(getNumber8BIIIncludes10YearPartsString()) * getSqft8bii();
-        } else {
-            this.number8BIIIncludes10YearPartsResult = 0;
-        }
+//        if (!number8BIIIncludes10YearPartsString.equals("")) {
+//            if (isNumber8BIIIncludes10YearPartsCheckBox() == true) {
+//                this.number8BIIIncludes10YearPartsResult = Double.valueOf(getNumber8BIIIncludes10YearPartsString()) * getSqft8bii();
+//            } else {
+//                this.number8BIIIncludes10YearPartsResult = 0;
+//            }
+//        } else {
+//            this.number8BIIIncludes10YearPartsResult = 0;
+//        }
         //Usually = 0, why? I don't know
         this.number8BIIIncludes10YearPartsResult = 0;
         return number8BIIIncludes10YearPartsResult;
@@ -691,10 +730,14 @@ public class MeasureBean implements Serializable {
     }
 
     public double getNumber9SingleDualZoneHVACSystemResult() {
-        if (isNumber9SingleDualZoneHVACSystemCheckBox() == true) {
-            this.number9SingleDualZoneHVACSystemResult = Double.valueOf(getNumber9SingleDualZoneHVACSystemString()) * 1;
+        if (!number9SingleDualZoneHVACSystemString.equals("")) {
+            if (isNumber9SingleDualZoneHVACSystemCheckBox() == true) {
+                this.number9SingleDualZoneHVACSystemResult = Double.valueOf(getNumber9SingleDualZoneHVACSystemString()) * 1;
+            } else {
+                this.number9SingleDualZoneHVACSystemResult = 0;
+            }
         } else {
-            this.number9SingleDualZoneHVACSystemResult = 0;
+            number9SingleDualZoneHVACSystemResult = 0;
         }
         return number9SingleDualZoneHVACSystemResult;
     }
@@ -960,6 +1003,31 @@ public class MeasureBean implements Serializable {
         this.number93DCKWsResalt = number93DCKWsResalt;
     }
 
+    //***************************** 9.4 *******************************
+    public int getPgeRebatePoints() {
+        return pgeRebatePoints;
+    }
+
+    public void setPgeRebatePoints(int pgeRebatePoints) {
+        this.pgeRebatePoints = pgeRebatePoints;
+    }
+
+    public int getPgeRebateAmount() {
+        return pgeRebateAmount;
+    }
+
+    public void setPgeRebateAmount(int pgeRebateAmount) {
+        this.pgeRebateAmount = pgeRebateAmount;
+    }
+
+    public int getSmudRebateAmount() {
+        return smudRebateAmount;
+    }
+
+    public void setSmudRebateAmount(int smudRebateAmount) {
+        this.smudRebateAmount = smudRebateAmount;
+    }
+
     //***************************** 10. Install Windows:  ******************************************
     public String getNumber10numOfWindows() {
         if (this.number10numOfWindows == null) {
@@ -1026,8 +1094,12 @@ public class MeasureBean implements Serializable {
     }
 
     public double getNumber10LinearFeetResult() {
-        if (isNumber10InstallWindowsCheckBox() == true) {
-            this.number10LinearFeetResult = Double.valueOf(getNumber10LinearFeet());
+        if (!number10LinearFeet.equals("")) {
+            if (isNumber10InstallWindowsCheckBox() == true) {
+                this.number10LinearFeetResult = Double.valueOf(getNumber10LinearFeet());
+            } else {
+                this.number10LinearFeetResult = 0;
+            }
         } else {
             this.number10LinearFeetResult = 0;
         }
@@ -1378,7 +1450,6 @@ public class MeasureBean implements Serializable {
     }
 
     //*********************************************************************
-
     public String getCaseId() {
         return caseId;
     }
@@ -1386,7 +1457,7 @@ public class MeasureBean implements Serializable {
     public void setCaseId(String CaseId) {
         this.caseId = CaseId;
     }
-    
+
     public double getTotal() {
         this.total = getNumber1InsulatAtticBlownResult() + getNumber2RemoveAndReplaceResult()
                 + getNumber3InstallBattedInsulationResult() + getNumber4SealDuctingCodeComplianceResult()
@@ -1424,7 +1495,7 @@ public class MeasureBean implements Serializable {
     public void setSolarCost(double solarCost) {
         this.solarCost = solarCost;
     }
-
+    
     public int getCustomerID() {
         return customerID;
     }
@@ -1439,6 +1510,14 @@ public class MeasureBean implements Serializable {
 
     public void setNew1(int new1) {
         this.new1 = new1;
+    }
+
+    public int getMarginPercentage() {
+        return marginPercentage;
+    }
+
+    public void setMarginPercentage(int marginPercentage) {
+        this.marginPercentage = marginPercentage;
     }
 
     //************************************************
@@ -1601,21 +1680,27 @@ public class MeasureBean implements Serializable {
         setNumber15EIncludesAllPermitsCheckBox(false);
         setNumber15FCanadianSolar270WattCheckBox(false);
 
+        setMarginPercentage(0);
+
+        setPgeRebateAmount(0);
+        setPgeRebatePoints(0);
+        setSmudRebateAmount(0);
+
         // Calculate whole cost
 //    private double wholeCost;
 //    private double solarCost;
     }
 
     public void receiveMeasureByCaseId(String caseId) {
-        
+
         MeasureEntity measureEntity = measureManage.receiveMeasureByCaseID(caseId);
-        
+
         setCaseId(measureEntity.getCaseId());
         setTotal(measureEntity.getTotal());
         setCustomerID(measureEntity.getCustomerid());
 
         setNumber1InsulatAtticBlownCheckBox(measureEntity.getNumber1insulatatticblownche() == 1);
-        setNumber1InsulatAtticBlownString(measureEntity.getNumber1insulatatticblownstring());
+        setNumber1InsulatAtticBlownString( measureEntity.getNumber1insulatatticblownstring() == null ? "" : measureEntity.getNumber1insulatatticblownstring() );
         setSqft1(measureEntity.getSqft1());
         setNumber1InsulatAtticBlownResult(measureEntity.getNumber1insulatatticblownresult());
 
@@ -1628,48 +1713,48 @@ public class MeasureBean implements Serializable {
         setNumber3InstallBattedInsulationResult(measureEntity.getNumber3installbattedinresult());
 
         setNumber4SealDuctingCodeComplianceCheckBox(measureEntity.getNumber4sealductingcodcheckbox() == 1);
-        setNumber4SealDuctingCodeComplianceString(measureEntity.getNumber4sealductingcodecstring());
+        setNumber4SealDuctingCodeComplianceString( measureEntity.getNumber4sealductingcodecstring() == null ? "" : measureEntity.getNumber4sealductingcodecstring() );
         setSqft4(measureEntity.getSqft4());
         setNumber4SealDuctingCodeComplianceResult(measureEntity.getNumber4sealductingcoderesult());
 
         setSqft5(measureEntity.getSqft5());
         setNumber5AirSealPackageCheckBox(measureEntity.getNumber5airsealpcheckbox() == 1);
-        setNumber5AirSealPackageString(measureEntity.getNumber5airsealstring());
+        setNumber5AirSealPackageString( measureEntity.getNumber5airsealstring() == null ? "" : measureEntity.getNumber5airsealstring() );
         setNumber5AirSealPackageResult(measureEntity.getNumber5airsealparesult());
 
         setSqft6(measureEntity.getSqft6());
         setNumber6CAZAreaReportCheckBox(measureEntity.getNumber6cazarearecheckbox() == 1);
-        setNumber6CAZAreaReportString(measureEntity.getNumber6cazareatstring());
+        setNumber6CAZAreaReportString( measureEntity.getNumber6cazareatstring() == null ? "" : measureEntity.getNumber6cazareatstring() );
         setNumber6CAZAreaReportResult(measureEntity.getNumber6cazarearesult());
 
         setSqft7a(measureEntity.getSqft7a());
         setNumber7AInstallDuctingStandaloneCheckBox(measureEntity.getNumber7ainstallductingcheckbox() == 1);
-        setNumber7AInstallDuctingStandaloneString(measureEntity.getNumber7ainstallductingstring());
+        setNumber7AInstallDuctingStandaloneString( measureEntity.getNumber7ainstallductingstring() == null ? "" : measureEntity.getNumber7ainstallductingstring() );
         setNumber7AInstallDuctingStandaloneResult(measureEntity.getNumber7ainstallductingresult());
 
         setSqft7b(measureEntity.getSqft7b());
         setNumber7BInstallR8DuctingNewHVACCheckBox(measureEntity.getNumber7binstallr8ducheckbox() == 1);
-        setNumber7BInstallR8DuctingNewHVACString(measureEntity.getNumber7binstallr8ductstring());
+        setNumber7BInstallR8DuctingNewHVACString( measureEntity.getNumber7binstallr8ductstring() == null ? "" : measureEntity.getNumber7binstallr8ductstring() );
         setNumber7BInstallR8DuctingNewHVACResult(measureEntity.getNumber7binstallr8ductresult());
 
         setSqft8a(measureEntity.getSqft8a());
         setNumber8ANewHVACSystemERICheckBox(measureEntity.getNumber8anewhvacicheckbox() == 1);
-        setNumber8ANewHVACSystemERIString(measureEntity.getNumber8anewhvacstring());
+        setNumber8ANewHVACSystemERIString( measureEntity.getNumber8anewhvacstring() == null ? "" : measureEntity.getNumber8anewhvacstring() );
         setNumber8ANewHVACSystemERIResult(measureEntity.getNumber8anewhvaresult());
 
         setSqft8b(measureEntity.getSqft8b());
         setNumber8BNewHVACSystemERIPrivateCheckBox(measureEntity.getNumber8biiincludecheckbox() == 1);
-        setNumber8BNewHVACSystemERIPrivateString(measureEntity.getNumber8bnewhvacsysstring());
+        setNumber8BNewHVACSystemERIPrivateString( measureEntity.getNumber8bnewhvacsysstring() == null ? "" : measureEntity.getNumber8bnewhvacsysstring() );
         setNumber8BNewHVACSystemERIPrivateResult(measureEntity.getNumber8bnewhvacsyresult());
 
         setSqft8bii(measureEntity.getSqft8bii());
         setNumber8BIIIncludes10YearPartsCheckBox(measureEntity.getNumber8biiincludecheckbox() == 1);
-        setNumber8BIIIncludes10YearPartsString(measureEntity.getNumber8biiincludestring());
+        setNumber8BIIIncludes10YearPartsString( measureEntity.getNumber8biiincludestring() == null ? "" : measureEntity.getNumber8biiincludestring() );
         setNumber8BIIIncludes10YearPartsResult(measureEntity.getNumber8biiincludresult());
 
         setSqft9(measureEntity.getSqft9());
         setNumber9SingleDualZoneHVACSystemCheckBox(measureEntity.getNumber91arelocheckbox() == 1);
-        setNumber9SingleDualZoneHVACSystemString(measureEntity.getNumber9singledualzostring());
+        setNumber9SingleDualZoneHVACSystemString( measureEntity.getNumber9singledualzostring() == null ? "" : measureEntity.getNumber9singledualzostring() );
         setNumber9SingleDualZoneHVACSystemResult(measureEntity.getNumber9singledresult());
 
         setSqft91(measureEntity.getSqft91());
@@ -1698,7 +1783,7 @@ public class MeasureBean implements Serializable {
         setNumber91fEnlargeReturnAirResult(measureEntity.getNumber91fenlargerresult());
 
         setNumber92NotesCheckBox(measureEntity.getNumber92notescheckbox() == 1);
-        setNumber92NotesString(measureEntity.getNumber92notesstring());
+        setNumber92NotesString( measureEntity.getNumber92notesstring() == null ? "" : measureEntity.getNumber92notesstring() );
 
         setNumber93CostPerKWCheckBox(measureEntity.getNumber93costperkwcheckbox() == 1);
         setNumber93CostPerKWInt(measureEntity.getNumber93costperkwint());
@@ -1707,11 +1792,11 @@ public class MeasureBean implements Serializable {
         setNumber93DCKWsResalt(measureEntity.getNumber93dckwsresalt());
 
         setNumber10InstallWindowsCheckBox(measureEntity.getNumber101acutindoorcheckbox() == 1);
-        setNumber10numOfWindows(measureEntity.getNumber10numofwindows());
+        setNumber10numOfWindows( measureEntity.getNumber10numofwindows() == null ? "" : measureEntity.getNumber10numofwindows() );
         setNumber10TotalUnitedInchesInt(measureEntity.getNumber10totalunitedinchesint());
         setNumber10InstallResult(measureEntity.getNumber10installresult());
-        setNumber10numOfSliders(measureEntity.getNumber10numofsliders());
-        setNumber10LinearFeet(measureEntity.getNumber10linearfeet());
+        setNumber10numOfSliders( measureEntity.getNumber10numofsliders() == null ? "" : measureEntity.getNumber10numofsliders() );
+        setNumber10LinearFeet( measureEntity.getNumber10linearfeet() == null ? "" : measureEntity.getNumber10linearfeet() );
         setNumber10LinearFeetResult(measureEntity.getNumber10linearfeetresult());
 
         setNumber101ACutInDoorCheckBox(measureEntity.getNumber101acutindoorcheckbox() == 1);
@@ -1762,7 +1847,11 @@ public class MeasureBean implements Serializable {
         setNumber15DIncludesSystemPVProductionCheckBox(measureEntity.getNumber15dincludessycheckbox() == 1);
         setNumber15EIncludesAllPermitsCheckBox(measureEntity.getNumber15eicheckbox() == 1);
         setNumber15FCanadianSolar270WattCheckBox(measureEntity.getNumber15fcanadiansocheckbox() == 1);
-        
+
+        setMarginPercentage(measureEntity.getMarginpercentage());
+        setPgeRebateAmount(measureEntity.getPgeRebateAmount());
+        setPgeRebatePoints(measureEntity.getPgeRebatePoints());
+        setSmudRebateAmount(measureEntity.getSmudRebateAmount());
     }
-    
+
 }

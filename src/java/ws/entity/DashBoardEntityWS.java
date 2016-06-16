@@ -7,22 +7,48 @@ package ws.entity;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import beans.QuestionsBean;
+import db.manage.HouseManage;
+import java.io.Serializable;
+import javax.ejb.EJB;
+import javax.faces.bean.SessionScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+
 /**
  *
  * @author Sergey
+ *?
  */
+
 @XmlRootElement
-public class DashBoardEntityWS {
+public class DashBoardEntityWS implements Serializable {
+    
+    @EJB
+    private HouseManage houseManage;
     
     private String first;
     private int second;
+    private String caseId;
 
     public DashBoardEntityWS() {
-        this.first = "firstConstructor";
-        this.second = 1;
+        
     }
 
+    public void fillDashBoardEntityWS() {
+        first = "newFirst";
+        second = 1;
+    }
     
+    public String getCaseId() {
+//        caseId = "caseId";
+//        caseId = questionsBean.getCaseID();
+        return caseId;
+    }
+
+    public void setCaseId(String caseId) {
+        this.caseId = caseId;
+    }
     
     public int getSecond() {
         return second;
@@ -38,11 +64,6 @@ public class DashBoardEntityWS {
 
     public void setFirst(String first) {
         this.first = first;
-    }
-
-    @Override
-    public String toString() {
-        return "ObjectWitchShow{" + "first=" + first + ", second=" + second + '}';
     }
 
 }

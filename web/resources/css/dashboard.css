@@ -8,6 +8,10 @@ and open the template in the editor.
     Author     : Sergey
 */
 
+#bodyes {
+    background-color: #dddddd;
+}
+
 #mainBlockDashBoard {
     margin:auto;
     width:1440px;
@@ -15,8 +19,8 @@ and open the template in the editor.
 .block0DashBoard{
     float:left;
     margin:3px 3px 3px 5px;
-    width:1423px;
-    height:25px;
+    width:1418px;
+    height:35px;
     padding: 5px;
     text-align: center;
     border-radius: 4px;
@@ -46,7 +50,7 @@ and open the template in the editor.
     float:left;
     margin:3px 3px 3px 5px;
     width:670px;
-    height:s50px;
+    height:50px;
     padding: 5px;
     text-align: center;
     border-radius: 4px;
@@ -70,30 +74,71 @@ and open the template in the editor.
     text-align: left;
     color: darkblue;
 }
-.titleDashBoard {
-    width: 150px;
+.buttonDashBoard {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 4px;
+    cursor: pointer;
 }
-.textAreaDashBoard {
-    width: 400px;
-}
-.textArea2titleDashBoard {
-    width: 150px;
-}
-.textArea2fieldDashBoard {
-    width: 150px;
-}
-.checkBoxDashBoard {
-    width: 50px;
-}
-.doneDashBoard {
-    width: 70px;
-}
-
-.topButtonsDashBoard {
-    padding-right: 30px;
-    padding-left: 30px;
+h4 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  15px;
+    font-weight: normal;
+    margin: 0px;
+    padding: 0px;
     color: darkred;
 }
-.pDashBoard {
-    border-bottom: 1px solid #AFAFAF;
+
+h5 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  12px;
+    font-weight: normal;
+    margin: 0px;
+    padding: 0px;
+    color: darkred;
+}
+
+/*------------- Cost Summary ----------------------*/
+  .tableCostSummaryDashBoard {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  14px;
+    font-weight: normal;
+    text-align: left;
+    margin: 10px;
+    padding: 10px;
+    color: darkblue;
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding-top: 20px;
+}  
+
+.tdDashBoard {
+    margin: 10px;
+    padding: 10px;
+    border-collapse: collapse;
+    width: 300px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    border: 1px solid black;
+}  
+
+.buttonCostSummaryDashBoard {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0 0 10px;
+    cursor: pointer;
+    float: left;
 }
