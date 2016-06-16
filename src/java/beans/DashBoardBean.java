@@ -9,8 +9,9 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import ejb.DashBoardEJB;
+import java.util.Map;
 
 /**
  *
@@ -22,8 +23,12 @@ public class DashBoardBean implements Serializable {
 
     @Inject
     MeasureBean measureBean;
+    @Inject
+    QuestionsBean questionsBean;
+    @EJB
+    DashBoardEJB dashBoardEJB;
 
-    private int customerID;
+    private String caseID;
 
     private double wholeCost;
     private int marginPercentage;
@@ -38,6 +43,8 @@ public class DashBoardBean implements Serializable {
     private double smUDRabateAmount;
     private double costPerKW;
     private double dcKW;
+    
+    private String listForShow = "";
 
     /**
      * Creates a new instance of DashBoard
@@ -54,12 +61,14 @@ public class DashBoardBean implements Serializable {
         this.measureBean = measureBean;
     }
 
-    public int getCustomerID() {
-        return customerID;
+    public String getCaseID() {
+        caseID = questionsBean.getCaseID();
+        System.out.println("caseID: " + caseID);
+        return caseID;
     }
 
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
+    public void setCaseID(String caseID) {
+        this.caseID = caseID;
     }
 
     public String wayToHouseFinance() {
@@ -90,6 +99,24 @@ public class DashBoardBean implements Serializable {
     }
 
 //    dBsave.getMeasureBean().setNumber93DCKWsInt((int) dCKWs);
+    
+    //------------------measures--------------------------
+
+    public String getListForShow() {
+        Map<String, Double> measureMap = dashBoardEJB.createResult(measureBean);
+        StringBuilder measureStrBuilder = new StringBuilder();
+        for (String str : measureMap.keySet()) {
+             measureStrBuilder.append(str).append("\n");
+        }
+        listForShow = measureStrBuilder.toString();
+        System.out.println("" + listForShow);
+        return listForShow;
+    }
+
+    public void setListForShow(String listForShow) {
+        this.listForShow = listForShow;
+    }
+    
     // ----------- cost -----------------------------------
     public double getWholeCost() {
         if (getMeasureBean() == null) {

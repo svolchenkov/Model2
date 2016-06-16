@@ -5,29 +5,11 @@
  */
 package ejb;
 
-import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import jxl.Workbook;
-
-import jxl.write.Label;
-import jxl.write.Number;
-import jxl.write.WritableSheet;
-import jxl.write.WritableWorkbook;
-import jxl.write.WriteException;
-
 import beans.MeasureBean;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import beans.QuestionsBean;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 /**
@@ -36,64 +18,35 @@ import javax.inject.Inject;
  */
 @Stateless
 @LocalBean
-public class MeasureEJB {
-
-    @Inject
-    QuestionsBean questionsBean;
+public class DashBoardEJB {
+    
+    private String hp;
+    private String solar;
     
     Map<String, Double> measureMap;
-
-    public MeasureEJB() {
+    
+    @Inject
+    MeasureBean measureBean;
+    
+    public DashBoardEJB() {
     }
 
-    public int printToExcel(MeasureBean measureBean) {
-//        Path path = Paths.get("C:\\Users\\Sergey\\Desktop\\customrID.xls");
-        measureMap = createResult(measureBean);
-        int result = 1;
-        try {
-            WritableWorkbook wworkbook;
-//            Files.delete(path);
-            wworkbook = Workbook.createWorkbook(new File( System.getProperty("user.home") + "\\Desktop" + "\\" + questionsBean.getCaseID() + ".xls" ));
-            String customerName = "CustomerNameEmpty";
-            if ( questionsBean.getFirstName1().length() != 0 ) {
-                customerName = questionsBean.getFirstName1();
-            }
-            WritableSheet wsheet = wworkbook.createSheet(customerName, 0);
-            Label label;
-            Number number;
-            int index = 0;
-            for (String str : measureMap.keySet()) {
-                label = new Label(0, index++, str);
-                wsheet.addCell(label);
-            }
-            index = 0;
-            for (String str : measureMap.keySet()) {
-                number = new Number(1, index, measureMap.get(str));
-                wsheet.addCell(number);
-                label = new Label(2, index++, "$");
-                wsheet.addCell(label);
-            }
-            wworkbook.write();
-            wworkbook.close();
-
-            /* reading xls 
-            Workbook workbook = Workbook.getWorkbook(new File("C:\\Users\\Sergey\\Desktop\\output.xls"));
-            Sheet sheet = workbook.getSheet(0);
-            Cell cell1 = sheet.getCell(0, 2);
-            System.out.println(cell1.getContents());
-            Cell cell2 = sheet.getCell(3, 4);
-            System.out.println(cell2.getContents());
-            workbook.close();
-             */
-        } catch (IOException ex) {
-            Logger.getLogger(MeasureEJB.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (WriteException ex) {
-            Logger.getLogger(MeasureEJB.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        measureMap = null;
-        return result;
+    public String getHp() {
+        return hp;
     }
 
+    public void setHp(String hp) {
+        this.hp = hp;
+    }
+
+    public String getSolar() {
+        return solar;
+    }
+
+    public void setSolar(String solar) {
+        this.solar = solar;
+    }
+    
     public Map<String, Double> createResult(MeasureBean measureBean) {
         measureMap = new LinkedHashMap<>();
         StringBuilder temporaryString = new StringBuilder();
@@ -559,5 +512,5 @@ public class MeasureEJB {
 
         return measureMap;
     }
-
+    
 }

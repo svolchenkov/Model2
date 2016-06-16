@@ -11,43 +11,63 @@
                 <div id="mainBlockDashBoard" >
                     <h:form>
                         <div class="block0DashBoard">
-                            DashBoard
+                            <h3 id="green">DashBoard</h3>
+                        </div>
+                        <div class="block0DashBoard">
                             <h:commandButton class="buttonDashBoard" value="to housefinance" action="housefinance.xhtml" />
+                            <h:commandButton class="buttonDashBoard" value="to chose client" action="index.xhtml" />
                         </div>
                         <table class="tableDashBoard" ><tr><td>
                                     <div class="block1DashBoard" >
-                                            <h4>Measures</h4>
+                                        <h4>Measures</h4>
+                                        <table class="tableCostSummaryDashBoard">
+                                            <tr><td class="tdDashBoard" >Solar Cost:</td><td class="tdDashBoard" ><h:outputText value="#{dashBoardBean.solarCost}" /></td></tr>
+                                        </table>
+                                        <hr></hr>
+
+                                        <button class="buttonDashBoard" onclick="showHPSolarList(' #{dashBoardBean.caseID} ')" >Detail</button>
+
                                     </div>
                                 </td>
                                 <td>
                                     <div class="block2DashBoard" >
-                                            <h4>Cost</h4>
-                                            <table class="tableCostSummaryDashBoard">
-                                                <tr><td class="tdDashBoard" >Wholesale Cost</td><td class="tdDashBoard" ><h:outputText value="#{dashBoardBean.wholeCost}" /></td></tr>
-                                                <tr><td class="tdDashBoard" >Margin Percentage</td><td class="tdDashBoard" >
-                                                        <h:inputText value="#{dashBoardBean.marginPercentage}" >
-                                                            <p:ajax event="keyup" update="grossHPCost, netHPCost, solarCost, combinedGrossCost, financedTotal" />
-                                                        </h:inputText></td></tr>
-                                                <tr><td class="tdDashBoard" >Gross HP Cost</td><td class="tdDashBoard" ><h:outputText id="grossHPCost" value="#{dashBoardBean.grossHPCost}" /></td></tr>
-                                                <tr><td class="tdDashBoard" >Net HP Cost</td><td class="tdDashBoard" ><h:outputText id="netHPCost" value="#{dashBoardBean.netHPCost}" /></td></tr>
-                                                <tr><td class="tdDashBoard" >Solar Cost</td><td class="tdDashBoard" ><h:outputText id="solarCost" value="#{dashBoardBean.solarCost}" /></td></tr>
-                                                <tr><td class="tdDashBoard" >Combined Gross Cost</td><td class="tdDashBoard" ><h:outputText id="combinedGrossCost" value="#{dashBoardBean.combinedGrossCost}" /></td></tr>
-                                                <tr><td class="tdDashBoard" >Total Rebate Amount</td><td class="tdDashBoard" ><h:outputText value="#{dashBoardBean.toalRabateAmount}" /></td></tr>
-                                                <tr><td class="tdDashBoard" >Financed Total</td><td class="tdDashBoard" ><h:outputText id="financedTotal" value="#{dashBoardBean.financedTotal}" /></td></tr>
-                                            </table>
-                                            <h:commandButton class="buttonDashBoard" value="Detail" action="housefinance.xhtml" />
+                                        <h4>Cost</h4>
+                                        <table class="tableCostSummaryDashBoard">
+                                            <tr><td class="tdDashBoard" >Wholesale Cost</td><td class="tdDashBoard" ><h:outputText value="#{dashBoardBean.wholeCost}" /></td></tr>
+                                            <tr><td class="tdDashBoard" >Margin Percentage</td><td class="tdDashBoard" >
+                                                    <h:inputText value="#{dashBoardBean.marginPercentage}" >
+                                                        <p:ajax event="keyup" update="grossHPCost, netHPCost, solarCost, combinedGrossCost, financedTotal" />
+                                                    </h:inputText></td></tr>
+                                            <tr><td class="tdDashBoard" >Gross HP Cost</td><td class="tdDashBoard" ><h:outputText id="grossHPCost" value="#{dashBoardBean.grossHPCost}" /></td></tr>
+                                            <tr><td class="tdDashBoard" >Net HP Cost</td><td class="tdDashBoard" ><h:outputText id="netHPCost" value="#{dashBoardBean.netHPCost}" /></td></tr>
+                                            <tr><td class="tdDashBoard" >Solar Cost</td><td class="tdDashBoard" ><h:outputText id="solarCost" value="#{dashBoardBean.solarCost}" /></td></tr>
+                                            <tr><td class="tdDashBoard" >Combined Gross Cost</td><td class="tdDashBoard" ><h:outputText id="combinedGrossCost" value="#{dashBoardBean.combinedGrossCost}" /></td></tr>
+                                            <tr><td class="tdDashBoard" >Total Rebate Amount</td><td class="tdDashBoard" ><h:outputText value="#{dashBoardBean.toalRabateAmount}" /></td></tr>
+                                            <tr><td class="tdDashBoard" >Financed Total</td><td class="tdDashBoard" ><h:outputText id="financedTotal" value="#{dashBoardBean.financedTotal}" /></td></tr>
+                                        </table>
+                                        <h:commandButton class="buttonDashBoard" value="Detail" action="housefinance.xhtml" />
                                     </div>
                                 </td>
                             </tr>
                             <tr><td>
+                                    <!-- Financing -->
                                     <div class="block3DashBoard" >
-                                            <h4>Finance</h4>
+                                        <h4>Finance</h4>
+                                        <table class="tableCostSummaryDashBoard">
+                                            <tr><td class="tdDashBoard" >CaseId</td><td class="tdDashBoard" ><h:outputText value="#{questions.caseID}" /></td></tr>
+                                            <tr><td class="tdDashBoard" >Address</td><td class="tdDashBoard" ><h:outputText value="#{questions.address}" /></td></tr>
+                                            <tr><td class="tdDashBoard" >Name</td><td class="tdDashBoard" ><h:outputText value="#{questions.firstName1} #{questions.lastName1}" /></td></tr>
+                                            <tr><td class="tdDashBoard" >Ygreen</td><td class="tdDashBoard" ><h:outputText value="#{finance.checkingAvailableFinancing1YgreenString}" /></td></tr>
+                                            <tr><td class="tdDashBoard" >CalFirst</td><td class="tdDashBoard" ><h:outputText value="#{finance.checkingAvailableFinancing1CalFirstString}" /></td></tr>
+                                            <tr><td class="tdDashBoard" >Hero</td><td class="tdDashBoard" ><h:outputText value="#{finance.checkingAvailableFinancing1HeroString}" /></td></tr>
+                                        </table>
+                                        <h:commandButton class="buttonDashBoard" value="Detail" action="housefinance.xhtml" />
                                     </div>
                                 </td>
 
                                 <td>
                                     <div class="block4DashBoard" >
-                                            <h4>Diagram</h4>
+                                        <h4>Diagram</h4>
                                     </div>
                                 </td>
                             </tr>
@@ -57,6 +77,5 @@
             </ui:define>
 
         </ui:composition>
-
     </body>
 </html>

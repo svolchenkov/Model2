@@ -56,3 +56,12 @@ function test() {
     }
     document.getElementById("wholesaleCostData").innerHTML = text;
 }
+
+function showHPSolarList(str) {
+    window.alert(str);
+}
+
+function myTest() {
+    document.l
+    document.getElementById("demo").innerHTML = "Hello World";
+}
