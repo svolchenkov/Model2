@@ -60,3 +60,7 @@ function test() {
 function showHPSolarList(str) {
     alert(str);
 }
+function Warn() {
+    alert("This is a warning message!");
+    document.write("This is a warning message!");
+}
