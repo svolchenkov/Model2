@@ -7,12 +7,18 @@ and open the template in the editor.
     Created on : May 27, 2016, 3:06:53 PM
     Author     : Sergey
 */
-
 .buttonIndex {
-    /*background: white url('../img/button_next.png') no-repeat top;*/
-    background: lightblue;
-    width: 40px;
-    height: 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 50px 4px 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 h1#fan {
     background: url(../img/index.png) no-repeat;
@@ -28,7 +34,7 @@ h1#fan {
     float:left;
     margin:3px 3px 3px 5px;
     width:1417px;
-    height:25px;
+    height:35px;
     padding: 5px;
     text-align: center;
     border-radius: 4px;
@@ -37,7 +43,7 @@ h1#fan {
 .block1Index, .block2Index{
     float:left;
     margin:3px 3px 3px 5px;
-    width:1400px;
+    width:1417px;
     padding: 5px;
     text-align: center;
     border-radius: 4px;

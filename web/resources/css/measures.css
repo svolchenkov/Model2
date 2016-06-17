@@ -15,7 +15,7 @@ and open the template in the editor.
     float:left;
     margin:3px 3px 3px 5px;
     width:1517px;
-    height:25px;
+    height:35px;
     padding: 5px;
     text-align: center;
     border-radius: 4px;
@@ -99,7 +99,19 @@ h3 {
     color: darkred;
 }
 .topButtonsMeasures {
-    padding-right: 30px;
-    padding-left: 30px;
-    color: darkred;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 5px 2px 5px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.topTextMeasures {
+    margin: 0 20px 0 20px;
+    color: #8b0000;
 }

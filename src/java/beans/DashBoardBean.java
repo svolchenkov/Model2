@@ -106,7 +106,7 @@ public class DashBoardBean implements Serializable {
         Map<String, Double> measureMap = dashBoardEJB.createResult(measureBean);
         StringBuilder measureStrBuilder = new StringBuilder();
         for (String str : measureMap.keySet()) {
-             measureStrBuilder.append(str).append("\n");
+             measureStrBuilder.append(str).append("\\n");
         }
         listForShow = measureStrBuilder.toString();
         System.out.println("" + listForShow);

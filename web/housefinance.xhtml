@@ -14,23 +14,18 @@
                 <div id="mainBlockHouse" >
                     <h:form id="main_form" >
                         <div class="block0House" >
-                            <div >
-                                <table style="color: darkred; text-align: center;"><tr>
-                                            <td>House</td>
-                                    </tr></table>
-                            </div>
+                            <div class="topTextHouseTop">House</div>
                         </div>
                         <div class="block0House" >
                             <div >
-                                <table style="color: darkred"><tr><td><h:outputText value="CaseID:"   /></td>
-                                        <td class="topButtonsHouse"><h:outputText value="#{questions.caseID}" /></td>
-                                        <td class="topButtonsHouse"><h:outputText value="person name:" /></td>
-                                        <td class="topPersonNameHouse"><h:outputText id="firstName1onTop" value="#{questions.firstName1}"  /></td>
-                                        <td style="color: #D20005"><h:commandButton value="back to index" action="index" /></td>
-                                        <td class="topButtonsHouse"><h:commandButton value="save" action="#{questions.saveQuestionsHouse()}" /></td>
-                                        <td class="topButtonsHouse"><h:commandButton value="to dashBord" action="#{finance.wayToDashBoard()}" /></td>
-                                        <td class="topButtonsHouse"><h:commandButton value="to test" action="esdashboard.html" /></td>
-                                        <td class="topButtonsHouse"><h:outputText value="f case id: #{finance.caseID}" /></td>
+                                <table ><tr>
+                                        <td ><h:outputText class="topTextHouse" value="CaseID:"   /></td>
+                                        <td ><h:outputText class="topTextHouse" value="#{questions.caseID}" /></td>
+                                        <td ><h:outputText class="topTextHouse" value="person name:" /></td>
+                                        <td style="width: 200px"><h:outputText styleClass="topTextHouse" id="firstName1onTop" value="#{questions.firstName1}"  /></td>
+                                        <td ><h:commandButton class="topButtonsHouse" value="back to chose client" action="index" /></td>
+                                        <td ><h:commandButton class="topButtonsHouse" value="save" action="#{questions.saveQuestionsHouse()}" /></td>
+                                        <td ><h:commandButton class="topButtonsHouse" value="to dashBord" action="#{finance.wayToDashBoard()}" /></td>
                                     </tr></table>
                             </div>
                         </div>
