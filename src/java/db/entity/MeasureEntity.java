@@ -189,8 +189,8 @@ public class MeasureEntity implements Serializable {
     private int number93costperkwint;
     @Column(name = "NUMBER93COSTPERKWRESALT")
     private double number93costperkwresalt;
-    @Column(name = "NUMBER93DCKWSINT")
-    private int number93dckwsint;
+    @Column(name = "NUMBER93DCKWSDOUBLE")
+    private double number93dckwsdouble;
     @Column(name = "NUMBER93DCKWSRESALT")
     private double number93dckwsresalt;
     @Column(name = "NUMBER10INSTALLWINDOWSCHECKBOX")
@@ -268,8 +268,8 @@ public class MeasureEntity implements Serializable {
     private double number15installbaresult;
     @Column(name = "NUMBER15AINSTALLKWDCSOCHECKBOX")
     private int number15ainstallkwdcsocheckbox;
-    @Column(name = "NUMBER15AINSTALLKWDCSOINT")
-    private int number15ainstallkwdcsoint;
+    @Column(name = "NUMBER15AINSTALLKWDCSODOUBLE")
+    private double number15ainstallkwdcsodouble;
     @Column(name = "NUMBER15BINCLUDESEXCHECKBOX")
     private int number15bincludesexcheckbox;
     @Column(name = "NUMBER15CSOLARCHECKBOX")
@@ -886,12 +886,12 @@ public class MeasureEntity implements Serializable {
         this.number93costperkwresalt = number93costperkwresalt;
     }
 
-    public int getNumber93dckwsint() {
-        return number93dckwsint;
+    public double getNumber93dckwsdouble() {
+        return number93dckwsdouble;
     }
 
-    public void setNumber93dckwsint(int number93dckwsint) {
-        this.number93dckwsint = number93dckwsint;
+    public void setNumber93dckwsint(double number93dckwsdouble) {
+        this.number93dckwsdouble = number93dckwsdouble;
     }
 
     public double getNumber93dckwsresalt() {
@@ -1190,12 +1190,12 @@ public class MeasureEntity implements Serializable {
         this.number15ainstallkwdcsocheckbox = number15ainstallkwdcsocheckbox;
     }
 
-    public int getNumber15ainstallkwdcsoint() {
-        return number15ainstallkwdcsoint;
+    public double getNumber15ainstallkwdcsodouble() {
+        return number15ainstallkwdcsodouble;
     }
 
-    public void setNumber15ainstallkwdcsoint(int number15ainstallkwdcsoint) {
-        this.number15ainstallkwdcsoint = number15ainstallkwdcsoint;
+    public void setNumber15ainstallkwdcsodouble(double number15ainstallkwdcsodouble) {
+        this.number15ainstallkwdcsodouble = number15ainstallkwdcsodouble;
     }
 
     public int getNumber15bincludesexcheckbox() {

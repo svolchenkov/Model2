@@ -429,7 +429,7 @@ public class MeasureEJB {
         }
         //************************ 10 *******************
         if (measureBean.isNumber10InstallWindowsCheckBox() == true) {
-            measureMap.put("10. Install" + measureBean.getNumber10numOfWindows() + "Monte Verde High Performance Retrofit Windows, total united inches:"
+            measureMap.put("10. Install" + measureBean.getNumber10numOfWindows() + " High Performance Retrofit Windows, total united inches:"
                     + measureBean.getNumber10TotalUnitedInchesInt() + " ", measureBean.getNumber10InstallResult());
             measureMap.put("10. AND" + measureBean.getNumber10numOfSliders() + "Sliders, linear Feet"
                     + measureBean.getNumber10LinearFeet() + " ", measureBean.getNumber10LinearFeetResult());
@@ -534,7 +534,7 @@ public class MeasureEJB {
         }
         //************************ 15a *******************
         if (measureBean.isNumber15AInstallKWDCSolarSystemCheckBox() == true) {
-            measureMap.put("15a.Install " + measureBean.getNumber15aInstallKWDCSolarSystemInt() + " KW DC Solar System", 0d);
+            measureMap.put("15a.Install " + measureBean.getNumber15aInstallKWDCSolarSystemDouble() + " KW DC Solar System", 0d);
         }
         //************************ 15b *******************
         if (measureBean.isNumber15BIncludesExtrudedAluminumCheckBox() == true) {
@@ -554,7 +554,7 @@ public class MeasureEJB {
         }
         //************************ 15f *******************
         if (measureBean.isNumber15FCanadianSolar270WattCheckBox() == true) {
-            measureMap.put("15f.Canadian Solar 270 Watt Investment Grade Panels", 0d);
+            measureMap.put("15f. 270 Watt Investment Grade Panels", 0d);
         }
 
         return measureMap;

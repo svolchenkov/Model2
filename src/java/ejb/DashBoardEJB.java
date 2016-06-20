@@ -487,7 +487,7 @@ public class DashBoardEJB {
         }
         //************************ 15a *******************
         if (measureBean.isNumber15AInstallKWDCSolarSystemCheckBox() == true) {
-            measureMap.put("15a.Install " + measureBean.getNumber15aInstallKWDCSolarSystemInt() + " KW DC Solar System", 0d);
+            measureMap.put("15a.Install " + measureBean.getNumber15aInstallKWDCSolarSystemDouble()+ " KW DC Solar System", 0d);
         }
         //************************ 15b *******************
         if (measureBean.isNumber15BIncludesExtrudedAluminumCheckBox() == true) {

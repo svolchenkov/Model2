@@ -155,7 +155,7 @@ public class MeasureManage {
                 measureEntity.setNumber15installbatterycheckbox(0);
                 measureEntity.setNumber15installbaresult(0);
                 measureEntity.setNumber15ainstallkwdcsocheckbox(0);
-                measureEntity.setNumber15ainstallkwdcsoint(0);
+                measureEntity.setNumber15ainstallkwdcsodouble(0);
                 measureEntity.setNumber15bincludesexcheckbox(0);
                 measureEntity.setNumber15csolarcheckbox(0);
                 measureEntity.setNumber15dincludessycheckbox(0);
@@ -258,7 +258,7 @@ public class MeasureManage {
         measureEntity.setNumber93costperkwcheckbox(measureBean.isNumber93CostPerKWCheckBox() == true ? 1 : 0);
         measureEntity.setNumber93costperkwint(measureBean.getNumber93CostPerKWInt());
         measureEntity.setNumber93costperkwresalt(measureBean.getNumber93CostPerKWResalt());
-        measureEntity.setNumber93dckwsint(measureBean.getNumber93DCKWsInt());
+        measureEntity.setNumber93dckwsint(measureBean.getNumber93DCKWsDouble());
         measureEntity.setNumber93dckwsresalt(measureBean.getNumber93DCKWsResalt());
         measureEntity.setNumber10installwindowscheckbox(measureBean.isNumber10InstallWindowsCheckBox() == true ? 1 : 0);
         measureEntity.setNumber10numofwindows(measureBean.getNumber10numOfWindows());
@@ -296,7 +296,7 @@ public class MeasureManage {
         measureEntity.setNumber15installbatterycheckbox(measureBean.isNumber15InstallBatteryOperatedCheckBox() == true ? 1 : 0);
         measureEntity.setNumber15installbaresult(measureBean.getNumber15InstallBatteryOperatedResult());
         measureEntity.setNumber15ainstallkwdcsocheckbox(measureBean.isNumber15AInstallKWDCSolarSystemCheckBox() == true ? 1 : 0);
-        measureEntity.setNumber15ainstallkwdcsoint(measureBean.getNumber15aInstallKWDCSolarSystemInt());
+        measureEntity.setNumber15ainstallkwdcsodouble(measureBean.getNumber15aInstallKWDCSolarSystemDouble());
         measureEntity.setNumber15bincludesexcheckbox(measureBean.isNumber15BIncludesExtrudedAluminumCheckBox() == true ? 1 : 0);
         measureEntity.setNumber15csolarcheckbox(0);
         measureEntity.setNumber15csolarcheckbox(measureBean.isNumber15CSolarEdgeWithPowerOptimizersCheckBox() == true ? 1 : 0);

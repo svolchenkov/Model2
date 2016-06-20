@@ -23,13 +23,16 @@
                                     <div class="block0Measures" >
                                         <div >
                                             <h:outputText class="topTextMeasures" value="case id: #{measureBean.caseId}" />
-                                            <h:outputText class="topTextMeasures" id="hpTotal" value="total: #{measureBean.total} $" />
+                                            <h:outputText class="topTextMeasures" id="hpTotal" value="HP: #{measureBean.total} $" />
+                                            <h:outputText class="topTextMeasures" id="solarTotal" value="Solar: #{measureBean.solarTotal} $" />
                                             <h:outputText class="topTextMeasures" value="person name: #{questions.firstName1}"  />
                                             <h:commandButton class="topButtonsMeasures" value="send result to Excell" action="#{measureBean.printToExcel()}" />
                                             <h:commandButton class="topButtonsMeasures" value="to house + finance" action="#{measureBean.wayToHouseFinance()}" />
                                             <h:commandButton class="topButtonsMeasures" value="to dashboard" action="dashboard" />
                                             <h:commandButton class="topButtonsMeasures" value="back to index" action="index" />
-                                            <h:commandButton class="topButtonsMeasures" value="pictures" action="picture.html" />
+                                            <h:commandButton class="topButtonsMeasures" value="fill Sqft" action="#{measureBean.setSqft()}" >
+                                                <p:ajax event="change" update="sqft1, sqft2, sqft3, sqft4, sqft5, sqft6, sqft7b" />
+                                            </h:commandButton>
                                         </div>
                                     </div>
 
@@ -53,7 +56,7 @@
                                                                     </h:selectOneMenu>
                                                                 </td>
                                                                 <td class="sqftpricelable"><p:outputLabel value="sqft:  " /></td>
-                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft1}"  >
+                                                                <td class="sqftpricetd"><h:inputText id="sqft1" style="width: 95%" maxlength="5" value="#{measureBean.sqft1}"  >
                                                                         <p:ajax event="keyup" update="number1InsulatAtticBlownResult, hpTotal" />
                                                                     </h:inputText></td>
                                                                 <td class="resulttd"><h:outputText id="number1InsulatAtticBlownResult" value=" = #{measureBean.number1InsulatAtticBlownResult}" />
@@ -69,7 +72,7 @@
                                                                 <td class="titletd"><h:outputText value="2.Fresh Start:" /></td>
                                                                 <td class="fieldtd"><h:outputText style="width: 95%" value="Remove  and  Replace  Attic  Insulation"  /></td>
                                                                 <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
-                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft2}"  >
+                                                                <td class="sqftpricetd"><h:inputText id="sqft2" style="width: 95%" maxlength="5" value="#{measureBean.sqft2}"  >
                                                                         <p:ajax event="keyup" update="number2RemoveAndReplaceResult, hpTotal" />
                                                                     </h:inputText></td>
                                                                 <td class="resulttd"><h:outputText id="number2RemoveAndReplaceResult" value=" = #{measureBean.number2RemoveAndReplaceResult}" />
@@ -85,7 +88,7 @@
                                                                 <td class="titletd"><h:outputText value="3. Crawl Space Insulation:" /></td>
                                                                 <td class="fieldtd"><h:outputText style="width: 95%" value="Install R-19 Batted Insulation (with Vapor Barrier) for conditioned space that's accessible"  /></td>
                                                                 <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
-                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft3}"  >
+                                                                <td class="sqftpricetd"><h:inputText id="sqft3" style="width: 95%" maxlength="5" value="#{measureBean.sqft3}"  >
                                                                         <p:ajax event="keyup" update="number3InstallBattedInsulationResult, hpTotal" />
                                                                     </h:inputText></td>
                                                                 <td class="resulttd"><h:outputText id="number3InstallBattedInsulationResult" value=" = #{measureBean.number3InstallBattedInsulationResult}" />
@@ -108,7 +111,7 @@
                                                                     </h:selectOneMenu>
                                                                 </td>
                                                                 <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
-                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft4}" >
+                                                                <td class="sqftpricetd"><h:inputText id="sqft4" style="width: 95%" maxlength="5" value="#{measureBean.sqft4}" >
                                                                         <p:ajax event="keyup" update="number4SealDuctingCodeComplianceResult, hpTotal" />
                                                                     </h:inputText></td>
                                                                 <td class="resulttd"><h:outputText id="number4SealDuctingCodeComplianceResult" value=" = #{measureBean.number4SealDuctingCodeComplianceResult}" />
@@ -133,7 +136,7 @@
                                                                     </h:selectOneMenu>
                                                                 </td>
                                                                 <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
-                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft5}" >
+                                                                <td class="sqftpricetd"><h:inputText id="sqft5" style="width: 95%" maxlength="5" value="#{measureBean.sqft5}" >
                                                                         <p:ajax event="keyup" update="number5AirSealPackageResult, hpTotal" />
                                                                     </h:inputText></td>
                                                                 <td class="resulttd"><h:outputText id="number5AirSealPackageResult" value=" = #{measureBean.number5AirSealPackageResult}" />
@@ -159,7 +162,7 @@
                                                                     </h:selectOneMenu>
                                                                 </td>
                                                                 <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
-                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft6}" >
+                                                                <td class="sqftpricetd"><h:inputText id="sqft6" style="width: 95%" maxlength="5" value="#{measureBean.sqft6}" >
                                                                         <p:ajax event="keyup" update="number6CAZAreaReportResult, hpTotal" />
                                                                     </h:inputText></td>
                                                                 <td class="resulttd"><h:outputText id="number6CAZAreaReportResult" value=" = #{measureBean.number6CAZAreaReportResult}" />
@@ -216,7 +219,7 @@
                                                                     </h:selectOneMenu>
                                                                 </td>
                                                                 <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
-                                                                <td class="sqftpricetd"><h:inputText style="width: 95%" maxlength="5" value="#{measureBean.sqft7b}" >
+                                                                <td class="sqftpricetd"><h:inputText id="sqft7b" style="width: 95%" maxlength="5" value="#{measureBean.sqft7b}" >
                                                                         <p:ajax event="keyup" update="number7BInstallR8DuctingNewHVACResult, hpTotal" />
                                                                     </h:inputText></td>
                                                                 <td class="resulttd"><h:outputText id="number7BInstallR8DuctingNewHVACResult" value=" = #{measureBean.number7BInstallR8DuctingNewHVACResult}" />
@@ -286,7 +289,7 @@
                                                             <tr></tr>
                                                             <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number8BIIIncludes10YearPartsCheckBox}"  >
                                                                         <p:ajax event="change" update="number8BIIIncludes10YearPartsResult , hpTotal"  /></h:selectBooleanCheckbox></td>
-                                                                <td class="titletd"><h:outputText value="8bii. Includes 10 Year Parts and Labor/MERV 11 Filtration/UV Coil:" /></td>
+                                                                <td class="titletd"><h:outputText value="8bii. Includes 10 Year Parts and Labor:" /></td>
                                                                 <td class="fieldtd"><h:outputText id="h_outputTextid" value="Includes 10 Year Parts and Labor/MERV 11 Filtration UV Coil" /></td>
                                                                 <td class="sqftpricetd"><h:outputText value="price:  " /></td>
                                                                 <td class="sqftpricetd"><h:outputText style="width: 95%" value="#{measureBean.sqft8bii}" ></h:outputText></td>
@@ -307,7 +310,7 @@
                                                                         <f:selectItem itemLabel="Select One " itemValue="0" />
                                                                         <f:selectItem itemLabel="Single Zone HVAC System" itemValue="0" />
                                                                         <f:selectItem itemLabel="Dual Zone HVAC System" itemValue="1650" />
-                                                                        <p:ajax event="change" update="number9SingleDualZoneHVACSystemString, number9SingleDualZoneHVACSystemResult, hpTotal" />
+                                                                        <p:ajax event="change" update="number9SingleDualZoneHVACSystemResult, hpTotal" />
                                                                     </h:selectOneMenu></td>
                                                                 <td class="sqftpricelable"><h:outputLabel value="price:  " /></td>
                                                                 <td class="sqftpricetd"><p:outputLabel style="width: 95%" value="#{measureBean.sqft9}"  >
@@ -435,8 +438,8 @@
                                                             </tr>
                                                             <tr><td class="checkboxtd" />
                                                                 <td class="titletd" ><h:outputText value="9.3b. DC KWs: " /></td>
-                                                                <td class="fieldtd"><h:inputText value="#{measureBean.number93DCKWsInt}"  >
-                                                                        <p:ajax event="keyup" update="number93DCKWsResalt"  />
+                                                                <td class="fieldtd"><h:inputText value="#{measureBean.number93DCKWsDouble}"  >
+                                                                        <p:ajax event="keyup" update="number93DCKWsResalt, number15aInstallKWDCSolarSystemDouble, solarTotal"  />
                                                                     </h:inputText></td>
                                                                 <td class="sqftpricelable" />
                                                                 <td class="sqftpricetd" />
@@ -496,7 +499,7 @@
                                                                 <td class="checkboxtd"><h:selectBooleanCheckbox id="number10InstallWindowsCheckBox" value="#{measureBean.number10InstallWindowsCheckBox}" >
                                                                         <p:ajax event="change" update="number10numOfWindows, number10InstallResult, number10LinearFeetResult, hpTotal, number103AllGlazingCheckBox, number104WindowsToMatcCheckBox"  />
                                                                     </h:selectBooleanCheckbox></td>
-                                                                <td class="rightJtd" ><h:outputText style="width: 95%" id="number10numOfWindows" value="Install #{measureBean.number10numOfWindows} Monte Verde High Performance Retrofit Windows" /></td>
+                                                                <td class="rightJtd" ><h:outputText style="width: 95%" id="number10numOfWindows" value="Install #{measureBean.number10numOfWindows} High Performance Retrofit Windows" /></td>
                                                                 <td class="rightItd" ><h:inputText style="width: 95%" value="#{measureBean.number10numOfWindows}" >
                                                                         <p:ajax event="keyup" update="number10numOfWindows"  /></h:inputText></td>
                                                                 <td class="sqftpricetd" ><h:inputText style="width: 95%" value="#{measureBean.number10TotalUnitedInchesInt}" >
@@ -781,13 +784,14 @@
                                                     <!-- 15A. Install KW DC Solar System: -->
                                                     <div>
                                                         <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number15AInstallKWDCSolarSystemCheckBox}" >
-                                                                        <p:ajax event="change" update="number15aInstallKWDCSolarSystemInt, hpTotal"  />
+                                                                        <p:ajax event="change" update="number15aInstallKWDCSolarSystemDouble, hpTotal"  />
                                                                     </h:selectBooleanCheckbox></td>
-                                                                <td  class="rightFieldtd"><h:outputText id="number15aInstallKWDCSolarSystemInt" style="width: 95%" value="15A. Install #{measureBean.number15aInstallKWDCSolarSystemInt} KW DC Solar System" /></td>
+                                                                <td  class="rightFieldtd"><h:outputText id="number15aInstallKWDCSolarSystemDouble" style="width: 95%" value="15A. Install #{measureBean.number15aInstallKWDCSolarSystemDouble} KW DC Solar System" /></td>
                                                                 <td class="rightItd" />
-                                                                <td  class="rightJtd" ><h:inputText style="width: 95%"  value="#{measureBean.number15aInstallKWDCSolarSystemInt}" >
-                                                                        <p:ajax event="keyup" update="number15aInstallKWDCSolarSystemInt, hpTotal"  />
-                                                                    </h:inputText>
+                                                                <td  class="rightJtd" >
+                                                                    <!-- <h:inputText style="width: 95%"  value="#{measureBean.number15aInstallKWDCSolarSystemDouble}" >
+                                                                        <p:ajax event="keyup" update="number15aInstallKWDCSolarSystemDouble, hpTotal"  />
+                                                                    </h:inputText>  -->
                                                                 </td>
                                                                 <td  class="resulttd"></td>
                                                             </tr>
@@ -820,7 +824,7 @@
                                                                 <td  class="resulttd"></td>
                                                             </tr>
                                                             <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number15FCanadianSolar270WattCheckBox}" /></td>
-                                                                <td  class="rightFieldtd"><h:outputText style="width: 95%" value="15f.Canadian Solar 270 Watt Investment Grade Panels" /></td>
+                                                                <td  class="rightFieldtd"><h:outputText style="width: 95%" value="15f. 270 Watt Investment Grade Panels" /></td>
                                                                 <td class="rightItd" />
                                                                 <td  class="rightJtd" />
                                                                 <td  class="resulttd"></td>

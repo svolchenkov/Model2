@@ -167,7 +167,7 @@ public class DashBoardBean implements Serializable {
     }
 
     public double getSolarCost() {
-        solarCost = measureBean.getNumber93CostPerKWInt() * measureBean.getNumber93DCKWsInt();
+        solarCost = measureBean.getNumber93CostPerKWInt() * measureBean.getNumber93DCKWsDouble();
         return solarCost;
     }
 

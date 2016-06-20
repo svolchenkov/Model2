@@ -5,17 +5,15 @@
  */
 package beans;
 
-import com.sun.org.apache.bcel.internal.generic.D2F;
 import db.entity.MeasureEntity;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import ejb.MeasureEJB;
 import javax.ejb.EJB;
 
 import db.manage.MeasureManage;
+import javax.inject.Inject;
 
 /**
  *
@@ -29,6 +27,8 @@ public class MeasureBean implements Serializable {
     private MeasureEJB measureEJB;
     @EJB
     MeasureManage measureManage;
+    @Inject
+    QuestionsBean questionsBean;
 
     FinanceBean finance;
 
@@ -36,6 +36,7 @@ public class MeasureBean implements Serializable {
     private String caseId = "";
     private int customerID = 0;
     private int new1 = 0;
+    private double solarTotal = 0;
 
     private boolean number1InsulatAtticBlownCheckBox = false;
     private String number1InsulatAtticBlownString = "";
@@ -126,7 +127,7 @@ public class MeasureBean implements Serializable {
     private boolean number93CostPerKWCheckBox = false;
     private int number93CostPerKWInt = 0;
     private double number93CostPerKWResalt = 0;
-    private int number93DCKWsInt = 0;
+    private double number93DCKWsDouble = 0;
     private double number93DCKWsResalt = 0;
 
     private boolean number10InstallWindowsCheckBox = false;
@@ -178,7 +179,7 @@ public class MeasureBean implements Serializable {
     private double number15InstallBatteryOperatedResult = 0;
 
     private boolean number15AInstallKWDCSolarSystemCheckBox = false;
-    private int number15aInstallKWDCSolarSystemInt = 0;
+    private double number15aInstallKWDCSolarSystemDouble = 0;
 
     private boolean number15BIncludesExtrudedAluminumCheckBox = false;
     private boolean number15CSolarEdgeWithPowerOptimizersCheckBox = false;
@@ -982,17 +983,17 @@ public class MeasureBean implements Serializable {
         this.number93CostPerKWResalt = number93CostPerKWResalt;
     }
 
-    public int getNumber93DCKWsInt() {
-        return number93DCKWsInt;
+    public double getNumber93DCKWsDouble() {
+        return number93DCKWsDouble;
     }
 
-    public void setNumber93DCKWsInt(int number93DCKWsInt) {
-        this.number93DCKWsInt = number93DCKWsInt;
+    public void setNumber93DCKWsDouble(double number93DCKWsInt) {
+        this.number93DCKWsDouble = number93DCKWsInt;
     }
 
     public double getNumber93DCKWsResalt() {
         if (isNumber93CostPerKWCheckBox() == true) {
-            this.number93DCKWsResalt = getNumber93DCKWsInt();
+            this.number93DCKWsResalt = getNumber93DCKWsDouble();
         } else {
             this.number93DCKWsResalt = 0;
         }
@@ -1001,6 +1002,15 @@ public class MeasureBean implements Serializable {
 
     public void setNumber93DCKWsResalt(double number93DCKWsResalt) {
         this.number93DCKWsResalt = number93DCKWsResalt;
+    }
+
+    public double getSolarTotal() {
+        solarTotal = this.getNumber93CostPerKWInt() * this.getNumber93DCKWsDouble();
+        return solarTotal;
+    }
+
+    public void setSolarTotal(double solarTotal) {
+        this.solarTotal = solarTotal;
     }
 
     //***************************** 9.4 *******************************
@@ -1400,12 +1410,13 @@ public class MeasureBean implements Serializable {
         this.number15AInstallKWDCSolarSystemCheckBox = number15AInstallKWDCSolarSystemCheckBox;
     }
 
-    public int getNumber15aInstallKWDCSolarSystemInt() {
-        return number15aInstallKWDCSolarSystemInt;
+    public double getNumber15aInstallKWDCSolarSystemDouble() {
+        number15aInstallKWDCSolarSystemDouble = this.getNumber93DCKWsDouble();
+        return number15aInstallKWDCSolarSystemDouble;
     }
 
-    public void setNumber15aInstallKWDCSolarSystemInt(int number15aInstallKWDCSolarSystemInt) {
-        this.number15aInstallKWDCSolarSystemInt = number15aInstallKWDCSolarSystemInt;
+    public void setNumber15aInstallKWDCSolarSystemDouble(double number15aInstallKWDCSolarSystemDouble) {
+        this.number15aInstallKWDCSolarSystemDouble = number15aInstallKWDCSolarSystemDouble;
     }
 
     //******************************** 15B-F *************************************
@@ -1495,7 +1506,7 @@ public class MeasureBean implements Serializable {
     public void setSolarCost(double solarCost) {
         this.solarCost = solarCost;
     }
-    
+
     public int getCustomerID() {
         return customerID;
     }
@@ -1620,7 +1631,7 @@ public class MeasureBean implements Serializable {
         setNumber93CostPerKWCheckBox(false);
         setNumber93CostPerKWInt(0);
         setNumber93CostPerKWResalt(0);
-        setNumber93DCKWsInt(0);
+        setNumber93DCKWsDouble(0);
         setNumber93DCKWsResalt(0);
 
         setNumber10InstallWindowsCheckBox(false);
@@ -1672,7 +1683,7 @@ public class MeasureBean implements Serializable {
         setNumber15InstallBatteryOperatedResult(0);
 
         setNumber15AInstallKWDCSolarSystemCheckBox(false);
-        setNumber15aInstallKWDCSolarSystemInt(0);
+        setNumber15aInstallKWDCSolarSystemDouble(0);
 
         setNumber15BIncludesExtrudedAluminumCheckBox(false);
         setNumber15CSolarEdgeWithPowerOptimizersCheckBox(false);
@@ -1700,7 +1711,7 @@ public class MeasureBean implements Serializable {
         setCustomerID(measureEntity.getCustomerid());
 
         setNumber1InsulatAtticBlownCheckBox(measureEntity.getNumber1insulatatticblownche() == 1);
-        setNumber1InsulatAtticBlownString( measureEntity.getNumber1insulatatticblownstring() == null ? "" : measureEntity.getNumber1insulatatticblownstring() );
+        setNumber1InsulatAtticBlownString(measureEntity.getNumber1insulatatticblownstring() == null ? "" : measureEntity.getNumber1insulatatticblownstring());
         setSqft1(measureEntity.getSqft1());
         setNumber1InsulatAtticBlownResult(measureEntity.getNumber1insulatatticblownresult());
 
@@ -1713,48 +1724,48 @@ public class MeasureBean implements Serializable {
         setNumber3InstallBattedInsulationResult(measureEntity.getNumber3installbattedinresult());
 
         setNumber4SealDuctingCodeComplianceCheckBox(measureEntity.getNumber4sealductingcodcheckbox() == 1);
-        setNumber4SealDuctingCodeComplianceString( measureEntity.getNumber4sealductingcodecstring() == null ? "" : measureEntity.getNumber4sealductingcodecstring() );
+        setNumber4SealDuctingCodeComplianceString(measureEntity.getNumber4sealductingcodecstring() == null ? "" : measureEntity.getNumber4sealductingcodecstring());
         setSqft4(measureEntity.getSqft4());
         setNumber4SealDuctingCodeComplianceResult(measureEntity.getNumber4sealductingcoderesult());
 
         setSqft5(measureEntity.getSqft5());
         setNumber5AirSealPackageCheckBox(measureEntity.getNumber5airsealpcheckbox() == 1);
-        setNumber5AirSealPackageString( measureEntity.getNumber5airsealstring() == null ? "" : measureEntity.getNumber5airsealstring() );
+        setNumber5AirSealPackageString(measureEntity.getNumber5airsealstring() == null ? "" : measureEntity.getNumber5airsealstring());
         setNumber5AirSealPackageResult(measureEntity.getNumber5airsealparesult());
 
         setSqft6(measureEntity.getSqft6());
         setNumber6CAZAreaReportCheckBox(measureEntity.getNumber6cazarearecheckbox() == 1);
-        setNumber6CAZAreaReportString( measureEntity.getNumber6cazareatstring() == null ? "" : measureEntity.getNumber6cazareatstring() );
+        setNumber6CAZAreaReportString(measureEntity.getNumber6cazareatstring() == null ? "" : measureEntity.getNumber6cazareatstring());
         setNumber6CAZAreaReportResult(measureEntity.getNumber6cazarearesult());
 
         setSqft7a(measureEntity.getSqft7a());
         setNumber7AInstallDuctingStandaloneCheckBox(measureEntity.getNumber7ainstallductingcheckbox() == 1);
-        setNumber7AInstallDuctingStandaloneString( measureEntity.getNumber7ainstallductingstring() == null ? "" : measureEntity.getNumber7ainstallductingstring() );
+        setNumber7AInstallDuctingStandaloneString(measureEntity.getNumber7ainstallductingstring() == null ? "" : measureEntity.getNumber7ainstallductingstring());
         setNumber7AInstallDuctingStandaloneResult(measureEntity.getNumber7ainstallductingresult());
 
         setSqft7b(measureEntity.getSqft7b());
         setNumber7BInstallR8DuctingNewHVACCheckBox(measureEntity.getNumber7binstallr8ducheckbox() == 1);
-        setNumber7BInstallR8DuctingNewHVACString( measureEntity.getNumber7binstallr8ductstring() == null ? "" : measureEntity.getNumber7binstallr8ductstring() );
+        setNumber7BInstallR8DuctingNewHVACString(measureEntity.getNumber7binstallr8ductstring() == null ? "" : measureEntity.getNumber7binstallr8ductstring());
         setNumber7BInstallR8DuctingNewHVACResult(measureEntity.getNumber7binstallr8ductresult());
 
         setSqft8a(measureEntity.getSqft8a());
         setNumber8ANewHVACSystemERICheckBox(measureEntity.getNumber8anewhvacicheckbox() == 1);
-        setNumber8ANewHVACSystemERIString( measureEntity.getNumber8anewhvacstring() == null ? "" : measureEntity.getNumber8anewhvacstring() );
+        setNumber8ANewHVACSystemERIString(measureEntity.getNumber8anewhvacstring() == null ? "" : measureEntity.getNumber8anewhvacstring());
         setNumber8ANewHVACSystemERIResult(measureEntity.getNumber8anewhvaresult());
 
         setSqft8b(measureEntity.getSqft8b());
         setNumber8BNewHVACSystemERIPrivateCheckBox(measureEntity.getNumber8biiincludecheckbox() == 1);
-        setNumber8BNewHVACSystemERIPrivateString( measureEntity.getNumber8bnewhvacsysstring() == null ? "" : measureEntity.getNumber8bnewhvacsysstring() );
+        setNumber8BNewHVACSystemERIPrivateString(measureEntity.getNumber8bnewhvacsysstring() == null ? "" : measureEntity.getNumber8bnewhvacsysstring());
         setNumber8BNewHVACSystemERIPrivateResult(measureEntity.getNumber8bnewhvacsyresult());
 
         setSqft8bii(measureEntity.getSqft8bii());
         setNumber8BIIIncludes10YearPartsCheckBox(measureEntity.getNumber8biiincludecheckbox() == 1);
-        setNumber8BIIIncludes10YearPartsString( measureEntity.getNumber8biiincludestring() == null ? "" : measureEntity.getNumber8biiincludestring() );
+        setNumber8BIIIncludes10YearPartsString(measureEntity.getNumber8biiincludestring() == null ? "" : measureEntity.getNumber8biiincludestring());
         setNumber8BIIIncludes10YearPartsResult(measureEntity.getNumber8biiincludresult());
 
         setSqft9(measureEntity.getSqft9());
         setNumber9SingleDualZoneHVACSystemCheckBox(measureEntity.getNumber91arelocheckbox() == 1);
-        setNumber9SingleDualZoneHVACSystemString( measureEntity.getNumber9singledualzostring() == null ? "" : measureEntity.getNumber9singledualzostring() );
+        setNumber9SingleDualZoneHVACSystemString(measureEntity.getNumber9singledualzostring() == null ? "" : measureEntity.getNumber9singledualzostring());
         setNumber9SingleDualZoneHVACSystemResult(measureEntity.getNumber9singledresult());
 
         setSqft91(measureEntity.getSqft91());
@@ -1783,20 +1794,20 @@ public class MeasureBean implements Serializable {
         setNumber91fEnlargeReturnAirResult(measureEntity.getNumber91fenlargerresult());
 
         setNumber92NotesCheckBox(measureEntity.getNumber92notescheckbox() == 1);
-        setNumber92NotesString( measureEntity.getNumber92notesstring() == null ? "" : measureEntity.getNumber92notesstring() );
+        setNumber92NotesString(measureEntity.getNumber92notesstring() == null ? "" : measureEntity.getNumber92notesstring());
 
         setNumber93CostPerKWCheckBox(measureEntity.getNumber93costperkwcheckbox() == 1);
         setNumber93CostPerKWInt(measureEntity.getNumber93costperkwint());
         setNumber93CostPerKWResalt(measureEntity.getNumber93costperkwresalt());
-        setNumber93DCKWsInt(measureEntity.getNumber93dckwsint());
+        setNumber93DCKWsDouble(measureEntity.getNumber93dckwsdouble());
         setNumber93DCKWsResalt(measureEntity.getNumber93dckwsresalt());
 
         setNumber10InstallWindowsCheckBox(measureEntity.getNumber101acutindoorcheckbox() == 1);
-        setNumber10numOfWindows( measureEntity.getNumber10numofwindows() == null ? "" : measureEntity.getNumber10numofwindows() );
+        setNumber10numOfWindows(measureEntity.getNumber10numofwindows() == null ? "" : measureEntity.getNumber10numofwindows());
         setNumber10TotalUnitedInchesInt(measureEntity.getNumber10totalunitedinchesint());
         setNumber10InstallResult(measureEntity.getNumber10installresult());
-        setNumber10numOfSliders( measureEntity.getNumber10numofsliders() == null ? "" : measureEntity.getNumber10numofsliders() );
-        setNumber10LinearFeet( measureEntity.getNumber10linearfeet() == null ? "" : measureEntity.getNumber10linearfeet() );
+        setNumber10numOfSliders(measureEntity.getNumber10numofsliders() == null ? "" : measureEntity.getNumber10numofsliders());
+        setNumber10LinearFeet(measureEntity.getNumber10linearfeet() == null ? "" : measureEntity.getNumber10linearfeet());
         setNumber10LinearFeetResult(measureEntity.getNumber10linearfeetresult());
 
         setNumber101ACutInDoorCheckBox(measureEntity.getNumber101acutindoorcheckbox() == 1);
@@ -1840,7 +1851,7 @@ public class MeasureBean implements Serializable {
         setNumber15InstallBatteryOperatedResult(measureEntity.getNumber15installbaresult());
 
         setNumber15AInstallKWDCSolarSystemCheckBox(measureEntity.getNumber15ainstallkwdcsocheckbox() == 1);
-        setNumber15aInstallKWDCSolarSystemInt(measureEntity.getNumber15ainstallkwdcsoint());
+        setNumber15aInstallKWDCSolarSystemDouble(measureEntity.getNumber15ainstallkwdcsodouble());
 
         setNumber15BIncludesExtrudedAluminumCheckBox(measureEntity.getNumber15bincludesexcheckbox() == 1);
         setNumber15CSolarEdgeWithPowerOptimizersCheckBox(measureEntity.getNumber15csolarcheckbox() == 1);
@@ -1854,4 +1865,14 @@ public class MeasureBean implements Serializable {
         setSmudRebateAmount(measureEntity.getSmudRebateAmount());
     }
 
+    public void setSqft() {
+        setSqft1(questionsBean.getSquareFootage());
+        setSqft2(questionsBean.getSquareFootage());
+        setSqft3(questionsBean.getSquareFootage());
+        setSqft4(questionsBean.getSquareFootage());
+        setSqft5(questionsBean.getSquareFootage());
+        setSqft6(questionsBean.getSquareFootage());
+        setSqft7b(questionsBean.getSquareFootage());
+    }
+    
 }
