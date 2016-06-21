@@ -26,14 +26,16 @@ public class Graph implements Serializable {
     QuestionsBean questionsBean;
     @Inject
     MeasureBean measureBean;
+    @Inject
+    DashBoardBean dashBoardBean;
 
     private int annualKW = 0;
     private String utilityDistrict = "";
-    private int enableHouseGas = 0;
+    private boolean enableHouseGas = false;
     private int gasCostPerMonth = 0;
-    private int enabledSolar = 0;
-    private int enabledHPP = 0;
-    private int introduceVehicle = 0;
+    private boolean enabledSolar = false;
+    private boolean enabledHPP = false;
+    private boolean introduceVehicle = false;
     private int vehicleMileage = 0;
     private int milesTraveled = 0;
     private int gasCost = 0;
@@ -43,20 +45,21 @@ public class Graph implements Serializable {
     private int years = 0;
     private int interest = 0;
     
+    private int recomendCustomPanels = 0;
     private int recommendedCustomSize = 0;
     private int numberOfCustomPanels = 0;
-    private int systemSizeInKw = 0;
-    private int costOfSolar = 0;
+    private double systemSizeInKw = 0;
+    private double costOfSolar = 0;
     private int anySolarAdders = 0;
-    private int grossHP = 0;
+    private double grossHP = 0;
     private int utilityRebates = 0;
     
-    private int grossSolar = 0;
+    private double grossSolar = 0;
     private double taxCredit30 = 0;
     private double taxWriteOff33 = 0;
     private double grossProjectCost = 0;
     private double netProjectCost = 0;
-    private double hPMoPayment = 0;
+    private double hpMoPayment = 0;
     private double solarMoPayment = 0;
     private double totMonthlyPayment = 0;
     private double costPerKW = 0;
@@ -107,14 +110,14 @@ public class Graph implements Serializable {
         this.utilityDistrict = utilityDistrict;
     }
 
-    public int getEnableHouseGas() {
+    public boolean isEnableHouseGas() {
         return enableHouseGas;
     }
 
-    public void setEnableHouseGas(int enableHouseGas) {
+    public void setEnableHouseGas(boolean enableHouseGas) {
         this.enableHouseGas = enableHouseGas;
     }
-
+    
     public int getGasCostPerMonth() {
         return gasCostPerMonth;
     }
@@ -123,30 +126,30 @@ public class Graph implements Serializable {
         this.gasCostPerMonth = gasCostPerMonth;
     }
 
-    public int getEnabledSolar() {
+    public boolean isEnabledSolar() {
         return enabledSolar;
     }
 
-    public void setEnabledSolar(int enabledSolar) {
+    public void setEnabledSolar(boolean enabledSolar) {
         this.enabledSolar = enabledSolar;
     }
 
-    public int getEnabledHPP() {
+    public boolean isEnabledHPP() {
         return enabledHPP;
     }
 
-    public void setEnabledHPP(int enabledHPP) {
+    public void setEnabledHPP(boolean enabledHPP) {
         this.enabledHPP = enabledHPP;
     }
 
-    public int getIntroduceVehicle() {
+    public boolean isIntroduceVehicle() {
         return introduceVehicle;
     }
 
-    public void setIntroduceVehicle(int introduceVehicle) {
+    public void setIntroduceVehicle(boolean introduceVehicle) {
         this.introduceVehicle = introduceVehicle;
     }
-
+    
     public int getVehicleMileage() {
         return vehicleMileage;
     }
@@ -215,23 +218,34 @@ public class Graph implements Serializable {
         return numberOfCustomPanels;
     }
 
+    public int getRecomendCustomPanels() {
+        return recomendCustomPanels;
+    }
+
+    public void setRecomendCustomPanels(int recomendCustomPanels) {
+        this.recomendCustomPanels = recomendCustomPanels;
+    }
+
     public void setNumberOfCustomPanels(int numberOfCustomPanels) {
         this.numberOfCustomPanels = numberOfCustomPanels;
     }
 
-    public int getSystemSizeInKw() {
+    public double getSystemSizeInKw() {
+        double k = Math.round(getNumberOfCustomPanels() * 27.1);
+        this.systemSizeInKw = k / 100;
         return systemSizeInKw;
     }
 
-    public void setSystemSizeInKw(int systemSizeInKw) {
+    public void setSystemSizeInKw(double systemSizeInKw) {
         this.systemSizeInKw = systemSizeInKw;
     }
 
-    public int getCostOfSolar() {
+    public double getCostOfSolar() {
+        costOfSolar = measureBean.getNumber93CostPerKWInt() * this.getSystemSizeInKw();
         return costOfSolar;
     }
 
-    public void setCostOfSolar(int costOfSolar) {
+    public void setCostOfSolar(double costOfSolar) {
         this.costOfSolar = costOfSolar;
     }
 
@@ -243,11 +257,13 @@ public class Graph implements Serializable {
         this.anySolarAdders = anySolarAdders;
     }
 
-    public int getGrossHP() {
+    public double getGrossHP() {
+        grossHP = dashBoardBean.getGrossHPCost();
+        System.out.println("dashBoardBean.getGrossHPCost()" + dashBoardBean.getGrossHPCost());
         return grossHP;
     }
 
-    public void setGrossHP(int grossHP) {
+    public void setGrossHP(double grossHP) {
         this.grossHP = grossHP;
     }
 
@@ -259,11 +275,12 @@ public class Graph implements Serializable {
         this.utilityRebates = utilityRebates;
     }
 
-    public int getGrossSolar() {
+    public double getGrossSolar() {
+        grossSolar = getSystemSizeInKw() * getCostOfSolar() + getAnySolarAdders();
         return grossSolar;
     }
 
-    public void setGrossSolar(int grossSolar) {
+    public void setGrossSolar(double grossSolar) {
         this.grossSolar = grossSolar;
     }
 
@@ -299,14 +316,14 @@ public class Graph implements Serializable {
         this.netProjectCost = netProjectCost;
     }
 
-    public double gethPMoPayment() {
-        return hPMoPayment;
+    public double getHpMoPayment() {
+        return hpMoPayment;
     }
 
-    public void sethPMoPayment(double hPMoPayment) {
-        this.hPMoPayment = hPMoPayment;
+    public void setHpMoPayment(double hpMoPayment) {
+        this.hpMoPayment = hpMoPayment;
     }
-
+    
     public double getSolarMoPayment() {
         return solarMoPayment;
     }
@@ -346,7 +363,5 @@ public class Graph implements Serializable {
     public void setCustomSSystemSize(int customSSystemSize) {
         this.customSSystemSize = customSSystemSize;
     }
-    
-    
     
 }

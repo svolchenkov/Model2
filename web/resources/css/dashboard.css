@@ -127,9 +127,32 @@ h5 {
     padding: 0px;
     color: darkred;
 }
+/* ------------- Measure --------------------------*/
+
+.tableMeasuresDashBoard {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  14px;
+    font-weight: normal;
+    text-align: left;
+    margin: 5px;
+    padding: 5px;
+    color: darkblue;
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding-top: 20px;
+} 
+.tdMeasuresDashBoard {
+    margin: 1px;
+    padding: 1px;
+    border-collapse: collapse;
+    width: 170px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    border: 1px solid black;
+}  
 
 /*------------- Cost Summary ----------------------*/
-  .tableCostSummaryDashBoard {
+.tableCostSummaryDashBoard {
     font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     font-size:  14px;
     font-weight: normal;
@@ -169,22 +192,22 @@ h5 {
 /* --------------------------  dialog box --------------------------------  */
 
 #dialogoverlay {
-	display: none;
-	opacity: .8;
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	background: #FFF;
-	width: 100%;
-	z-index: 10;
+    display: none;
+    opacity: .8;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: #FFF;
+    width: 100%;
+    z-index: 10;
 }
 #dialogbox{
-	display: none;
-	position: fixed;
-	background: #000;
-	border-radius:7px; 
-	width:550px;
-	z-index: 10;
+    display: none;
+    position: fixed;
+    background: #000;
+    border-radius:7px; 
+    width:550px;
+    z-index: 10;
 }
 #dialogbox > div{ background:#FFF; margin:8px; }
 #dialogbox > div > #dialogboxhead{ background: #666; font-size:19px; padding:10px; color:#CCC; }

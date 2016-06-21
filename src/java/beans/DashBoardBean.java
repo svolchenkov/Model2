@@ -27,6 +27,8 @@ public class DashBoardBean implements Serializable {
     QuestionsBean questionsBean;
     @EJB
     DashBoardEJB dashBoardEJB;
+    @Inject
+    Graph graph;
 
     private String caseID;
 
@@ -167,7 +169,7 @@ public class DashBoardBean implements Serializable {
     }
 
     public double getSolarCost() {
-        solarCost = measureBean.getNumber93CostPerKWInt() * measureBean.getNumber93DCKWsDouble();
+        solarCost = graph.getCostOfSolar();
         return solarCost;
     }
 
