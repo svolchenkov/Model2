@@ -27,6 +27,7 @@
                         </div>
                         <table class="tableDashBoard" ><tr><td>
                                     <div class="block1DashBoard" >
+                                        <!-- ************************   Residential summary  ************************************** -->
                                         <h4>Residential summary</h4>
                                         <table><tr><td>
                                                     <table class="tableMeasuresDashBoard">
@@ -46,8 +47,12 @@
                                                         <tr><td class="tdMeasuresDashBoard" >Enable House Gas:</td><td class="tdMeasuresDashBoard" ><h:selectBooleanCheckbox value="#{graph.enableHouseGas}" style="float: left" /></td></tr>
                                                         <tr><td class="tdMeasuresDashBoard" >Gas Cost Per Month:</td><td class="tdMeasuresDashBoard" ><h:outputText value="$ " />
                                                                 <h:inputText value="#{graph.gasCostPerMonth}" style="width: 30%" /></td></tr>
-                                                        <tr><td class="tdMeasuresDashBoard" >Enabled Solar:</td><td class="tdMeasuresDashBoard" ><h:selectBooleanCheckbox value="#{graph.enabledSolar}" style="float: left" /></td></tr>
-                                                        <tr><td class="tdMeasuresDashBoard" >Enabled HPP:</td><td class="tdMeasuresDashBoard" ><h:selectBooleanCheckbox value="#{graph.enabledHPP}" style="float: left" /></td></tr>
+                                                        <tr><td class="tdMeasuresDashBoard" >Enabled Solar:</td><td class="tdMeasuresDashBoard" ><h:selectBooleanCheckbox value="#{graph.enabledSolar}" style="float: left" >
+                                                                    <p:ajax event="change" update="taxCredit30, grossSolar, grossProjectCost, taxWriteOff33, netProjectCost"  />
+                                                                </h:selectBooleanCheckbox></td></tr>
+                                                        <tr><td class="tdMeasuresDashBoard" >Enabled HPP:</td><td class="tdMeasuresDashBoard" ><h:selectBooleanCheckbox value="#{graph.enabledHPP}" style="float: left" >
+                                                                    <p:ajax event="change" update="taxCredit30, grossSolar, grossProjectCost, taxWriteOff33, netProjectCost"  />
+                                                                </h:selectBooleanCheckbox></td></tr>
                                                         <tr><td class="tdMeasuresDashBoard" >Introduce Vehicle:</td><td class="tdMeasuresDashBoard" ><h:selectBooleanCheckbox value="#{graph.introduceVehicle}" style="float: left" /></td></tr>
                                                         <tr><td class="tdMeasuresDashBoard" >Vehicle Mileage:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.vehicleMileage}" style="width: 95%" /></td></tr>
                                                         <tr><td class="tdMeasuresDashBoard" >Miles Traveled:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.milesTraveled}" style="width: 95%" /></td></tr>
@@ -73,6 +78,7 @@
                                 </td>
                                 <td>
                                     <div class="block2DashBoard" >
+                                        <!--********************************************** Residential summary2 *******************************************-->
                                         <h4>Residential summary</h4>
                                         <table><tr><td>
                                                     <table class="tableMeasuresDashBoard">
@@ -81,22 +87,29 @@
                                                                     <f:selectItem itemLabel="Custom Size" itemValue="1" />
                                                                 </h:selectOneRadio></td><td class="tdMeasuresDashBoard" ></td></tr>
                                                         <tr><td class="tdMeasuresDashBoard" ># of Custom Panels:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.numberOfCustomPanels}" style="width: 95%" >
-                                                                    <p:ajax event="keyup" update="systemSizeInKw, costOfSolar, grossHP" /> 
+                                                                    <p:ajax event="keyup" update="systemSizeInKw, costOfSolar, grossHP, solarCost, grossSolar, taxCredit30, grossProjectCost, taxWriteOff33, netProjectCost" /> 
                                                                 </h:inputText></td></tr>
                                                         <tr><td class="tdMeasuresDashBoard" >System Size (in kw):</td><td class="tdMeasuresDashBoard" ><h:outputText id="systemSizeInKw" value="#{graph.systemSizeInKw}" style="width: 95%" /></td></tr>
                                                         <tr><td class="tdMeasuresDashBoard" >Cost of Solar:</td><td class="tdMeasuresDashBoard" ><h:outputText id="costOfSolar" value="#{graph.costOfSolar}" style="width: 95%" /></td></tr>
-                                                        <tr><td class="tdMeasuresDashBoard" >Any Solar Adders:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.anySolarAdders}" style="width: 95%" /></td></tr>
-                                                        <tr><td class="tdMeasuresDashBoard" >Gross HP:</td><td class="tdMeasuresDashBoard" ><h:inputText id="grossHP" value="#{graph.grossHP}" style="width: 95%" /></td></tr>
-                                                        <tr><td class="tdMeasuresDashBoard" >Utility Rebates:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.utilityRebates}" style="width: 95%" /></td></tr>
+                                                        <tr><td class="tdMeasuresDashBoard" >Any Solar Adders:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.anySolarAdders}" style="width: 95%" >
+                                                                    <p:ajax event="keyup" update="grossSolar, taxCredit30, grossProjectCost, taxWriteOff33, netProjectCost" />
+                                                                </h:inputText></td></tr>
+                                                        <tr><td class="tdMeasuresDashBoard" >Gross HP:</td><td class="tdMeasuresDashBoard" ><h:outputText id="grossHP" value="#{graph.grossHP}" style="width: 95%" /></td></tr>
+                                                        <tr><td class="tdMeasuresDashBoard" >Utility Rebates:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.utilityRebates}" style="width: 95%" >
+                                                                    <p:ajax event="keyup" update="netProjectCost" /> 
+                                                                </h:inputText></td></tr>
                                                     </table>
                                                 </td>
                                                 <td >
                                                     <table class="tableMeasuresDashBoard">
-                                                        <tr><td class="tdMeasuresDashBoard" >Gross Solar:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.grossSolar}" style="width: 95%" /></td></tr>
-                                                        <tr><td class="tdMeasuresDashBoard" >30% Tax Credit:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.taxCredit30}" style="width: 95%" /></td></tr>
-                                                        <tr><td class="tdMeasuresDashBoard" >33% Tax Write Off:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.taxWriteOff33}" style="width: 95%" /></td></tr>
-                                                        <tr><td class="tdMeasuresDashBoard" >Gross Project Cost:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.grossProjectCost}" style="width: 95%" /></td></tr>
-                                                        <tr><td class="tdMeasuresDashBoard" >Net Project Cost:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.netProjectCost}" style="width: 95%" /></td></tr>
+                                                        <tr><td class="tdMeasuresDashBoard" >Gross Solar:</td><td class="tdMeasuresDashBoard" ><h:outputText id="grossSolar" value="#{graph.grossSolar}" /></td></tr>
+                                                        <tr><td class="tdMeasuresDashBoard" >30% Tax Credit:</td><td class="tdMeasuresDashBoard" ><h:outputText id="taxCredit30" value="$ #{graph.taxCredit30}" style="width: 95%" /></td></tr>
+                                                        <tr><td class="tdMeasuresDashBoard" >Gross Project Cost:</td><td class="tdMeasuresDashBoard" ><h:outputText id="grossProjectCost" value="#{graph.grossProjectCost}" /></td></tr>
+                                                        <tr><td class="tdMeasuresDashBoard" >33% Tax Write Off:</td><td class="tdMeasuresDashBoard" ><h:outputText id="taxWriteOff33" value="#{graph.taxWriteOff33}" /></td></tr>
+
+                                                        <tr><td class="tdMeasuresDashBoard" >Net Project Cost:</td><td class="tdMeasuresDashBoard" ><h:inputText id="netProjectCost" value="#{graph.netProjectCost}" style="width: 95%" /></td></tr>
+
+
                                                         <tr><td class="tdMeasuresDashBoard" >HP Mo. Payment:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.hpMoPayment}" style="width: 95%" /></td></tr>
                                                         <tr><td class="tdMeasuresDashBoard" >Solar Mo. Payment:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.solarMoPayment}" style="width: 95%" /></td></tr>
                                                         <tr><td class="tdMeasuresDashBoard" >Tot. Monthly Payment:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.totMonthlyPayment}" style="width: 95%" /></td></tr>
@@ -132,7 +145,7 @@
                                             <tr><td class="tdDashBoard" >Wholesale Cost</td><td class="tdDashBoard" ><h:outputText value="#{dashBoardBean.wholeCost}" /></td></tr>
                                             <tr><td class="tdDashBoard" >Margin Percentage</td><td class="tdDashBoard" >
                                                     <h:inputText value="#{dashBoardBean.marginPercentage}" >
-                                                        <p:ajax event="keyup" update="grossHPCost, netHPCost, solarCost, combinedGrossCost, financedTotal, grossHP" />
+                                                        <p:ajax event="keyup" update="grossHPCost, netHPCost, solarCost, combinedGrossCost, financedTotal, grossHP, grossProjectCost, taxWriteOff33, netProjectCost" />
                                                     </h:inputText></td></tr>
                                             <tr><td class="tdDashBoard" >Gross HP Cost</td><td class="tdDashBoard" ><h:outputText id="grossHPCost" value="#{dashBoardBean.grossHPCost}" /></td></tr>
                                             <tr><td class="tdDashBoard" >Net HP Cost</td><td class="tdDashBoard" ><h:outputText id="netHPCost" value="#{dashBoardBean.netHPCost}" /></td></tr>

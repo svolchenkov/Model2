@@ -258,8 +258,11 @@ public class Graph implements Serializable {
     }
 
     public double getGrossHP() {
-        grossHP = dashBoardBean.getGrossHPCost();
-        System.out.println("dashBoardBean.getGrossHPCost()" + dashBoardBean.getGrossHPCost());
+        if ( isEnabledHPP() == true ) {
+            grossHP = dashBoardBean.getGrossHPCost();
+        } else {
+            grossHP = 0;
+        }
         return grossHP;
     }
 
@@ -276,7 +279,11 @@ public class Graph implements Serializable {
     }
 
     public double getGrossSolar() {
-        grossSolar = getSystemSizeInKw() * getCostOfSolar() + getAnySolarAdders();
+        if ( isEnabledSolar() == true ) {
+            grossSolar = getCostOfSolar() + getAnySolarAdders();
+        } else {
+            grossSolar = 0;
+        }
         return grossSolar;
     }
 
@@ -285,6 +292,11 @@ public class Graph implements Serializable {
     }
 
     public double getTaxCredit30() {
+        if ( isEnabledSolar() == true ) {
+            taxCredit30 = getGrossSolar() * 0.3 + 500;
+        } else {
+            taxCredit30 = 0;
+        }
         return taxCredit30;
     }
 
@@ -293,6 +305,7 @@ public class Graph implements Serializable {
     }
 
     public double getTaxWriteOff33() {
+        taxWriteOff33 = this.getGrossProjectCost() * 0.33;
         return taxWriteOff33;
     }
 
@@ -301,6 +314,7 @@ public class Graph implements Serializable {
     }
 
     public double getGrossProjectCost() {
+        grossProjectCost = getGrossSolar() + getGrossHP();
         return grossProjectCost;
     }
 
@@ -309,6 +323,7 @@ public class Graph implements Serializable {
     }
 
     public double getNetProjectCost() {
+        netProjectCost = getGrossProjectCost() - getUtilityRebates();
         return netProjectCost;
     }
 
@@ -317,6 +332,11 @@ public class Graph implements Serializable {
     }
 
     public double getHpMoPayment() {
+        double hpMoPayment = getGrossHP() - getUtilityRebates();
+        for ( int index = 0; index <= getYears(); index++) {
+            hpMoPayment *= (getInterest() / 100);
+        }
+        hpMoPayment /= (12 * getYears());
         return hpMoPayment;
     }
 
