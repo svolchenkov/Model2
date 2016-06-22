@@ -43,7 +43,7 @@ public class Graph implements Serializable {
     private int electricHPP = 0;
     private int gasHPP = 0;
     private int years = 0;
-    private int interest = 0;
+    private double interest = 0;
     
     private int recomendCustomPanels = 0;
     private int recommendedCustomSize = 0;
@@ -198,11 +198,11 @@ public class Graph implements Serializable {
         this.years = years;
     }
 
-    public int getInterest() {
+    public double getInterest() {
         return interest;
     }
 
-    public void setInterest(int interest) {
+    public void setInterest(double interest) {
         this.interest = interest;
     }
 
@@ -241,7 +241,8 @@ public class Graph implements Serializable {
     }
 
     public double getCostOfSolar() {
-        costOfSolar = measureBean.getNumber93CostPerKWInt() * this.getSystemSizeInKw();
+        double k = Math.round(measureBean.getNumber93CostPerKWInt() * this.getSystemSizeInKw() * 100);
+        this.costOfSolar = k / 100;
         return costOfSolar;
     }
 
@@ -305,7 +306,8 @@ public class Graph implements Serializable {
     }
 
     public double getTaxWriteOff33() {
-        taxWriteOff33 = this.getGrossProjectCost() * 0.33;
+        double k = Math.round(this.getGrossProjectCost() * 33);
+        this.taxWriteOff33 = k / 100;
         return taxWriteOff33;
     }
 
@@ -314,7 +316,8 @@ public class Graph implements Serializable {
     }
 
     public double getGrossProjectCost() {
-        grossProjectCost = getGrossSolar() + getGrossHP();
+        double k = Math.round((getGrossSolar() + getGrossHP()) * 100);
+        this.grossProjectCost = k / 100;
         return grossProjectCost;
     }
 
@@ -323,7 +326,8 @@ public class Graph implements Serializable {
     }
 
     public double getNetProjectCost() {
-        netProjectCost = getGrossProjectCost() - getUtilityRebates();
+        double k = Math.round((getGrossProjectCost() - getUtilityRebates()) * 100);
+        this.netProjectCost = k / 100;
         return netProjectCost;
     }
 
@@ -332,11 +336,22 @@ public class Graph implements Serializable {
     }
 
     public double getHpMoPayment() {
-        double hpMoPayment = getGrossHP() - getUtilityRebates();
-        for ( int index = 0; index <= getYears(); index++) {
-            hpMoPayment *= (getInterest() / 100);
+        double k = 0.0;
+        hpMoPayment = getGrossHP() - getUtilityRebates();
+        k = getInterest() * 1.0;
+        System.out.println("getInterest() = " + getInterest());
+        k = k / 100;
+        System.out.println("k = " + k);
+        for ( int index = 0; index <= getYears(); index++ ) {
+            hpMoPayment *= (1 + k);
         }
-        hpMoPayment /= (12 * getYears());
+        if ( getYears() != 0 ) {
+            hpMoPayment /= (12 * getYears());
+        } else {
+            hpMoPayment = 0;
+        }
+        k = Math.round(hpMoPayment * 100) ;
+        this.hpMoPayment = k / 100;
         return hpMoPayment;
     }
 
@@ -345,6 +360,22 @@ public class Graph implements Serializable {
     }
     
     public double getSolarMoPayment() {
+        double k = 0.0;
+        solarMoPayment = getGrossSolar();
+        k = getInterest() * 1.0;
+        System.out.println("getInterest() = " + getInterest());
+        k = k / 100;
+        System.out.println("k = " + k);
+        for ( int index = 0; index <= getYears(); index++ ) {
+            solarMoPayment *= (1 + k);
+        }
+        if ( getYears() != 0 ) {
+            solarMoPayment /= (12 * getYears());
+        } else {
+            solarMoPayment = 0;
+        }
+        k = Math.round(solarMoPayment * 100) ;
+        this.solarMoPayment = k / 100;
         return solarMoPayment;
     }
 
@@ -353,6 +384,9 @@ public class Graph implements Serializable {
     }
 
     public double getTotMonthlyPayment() {
+        totMonthlyPayment = getHpMoPayment() + getSolarMoPayment();
+        double k = Math.round(totMonthlyPayment * 100);
+        totMonthlyPayment = k / 100;
         return totMonthlyPayment;
     }
 
