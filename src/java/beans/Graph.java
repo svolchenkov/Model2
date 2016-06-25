@@ -250,7 +250,7 @@ public class Graph implements Serializable {
     }
 
     public double getCostOfSolar() {
-        double k = Math.round(measureBean.getNumber93CostPerKWInt() * 100);
+        double k = Math.round(measureBean.getNumber93CostPerKWInt() * 100 * getSystemSizeInKw());
         this.costOfSolar = k / 100;
         return costOfSolar;
     }
@@ -290,7 +290,7 @@ public class Graph implements Serializable {
 
     public double getGrossSolar() {
         if (isEnabledSolar() == true) {
-            grossSolar = (getCostOfSolar() * getSystemSizeInKw()) + getAnySolarAdders();
+            grossSolar = (getCostOfSolar() + getAnySolarAdders());
         } else {
             grossSolar = 0;
         }
@@ -307,6 +307,8 @@ public class Graph implements Serializable {
         } else {
             taxCredit30 = 0;
         }
+        int k = (int) Math.round(taxCredit30 * 100);
+        taxCredit30 = k / 100;
         return taxCredit30;
     }
 
@@ -369,6 +371,19 @@ public class Graph implements Serializable {
     }
 
     public double getSolarMoPayment() {
+//        double presentValue = 0.0;
+//        System.out.println("presentValue = " + presentValue);
+//        presentValue = getGrossSolar() / (1 + (getInterest() / 100));
+//        System.out.println("presentValue = " + presentValue);
+//        double rateForPeriod = getInterest() * 1.0;
+//        rateForPeriod = rateForPeriod / 100;
+//        System.out.println("rateForPeriod = " + rateForPeriod);
+//        double denominator = 0.0;
+//        denominator = 1 - Math.pow((1 + rateForPeriod), (-1) * getYears());
+//        System.out.println("denominator = " + denominator);
+//                
+//        solarMoPayment = presentValue / denominator;
+        
         double k = 0.0;
         solarMoPayment = getGrossSolar();
         k = getInterest() * 1.0;

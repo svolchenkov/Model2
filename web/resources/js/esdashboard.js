@@ -92,10 +92,11 @@ var Alert = new CustomAlert();
 /* ------------------- graph down -------------------------------------*/
 
 function graphShow() {
-    document.getElementById("graphShow").style.height = "800px";
-    document.getElementById("graphShow").innerHTML = "<h1>test</h1>";
+//    document.getElementById("graphShow").style.height = "800px";
+    document.getElementById("graphShow").innerHTML = '<table><tr><td><p:chart type="bar" model="#{graphShow.combinedModel}" style="height:300px" ></p:chart></td></tr></table>';
 }
 function buttonCloseGraph () {
     document.getElementById("graphShow").style.height = "1px";
-    document.getElementById("graphShow").innerHTML = "<p></p>"
+    document.getElementById("graphShow").innerHTML = "<p></p>";
 }
+

@@ -17,13 +17,11 @@
                         <div class="block0DashBoard">
                             <h:commandButton class="buttonDashBoard" value="to housefinance" action="housefinance.xhtml" />
                             <h:commandButton class="buttonDashBoard" value="to choose client" action="index.xhtml" />
-                            <button type="button" class="buttonDashBoard" onclick="graphShow()"  >graph show</button>
-                            <button type="button" class="buttonDashBoard" onclick="buttonCloseGraph()"  >graph close</button>
-                            <button class="buttonDashBoard" onclick="showHPSolarList('#{dashBoardBean.listForShow}')" >Detail of measures</button>
+                            <h:commandButton class="buttonDashBoard" value="to graph" action="graphShow.xhtml" />
+                            <button class="buttonDashBoard" onclick="showHPSolarList('#{dashBoardBean.toGraph}')" >Detail of measures</button>
                             <h:commandButton class="buttonDashBoard" action="measures.xhtml" value="change measures" />
                         </div>
-                        <div>
-                            <p id="graphShow" ></p>
+                        <div >
                         </div>
                         <table class="tableDashBoard" ><tr><td>
                                     <div class="block1DashBoard" >
@@ -94,9 +92,11 @@
                                                     </table>
                                                 </td></tr></table>
                                         <hr></hr>
+                                        
                                     </div>
                                 </td>
                                 <td>
+                                    
                                     <div class="block2DashBoard" >
                                         <!--********************************************** Residential summary2 *******************************************-->
                                         <h4>Residential summary</h4>
@@ -110,7 +110,11 @@
                                                                     <p:ajax event="keyup" update="systemSizeInKw, costOfSolar, grossHP, solarCost, grossSolar, taxCredit30, grossProjectCost, taxWriteOff33, 
                                                                             netProjectCost, hpMoPayment, solarMoPayment, totMonthlyPayment, costPerKW" /> 
                                                                 </h:inputText></td></tr>
-                                                        <tr><td class="tdMeasuresDashBoard" >System Size (in kw):</td><td class="tdMeasuresDashBoard" ><h:outputText id="systemSizeInKw" value="#{graph.systemSizeInKw}" style="width: 95%" /></td></tr>
+                                                        <tr><td class="tdMeasuresDashBoard" >System Size (in kw):</td><td class="tdMeasuresDashBoard" ><h:outputText id="systemSizeInKw" value="#{graph.systemSizeInKw}"  /></td></tr>
+                                                        <tr><td class="tdMeasuresDashBoard" >Cost per KW:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{measureBean.number93CostPerKWInt}" style="width: 95%" >
+                                                                    <p:ajax event="keyup" update="systemSizeInKw, costOfSolar, grossHP, solarCost, grossSolar, taxCredit30, grossProjectCost, taxWriteOff33, 
+                                                                            netProjectCost, hpMoPayment, solarMoPayment, totMonthlyPayment, costPerKW" /> 
+                                                                </h:inputText></td></tr>
                                                         <tr><td class="tdMeasuresDashBoard" >Cost of Solar:</td><td class="tdMeasuresDashBoard" ><h:outputText id="costOfSolar" value="#{graph.costOfSolar}" style="width: 95%" /></td></tr>
                                                         <tr><td class="tdMeasuresDashBoard" >Any Solar Adders:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.anySolarAdders}" style="width: 95%" >
                                                                     <p:ajax event="keyup" update="grossSolar, taxCredit30, grossProjectCost, taxWriteOff33, 
@@ -184,6 +188,5 @@
                 </div>
             </ui:define>
         </ui:composition>
-
     </body>
 </html>

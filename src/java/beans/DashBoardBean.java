@@ -29,6 +29,8 @@ public class DashBoardBean implements Serializable {
     DashBoardEJB dashBoardEJB;
     @Inject
     Graph graph;
+    @Inject
+    GraphShow graphShow;
 
     private String caseID;
 
@@ -47,6 +49,8 @@ public class DashBoardBean implements Serializable {
     private double dcKW;
     
     private String listForShow = "";
+    
+    private String toGraph;
 
     /**
      * Creates a new instance of DashBoard
@@ -222,4 +226,14 @@ public class DashBoardBean implements Serializable {
 
     // ----------- finance --------------------------------
     // ----------- diagram --------------------------------
+
+    public String getToGraph() {
+        graphShow.getCombinedModel();
+        toGraph = "graphShow.xhtml";
+        return toGraph;
+    }
+
+    public void setToGraph(String toGraph) {
+        this.toGraph = toGraph;
+    }
 }

@@ -24,7 +24,7 @@
                                         <div >
                                             <h:outputText class="topTextMeasures" value="case id: #{measureBean.caseId}" />
                                             <h:outputText class="topTextMeasures" id="hpTotal" value="HP: #{measureBean.total} $" />
-                                            <h:outputText class="topTextMeasures" id="solarTotal" value="Solar: #{measureBean.solarTotal} $" />
+                                            <h:outputText class="topTextMeasures" id="solarTotal" value="Solar: #{graph.grossSolar} $" />
                                             <h:outputText class="topTextMeasures" value="person name: #{questions.firstName1}"  />
                                             <h:commandButton class="topButtonsMeasures" value="send result to Excell" action="#{measureBean.printToExcel()}" />
                                             <h:commandButton class="topButtonsMeasures" value="to house + finance" action="#{measureBean.wayToHouseFinance()}" />
