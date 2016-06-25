@@ -18,7 +18,7 @@
                             <h:commandButton class="buttonDashBoard" value="to housefinance" action="housefinance.xhtml" />
                             <h:commandButton class="buttonDashBoard" value="to choose client" action="index.xhtml" />
                             <h:commandButton class="buttonDashBoard" value="to graph" action="graphShow.xhtml" />
-                            <button class="buttonDashBoard" onclick="showHPSolarList('#{dashBoardBean.toGraph}')" >Detail of measures</button>
+                            <button class="buttonDashBoard" onclick="showHPSolarList('#{dashBoardBean.listForShow}')" >Detail of measures</button>
                             <h:commandButton class="buttonDashBoard" action="measures.xhtml" value="change measures" />
                         </div>
                         <div >
@@ -62,7 +62,6 @@
                                                         <tr><td class="tdMeasuresDashBoard" >Vehicle Mileage:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.vehicleMileage}" style="width: 95%" /></td></tr>
                                                         <tr><td class="tdMeasuresDashBoard" >Miles Traveled:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.milesTraveled}" style="width: 95%" /></td></tr>
                                                         <tr><td class="tdMeasuresDashBoard" >Petr.Gas Cost/Gal.:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.gasCost}" style="width: 95%" /></td></tr>
-                                                        <tr><td class="tdMeasuresDashBoard" >Miles Traveled:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.milesTraveled}" style="width: 95%" /></td></tr>
                                                     </table>
                                                 </td>
                                                 <td >

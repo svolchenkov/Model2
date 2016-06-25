@@ -347,22 +347,7 @@ public class Graph implements Serializable {
     }
 
     public double getHpMoPayment() {
-        double k = 0.0;
-        hpMoPayment = getGrossHP() - getUtilityRebates();
-        k = getInterest() * 1.0;
-        System.out.println("getInterest() = " + getInterest());
-        k = k / 100;
-        System.out.println("k = " + k);
-        for (int index = 0; index < getYears(); index++) {
-            hpMoPayment *= (1 + k);
-        }
-        if (getYears() != 0) {
-            hpMoPayment /= (12 * getYears());
-        } else {
-            hpMoPayment = 0;
-        }
-        k = Math.round(hpMoPayment * 100);
-        this.hpMoPayment = k / 100;
+        hpMoPayment = calculateMoPayment(getInterest(), getYears(), getGrossHP());
         return hpMoPayment;
     }
 
@@ -371,37 +356,7 @@ public class Graph implements Serializable {
     }
 
     public double getSolarMoPayment() {
-//        double presentValue = 0.0;
-//        System.out.println("presentValue = " + presentValue);
-//        presentValue = getGrossSolar() / (1 + (getInterest() / 100));
-//        System.out.println("presentValue = " + presentValue);
-//        double rateForPeriod = getInterest() * 1.0;
-//        rateForPeriod = rateForPeriod / 100;
-//        System.out.println("rateForPeriod = " + rateForPeriod);
-//        double denominator = 0.0;
-//        denominator = 1 - Math.pow((1 + rateForPeriod), (-1) * getYears());
-//        System.out.println("denominator = " + denominator);
-//                
-//        solarMoPayment = presentValue / denominator;
-        
-        double k = 0.0;
-        solarMoPayment = getGrossSolar();
-        k = getInterest() * 1.0;
-        System.out.println("getInterest() = " + getInterest());
-        k = k / 100;
-        System.out.println("k = " + k);
-        for (int index = 0; index < getYears(); index++) {
-            solarMoPayment *= (1 + k);
-        }
-        System.out.println("solarMoPayment = " + solarMoPayment);
-        if (getYears() != 0) {
-            solarMoPayment /= (12 * getYears());
-        } else {
-            solarMoPayment = 0;
-        }
-        System.out.println("2solarMoPayment = " + solarMoPayment);
-        k = Math.round(solarMoPayment * 100);
-        this.solarMoPayment = k / 100;
+        solarMoPayment = calculateMoPayment(getInterest(), getYears(), getGrossSolar());
         return solarMoPayment;
     }
 
@@ -530,7 +485,6 @@ public class Graph implements Serializable {
             if ((tempa - dataUtilityDistrict.getTire1kw()) >= 0) {
                 tire1 = dataUtilityDistrict.getTire1kw() * dataUtilityDistrict.getTire1current();
                 tempa -= dataUtilityDistrict.getTire1kw();
-                System.out.println("tire1 = " + tire1);
             } else {
                 tire1 = tempa * dataUtilityDistrict.getTire1current();
                 tempa -= dataUtilityDistrict.getTire1kw();
@@ -544,7 +498,6 @@ public class Graph implements Serializable {
             if ((tempa - dataUtilityDistrict.getTire2kw()) >= 0) {
                 tire2 = dataUtilityDistrict.getTire2kw() * dataUtilityDistrict.getTire2current();
                 tempa -= dataUtilityDistrict.getTire2kw();
-                System.out.println("tire1 = " + tire1);
             } else {
                 tire2 = tempa * dataUtilityDistrict.getTire2current();
                 tempa -= dataUtilityDistrict.getTire2kw();
@@ -556,11 +509,8 @@ public class Graph implements Serializable {
         //tier 3
         if (tempa > 0) {
             if ((tempa - dataUtilityDistrict.getTire3kw()) >= 0) {
-                System.out.println("dataUtilityDistrict.getTire3kw() * dataUtilityDistrict.getTire3current() = " + dataUtilityDistrict.getTire3kw() * dataUtilityDistrict.getTire3current());
-                System.out.println("tire1 = " + tire1);
-                tire3 = dataUtilityDistrict.getTire3kw() * dataUtilityDistrict.getTire3current();
+               tire3 = dataUtilityDistrict.getTire3kw() * dataUtilityDistrict.getTire3current();
                 tempa -= dataUtilityDistrict.getTire3kw();
-                System.out.println("tire1 = " + tire1);
             } else {
                 tire3 = tempa * dataUtilityDistrict.getTire3current();
                 tempa -= dataUtilityDistrict.getTire3kw();
@@ -574,7 +524,6 @@ public class Graph implements Serializable {
             if ((tempa - dataUtilityDistrict.getTire4kw()) >= 0) {
                 tire4 = dataUtilityDistrict.getTire4kw() * dataUtilityDistrict.getTire4current();
                 tempa -= dataUtilityDistrict.getTire4kw();
-                System.out.println("tire1 = " + tire1);
             } else {
                 tire4 = tempa * dataUtilityDistrict.getTire4current();
                 tempa -= dataUtilityDistrict.getTire4kw();
@@ -589,7 +538,6 @@ public class Graph implements Serializable {
             for (int i = 0; i < getTimeTravel(); i++) {
                 tire5 *= (1 + dataUtilityDistrict.getTire5increase());
             }
-            System.out.println("tire1 = " + tire1);
         }
         futureMonthPayment = tire1 + tire2 + tire3 + tire4 + tire5;
         tempa = Math.round(futureMonthPayment * 100);
@@ -608,8 +556,22 @@ public class Graph implements Serializable {
         return totalFuture;
     }
 
-public void setTotalFuture(double totalFuture) {
+    public void setTotalFuture(double totalFuture) {
         this.totalFuture = totalFuture;
     }
 
+    private double calculateMoPayment (double percent, int years, double sumCredit) {
+        //http://www.wikihow.com/Calculate-Loan-Payments
+        double moPayment;
+        double j = percent / 12;
+        j /= 100;
+        double a;
+        a = j + 1;
+        a = 1 - Math.pow(a, (-1) * 12 * years);
+        double b = j / a;
+        int c = (int) Math.round( b * sumCredit * 100);
+        moPayment = c / 100;
+        return moPayment;
+    }
+    
 }
