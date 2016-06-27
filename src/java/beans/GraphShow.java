@@ -36,14 +36,11 @@ public class GraphShow implements Serializable {
     Graph graph;
 
     private CartesianChartModel combinedModel;
-    
-    
 
 //    @PostConstruct
 //    public void init() {
 //        createCombinedModel();
 //    }
-
     public CartesianChartModel getCombinedModel() {
         createCombinedModel();
         return combinedModel;
@@ -75,21 +72,26 @@ public class GraphShow implements Serializable {
             i++;
         } while (i < lastYear);
 
-        
         //filling bar map
         BarChartSeries tobe = new BarChartSeries();
         tobe.setLabel("To be");
-
         i = currentYear;
-        System.out.println("currentYear = " + currentYear);
-        tempa = graph.getTotMonthlyPayment();
-        System.out.println("tempa = " + tempa);
+        if (graph.getFrontLoadTaxBenefit() == 0) {
+            tempa = graph.getTotMonthlyPayment();
+        } else {
+            tempa = graph.getHpMoPayment() + graph.getSolarMoPaymentAfterFrontLoad();
+            double k = Math.round(tempa * 100);
+            tempa = k / 100;
+        }
+        if ( graph.isAccountForTaxWrite() == true ) {
+            tempa *= 0.67;
+        }
+
         do {
             tobe.set(i, tempa);
             i++;
-            System.out.println(" lastYear = " + lastYear);
         } while (i < lastYear);
-        
+
         combinedModel.addSeries(tobe);
         combinedModel.addSeries(asIs);
 

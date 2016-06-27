@@ -63,6 +63,7 @@ public class Graph implements Serializable {
     private double netProjectCost = 0;
     private double hpMoPayment = 0;
     private double solarMoPayment = 0;
+    private double solarMoPaymentAfterFrontLoad = 0;
     private double totMonthlyPayment = 0;
     private double costPerKW = 0;
 
@@ -73,8 +74,12 @@ public class Graph implements Serializable {
     private double currentMonthPayment;
     private double futureMonthPayment;
     private double totalFuture;
+    
+    private int frontLoadTaxBenefit;
+    private boolean accountForTaxWrite;
 
     private DataUtilityDistrict dataUtilityDistrict;
+    
 
     public Graph() {
     }
@@ -364,6 +369,15 @@ public class Graph implements Serializable {
         this.solarMoPayment = solarMoPayment;
     }
 
+    public double getSolarMoPaymentAfterFrontLoad() {
+         solarMoPaymentAfterFrontLoad = calculateMoPayment(getInterest(), getYears(), (getGrossSolar() - getTaxCredit30()));
+        return solarMoPaymentAfterFrontLoad;
+    }
+
+    public void setSolarMoPaymentAfterFrontLoad(double solarMoPaymentAfterFrontLoad) {
+        this.solarMoPaymentAfterFrontLoad = solarMoPaymentAfterFrontLoad;
+    }
+
     public double getTotMonthlyPayment() {
         totMonthlyPayment = getHpMoPayment() + getSolarMoPayment();
         double k = Math.round(totMonthlyPayment * 100);
@@ -410,6 +424,22 @@ public class Graph implements Serializable {
         this.timeTravel = timeTravel;
     }
 
+    public int getFrontLoadTaxBenefit() {
+        return frontLoadTaxBenefit;
+    }
+
+    public void setFrontLoadTaxBenefit(int frontLoadTaxBenefit) {
+        this.frontLoadTaxBenefit = frontLoadTaxBenefit;
+    }
+
+    public boolean isAccountForTaxWrite() {
+        return accountForTaxWrite;
+    }
+
+    public void setAccountForTaxWrite(boolean accountForTaxWrite) {
+        this.accountForTaxWrite = accountForTaxWrite;
+    }
+    
     public double getCurrentMonthPayment() {
         currentMonthPayment = 0.0;
         double tempa = 0.0;

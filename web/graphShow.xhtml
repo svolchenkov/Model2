@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
@@ -13,16 +14,27 @@
                 <div id="mainBlockDashBoard" >
                     <h:form>
                         <table><tr><td>
-                        <div class="block0DashBoard">
-                            <h3 >Graph</h3>
-                        </div>
-                        <div class="block0DashBoard">
-                            <h:commandButton class="buttonGraph" action="dashboard" value="to dashboard" />
-
-                        </div>
-                        <div class="block1Graph">
-                            <table class="tableGraph"><tr><td><p:chart type="bar" model="#{graphShow.combinedModel}" style="height:700px" ></p:chart></td></tr></table>
-                        </div>
+                                    <div class="block0DashBoard">
+                                        <h3 >Graph</h3>
+                                    </div>
+                                    <div class="block0DashBoard">
+                                        <table><tr>
+                                                <td style="padding-left: 100px; "><h:commandButton class="buttonGraph" action="dashboard" value="to dashboard" /></td>
+                                                <td class="tdDashBoardGraphShow"><h:selectOneRadio style="padding-left: 100px;" value="#{graph.frontLoadTaxBenefit}">
+                                                        <f:selectItem itemValue="0" itemLabel="FrontLoad Tax Benefit" />
+                                                        <f:selectItem itemValue="1" itemLabel="ITS" />
+                                                        <p:ajax event="change" update="combinedModel" />
+                                                    </h:selectOneRadio></td>
+                                                <td><h:outputText style="padding-left: 100px;" value="Account for Tax write off:" /></td>
+                                                <td class="tdDashBoardGraphShow"><h:selectBooleanCheckbox value="#{graph.accountForTaxWrite}" >
+                                                        <p:ajax event="change" update="combinedModel" />
+                                                    </h:selectBooleanCheckbox></td>
+                                                <td style="padding-left: 100px;" ><h:outputText style="color: darkred" value="Plan Energy Spent (20 Years): #{graph.totalFuture} " /></td>
+                                            </tr></table>
+                                    </div>
+                                    <div class="block1Graph">
+                                        <table class="tableGraph"><tr><td><p:chart id="combinedModel" type="bar" model="#{graphShow.combinedModel}" style="height:700px" ></p:chart></td></tr></table>
+                                    </div>
                                 </td></tr></table>
                     </h:form>
                 </div>
