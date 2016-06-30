@@ -40,7 +40,7 @@ public class MeasureEJB {
 
     @Inject
     QuestionsBean questionsBean;
-    
+
     Map<String, Double> measureMap;
 
     public MeasureEJB() {
@@ -53,9 +53,9 @@ public class MeasureEJB {
         try {
             WritableWorkbook wworkbook;
 //            Files.delete(path);
-            wworkbook = Workbook.createWorkbook(new File( System.getProperty("user.home") + "\\Desktop" + "\\" + questionsBean.getCaseID() + ".xls" ));
+            wworkbook = Workbook.createWorkbook(new File(System.getProperty("user.home") + "\\Desktop" + "\\" + questionsBean.getCaseID() + ".xls"));
             String customerName = "CustomerNameEmpty";
-            if ( questionsBean.getFirstName1().length() != 0 ) {
+            if (questionsBean.getFirstName1().length() != 0) {
                 customerName = questionsBean.getFirstName1();
             }
             WritableSheet wsheet = wworkbook.createSheet(customerName, 0);
@@ -294,8 +294,11 @@ public class MeasureEJB {
                 case "9350":
                     temporaryString.append(" Install 16 Seer HVAC/ 96% 3 Ton Split System");
                     break;
-                case "10450":
+                case "10450.001":
                     temporaryString.append(" Install 16 Seer HVAC/ 96% 3.5 Ton Split System");
+                    break;
+                case "10450.002":
+                    temporaryString.append(" Install 16 Seer HVAC/ 96% 4 Ton Split System");
                     break;
                 case "11350":
                     temporaryString.append(" Install 15 Seer HVAC/ 96% 5 Ton Split System");

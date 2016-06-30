@@ -31,7 +31,7 @@
                                             <h:commandButton class="topButtonsMeasures" value="to dashboard" action="dashboard" />
                                             <h:commandButton class="topButtonsMeasures" value="back to index" action="index" />
                                             <h:commandButton class="topButtonsMeasures" value="fill Sqft" action="#{measureBean.setSqft()}" >
-                                                <p:ajax event="change" update="sqft1, sqft2, sqft3, sqft4, sqft5, sqft6, sqft7b" />
+                                                <p:ajax event="change" update="sqft1, sqft2, sqft3, sqft7b" />
                                             </h:commandButton>
                                         </div>
                                     </div>
@@ -48,10 +48,10 @@
                                                                 <td class="titletd"><h:outputText  value="1.Insulate Attic: " /></td>
                                                                 <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number1InsulatAtticBlownString" value="#{measureBean.number1InsulatAtticBlownString}" >
                                                                         <f:selectItem itemLabel="Select One " itemValue="0" />
-                                                                        <f:selectItem itemLabel="Blown in Fiberglass R-38 Value" itemValue="1.251" />
-                                                                        <f:selectItem itemLabel="Blown in Fiberglass R-44 Value" itemValue="1.252" />
-                                                                        <f:selectItem itemLabel="Cellalose R-38 Value" itemValue="1.253" />
-                                                                        <f:selectItem itemLabel="Cellalose R-44 Value" itemValue="1.254" />
+                                                                        <f:selectItem itemLabel="Blown in Fiberglass R-38 Value" itemValue="1.751" />
+                                                                        <f:selectItem itemLabel="Blown in Fiberglass R-44 Value" itemValue="1.752" />
+                                                                        <f:selectItem itemLabel="Cellalose R-38 Value" itemValue="1.753" />
+                                                                        <f:selectItem itemLabel="Cellalose R-44 Value" itemValue="1.754" />
                                                                         <p:ajax event="change" update="number1InsulatAtticBlownString, number1InsulatAtticBlownResult, hpTotal" />
                                                                     </h:selectOneMenu>
                                                                 </td>
@@ -95,80 +95,12 @@
                                                                 </td>
                                                             </tr></table>
                                                     </div>
+                                                    <hr></hr>
+                                                    <div>
+                                                        <p></p>
+                                                    </div>
+                                                    <hr></hr>
 
-                                                    <!-- 4. Seal Ducting to Code Compliance Standards -->
-                                                    <div>
-                                                        <table>
-                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number4SealDuctingCodeComplianceCheckBox}" >
-                                                                        <p:ajax event="change" update="number4SealDuctingCodeComplianceResult, hpTotal"  />
-                                                                    </h:selectBooleanCheckbox></td>
-                                                                <td class="titletd"><h:outputText value="4. Seal Ducting to Code Compliance Standards:" /></td>
-                                                                <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number4SealDuctingCodeComplianceString" value="#{measureBean.number4SealDuctingCodeComplianceString}" >
-                                                                        <f:selectItem itemLabel="Select One " itemValue="0" />
-                                                                        <f:selectItem itemLabel="Seal Ducting to Code Compliance Standards" itemValue="1.001" />
-                                                                        <f:selectItem itemLabel="Seal Ducting to CCS for Both Systems" itemValue="1.002" />
-                                                                        <p:ajax event="change" update="number4SealDuctingCodeComplianceString, hpTotal" />
-                                                                    </h:selectOneMenu>
-                                                                </td>
-                                                                <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
-                                                                <td class="sqftpricetd"><h:inputText id="sqft4" style="width: 95%" maxlength="5" value="#{measureBean.sqft4}" >
-                                                                        <p:ajax event="keyup" update="number4SealDuctingCodeComplianceResult, hpTotal" />
-                                                                    </h:inputText></td>
-                                                                <td class="resulttd"><h:outputText id="number4SealDuctingCodeComplianceResult" value=" = #{measureBean.number4SealDuctingCodeComplianceResult}" />
-                                                                </td>
-                                                            </tr></table>
-                                                    </div>
-
-                                                    <!-- 5. Air Seal Package -->
-                                                    <div>
-                                                        <table>
-                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number5AirSealPackageCheckBox}" >
-                                                                        <p:ajax event="change" update="number4SealDuctingCodeComplianceResult, hpTotal"  />
-                                                                    </h:selectBooleanCheckbox></td>
-                                                                <td class="titletd"><h:outputText value="5. Air Seal Package:" /></td>
-                                                                <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number5AirSealPackageString" value="#{measureBean.number5AirSealPackageString}" >
-                                                                        <f:selectItem itemLabel="Select One " itemValue="0" />
-                                                                        <f:selectItem itemLabel="Air Seal Attic Penetration to Target" itemValue="0.5" />
-                                                                        <f:selectItem itemLabel="Air Seal Attic/Floor Penetration to Target" itemValue="0.8" />
-                                                                        <f:selectItem itemLabel="Level 3 Air Seal Attic/Floor Penetration to Target" itemValue="1.1" />
-                                                                        <f:selectItem itemLabel="Install Mechanical Ventilation to meet BAS standards" itemValue="600" />
-                                                                        <p:ajax event="change" update="number5AirSealPackageString, number5AirSealPackageResult, hpTotal" />
-                                                                    </h:selectOneMenu>
-                                                                </td>
-                                                                <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
-                                                                <td class="sqftpricetd"><h:inputText id="sqft5" style="width: 95%" maxlength="5" value="#{measureBean.sqft5}" >
-                                                                        <p:ajax event="keyup" update="number5AirSealPackageResult, hpTotal" />
-                                                                    </h:inputText></td>
-                                                                <td class="resulttd"><h:outputText id="number5AirSealPackageResult" value=" = #{measureBean.number5AirSealPackageResult}" />
-                                                                </td>
-                                                            </tr></table>
-                                                    </div>
-                                                    <!-- 6. CAZ Area Report -->
-                                                    <div>
-                                                        <table>
-                                                            <tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number6CAZAreaReportCheckBox}" >
-                                                                        <p:ajax event="change" update="number6CAZAreaReportResult, hpTotal"  />
-                                                                    </h:selectBooleanCheckbox>
-                                                                </td>
-                                                                <td class="titletd"><h:outputText value="6. CAZ Area Report:" /></td>
-                                                                <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number6CAZAreaReportString" value="#{measureBean.number6CAZAreaReportString}" >
-                                                                        <f:selectItem itemLabel="Select One " itemValue="0" />
-                                                                        <f:selectItem itemLabel="Add Ventilation to DHW Area for test out compliance" itemValue="0.001" />
-                                                                        <f:selectItem itemLabel="Add Ventilation to Furnace Area for test out compliance" itemValue="0.002" />
-                                                                        <f:selectItem itemLabel="Add Ventilation to DHW and Furnace Area for test out compliance" itemValue="0.003" />
-                                                                        <f:selectItem itemLabel="Visual Inspection shows adequate ventilation" itemValue="0.004" />
-                                                                        <f:selectItem itemLabel="Visual Inspection shows adequate ventilation" itemValue="0.005" />
-                                                                        <p:ajax event="change" update="number6CAZAreaReportString, number6CAZAreaReportResult, hpTotal" />
-                                                                    </h:selectOneMenu>
-                                                                </td>
-                                                                <td class="sqftpricelable"><h:outputText value="sqft:  " /></td>
-                                                                <td class="sqftpricetd"><h:inputText id="sqft6" style="width: 95%" maxlength="5" value="#{measureBean.sqft6}" >
-                                                                        <p:ajax event="keyup" update="number6CAZAreaReportResult, hpTotal" />
-                                                                    </h:inputText></td>
-                                                                <td class="resulttd"><h:outputText id="number6CAZAreaReportResult" value=" = #{measureBean.number6CAZAreaReportResult}" />
-                                                                </td>
-                                                            </tr></table>
-                                                    </div>
 
                                                     <!-- 7a. Install R-8 Ducting Standalone -->
                                                     <div>
@@ -178,25 +110,25 @@
                                                                 <td class="titletd"><h:outputText value="7a. Install R-8 Ducting Standalone:" /></td>
                                                                 <td class="fieldtd"><h:selectOneMenu style="width: 95%" id="number7AInstallDuctingStandaloneString" value="#{measureBean.number7AInstallDuctingStandaloneString}" >
                                                                         <f:selectItem itemLabel="Select One " itemValue="0" />
-                                                                        <f:selectItem itemLabel="Install 2 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="3300" />
-                                                                        <f:selectItem itemLabel="Install 2.5 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="3630" />
-                                                                        <f:selectItem itemLabel="Install 3 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="3800" />
-                                                                        <f:selectItem itemLabel="Install 3.5 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="4000" />
-                                                                        <f:selectItem itemLabel="Install 4 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="4650" />
-                                                                        <f:selectItem itemLabel="Install 5 Ton Energy Star R-8 Ducting in Attic Crawlspace" itemValue="5150" />
-                                                                        <f:selectItem itemLabel="Install 2 Ton Energy Star R-8 Ducting in Attic" itemValue="3050" />
-                                                                        <f:selectItem itemLabel="Install 2.5 Ton Energy Star R-8 Ducting in Attic" itemValue="3380" />
-                                                                        <f:selectItem itemLabel="Install 3 Ton Energy Star R-8 Ducting in Attic" itemValue="3550" />
-                                                                        <f:selectItem itemLabel="Install 3.5 Ton Energy Star R-8 Ducting in Attic" itemValue="3750" />
-                                                                        <f:selectItem itemLabel="Install 4 Ton Energy Star R-8 Ducting in Attic" itemValue="4400" />
-                                                                        <f:selectItem itemLabel="Install 5 Ton Energy Star R-8 Ducting in Attic" itemValue="4900" />
-                                                                        <f:selectItem itemLabel="Install 2 Ton  Energy Star R-8 Ducting in Crawlspace" itemValue="3300.001" />
-                                                                        <f:selectItem itemLabel="Install 2.5 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="3630.001" />
-                                                                        <f:selectItem itemLabel="Install 3 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="3800.001" />
-                                                                        <f:selectItem itemLabel="Install 3.5 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="4000.001" />
-                                                                        <f:selectItem itemLabel="Install 4 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="4650.001" />
-                                                                        <f:selectItem itemLabel="Install 5 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="5150.001" />
-                                                                        <p:ajax event="change" update="number6CAZAreaReportString, number7AInstallDuctingStandaloneResult, hpTotal" />
+                                                                        <f:selectItem itemLabel="Install 2 Ton Energy Star R-8 Ducting" itemValue="3300" />
+                                                                        <f:selectItem itemLabel="Install 2.5 Ton Energy Star R-8 Ducting" itemValue="3630" />
+                                                                        <f:selectItem itemLabel="Install 3 Ton Energy Star R-8 Ducting" itemValue="3800" />
+                                                                        <f:selectItem itemLabel="Install 3.5 Ton Energy Star R-8 Ducting" itemValue="4000" />
+                                                                        <f:selectItem itemLabel="Install 4 Ton Energy Star R-8 Ducting" itemValue="4650" />
+                                                                        <f:selectItem itemLabel="Install 5 Ton Energy Star R-8 Ducting" itemValue="5150" />
+                                                                        <!--        <f:selectItem itemLabel="Install 2 Ton Energy Star R-8 Ducting in Attic" itemValue="3050" />
+                                                                                <f:selectItem itemLabel="Install 2.5 Ton Energy Star R-8 Ducting in Attic" itemValue="3380" />
+                                                                                <f:selectItem itemLabel="Install 3 Ton Energy Star R-8 Ducting in Attic" itemValue="3550" />
+                                                                                <f:selectItem itemLabel="Install 3.5 Ton Energy Star R-8 Ducting in Attic" itemValue="3750" />
+                                                                                <f:selectItem itemLabel="Install 4 Ton Energy Star R-8 Ducting in Attic" itemValue="4400" />
+                                                                                <f:selectItem itemLabel="Install 5 Ton Energy Star R-8 Ducting in Attic" itemValue="4900" />
+                                                                                <f:selectItem itemLabel="Install 2 Ton  Energy Star R-8 Ducting in Crawlspace" itemValue="3300.001" />
+                                                                                <f:selectItem itemLabel="Install 2.5 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="3630.001" />
+                                                                                <f:selectItem itemLabel="Install 3 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="3800.001" />
+                                                                                <f:selectItem itemLabel="Install 3.5 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="4000.001" />
+                                                                                <f:selectItem itemLabel="Install 4 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="4650.001" />
+                                                                                <f:selectItem itemLabel="Install 5 Ton Energy Star R-8 Ducting in Crawlspace" itemValue="5150.001" />  -->
+                                                                        <p:ajax event="change" update="number7AInstallDuctingStandaloneResult, hpTotal" />
                                                                     </h:selectOneMenu>
                                                                 </td>
                                                                 <td class="sqftpricelable"><h:outputText value="price:  " /></td>
@@ -237,7 +169,8 @@
                                                                         <f:selectItem itemLabel="Install 16 Seer HVAC / 96% 2 Ton Split System" itemValue="8550.001" />
                                                                         <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 2.5 Ton Split System" itemValue="8550.002" />
                                                                         <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 3 Ton Split System" itemValue="9350" />
-                                                                        <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 3.5 Ton Split System" itemValue="10450" />
+                                                                        <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 3.5 Ton Split System" itemValue="10450.001" />
+                                                                        <f:selectItem itemLabel="Install 16 Seer HVAC/ 96% 4 Ton Split System" itemValue="10450.002" />
                                                                         <f:selectItem itemLabel="Install 15 Seer HVAC/ 96% 5 Ton Split System" itemValue="11350" />
                                                                         <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 2 Ton 2 Stage Heat Package System" itemValue="8550.003" />
                                                                         <f:selectItem itemLabel="Install ERI 16 Seer HVAC/ 81% 2.5 Ton 2 Stage Heat Package System" itemValue="8550.004" />
@@ -836,7 +769,6 @@
 
                                     </div>
                                     <div class="blockbottom" >
-                                        <p:commandButton value="toDashBoard" action="dashboard.xhtml" />
                                     </div></h:form>
                             </div>
                         </td></tr>

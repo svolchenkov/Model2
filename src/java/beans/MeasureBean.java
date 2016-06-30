@@ -319,7 +319,7 @@ public class MeasureBean implements Serializable {
 
     public double getNumber3InstallBattedInsulationResult() {
         if (isNumber3InstallBattedInsulationCheckBox() == true) {
-            this.number3InstallBattedInsulationResult = 2 * sqft3;
+            this.number3InstallBattedInsulationResult = 2.3 * sqft3;
         } else {
             this.number3InstallBattedInsulationResult = 0;
         }
@@ -595,7 +595,7 @@ public class MeasureBean implements Serializable {
     public double getNumber8ANewHVACSystemERIResult() {
         if (!number8ANewHVACSystemERIString.equals("")) {
             if (isNumber8ANewHVACSystemERICheckBox() == true) {
-                double k = Math.round(Double.valueOf(Double.valueOf(getNumber8ANewHVACSystemERIString())) * 100);
+                double k = Math.round(Double.valueOf(getNumber8ANewHVACSystemERIString()) * 100);
                 this.number8ANewHVACSystemERIResult = k / 100 * 1;
             } else {
                 this.number8ANewHVACSystemERIResult = 0;
