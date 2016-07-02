@@ -24,10 +24,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "MEASURE")
 @XmlRootElement
-
 public class MeasureEntity implements Serializable {
 
-//    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
@@ -37,156 +36,156 @@ public class MeasureEntity implements Serializable {
     @Column(name = "TOTAL")
     private double total;
     @Column(name = "CUSTOMERID")
-    private int customerid;
+    private Integer customerid;
     @Column(name = "NUMBER1INSULATATTICBLOWNCHE")
-    private int number1insulatatticblownche;
+    private Integer number1insulatatticblownche;
     @Size(max = 300)
     @Column(name = "NUMBER1INSULATATTICBLOWNSTRING")
     private String number1insulatatticblownstring;
     @Column(name = "SQFT1")
-    private int sqft1;
+    private Integer sqft1;
     @Column(name = "NUMBER1INSULATATTICBLOWNRESULT")
     private double number1insulatatticblownresult;
     @Column(name = "NUMBER2REMOVEANDREPLACECHE")
-    private int number2removeandreplaceche;
+    private Integer number2removeandreplaceche;
     @Column(name = "SQFT2")
-    private int sqft2;
+    private Integer sqft2;
     @Column(name = "NUMBER2REMOVEANDREPLACERESULT")
     private double number2removeandreplaceresult;
     @Column(name = "NUMBER3INSTALLBATTEDINIONCHE")
-    private int number3installbattedinionche;
+    private Integer number3installbattedinionche;
     @Column(name = "SQFT3")
-    private int sqft3;
+    private Integer sqft3;
     @Column(name = "NUMBER3INSTALLBATTEDINRESULT")
     private double number3installbattedinresult;
-    @Column(name = "NUMBER4SEALDUCTINGCODCHECKBOX")
-    private int number4sealductingcodcheckbox;
+    @Column(name = "NUMBER4REPLACEDUCTSCHECKBOX")
+    private Integer number4replaceductscheckbox;
     @Size(max = 300)
-    @Column(name = "NUMBER4SEALDUCTINGCODECSTRING")
-    private String number4sealductingcodecstring;
+    @Column(name = "NUMBER4REPLACEDUCTSSTRING")
+    private String number4replaceductsstring;
     @Column(name = "SQFT4")
-    private int sqft4;
-    @Column(name = "NUMBER4SEALDUCTINGCODERESULT")
-    private double number4sealductingcoderesult;
+    private Integer sqft4;
+    @Column(name = "NUMBER4REPLACEDUCTSRESULT")
+    private double number4replaceductsresult;
     @Column(name = "SQFT5")
-    private int sqft5;
+    private Integer sqft5;
     @Column(name = "NUMBER5AIRSEALPCHECKBOX")
-    private int number5airsealpcheckbox;
+    private Integer number5airsealpcheckbox;
     @Size(max = 300)
     @Column(name = "NUMBER5AIRSEALSTRING")
     private String number5airsealstring;
     @Column(name = "NUMBER5AIRSEALPARESULT")
     private double number5airsealparesult;
     @Column(name = "SQFT6")
-    private int sqft6;
-    @Column(name = "NUMBER6CAZAREARECHECKBOX")
-    private int number6cazarearecheckbox;
+    private Integer sqft6;
+    @Column(name = "NUMBER6CHECKBOX")
+    private Integer number6checkbox;
     @Size(max = 300)
-    @Column(name = "NUMBER6CAZAREATSTRING")
-    private String number6cazareatstring;
-    @Column(name = "NUMBER6CAZAREARESULT")
-    private double number6cazarearesult;
+    @Column(name = "NUMBER6STRING")
+    private String number6string;
+    @Column(name = "NUMBER6RESULT")
+    private double number6result;
     @Column(name = "SQFT7A")
-    private int sqft7a;
+    private Integer sqft7a;
     @Column(name = "NUMBER7AINSTALLDUCTINGCHECKBOX")
-    private int number7ainstallductingcheckbox;
+    private Integer number7ainstallductingcheckbox;
     @Size(max = 300)
     @Column(name = "NUMBER7AINSTALLDUCTINGSTRING")
     private String number7ainstallductingstring;
     @Column(name = "NUMBER7AINSTALLDUCTINGRESULT")
     private double number7ainstallductingresult;
     @Column(name = "SQFT7B")
-    private int sqft7b;
-    @Column(name = "NUMBER7BINSTALLR8DUCHECKBOX")
-    private int number7binstallr8ducheckbox;
+    private Integer sqft7b;
+    @Column(name = "NUMBER7BCHECKBOX")
+    private Integer number7bcheckbox;
     @Size(max = 300)
-    @Column(name = "NUMBER7BINSTALLR8DUCTSTRING")
-    private String number7binstallr8ductstring;
-    @Column(name = "NUMBER7BINSTALLR8DUCTRESULT")
-    private double number7binstallr8ductresult;
+    @Column(name = "NUMBER7BSTRING")
+    private String number7bstring;
+    @Column(name = "NUMBER7BRESULT")
+    private double number7bresult;
     @Column(name = "SQFT8A")
-    private int sqft8a;
-    @Column(name = "NUMBER8ANEWHVACICHECKBOX")
-    private int number8anewhvacicheckbox;
+    private Integer sqft8a;
+    @Column(name = "NUMBER8ACHECKBOX")
+    private Integer number8acheckbox;
     @Size(max = 300)
     @Column(name = "NUMBER8ANEWHVACSTRING")
     private String number8anewhvacstring;
-    @Column(name = "NUMBER8ANEWHVARESULT")
-    private double number8anewhvaresult;
+    @Column(name = "NUMBER8ARESULT")
+    private double number8aresult;
     @Column(name = "SQFT8B")
-    private int sqft8b;
-    @Column(name = "NUMBER8BNEWHVACSYCHECKBOX")
-    private int number8bnewhvacsycheckbox;
+    private Integer sqft8b;
+    @Column(name = "NUMBER8BCHECKBOX")
+    private Integer number8bcheckbox;
     @Size(max = 300)
     @Column(name = "NUMBER8BNEWHVACSYSSTRING")
     private String number8bnewhvacsysstring;
-    @Column(name = "NUMBER8BNEWHVACSYRESULT")
-    private double number8bnewhvacsyresult;
+    @Column(name = "NUMBER8BRESULT")
+    private double number8bresult;
     @Column(name = "SQFT8BII")
-    private int sqft8bii;
+    private Integer sqft8bii;
     @Column(name = "NUMBER8BIIINCLUDECHECKBOX")
-    private int number8biiincludecheckbox;
+    private Integer number8biiincludecheckbox;
     @Size(max = 300)
     @Column(name = "NUMBER8BIIINCLUDESTRING")
     private String number8biiincludestring;
     @Column(name = "NUMBER8BIIINCLUDRESULT")
     private double number8biiincludresult;
     @Column(name = "SQFT9")
-    private int sqft9;
+    private Integer sqft9;
     @Column(name = "NUMBER9SINGLEDUALZCHECKBOX")
-    private int number9singledualzcheckbox;
+    private Integer number9singledualzcheckbox;
     @Size(max = 300)
     @Column(name = "NUMBER9SINGLEDUALZOSTRING")
     private String number9singledualzostring;
     @Column(name = "NUMBER9SINGLEDRESULT")
     private double number9singledresult;
     @Column(name = "SQFT91")
-    private int sqft91;
+    private Integer sqft91;
     @Column(name = "NUMBER91ARELOCHECKBOX")
-    private int number91arelocheckbox;
+    private Integer number91arelocheckbox;
     @Column(name = "NUMBER91ARELOINT")
-    private int number91areloint;
+    private Integer number91areloint;
     @Column(name = "NUMBER91ARELOCRESULT")
     private double number91arelocresult;
     @Column(name = "NUMBER91BCUTINSUPPLYVCHECKBOX")
-    private int number91bcutinsupplyvcheckbox;
+    private Integer number91bcutinsupplyvcheckbox;
     @Column(name = "NUMBER91BCUTINSUPPLYINT")
-    private int number91bcutinsupplyint;
+    private Integer number91bcutinsupplyint;
     @Column(name = "NUMBER91BCUTINSUPPLYVRESULT")
     private double number91bcutinsupplyvresult;
     @Column(name = "NUMBER91CHCHECKBOX")
-    private int number91chcheckbox;
+    private Integer number91chcheckbox;
     @Column(name = "NUMBER91CHVAINT")
-    private int number91chvaint;
+    private Integer number91chvaint;
     @Column(name = "NUMBER91CHVACCUTINRESULT")
     private double number91chvaccutinresult;
     @Column(name = "NUMBER91DDUCHECKBOX")
-    private int number91dducheckbox;
+    private Integer number91dducheckbox;
     @Column(name = "NUMBER91DDUCINT")
-    private int number91dducint;
+    private Integer number91dducint;
     @Column(name = "NUMBER91DDUCTRESULT")
     private double number91dductresult;
     @Column(name = "NUMBER91ENECHECKBOX")
-    private int number91enecheckbox;
+    private Integer number91enecheckbox;
     @Column(name = "NUMBER91ENEINT")
-    private int number91eneint;
+    private Integer number91eneint;
     @Column(name = "NUMBER91ENERESULT")
     private double number91eneresult;
     @Column(name = "NUMBER91FENLACHECKBOX")
-    private int number91fenlacheckbox;
+    private Integer number91fenlacheckbox;
     @Column(name = "NUMBER91FENLARGINT")
-    private int number91fenlargint;
+    private Integer number91fenlargint;
     @Column(name = "NUMBER91FENLARGERRESULT")
     private double number91fenlargerresult;
     @Column(name = "NUMBER92NOTESCHECKBOX")
-    private int number92notescheckbox;
+    private Integer number92notescheckbox;
     @Size(max = 300)
     @Column(name = "NUMBER92NOTESSTRING")
     private String number92notesstring;
     @Column(name = "NUMBER93COSTPERKWCHECKBOX")
-    private int number93costperkwcheckbox;
+    private Integer number93costperkwcheckbox;
     @Column(name = "NUMBER93COSTPERKWINT")
-    private int number93costperkwint;
+    private Integer number93costperkwint;
     @Column(name = "NUMBER93COSTPERKWRESALT")
     private double number93costperkwresalt;
     @Column(name = "NUMBER93DCKWSDOUBLE")
@@ -194,12 +193,12 @@ public class MeasureEntity implements Serializable {
     @Column(name = "NUMBER93DCKWSRESALT")
     private double number93dckwsresalt;
     @Column(name = "NUMBER10INSTALLWINDOWSCHECKBOX")
-    private int number10installwindowscheckbox;
+    private Integer number10installwindowscheckbox;
     @Size(max = 300)
     @Column(name = "NUMBER10NUMOFWINDOWS")
     private String number10numofwindows;
     @Column(name = "NUMBER10TOTALUNITEDINCHESINT")
-    private int number10totalunitedinchesint;
+    private Integer number10totalunitedinchesint;
     @Column(name = "NUMBER10INSTALLRESULT")
     private double number10installresult;
     @Size(max = 300)
@@ -211,89 +210,117 @@ public class MeasureEntity implements Serializable {
     @Column(name = "NUMBER10LINEARFEETRESULT")
     private double number10linearfeetresult;
     @Column(name = "NUMBER101ACUTINDOORCHECKBOX")
-    private int number101acutindoorcheckbox;
+    private Integer number101acutindoorcheckbox;
     @Column(name = "NUMBER101ACUTINDOORINT")
-    private int number101acutindoorint;
+    private Integer number101acutindoorint;
     @Column(name = "NUMBER101ACUTINDOORRESULT")
     private double number101acutindoorresult;
     @Column(name = "NUMBER101BADDHEADERCHECKBOX")
-    private int number101baddheadercheckbox;
+    private Integer number101baddheadercheckbox;
     @Column(name = "NUMBER101BADDHEADERINT")
-    private int number101baddheaderint;
+    private Integer number101baddheaderint;
     @Column(name = "NUMBER101BADDHEADERRESULT")
     private double number101baddheaderresult;
     @Column(name = "NUMBER102ACUTDOWNCHECKBOX")
-    private int number102acutdowncheckbox;
+    private Integer number102acutdowncheckbox;
     @Column(name = "NUMBER102ACUTDOWNWIRESULT")
     private double number102acutdownwiresult;
     @Column(name = "NUMBER102BELECTRICALCHECKBOX")
-    private int number102belectricalcheckbox;
+    private Integer number102belectricalcheckbox;
     @Column(name = "NUMBER102BELECTRICALRERESULT")
     private double number102belectricalreresult;
     @Column(name = "NUMBER102CGARDENCHECKBOX")
-    private int number102cgardencheckbox;
+    private Integer number102cgardencheckbox;
     @Column(name = "NUMBER102CGARDENRESULT")
     private double number102cgardenresult;
     @Column(name = "NUMBER102DGARDENWICHECKBOX")
-    private int number102dgardenwicheckbox;
+    private Integer number102dgardenwicheckbox;
     @Column(name = "NUMBER102DGARDENWIRESULT")
     private double number102dgardenwiresult;
     @Column(name = "NUMBER103ALLGLAZINGCHECKBOX")
-    private int number103allglazingcheckbox;
+    private Integer number103allglazingcheckbox;
     @Column(name = "NUMBER104WICHECKBOX")
-    private int number104wicheckbox;
+    private Integer number104wicheckbox;
     @Column(name = "NUMBER11INSTALLPOOLCHECKBOX")
-    private int number11installpoolcheckbox;
+    private Integer number11installpoolcheckbox;
     @Column(name = "NUMBER11INSTALLPOOLPUMPRESULT")
     private double number11installpoolpumpresult;
     @Column(name = "NUMBER12INSTALLWHOLECHECKBOX")
-    private int number12installwholecheckbox;
+    private Integer number12installwholecheckbox;
     @Column(name = "NUMBER12INSTALLWHOLEHOINT")
-    private int number12installwholehoint;
+    private Integer number12installwholehoint;
     @Column(name = "NUMBER12INSTALLWHOLEHORESULT")
     private double number12installwholehoresult;
     @Column(name = "NUMBER13INSTALLWACHECKBOX")
-    private int number13installwacheckbox;
+    private Integer number13installwacheckbox;
     @Column(name = "NUMBER13INSTALLWATERHEDOUBLE")
     private double number13installwaterhedouble;
     @Column(name = "NUMBER13INSTALLWARESULT")
     private double number13installwaresult;
     @Column(name = "NUMBER14PERMITSCHECKBOX")
-    private int number14permitscheckbox;
+    private Integer number14permitscheckbox;
     @Column(name = "NUMBER14PERMITSRESULT")
     private double number14permitsresult;
     @Column(name = "NUMBER15INSTALLBATTERYCHECKBOX")
-    private int number15installbatterycheckbox;
+    private Integer number15installbatterycheckbox;
     @Column(name = "NUMBER15INSTALLBARESULT")
     private double number15installbaresult;
     @Column(name = "NUMBER15AINSTALLKWDCSOCHECKBOX")
-    private int number15ainstallkwdcsocheckbox;
+    private Integer number15ainstallkwdcsocheckbox;
     @Column(name = "NUMBER15AINSTALLKWDCSODOUBLE")
     private double number15ainstallkwdcsodouble;
     @Column(name = "NUMBER15BINCLUDESEXCHECKBOX")
-    private int number15bincludesexcheckbox;
+    private Integer number15bincludesexcheckbox;
     @Column(name = "NUMBER15CSOLARCHECKBOX")
-    private int number15csolarcheckbox;
+    private Integer number15csolarcheckbox;
     @Column(name = "NUMBER15DINCLUDESSYCHECKBOX")
-    private int number15dincludessycheckbox;
+    private Integer number15dincludessycheckbox;
     @Column(name = "NUMBER15EICHECKBOX")
-    private int number15eicheckbox;
+    private Integer number15eicheckbox;
     @Column(name = "NUMBER15FCANADIANSOCHECKBOX")
-    private int number15fcanadiansocheckbox;
+    private Integer number15fcanadiansocheckbox;
     @Column(name = "WHOLECOST")
     private double wholecost;
     @Column(name = "SOLARCOST")
     private double solarcost;
     @Column(name = "NEW1")
-    private int new1;
+    private Integer new1;
     @Column(name = "MARGINPERCENTAGE")
-    private int marginpercentage;
+    private Integer marginpercentage;
     @Column(name = "PGEREBATEPOINTS")
-    private int pgeRebatePoints;
+    private Integer pgerebatepoints;
     @Column(name = "PGEREBATEAMOUNT")
-    private int pgeRebateAmount;
+    private Integer pgerebateamount;
     @Column(name = "SMUDREBATEAMOUNT")
-    private int smudRebateAmount;
+    private Integer smudrebateamount;
+    @Column(name = "SQFT5A")
+    private Integer sqft5a;
+    @Column(name = "NUMBER5ACHECKBOX")
+    private Integer number5acheckbox;
+    @Size(max = 300)
+    @Column(name = "NUMBER5ASTRING")
+    private String number5astring;
+    @Column(name = "NUMBER5ARESULT")
+    private double number5aresult;
+    @Column(name = "SQFT5B")
+    private Integer sqft5b;
+    @Column(name = "NUMBER5BCHECKBOX")
+    private Integer number5bcheckbox;
+    @Size(max = 300)
+    @Column(name = "NUMBER5BSTRING")
+    private String number5bstring;
+    @Column(name = "NUMBER5BRESULT")
+    private double number5bresult;
+    @Column(name = "SQFT8C")
+    private Integer sqft8c;
+    @Column(name = "NUMBER8CCHECKBOX")
+    private Integer number8ccheckbox;
+    @Column(name = "NUMBER8CRESULT")
+    private double number8cresult;
+    @Column(name = "NUMBER8DCHECKBOX")
+    private Integer number8dcheckbox;
+    @Column(name = "NUMBER8DRESULT")
+    private double number8dresult;
 
     public MeasureEntity() {
     }
@@ -318,19 +345,19 @@ public class MeasureEntity implements Serializable {
         this.total = total;
     }
 
-    public int getCustomerid() {
+    public Integer getCustomerid() {
         return customerid;
     }
 
-    public void setCustomerid(int customerid) {
+    public void setCustomerid(Integer customerid) {
         this.customerid = customerid;
     }
 
-    public int getNumber1insulatatticblownche() {
+    public Integer getNumber1insulatatticblownche() {
         return number1insulatatticblownche;
     }
 
-    public void setNumber1insulatatticblownche(int number1insulatatticblownche) {
+    public void setNumber1insulatatticblownche(Integer number1insulatatticblownche) {
         this.number1insulatatticblownche = number1insulatatticblownche;
     }
 
@@ -342,11 +369,11 @@ public class MeasureEntity implements Serializable {
         this.number1insulatatticblownstring = number1insulatatticblownstring;
     }
 
-    public int getSqft1() {
+    public Integer getSqft1() {
         return sqft1;
     }
 
-    public void setSqft1(int sqft1) {
+    public void setSqft1(Integer sqft1) {
         this.sqft1 = sqft1;
     }
 
@@ -358,19 +385,19 @@ public class MeasureEntity implements Serializable {
         this.number1insulatatticblownresult = number1insulatatticblownresult;
     }
 
-    public int getNumber2removeandreplaceche() {
+    public Integer getNumber2removeandreplaceche() {
         return number2removeandreplaceche;
     }
 
-    public void setNumber2removeandreplaceche(int number2removeandreplaceche) {
+    public void setNumber2removeandreplaceche(Integer number2removeandreplaceche) {
         this.number2removeandreplaceche = number2removeandreplaceche;
     }
 
-    public int getSqft2() {
+    public Integer getSqft2() {
         return sqft2;
     }
 
-    public void setSqft2(int sqft2) {
+    public void setSqft2(Integer sqft2) {
         this.sqft2 = sqft2;
     }
 
@@ -382,19 +409,19 @@ public class MeasureEntity implements Serializable {
         this.number2removeandreplaceresult = number2removeandreplaceresult;
     }
 
-    public int getNumber3installbattedinionche() {
+    public Integer getNumber3installbattedinionche() {
         return number3installbattedinionche;
     }
 
-    public void setNumber3installbattedinionche(int number3installbattedinionche) {
+    public void setNumber3installbattedinionche(Integer number3installbattedinionche) {
         this.number3installbattedinionche = number3installbattedinionche;
     }
 
-    public int getSqft3() {
+    public Integer getSqft3() {
         return sqft3;
     }
 
-    public void setSqft3(int sqft3) {
+    public void setSqft3(Integer sqft3) {
         this.sqft3 = sqft3;
     }
 
@@ -406,51 +433,51 @@ public class MeasureEntity implements Serializable {
         this.number3installbattedinresult = number3installbattedinresult;
     }
 
-    public int getNumber4sealductingcodcheckbox() {
-        return number4sealductingcodcheckbox;
+    public Integer getNumber4replaceductscheckbox() {
+        return number4replaceductscheckbox;
     }
 
-    public void setNumber4sealductingcodcheckbox(int number4sealductingcodcheckbox) {
-        this.number4sealductingcodcheckbox = number4sealductingcodcheckbox;
+    public void setNumber4replaceductscheckbox(Integer number4replaceductscheckbox) {
+        this.number4replaceductscheckbox = number4replaceductscheckbox;
     }
 
-    public String getNumber4sealductingcodecstring() {
-        return number4sealductingcodecstring;
+    public String getNumber4replaceductsstring() {
+        return number4replaceductsstring;
     }
 
-    public void setNumber4sealductingcodecstring(String number4sealductingcodecstring) {
-        this.number4sealductingcodecstring = number4sealductingcodecstring;
+    public void setNumber4replaceductsstring(String number4replaceductsstring) {
+        this.number4replaceductsstring = number4replaceductsstring;
     }
 
-    public int getSqft4() {
+    public Integer getSqft4() {
         return sqft4;
     }
 
-    public void setSqft4(int sqft4) {
+    public void setSqft4(Integer sqft4) {
         this.sqft4 = sqft4;
     }
 
-    public double getNumber4sealductingcoderesult() {
-        return number4sealductingcoderesult;
+    public double getNumber4replaceductsresult() {
+        return number4replaceductsresult;
     }
 
-    public void setNumber4sealductingcoderesult(double number4sealductingcoderesult) {
-        this.number4sealductingcoderesult = number4sealductingcoderesult;
+    public void setNumber4replaceductsresult(double number4replaceductsresult) {
+        this.number4replaceductsresult = number4replaceductsresult;
     }
 
-    public int getSqft5() {
+    public Integer getSqft5() {
         return sqft5;
     }
 
-    public void setSqft5(int sqft5) {
+    public void setSqft5(Integer sqft5) {
         this.sqft5 = sqft5;
     }
 
-    public int getNumber5airsealpcheckbox() {
+    public Integer getNumber5airsealpcheckbox() {
         return number5airsealpcheckbox;
     }
 
-    public void setNumber5airsealpcheckbox(int number5airsealpcheckbox) {
+    public void setNumber5airsealpcheckbox(Integer number5airsealpcheckbox) {
         this.number5airsealpcheckbox = number5airsealpcheckbox;
     }
 
@@ -470,51 +497,51 @@ public class MeasureEntity implements Serializable {
         this.number5airsealparesult = number5airsealparesult;
     }
 
-    public int getSqft6() {
+    public Integer getSqft6() {
         return sqft6;
     }
 
-    public void setSqft6(int sqft6) {
+    public void setSqft6(Integer sqft6) {
         this.sqft6 = sqft6;
     }
 
-    public int getNumber6cazarearecheckbox() {
-        return number6cazarearecheckbox;
+    public Integer getNumber6checkbox() {
+        return number6checkbox;
     }
 
-    public void setNumber6cazarearecheckbox(int number6cazarearecheckbox) {
-        this.number6cazarearecheckbox = number6cazarearecheckbox;
+    public void setNumber6checkbox(Integer number6checkbox) {
+        this.number6checkbox = number6checkbox;
     }
 
-    public String getNumber6cazareatstring() {
-        return number6cazareatstring;
+    public String getNumber6string() {
+        return number6string;
     }
 
-    public void setNumber6cazareatstring(String number6cazareatstring) {
-        this.number6cazareatstring = number6cazareatstring;
+    public void setNumber6string(String number6string) {
+        this.number6string = number6string;
     }
 
-    public double getNumber6cazarearesult() {
-        return number6cazarearesult;
+    public double getNumber6result() {
+        return number6result;
     }
 
-    public void setNumber6cazarearesult(double number6cazarearesult) {
-        this.number6cazarearesult = number6cazarearesult;
+    public void setNumber6result(double number6result) {
+        this.number6result = number6result;
     }
 
-    public int getSqft7a() {
+    public Integer getSqft7a() {
         return sqft7a;
     }
 
-    public void setSqft7a(int sqft7a) {
+    public void setSqft7a(Integer sqft7a) {
         this.sqft7a = sqft7a;
     }
 
-    public int getNumber7ainstallductingcheckbox() {
+    public Integer getNumber7ainstallductingcheckbox() {
         return number7ainstallductingcheckbox;
     }
 
-    public void setNumber7ainstallductingcheckbox(int number7ainstallductingcheckbox) {
+    public void setNumber7ainstallductingcheckbox(Integer number7ainstallductingcheckbox) {
         this.number7ainstallductingcheckbox = number7ainstallductingcheckbox;
     }
 
@@ -534,52 +561,52 @@ public class MeasureEntity implements Serializable {
         this.number7ainstallductingresult = number7ainstallductingresult;
     }
 
-    public int getSqft7b() {
+    public Integer getSqft7b() {
         return sqft7b;
     }
 
-    public void setSqft7b(int sqft7b) {
+    public void setSqft7b(Integer sqft7b) {
         this.sqft7b = sqft7b;
     }
 
-    public int getNumber7binstallr8ducheckbox() {
-        return number7binstallr8ducheckbox;
+    public Integer getNumber7bcheckbox() {
+        return number7bcheckbox;
     }
 
-    public void setNumber7binstallr8ducheckbox(int number7binstallr8ducheckbox) {
-        this.number7binstallr8ducheckbox = number7binstallr8ducheckbox;
+    public void setNumber7bcheckbox(Integer number7bcheckbox) {
+        this.number7bcheckbox = number7bcheckbox;
     }
 
-    public String getNumber7binstallr8ductstring() {
-        return number7binstallr8ductstring;
+    public String getNumber7bstring() {
+        return number7bstring;
     }
 
-    public void setNumber7binstallr8ductstring(String number7binstallr8ductstring) {
-        this.number7binstallr8ductstring = number7binstallr8ductstring;
+    public void setNumber7bstring(String number7bstring) {
+        this.number7bstring = number7bstring;
     }
 
-    public double getNumber7binstallr8ductresult() {
-        return number7binstallr8ductresult;
+    public double getNumber7bresult() {
+        return number7bresult;
     }
 
-    public void setNumber7binstallr8ductresult(double number7binstallr8ductresult) {
-        this.number7binstallr8ductresult = number7binstallr8ductresult;
+    public void setNumber7bresult(double number7bresult) {
+        this.number7bresult = number7bresult;
     }
 
-    public int getSqft8a() {
+    public Integer getSqft8a() {
         return sqft8a;
     }
 
-    public void setSqft8a(int sqft8a) {
+    public void setSqft8a(Integer sqft8a) {
         this.sqft8a = sqft8a;
     }
 
-    public int getNumber8anewhvacicheckbox() {
-        return number8anewhvacicheckbox;
+    public Integer getNumber8acheckbox() {
+        return number8acheckbox;
     }
 
-    public void setNumber8anewhvacicheckbox(int number8anewhvacicheckbox) {
-        this.number8anewhvacicheckbox = number8anewhvacicheckbox;
+    public void setNumber8acheckbox(Integer number8acheckbox) {
+        this.number8acheckbox = number8acheckbox;
     }
 
     public String getNumber8anewhvacstring() {
@@ -590,28 +617,28 @@ public class MeasureEntity implements Serializable {
         this.number8anewhvacstring = number8anewhvacstring;
     }
 
-    public double getNumber8anewhvaresult() {
-        return number8anewhvaresult;
+    public double getNumber8aresult() {
+        return number8aresult;
     }
 
-    public void setNumber8anewhvaresult(double number8anewhvaresult) {
-        this.number8anewhvaresult = number8anewhvaresult;
+    public void setNumber8aresult(double number8aresult) {
+        this.number8aresult = number8aresult;
     }
 
-    public int getSqft8b() {
+    public Integer getSqft8b() {
         return sqft8b;
     }
 
-    public void setSqft8b(int sqft8b) {
+    public void setSqft8b(Integer sqft8b) {
         this.sqft8b = sqft8b;
     }
 
-    public int getNumber8bnewhvacsycheckbox() {
-        return number8bnewhvacsycheckbox;
+    public Integer getNumber8bcheckbox() {
+        return number8bcheckbox;
     }
 
-    public void setNumber8bnewhvacsycheckbox(int number8bnewhvacsycheckbox) {
-        this.number8bnewhvacsycheckbox = number8bnewhvacsycheckbox;
+    public void setNumber8bcheckbox(Integer number8bcheckbox) {
+        this.number8bcheckbox = number8bcheckbox;
     }
 
     public String getNumber8bnewhvacsysstring() {
@@ -622,27 +649,27 @@ public class MeasureEntity implements Serializable {
         this.number8bnewhvacsysstring = number8bnewhvacsysstring;
     }
 
-    public double getNumber8bnewhvacsyresult() {
-        return number8bnewhvacsyresult;
+    public double getNumber8bresult() {
+        return number8bresult;
     }
 
-    public void setNumber8bnewhvacsyresult(double number8bnewhvacsyresult) {
-        this.number8bnewhvacsyresult = number8bnewhvacsyresult;
+    public void setNumber8bresult(double number8bresult) {
+        this.number8bresult = number8bresult;
     }
 
-    public int getSqft8bii() {
+    public Integer getSqft8bii() {
         return sqft8bii;
     }
 
-    public void setSqft8bii(int sqft8bii) {
+    public void setSqft8bii(Integer sqft8bii) {
         this.sqft8bii = sqft8bii;
     }
 
-    public int getNumber8biiincludecheckbox() {
+    public Integer getNumber8biiincludecheckbox() {
         return number8biiincludecheckbox;
     }
 
-    public void setNumber8biiincludecheckbox(int number8biiincludecheckbox) {
+    public void setNumber8biiincludecheckbox(Integer number8biiincludecheckbox) {
         this.number8biiincludecheckbox = number8biiincludecheckbox;
     }
 
@@ -662,19 +689,19 @@ public class MeasureEntity implements Serializable {
         this.number8biiincludresult = number8biiincludresult;
     }
 
-    public int getSqft9() {
+    public Integer getSqft9() {
         return sqft9;
     }
 
-    public void setSqft9(int sqft9) {
+    public void setSqft9(Integer sqft9) {
         this.sqft9 = sqft9;
     }
 
-    public int getNumber9singledualzcheckbox() {
+    public Integer getNumber9singledualzcheckbox() {
         return number9singledualzcheckbox;
     }
 
-    public void setNumber9singledualzcheckbox(int number9singledualzcheckbox) {
+    public void setNumber9singledualzcheckbox(Integer number9singledualzcheckbox) {
         this.number9singledualzcheckbox = number9singledualzcheckbox;
     }
 
@@ -694,27 +721,27 @@ public class MeasureEntity implements Serializable {
         this.number9singledresult = number9singledresult;
     }
 
-    public int getSqft91() {
+    public Integer getSqft91() {
         return sqft91;
     }
 
-    public void setSqft91(int sqft91) {
+    public void setSqft91(Integer sqft91) {
         this.sqft91 = sqft91;
     }
 
-    public int getNumber91arelocheckbox() {
+    public Integer getNumber91arelocheckbox() {
         return number91arelocheckbox;
     }
 
-    public void setNumber91arelocheckbox(int number91arelocheckbox) {
+    public void setNumber91arelocheckbox(Integer number91arelocheckbox) {
         this.number91arelocheckbox = number91arelocheckbox;
     }
 
-    public int getNumber91areloint() {
+    public Integer getNumber91areloint() {
         return number91areloint;
     }
 
-    public void setNumber91areloint(int number91areloint) {
+    public void setNumber91areloint(Integer number91areloint) {
         this.number91areloint = number91areloint;
     }
 
@@ -726,19 +753,19 @@ public class MeasureEntity implements Serializable {
         this.number91arelocresult = number91arelocresult;
     }
 
-    public int getNumber91bcutinsupplyvcheckbox() {
+    public Integer getNumber91bcutinsupplyvcheckbox() {
         return number91bcutinsupplyvcheckbox;
     }
 
-    public void setNumber91bcutinsupplyvcheckbox(int number91bcutinsupplyvcheckbox) {
+    public void setNumber91bcutinsupplyvcheckbox(Integer number91bcutinsupplyvcheckbox) {
         this.number91bcutinsupplyvcheckbox = number91bcutinsupplyvcheckbox;
     }
 
-    public int getNumber91bcutinsupplyint() {
+    public Integer getNumber91bcutinsupplyint() {
         return number91bcutinsupplyint;
     }
 
-    public void setNumber91bcutinsupplyint(int number91bcutinsupplyint) {
+    public void setNumber91bcutinsupplyint(Integer number91bcutinsupplyint) {
         this.number91bcutinsupplyint = number91bcutinsupplyint;
     }
 
@@ -750,19 +777,19 @@ public class MeasureEntity implements Serializable {
         this.number91bcutinsupplyvresult = number91bcutinsupplyvresult;
     }
 
-    public int getNumber91chcheckbox() {
+    public Integer getNumber91chcheckbox() {
         return number91chcheckbox;
     }
 
-    public void setNumber91chcheckbox(int number91chcheckbox) {
+    public void setNumber91chcheckbox(Integer number91chcheckbox) {
         this.number91chcheckbox = number91chcheckbox;
     }
 
-    public int getNumber91chvaint() {
+    public Integer getNumber91chvaint() {
         return number91chvaint;
     }
 
-    public void setNumber91chvaint(int number91chvaint) {
+    public void setNumber91chvaint(Integer number91chvaint) {
         this.number91chvaint = number91chvaint;
     }
 
@@ -774,19 +801,19 @@ public class MeasureEntity implements Serializable {
         this.number91chvaccutinresult = number91chvaccutinresult;
     }
 
-    public int getNumber91dducheckbox() {
+    public Integer getNumber91dducheckbox() {
         return number91dducheckbox;
     }
 
-    public void setNumber91dducheckbox(int number91dducheckbox) {
+    public void setNumber91dducheckbox(Integer number91dducheckbox) {
         this.number91dducheckbox = number91dducheckbox;
     }
 
-    public int getNumber91dducint() {
+    public Integer getNumber91dducint() {
         return number91dducint;
     }
 
-    public void setNumber91dducint(int number91dducint) {
+    public void setNumber91dducint(Integer number91dducint) {
         this.number91dducint = number91dducint;
     }
 
@@ -798,19 +825,19 @@ public class MeasureEntity implements Serializable {
         this.number91dductresult = number91dductresult;
     }
 
-    public int getNumber91enecheckbox() {
+    public Integer getNumber91enecheckbox() {
         return number91enecheckbox;
     }
 
-    public void setNumber91enecheckbox(int number91enecheckbox) {
+    public void setNumber91enecheckbox(Integer number91enecheckbox) {
         this.number91enecheckbox = number91enecheckbox;
     }
 
-    public int getNumber91eneint() {
+    public Integer getNumber91eneint() {
         return number91eneint;
     }
 
-    public void setNumber91eneint(int number91eneint) {
+    public void setNumber91eneint(Integer number91eneint) {
         this.number91eneint = number91eneint;
     }
 
@@ -822,19 +849,19 @@ public class MeasureEntity implements Serializable {
         this.number91eneresult = number91eneresult;
     }
 
-    public int getNumber91fenlacheckbox() {
+    public Integer getNumber91fenlacheckbox() {
         return number91fenlacheckbox;
     }
 
-    public void setNumber91fenlacheckbox(int number91fenlacheckbox) {
+    public void setNumber91fenlacheckbox(Integer number91fenlacheckbox) {
         this.number91fenlacheckbox = number91fenlacheckbox;
     }
 
-    public int getNumber91fenlargint() {
+    public Integer getNumber91fenlargint() {
         return number91fenlargint;
     }
 
-    public void setNumber91fenlargint(int number91fenlargint) {
+    public void setNumber91fenlargint(Integer number91fenlargint) {
         this.number91fenlargint = number91fenlargint;
     }
 
@@ -846,11 +873,11 @@ public class MeasureEntity implements Serializable {
         this.number91fenlargerresult = number91fenlargerresult;
     }
 
-    public int getNumber92notescheckbox() {
+    public Integer getNumber92notescheckbox() {
         return number92notescheckbox;
     }
 
-    public void setNumber92notescheckbox(int number92notescheckbox) {
+    public void setNumber92notescheckbox(Integer number92notescheckbox) {
         this.number92notescheckbox = number92notescheckbox;
     }
 
@@ -862,19 +889,19 @@ public class MeasureEntity implements Serializable {
         this.number92notesstring = number92notesstring;
     }
 
-    public int getNumber93costperkwcheckbox() {
+    public Integer getNumber93costperkwcheckbox() {
         return number93costperkwcheckbox;
     }
 
-    public void setNumber93costperkwcheckbox(int number93costperkwcheckbox) {
+    public void setNumber93costperkwcheckbox(Integer number93costperkwcheckbox) {
         this.number93costperkwcheckbox = number93costperkwcheckbox;
     }
 
-    public int getNumber93costperkwint() {
+    public Integer getNumber93costperkwint() {
         return number93costperkwint;
     }
 
-    public void setNumber93costperkwint(int number93costperkwint) {
+    public void setNumber93costperkwint(Integer number93costperkwint) {
         this.number93costperkwint = number93costperkwint;
     }
 
@@ -890,7 +917,7 @@ public class MeasureEntity implements Serializable {
         return number93dckwsdouble;
     }
 
-    public void setNumber93dckwsint(double number93dckwsdouble) {
+    public void setNumber93dckwsdouble(double number93dckwsdouble) {
         this.number93dckwsdouble = number93dckwsdouble;
     }
 
@@ -902,11 +929,11 @@ public class MeasureEntity implements Serializable {
         this.number93dckwsresalt = number93dckwsresalt;
     }
 
-    public int getNumber10installwindowscheckbox() {
+    public Integer getNumber10installwindowscheckbox() {
         return number10installwindowscheckbox;
     }
 
-    public void setNumber10installwindowscheckbox(int number10installwindowscheckbox) {
+    public void setNumber10installwindowscheckbox(Integer number10installwindowscheckbox) {
         this.number10installwindowscheckbox = number10installwindowscheckbox;
     }
 
@@ -918,11 +945,11 @@ public class MeasureEntity implements Serializable {
         this.number10numofwindows = number10numofwindows;
     }
 
-    public int getNumber10totalunitedinchesint() {
+    public Integer getNumber10totalunitedinchesint() {
         return number10totalunitedinchesint;
     }
 
-    public void setNumber10totalunitedinchesint(int number10totalunitedinchesint) {
+    public void setNumber10totalunitedinchesint(Integer number10totalunitedinchesint) {
         this.number10totalunitedinchesint = number10totalunitedinchesint;
     }
 
@@ -958,19 +985,19 @@ public class MeasureEntity implements Serializable {
         this.number10linearfeetresult = number10linearfeetresult;
     }
 
-    public int getNumber101acutindoorcheckbox() {
+    public Integer getNumber101acutindoorcheckbox() {
         return number101acutindoorcheckbox;
     }
 
-    public void setNumber101acutindoorcheckbox(int number101acutindoorcheckbox) {
+    public void setNumber101acutindoorcheckbox(Integer number101acutindoorcheckbox) {
         this.number101acutindoorcheckbox = number101acutindoorcheckbox;
     }
 
-    public int getNumber101acutindoorint() {
+    public Integer getNumber101acutindoorint() {
         return number101acutindoorint;
     }
 
-    public void setNumber101acutindoorint(int number101acutindoorint) {
+    public void setNumber101acutindoorint(Integer number101acutindoorint) {
         this.number101acutindoorint = number101acutindoorint;
     }
 
@@ -982,19 +1009,19 @@ public class MeasureEntity implements Serializable {
         this.number101acutindoorresult = number101acutindoorresult;
     }
 
-    public int getNumber101baddheadercheckbox() {
+    public Integer getNumber101baddheadercheckbox() {
         return number101baddheadercheckbox;
     }
 
-    public void setNumber101baddheadercheckbox(int number101baddheadercheckbox) {
+    public void setNumber101baddheadercheckbox(Integer number101baddheadercheckbox) {
         this.number101baddheadercheckbox = number101baddheadercheckbox;
     }
 
-    public int getNumber101baddheaderint() {
+    public Integer getNumber101baddheaderint() {
         return number101baddheaderint;
     }
 
-    public void setNumber101baddheaderint(int number101baddheaderint) {
+    public void setNumber101baddheaderint(Integer number101baddheaderint) {
         this.number101baddheaderint = number101baddheaderint;
     }
 
@@ -1006,11 +1033,11 @@ public class MeasureEntity implements Serializable {
         this.number101baddheaderresult = number101baddheaderresult;
     }
 
-    public int getNumber102acutdowncheckbox() {
+    public Integer getNumber102acutdowncheckbox() {
         return number102acutdowncheckbox;
     }
 
-    public void setNumber102acutdowncheckbox(int number102acutdowncheckbox) {
+    public void setNumber102acutdowncheckbox(Integer number102acutdowncheckbox) {
         this.number102acutdowncheckbox = number102acutdowncheckbox;
     }
 
@@ -1022,11 +1049,11 @@ public class MeasureEntity implements Serializable {
         this.number102acutdownwiresult = number102acutdownwiresult;
     }
 
-    public int getNumber102belectricalcheckbox() {
+    public Integer getNumber102belectricalcheckbox() {
         return number102belectricalcheckbox;
     }
 
-    public void setNumber102belectricalcheckbox(int number102belectricalcheckbox) {
+    public void setNumber102belectricalcheckbox(Integer number102belectricalcheckbox) {
         this.number102belectricalcheckbox = number102belectricalcheckbox;
     }
 
@@ -1038,11 +1065,11 @@ public class MeasureEntity implements Serializable {
         this.number102belectricalreresult = number102belectricalreresult;
     }
 
-    public int getNumber102cgardencheckbox() {
+    public Integer getNumber102cgardencheckbox() {
         return number102cgardencheckbox;
     }
 
-    public void setNumber102cgardencheckbox(int number102cgardencheckbox) {
+    public void setNumber102cgardencheckbox(Integer number102cgardencheckbox) {
         this.number102cgardencheckbox = number102cgardencheckbox;
     }
 
@@ -1054,11 +1081,11 @@ public class MeasureEntity implements Serializable {
         this.number102cgardenresult = number102cgardenresult;
     }
 
-    public int getNumber102dgardenwicheckbox() {
+    public Integer getNumber102dgardenwicheckbox() {
         return number102dgardenwicheckbox;
     }
 
-    public void setNumber102dgardenwicheckbox(int number102dgardenwicheckbox) {
+    public void setNumber102dgardenwicheckbox(Integer number102dgardenwicheckbox) {
         this.number102dgardenwicheckbox = number102dgardenwicheckbox;
     }
 
@@ -1070,27 +1097,27 @@ public class MeasureEntity implements Serializable {
         this.number102dgardenwiresult = number102dgardenwiresult;
     }
 
-    public int getNumber103allglazingcheckbox() {
+    public Integer getNumber103allglazingcheckbox() {
         return number103allglazingcheckbox;
     }
 
-    public void setNumber103allglazingcheckbox(int number103allglazingcheckbox) {
+    public void setNumber103allglazingcheckbox(Integer number103allglazingcheckbox) {
         this.number103allglazingcheckbox = number103allglazingcheckbox;
     }
 
-    public int getNumber104wicheckbox() {
+    public Integer getNumber104wicheckbox() {
         return number104wicheckbox;
     }
 
-    public void setNumber104wicheckbox(int number104wicheckbox) {
+    public void setNumber104wicheckbox(Integer number104wicheckbox) {
         this.number104wicheckbox = number104wicheckbox;
     }
 
-    public int getNumber11installpoolcheckbox() {
+    public Integer getNumber11installpoolcheckbox() {
         return number11installpoolcheckbox;
     }
 
-    public void setNumber11installpoolcheckbox(int number11installpoolcheckbox) {
+    public void setNumber11installpoolcheckbox(Integer number11installpoolcheckbox) {
         this.number11installpoolcheckbox = number11installpoolcheckbox;
     }
 
@@ -1102,19 +1129,19 @@ public class MeasureEntity implements Serializable {
         this.number11installpoolpumpresult = number11installpoolpumpresult;
     }
 
-    public int getNumber12installwholecheckbox() {
+    public Integer getNumber12installwholecheckbox() {
         return number12installwholecheckbox;
     }
 
-    public void setNumber12installwholecheckbox(int number12installwholecheckbox) {
+    public void setNumber12installwholecheckbox(Integer number12installwholecheckbox) {
         this.number12installwholecheckbox = number12installwholecheckbox;
     }
 
-    public int getNumber12installwholehoint() {
+    public Integer getNumber12installwholehoint() {
         return number12installwholehoint;
     }
 
-    public void setNumber12installwholehoint(int number12installwholehoint) {
+    public void setNumber12installwholehoint(Integer number12installwholehoint) {
         this.number12installwholehoint = number12installwholehoint;
     }
 
@@ -1126,11 +1153,11 @@ public class MeasureEntity implements Serializable {
         this.number12installwholehoresult = number12installwholehoresult;
     }
 
-    public int getNumber13installwacheckbox() {
+    public Integer getNumber13installwacheckbox() {
         return number13installwacheckbox;
     }
 
-    public void setNumber13installwacheckbox(int number13installwacheckbox) {
+    public void setNumber13installwacheckbox(Integer number13installwacheckbox) {
         this.number13installwacheckbox = number13installwacheckbox;
     }
 
@@ -1150,11 +1177,11 @@ public class MeasureEntity implements Serializable {
         this.number13installwaresult = number13installwaresult;
     }
 
-    public int getNumber14permitscheckbox() {
+    public Integer getNumber14permitscheckbox() {
         return number14permitscheckbox;
     }
 
-    public void setNumber14permitscheckbox(int number14permitscheckbox) {
+    public void setNumber14permitscheckbox(Integer number14permitscheckbox) {
         this.number14permitscheckbox = number14permitscheckbox;
     }
 
@@ -1166,11 +1193,11 @@ public class MeasureEntity implements Serializable {
         this.number14permitsresult = number14permitsresult;
     }
 
-    public int getNumber15installbatterycheckbox() {
+    public Integer getNumber15installbatterycheckbox() {
         return number15installbatterycheckbox;
     }
 
-    public void setNumber15installbatterycheckbox(int number15installbatterycheckbox) {
+    public void setNumber15installbatterycheckbox(Integer number15installbatterycheckbox) {
         this.number15installbatterycheckbox = number15installbatterycheckbox;
     }
 
@@ -1182,11 +1209,11 @@ public class MeasureEntity implements Serializable {
         this.number15installbaresult = number15installbaresult;
     }
 
-    public int getNumber15ainstallkwdcsocheckbox() {
+    public Integer getNumber15ainstallkwdcsocheckbox() {
         return number15ainstallkwdcsocheckbox;
     }
 
-    public void setNumber15ainstallkwdcsocheckbox(int number15ainstallkwdcsocheckbox) {
+    public void setNumber15ainstallkwdcsocheckbox(Integer number15ainstallkwdcsocheckbox) {
         this.number15ainstallkwdcsocheckbox = number15ainstallkwdcsocheckbox;
     }
 
@@ -1198,43 +1225,43 @@ public class MeasureEntity implements Serializable {
         this.number15ainstallkwdcsodouble = number15ainstallkwdcsodouble;
     }
 
-    public int getNumber15bincludesexcheckbox() {
+    public Integer getNumber15bincludesexcheckbox() {
         return number15bincludesexcheckbox;
     }
 
-    public void setNumber15bincludesexcheckbox(int number15bincludesexcheckbox) {
+    public void setNumber15bincludesexcheckbox(Integer number15bincludesexcheckbox) {
         this.number15bincludesexcheckbox = number15bincludesexcheckbox;
     }
 
-    public int getNumber15csolarcheckbox() {
+    public Integer getNumber15csolarcheckbox() {
         return number15csolarcheckbox;
     }
 
-    public void setNumber15csolarcheckbox(int number15csolarcheckbox) {
+    public void setNumber15csolarcheckbox(Integer number15csolarcheckbox) {
         this.number15csolarcheckbox = number15csolarcheckbox;
     }
 
-    public int getNumber15dincludessycheckbox() {
+    public Integer getNumber15dincludessycheckbox() {
         return number15dincludessycheckbox;
     }
 
-    public void setNumber15dincludessycheckbox(int number15dincludessycheckbox) {
+    public void setNumber15dincludessycheckbox(Integer number15dincludessycheckbox) {
         this.number15dincludessycheckbox = number15dincludessycheckbox;
     }
 
-    public int getNumber15eicheckbox() {
+    public Integer getNumber15eicheckbox() {
         return number15eicheckbox;
     }
 
-    public void setNumber15eicheckbox(int number15eicheckbox) {
+    public void setNumber15eicheckbox(Integer number15eicheckbox) {
         this.number15eicheckbox = number15eicheckbox;
     }
 
-    public int getNumber15fcanadiansocheckbox() {
+    public Integer getNumber15fcanadiansocheckbox() {
         return number15fcanadiansocheckbox;
     }
 
-    public void setNumber15fcanadiansocheckbox(int number15fcanadiansocheckbox) {
+    public void setNumber15fcanadiansocheckbox(Integer number15fcanadiansocheckbox) {
         this.number15fcanadiansocheckbox = number15fcanadiansocheckbox;
     }
 
@@ -1254,44 +1281,148 @@ public class MeasureEntity implements Serializable {
         this.solarcost = solarcost;
     }
 
-    public int getNew1() {
+    public Integer getNew1() {
         return new1;
     }
 
-    public void setNew1(int new1) {
+    public void setNew1(Integer new1) {
         this.new1 = new1;
     }
 
-    public int getMarginpercentage() {
+    public Integer getMarginpercentage() {
         return marginpercentage;
     }
 
-    public void setMarginpercentage(int marginpercentage) {
+    public void setMarginpercentage(Integer marginpercentage) {
         this.marginpercentage = marginpercentage;
     }
 
-    public int getPgeRebatePoints() {
-        return pgeRebatePoints;
+    public Integer getPgerebatepoints() {
+        return pgerebatepoints;
     }
 
-    public void setPgeRebatePoints(int pgeRebatePoints) {
-        this.pgeRebatePoints = pgeRebatePoints;
+    public void setPgerebatepoints(Integer pgerebatepoints) {
+        this.pgerebatepoints = pgerebatepoints;
     }
 
-    public int getPgeRebateAmount() {
-        return pgeRebateAmount;
+    public Integer getPgerebateamount() {
+        return pgerebateamount;
     }
 
-    public void setPgeRebateAmount(int pgeRebateAmount) {
-        this.pgeRebateAmount = pgeRebateAmount;
+    public void setPgerebateamount(Integer pgerebateamount) {
+        this.pgerebateamount = pgerebateamount;
     }
 
-    public int getSmudRebateAmount() {
-        return smudRebateAmount;
+    public Integer getSmudrebateamount() {
+        return smudrebateamount;
     }
 
-    public void setSmudRebateAmount(int smudRebateAmount) {
-        this.smudRebateAmount = smudRebateAmount;
+    public void setSmudrebateamount(Integer smudrebateamount) {
+        this.smudrebateamount = smudrebateamount;
+    }
+
+    public Integer getSqft5a() {
+        return sqft5a;
+    }
+
+    public void setSqft5a(Integer sqft5a) {
+        this.sqft5a = sqft5a;
+    }
+
+    public Integer getNumber5acheckbox() {
+        return number5acheckbox;
+    }
+
+    public void setNumber5acheckbox(Integer number5acheckbox) {
+        this.number5acheckbox = number5acheckbox;
+    }
+
+    public String getNumber5astring() {
+        return number5astring;
+    }
+
+    public void setNumber5astring(String number5astring) {
+        this.number5astring = number5astring;
+    }
+
+    public double getNumber5aresult() {
+        return number5aresult;
+    }
+
+    public void setNumber5aresult(double number5aresult) {
+        this.number5aresult = number5aresult;
+    }
+
+    public Integer getSqft5b() {
+        return sqft5b;
+    }
+
+    public void setSqft5b(Integer sqft5b) {
+        this.sqft5b = sqft5b;
+    }
+
+    public Integer getNumber5bcheckbox() {
+        return number5bcheckbox;
+    }
+
+    public void setNumber5bcheckbox(Integer number5bcheckbox) {
+        this.number5bcheckbox = number5bcheckbox;
+    }
+
+    public String getNumber5bstring() {
+        return number5bstring;
+    }
+
+    public void setNumber5bstring(String number5bstring) {
+        this.number5bstring = number5bstring;
+    }
+
+    public double getNumber5bresult() {
+        return number5bresult;
+    }
+
+    public void setNumber5bresult(double number5bresult) {
+        this.number5bresult = number5bresult;
+    }
+
+    public Integer getSqft8c() {
+        return sqft8c;
+    }
+
+    public void setSqft8c(Integer sqft8c) {
+        this.sqft8c = sqft8c;
+    }
+
+    public Integer getNumber8ccheckbox() {
+        return number8ccheckbox;
+    }
+
+    public void setNumber8ccheckbox(Integer number8ccheckbox) {
+        this.number8ccheckbox = number8ccheckbox;
+    }
+
+    public double getNumber8cresult() {
+        return number8cresult;
+    }
+
+    public void setNumber8cresult(double number8cresult) {
+        this.number8cresult = number8cresult;
+    }
+
+    public Integer getNumber8dcheckbox() {
+        return number8dcheckbox;
+    }
+
+    public void setNumber8dcheckbox(Integer number8dcheckbox) {
+        this.number8dcheckbox = number8dcheckbox;
+    }
+
+    public double getNumber8dresult() {
+        return number8dresult;
+    }
+
+    public void setNumber8dresult(double number8dresult) {
+        this.number8dresult = number8dresult;
     }
 
     @Override

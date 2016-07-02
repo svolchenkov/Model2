@@ -82,9 +82,9 @@ public class DashBoardEJB {
                     + "space that's accessible, sqft: " + measureBean.getSqft3(), measureBean.getNumber3InstallBattedInsulationResult());
         }
         // ************* 4 *****************
-        if (measureBean.isNumber4SealDuctingCodeComplianceCheckBox() == true) {
+        if (measureBean.isNumber4ReplaceDuctsEquipmentCheckBox() == true) {
             temporaryString.append("4.");
-            switch (measureBean.getNumber4SealDuctingCodeComplianceString()) {
+            switch (measureBean.getNumber4ReplaceDuctsEquipmentString()) {
                 case "1.001":
                     temporaryString.append(" Seal Ducting to Code Compliance Standards");
                     break;
@@ -94,7 +94,7 @@ public class DashBoardEJB {
             }
             temporaryString.append(", sqft: ");
             temporaryString.append(measureBean.getSqft4());
-            measureMap.put(temporaryString.toString(), measureBean.getNumber4SealDuctingCodeComplianceResult());
+            measureMap.put(temporaryString.toString(), measureBean.getNumber4ReplaceDuctsEquipmentResult());
             temporaryString.setLength(0);
         }
 
@@ -123,9 +123,9 @@ public class DashBoardEJB {
             temporaryString.setLength(0);
         }
         //********************** 6 ***************************************
-        if (measureBean.isNumber6CAZAreaReportCheckBox() == true) {
+        if (measureBean.isNumber6CheckBox() == true) {
             temporaryString.append("6.");
-            switch (measureBean.getNumber6CAZAreaReportString()) {
+            switch (measureBean.getNumber6String()) {
                 case "0.001":
                     temporaryString.append(" Add Ventilation to DHW Area for test out compliance");
                     break;
@@ -146,7 +146,7 @@ public class DashBoardEJB {
             }
             temporaryString.append(", sqft: ");
             temporaryString.append(measureBean.getSqft6());
-            measureMap.put(temporaryString.toString(), measureBean.getNumber6CAZAreaReportResult());
+            measureMap.put(temporaryString.toString(), measureBean.getNumber6Result());
             temporaryString.setLength(0);
         }
 
@@ -218,9 +218,9 @@ public class DashBoardEJB {
         }
 
         //********************** 7b ***************************************
-        if (measureBean.isNumber7BInstallR8DuctingNewHVACCheckBox() == true) {
+        if (measureBean.isNumber7BCheckBox() == true) {
             temporaryString.append("7.b.");
-            switch (measureBean.getNumber7BInstallR8DuctingNewHVACString()) {
+            switch (measureBean.getNumber7BString()) {
                 case "2":
                     temporaryString.append(" Install R-8 Radiant Barrier Ducting");
                     break;
@@ -230,104 +230,17 @@ public class DashBoardEJB {
             }
             temporaryString.append(", sqft: ");
             temporaryString.append(measureBean.getSqft7b());
-            measureMap.put(temporaryString.toString(), measureBean.getNumber7BInstallR8DuctingNewHVACResult());
+            measureMap.put(temporaryString.toString(), measureBean.getNumber7BResult());
             temporaryString.setLength(0);
         }
 
         //********************** 8a ***************************************
-        if (measureBean.isNumber8ANewHVACSystemERICheckBox() == true) {
-            temporaryString.append("8.a.");
-            switch (measureBean.getNumber8ANewHVACSystemERIString()) {
-                case "8550.001":
-                    temporaryString.append(" Install 16 Seer HVAC / 96% 2 Ton Split System");
-                    break;
-                case "8550.002":
-                    temporaryString.append(" Install 16 Seer HVAC/ 96% 2.5 Ton Split System");
-                    break;
-                case "9350":
-                    temporaryString.append(" Install 16 Seer HVAC/ 96% 3 Ton Split System");
-                    break;
-                case "10450":
-                    temporaryString.append(" Install 16 Seer HVAC/ 96% 3.5 Ton Split System");
-                    break;
-                case "11350":
-                    temporaryString.append(" Install 15 Seer HVAC/ 96% 5 Ton Split System");
-                    break;
-                case "8550.003":
-                    temporaryString.append(" Install ERI 16 Seer HVAC/ 81% 2 Ton 2 Stage Heat Package System");
-                    break;
-                case "8550.004":
-                    temporaryString.append(" Install ERI 16 Seer HVAC/ 81% 2.5 Ton 2 Stage Heat Package System");
-                    break;
-                case "9100":
-                    temporaryString.append(" Install ERI 16 Seer HVAC/ 81% 3 Ton 2 Stage Heat Package System");
-                    break;
-                case "9700":
-                    temporaryString.append(" Install ERI 16 Seer HVAC/ 81% 3.5 Ton 2 Stage Heat Package System");
-                    break;
-                case "10100":
-                    temporaryString.append(" Install ERI 16 Seer HVAC/ 81% 4 Ton 2 Stage Heat Package System");
-                    break;
-                case "11100":
-                    temporaryString.append(" Install ERI 14 Seer HVAC/ 81% 5 Ton 2 Stage Heat Package System");
-                    break;
-                default:
-                    temporaryString.append(" nothing");
-            }
-            temporaryString.append(", sqft: ");
-            temporaryString.append(measureBean.getSqft8a());
-            measureMap.put(temporaryString.toString(), measureBean.getNumber8ANewHVACSystemERIResult());
-            temporaryString.setLength(0);
-        }
+       
 
         //********************** 8b ***************************************
-        if (measureBean.isNumber8BNewHVACSystemERIPrivateCheckBox() == true) {
-            temporaryString.append("8.b.");
-            switch (measureBean.getNumber8BNewHVACSystemERIPrivateString()) {
-                case "8550.001":
-                    temporaryString.append(" Install 16 Seer HVAC / 96% 2 Ton Split System");
-                    break;
-                case "8550.002":
-                    temporaryString.append(" Install 16 Seer HVAC/ 96% 2.5 Ton Split System");
-                    break;
-                case "9350":
-                    temporaryString.append(" Install 16 Seer HVAC/ 96% 3 Ton Split System");
-                    break;
-                case "10450":
-                    temporaryString.append(" Install 16 Seer HVAC/ 96% 3.5 Ton Split System");
-                    break;
-                case "11350":
-                    temporaryString.append(" Install 15 Seer HVAC/ 96% 5 Ton Split System");
-                    break;
-                case "8550.003":
-                    temporaryString.append(" Install ERI 16 Seer HVAC/ 81% 2 Ton 2 Stage Heat Package System");
-                    break;
-                case "8550.004":
-                    temporaryString.append(" Install ERI 16 Seer HVAC/ 81% 2.5 Ton 2 Stage Heat Package System");
-                    break;
-                case "9100":
-                    temporaryString.append(" Install ERI 16 Seer HVAC/ 81% 3 Ton 2 Stage Heat Package System");
-                    break;
-                case "9700":
-                    temporaryString.append(" Install ERI 16 Seer HVAC/ 81% 3.5 Ton 2 Stage Heat Package System");
-                    break;
-                case "10100":
-                    temporaryString.append(" Install ERI 16 Seer HVAC/ 81% 4 Ton 2 Stage Heat Package System");
-                    break;
-                case "11100":
-                    temporaryString.append(" Install ERI 14 Seer HVAC/ 81% 5 Ton 2 Stage Heat Package System");
-                    break;
-                default:
-                    temporaryString.append(" nothing");
-            }
-            System.out.println("temporaryString.toString() = " + temporaryString.toString());
-            measureMap.put(temporaryString.toString(), measureBean.getNumber8BNewHVACSystemERIPrivateResult());
-            temporaryString.setLength(0);
-        }
+       
         //************************ 8bii *******************
-        if (measureBean.isNumber8BIIIncludes10YearPartsCheckBox() == true) {
-            measureMap.put("8bii. Includes 10 Year Parts and Labor/MERV 11 Filtration/UV Coil ", measureBean.getNumber8BIIIncludes10YearPartsResult());
-        }
+       
         //********************** 9 ***************************************
         if (measureBean.isNumber9SingleDualZoneHVACSystemCheckBox() == true) {
             temporaryString.append("9.");

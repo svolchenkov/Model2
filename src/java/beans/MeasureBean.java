@@ -51,20 +51,30 @@ public class MeasureBean implements Serializable {
     private int sqft3 = 0;
     private double number3InstallBattedInsulationResult = 0;
 
-    private boolean number4SealDuctingCodeComplianceCheckBox = false;
-    private String number4SealDuctingCodeComplianceString = "";
+    private boolean number4ReplaceDuctsEquipmentCheckBox = false;
+    private String number4ReplaceDuctsEquipmentString = "";
     private int sqft4 = 0;
-    private double number4SealDuctingCodeComplianceResult = 0;
+    private double number4ReplaceDuctsEquipmentResult = 0;
 
     private int sqft5 = 0;
     private boolean number5AirSealPackageCheckBox = false;
     private String number5AirSealPackageString = "";
     private double number5AirSealPackageResult = 0;
 
+    private int sqft5a = 0;
+    private boolean number5ACheckBox = false;
+    private String number5AString = "";
+    private double number5AResult = 0;
+
+    private int sqft5b = 0;
+    private boolean number5BCheckBox = false;
+    private String number5BString = "";
+    private double number5BResult = 0;
+
     private int sqft6 = 0;
-    private boolean number6CAZAreaReportCheckBox = false;
-    private String number6CAZAreaReportString = "";
-    private double number6CAZAreaReportResult = 0;
+    private boolean number6CheckBox = false;
+    private String number6String = "";
+    private double number6Result = 0;
 
     private int sqft7a = 0;
     private boolean number7AInstallDuctingStandaloneCheckBox = false;
@@ -72,24 +82,22 @@ public class MeasureBean implements Serializable {
     private double number7AInstallDuctingStandaloneResult = 0;
 
     private int sqft7b = 0;
-    private boolean number7BInstallR8DuctingNewHVACCheckBox = false;
-    private String number7BInstallR8DuctingNewHVACString = "";
-    private double number7BInstallR8DuctingNewHVACResult = 0;
+    private boolean number7BCheckBox = false;
+    private String number7BString = "";
+    private double number7BResult = 0;
 
-    private int sqft8a = 0;
-    private boolean number8ANewHVACSystemERICheckBox = false;
-    private String number8ANewHVACSystemERIString = "";
-    private double number8ANewHVACSystemERIResult = 0;
+    private boolean number8ACheckBox = false;
+    private double number8AResult = 0;
 
-    private int sqft8b = 0;
-    private boolean number8BNewHVACSystemERIPrivateCheckBox = false;
-    private String number8BNewHVACSystemERIPrivateString = "";
-    private double number8BNewHVACSystemERIPrivateResult = 0;
-
-    private int sqft8bii = 0;
-    private boolean number8BIIIncludes10YearPartsCheckBox = false;
-    private String number8BIIIncludes10YearPartsString = "";
-    private double number8BIIIncludes10YearPartsResult = 0;
+    private boolean number8BCheckBox = false;
+    private double number8BResult = 0;
+    
+    private int sqft8c = 0;
+    private boolean number8CCheckBox = false;
+    private double number8CResult = 0;
+    
+    private boolean number8DCheckBox = false;
+    private double number8DResult = 0;
 
     private int sqft9 = 0;
     private boolean number9SingleDualZoneHVACSystemCheckBox = false;
@@ -339,41 +347,41 @@ public class MeasureBean implements Serializable {
         this.sqft4 = sqft4;
     }
 
-    public boolean isNumber4SealDuctingCodeComplianceCheckBox() {
-        return number4SealDuctingCodeComplianceCheckBox;
+    public boolean isNumber4ReplaceDuctsEquipmentCheckBox() {
+        return number4ReplaceDuctsEquipmentCheckBox;
     }
 
-    public void setNumber4SealDuctingCodeComplianceCheckBox(boolean number4SealDuctingCodeComplianceCheckBox) {
-        this.number4SealDuctingCodeComplianceCheckBox = number4SealDuctingCodeComplianceCheckBox;
+    public void setNumber4ReplaceDuctsEquipmentCheckBox(boolean number4ReplaceDuctsEquipmentCheckBox) {
+        this.number4ReplaceDuctsEquipmentCheckBox = number4ReplaceDuctsEquipmentCheckBox;
     }
 
-    public String getNumber4SealDuctingCodeComplianceString() {
-        if (this.number4SealDuctingCodeComplianceString == null) {
-            this.number4SealDuctingCodeComplianceString = "0";
+    public String getNumber4ReplaceDuctsEquipmentString() {
+        if (this.number4ReplaceDuctsEquipmentString == null) {
+            this.number4ReplaceDuctsEquipmentString = "0";
         }
-        return number4SealDuctingCodeComplianceString;
+        return number4ReplaceDuctsEquipmentString;
     }
 
-    public void setNumber4SealDuctingCodeComplianceString(String number4SealDuctingCodeComplianceString) {
-        this.number4SealDuctingCodeComplianceString = number4SealDuctingCodeComplianceString;
+    public void setNumber4ReplaceDuctsEquipmentString(String number4ReplaceDuctsEquipmentString) {
+        this.number4ReplaceDuctsEquipmentString = number4ReplaceDuctsEquipmentString;
     }
 
-    public double getNumber4SealDuctingCodeComplianceResult() {
-        if (!number4SealDuctingCodeComplianceString.equals("")) {
-            if (isNumber4SealDuctingCodeComplianceCheckBox() == true) {
-                double k = Math.round(Double.valueOf(getNumber4SealDuctingCodeComplianceString()) * 100);
-                this.number4SealDuctingCodeComplianceResult = k / 100 * sqft4;
+    public double getNumber4ReplaceDuctsEquipmentResult() {
+        if (!number4ReplaceDuctsEquipmentString.equals("")) {
+            if (isNumber4ReplaceDuctsEquipmentCheckBox() == true) {
+                double k = Math.round(Double.valueOf(getNumber4ReplaceDuctsEquipmentString()) * 100);
+                this.number4ReplaceDuctsEquipmentResult = k / 100 * 1;
             } else {
-                this.number4SealDuctingCodeComplianceResult = 0;
+                this.number4ReplaceDuctsEquipmentResult = 0;
             }
         } else {
-            number4SealDuctingCodeComplianceResult = 0;
+            number4ReplaceDuctsEquipmentResult = 0;
         }
-        return number4SealDuctingCodeComplianceResult;
+        return number4ReplaceDuctsEquipmentResult;
     }
 
-    public void setNumber4SealDuctingCodeComplianceResult(double number4SealDuctingCodeComplianceResult) {
-        this.number4SealDuctingCodeComplianceResult = number4SealDuctingCodeComplianceResult;
+    public void setNumber4ReplaceDuctsEquipmentResult(double number4ReplaceDuctsEquipmentResult) {
+        this.number4ReplaceDuctsEquipmentResult = number4ReplaceDuctsEquipmentResult;
     }
 
     //****************************** 5. Air Seal Package ************************************
@@ -423,7 +431,94 @@ public class MeasureBean implements Serializable {
         this.number5AirSealPackageResult = number5AirSealPackageResult;
     }
 
-    //****************************** 6. CAZ Area Report *****************************************
+    //******************************* 5a. ***********************************
+    public int getSqft5a() {
+        return sqft5a;
+    }
+
+    public void setSqft5a(int sqft5a) {
+        this.sqft5a = sqft5a;
+    }
+
+    public boolean isNumber5ACheckBox() {
+        return number5ACheckBox;
+    }
+
+    public void setNumber5ACheckBox(boolean number5ACheckBox) {
+        this.number5ACheckBox = number5ACheckBox;
+    }
+
+    public String getNumber5AString() {
+        return number5AString;
+    }
+
+    public void setNumber5AString(String number5AString) {
+        this.number5AString = number5AString;
+    }
+
+    public double getNumber5AResult() {
+        if (!number5AString.equals("")) {
+            if (isNumber5ACheckBox() == true) {
+                double k = Math.round(Double.valueOf(getNumber5AString()) * 100);
+                this.number5AResult = k / 100 * 1;
+            } else {
+                this.number5AResult = 0;
+            }
+        } else {
+            number5AResult = 0;
+        }
+        return number5AResult;
+    }
+
+    public void setNumber5AResult(double number5AResult) {
+        this.number5AResult = number5AResult;
+    }
+
+    //****************************** 5b. *************************************
+    public int getSqft5b() {
+        return sqft5b;
+    }
+
+    public void setSqft5b(int sqft5b) {
+        this.sqft5b = sqft5b;
+    }
+
+    public boolean isNumber5BCheckBox() {
+        return number5BCheckBox;
+    }
+
+    public void setNumber5BCheckBox(boolean number5BCheckBox) {
+        this.number5BCheckBox = number5BCheckBox;
+    }
+
+    public String getNumber5BString() {
+        return number5BString;
+    }
+
+    public void setNumber5BString(String number5BString) {
+        this.number5BString = number5BString;
+    }
+
+    public double getNumber5BResult() {
+        if (!number5BString.equals("")) {
+            if (isNumber5BCheckBox() == true) {
+                double k = Math.round(Double.valueOf(getNumber5BString()) * 100);
+                this.number5BResult = k / 100 * 1;
+            } else {
+                this.number5BResult = 0;
+            }
+        } else {
+            number5BResult = 0;
+        }
+        return number5BResult;
+    }
+
+    public void setNumber5BResult(double number5BResult) {
+        this.number5BResult = number5BResult;
+    }
+
+    //****************************** 6.  *****************************************
+
     public int getSqft6() {
         return sqft6;
     }
@@ -432,41 +527,38 @@ public class MeasureBean implements Serializable {
         this.sqft6 = sqft6;
     }
 
-    public boolean isNumber6CAZAreaReportCheckBox() {
-        return number6CAZAreaReportCheckBox;
+    public boolean isNumber6CheckBox() {
+        return number6CheckBox;
     }
 
-    public void setNumber6CAZAreaReportCheckBox(boolean number6CAZAreaReportCheckBox) {
-        this.number6CAZAreaReportCheckBox = number6CAZAreaReportCheckBox;
+    public void setNumber6CheckBox(boolean number6CheckBox) {
+        this.number6CheckBox = number6CheckBox;
     }
 
-    public String getNumber6CAZAreaReportString() {
-        if (this.number6CAZAreaReportString == null) {
-            this.number6CAZAreaReportString = "0";
-        }
-        return number6CAZAreaReportString;
+    public String getNumber6String() {
+        return number6String;
     }
 
-    public void setNumber6CAZAreaReportString(String number6CAZAreaReportString) {
-        this.number6CAZAreaReportString = number6CAZAreaReportString;
+    public void setNumber6String(String number6String) {
+        this.number6String = number6String;
     }
 
-    public double getNumber6CAZAreaReportResult() {
-        if (!number6CAZAreaReportString.equals("")) {
-            if (isNumber6CAZAreaReportCheckBox() == true) {
-                double k = Math.round(Double.valueOf(getNumber6CAZAreaReportString()) * 100);
-                this.number6CAZAreaReportResult = k / 100 * getSqft6();
+    public double getNumber6Result() {
+        if (!number6String.equals("")) {
+            if (isNumber6CheckBox() == true) {
+                double k = Math.round(Double.valueOf(getNumber6String()) * 100);
+                this.number6Result = k / 100 * 1;
             } else {
-                this.number6CAZAreaReportResult = 0;
+                this.number6Result = 0;
             }
         } else {
-            number6CAZAreaReportResult = 0;
+            number6Result = 0;
         }
-        return number6CAZAreaReportResult;
+        return number6Result;
     }
 
-    public void setNumber6CAZAreaReportResult(double number6CAZAreaReportResult) {
-        this.number6CAZAreaReportResult = number6CAZAreaReportResult;
+    public void setNumber6Result(double number6Result) {
+        this.number6Result = number6Result;
     }
 
     //****************************** 7a. Install R-8 Ducting Standalone *****************************************
@@ -500,16 +592,7 @@ public class MeasureBean implements Serializable {
     }
 
     public double getNumber7AInstallDuctingStandaloneResult() {
-        if (!number7AInstallDuctingStandaloneString.equals("")) {
-            if (isNumber7AInstallDuctingStandaloneCheckBox() == true) {
-                this.number7AInstallDuctingStandaloneResult = Double.valueOf(getNumber7AInstallDuctingStandaloneString()) * 1;
-            } else {
-                this.number7AInstallDuctingStandaloneResult = 0;
-            }
-        } else {
-            number7AInstallDuctingStandaloneResult = 0;
-        }
-        return number7AInstallDuctingStandaloneResult;
+        return 0;
     }
 
     public void setNumber7AInstallDuctingStandaloneResult(double number7AInstallDuctingStandaloneResult) {
@@ -525,182 +608,137 @@ public class MeasureBean implements Serializable {
         this.sqft7b = sqft7b;
     }
 
-    public boolean isNumber7BInstallR8DuctingNewHVACCheckBox() {
-        return number7BInstallR8DuctingNewHVACCheckBox;
+    public boolean isNumber7BCheckBox() {
+        return number7BCheckBox;
     }
 
-    public void setNumber7BInstallR8DuctingNewHVACCheckBox(boolean number7BInstallR8DuctingNewHVACCheckBox) {
-        this.number7BInstallR8DuctingNewHVACCheckBox = number7BInstallR8DuctingNewHVACCheckBox;
+    public void setNumber7BCheckBox(boolean number7BCheckBox) {
+        this.number7BCheckBox = number7BCheckBox;
     }
 
-    public String getNumber7BInstallR8DuctingNewHVACString() {
-        if (this.number7BInstallR8DuctingNewHVACString == null) {
-            this.number7BInstallR8DuctingNewHVACString = "0";
+    public String getNumber7BString() {
+        if (this.number7BString == null) {
+            this.number7BString = "0";
         }
-        return number7BInstallR8DuctingNewHVACString;
+        return number7BString;
     }
 
-    public void setNumber7BInstallR8DuctingNewHVACString(String number7BInstallR8DuctingNewHVACString) {
-        this.number7BInstallR8DuctingNewHVACString = number7BInstallR8DuctingNewHVACString;
+    public void setNumber7BString(String number7BString) {
+        this.number7BString = number7BString;
     }
 
-    public double getNumber7BInstallR8DuctingNewHVACResult() {
-        if (!number7BInstallR8DuctingNewHVACString.equals("")) {
-            if (isNumber7BInstallR8DuctingNewHVACCheckBox() == true) {
-                this.number7BInstallR8DuctingNewHVACResult = Double.valueOf(getNumber7BInstallR8DuctingNewHVACString()) * sqft7b;
+    public double getNumber7BResult() {
+        if (!number7BString.equals("")) {
+            if (isNumber7BCheckBox() == true) {
+                double k = Math.round(Double.valueOf(getNumber7BString()) * 100);
+                this.number7BResult = k / 100 * 1;
             } else {
-                this.number7BInstallR8DuctingNewHVACResult = 0;
+                this.number7BResult = 0;
             }
         } else {
-            this.number7BInstallR8DuctingNewHVACResult = 0;
+            number7BResult = 0;
         }
-        //!!!! Currently bloced
-        this.number7BInstallR8DuctingNewHVACResult = 0;
-        return number7BInstallR8DuctingNewHVACResult;
+        return number7BResult;
     }
 
-    public void setNumber7BInstallR8DuctingNewHVACResult(double number7BInstallR8DuctingNewHVACResult) {
-        this.number7BInstallR8DuctingNewHVACResult = number7BInstallR8DuctingNewHVACResult;
+    public void setNumber7BResult(double number7BResult) {
+        this.number7BResult = number7BResult;
     }
 
-    //******************************* 8a. New HVAC System (ERI Private Label) ******************************
-    public int getSqft8a() {
-        this.sqft8a = 0;
-        return sqft8a;
+    //******************************* 8. ******************************
+
+    public boolean isNumber8ACheckBox() {
+        return number8ACheckBox;
     }
 
-    public void setSqft8a(int sqft8a) {
-        this.sqft8a = sqft8a;
+    public void setNumber8ACheckBox(boolean number8ACheckBox) {
+        this.number8ACheckBox = number8ACheckBox;
     }
 
-    public boolean isNumber8ANewHVACSystemERICheckBox() {
-        return number8ANewHVACSystemERICheckBox;
-    }
-
-    public void setNumber8ANewHVACSystemERICheckBox(boolean number8ANewHVACSystemERICheckBox) {
-        this.number8ANewHVACSystemERICheckBox = number8ANewHVACSystemERICheckBox;
-    }
-
-    public String getNumber8ANewHVACSystemERIString() {
-        if (this.number8ANewHVACSystemERIString == null) {
-            this.number8ANewHVACSystemERIString = "0";
-        }
-        return number8ANewHVACSystemERIString;
-    }
-
-    public void setNumber8ANewHVACSystemERIString(String number8ANewHVACSystemERIString) {
-        this.number8ANewHVACSystemERIString = number8ANewHVACSystemERIString;
-    }
-
-    public double getNumber8ANewHVACSystemERIResult() {
-        if (!number8ANewHVACSystemERIString.equals("")) {
-            if (isNumber8ANewHVACSystemERICheckBox() == true) {
-                double k = Math.round(Double.valueOf(getNumber8ANewHVACSystemERIString()) * 100);
-                this.number8ANewHVACSystemERIResult = k / 100 * 1;
-            } else {
-                this.number8ANewHVACSystemERIResult = 0;
-            }
+    public double getNumber8AResult() {
+        if ( isNumber8ACheckBox() == true ) {
+            number8AResult = 1200;
         } else {
-            number8ANewHVACSystemERIResult = 0;
+            number8AResult = 0;
         }
-        return number8ANewHVACSystemERIResult;
+        return number8AResult;
     }
 
-    public void setNumber8ANewHVACSystemERIResult(double number8ANewHVACSystemERIResult) {
-        this.number8ANewHVACSystemERIResult = number8ANewHVACSystemERIResult;
+    public void setNumber8AResult(double number8AResult) {
+        this.number8AResult = number8AResult;
     }
 
-    //******************************* 8b. New HVAC System (ERI Private Label) ******************************
-    public int getSqft8b() {
-        return sqft8b;
+    public boolean isNumber8BCheckBox() {
+        return number8BCheckBox;
     }
 
-    public void setSqft8b(int sqft8b) {
-        this.sqft8b = sqft8b;
+    public void setNumber8BCheckBox(boolean number8BCheckBox) {
+        this.number8BCheckBox = number8BCheckBox;
     }
 
-    public boolean isNumber8BNewHVACSystemERIPrivateCheckBox() {
-        return number8BNewHVACSystemERIPrivateCheckBox;
-    }
-
-    public void setNumber8BNewHVACSystemERIPrivateCheckBox(boolean number8BNewHVACSystemERIPrivateCheckBox) {
-        this.number8BNewHVACSystemERIPrivateCheckBox = number8BNewHVACSystemERIPrivateCheckBox;
-    }
-
-    public String getNumber8BNewHVACSystemERIPrivateString() {
-        if (this.number8BNewHVACSystemERIPrivateString == null) {
-            this.number8BNewHVACSystemERIPrivateString = "0";
-        }
-        return number8BNewHVACSystemERIPrivateString;
-    }
-
-    public void setNumber8BNewHVACSystemERIPrivateString(String number8BNewHVACSystemERIPrivateString) {
-        this.number8BNewHVACSystemERIPrivateString = number8BNewHVACSystemERIPrivateString;
-    }
-
-    public double getNumber8BNewHVACSystemERIPrivateResult() {
-        if (!number8BNewHVACSystemERIPrivateString.equals("")) {
-            if (isNumber8BNewHVACSystemERIPrivateCheckBox() == true) {
-                double k = Math.round(Double.valueOf(getNumber8BNewHVACSystemERIPrivateString()) * 100);
-                this.number8BNewHVACSystemERIPrivateResult = k / 100 * 1;
-            } else {
-                this.number8BNewHVACSystemERIPrivateResult = 0;
-            }
+    public double getNumber8BResult() {
+        if ( isNumber8BCheckBox() == true ) {
+            number8BResult = 300;
         } else {
-            number8BNewHVACSystemERIPrivateResult = 0;
+            number8BResult = 0;
         }
-        return number8BNewHVACSystemERIPrivateResult;
+        return number8BResult;
     }
 
-    public void setNumber8BNewHVACSystemERIPrivateResult(double number8BNewHVACSystemERIPrivateResult) {
-        this.number8BNewHVACSystemERIPrivateResult = number8BNewHVACSystemERIPrivateResult;
+    public void setNumber8BResult(double number8BResult) {
+        this.number8BResult = number8BResult;
     }
 
-    //******************************* 8bii. Includes 10 Year Parts and Labor/MERV 11 Filtration/UV Coil ******************************
-    public int getSqft8bii() {
-        this.sqft8bii = 0;
-        return sqft8bii;
+    public boolean isNumber8CCheckBox() {
+        return number8CCheckBox;
     }
 
-    public void setSqft8bii(int sqft8bii) {
-        this.sqft8bii = sqft8bii;
+    public void setNumber8CCheckBox(boolean number8CCheckBox) {
+        this.number8CCheckBox = number8CCheckBox;
     }
 
-    public boolean isNumber8BIIIncludes10YearPartsCheckBox() {
-        return number8BIIIncludes10YearPartsCheckBox;
+    public int getSqft8c() {
+        return sqft8c;
     }
 
-    public void setNumber8BIIIncludes10YearPartsCheckBox(boolean number8BIIIncludes10YearPartsCheckBox) {
-        this.number8BIIIncludes10YearPartsCheckBox = number8BIIIncludes10YearPartsCheckBox;
+    public void setSqft8c(int sqft8c) {
+        this.sqft8c = sqft8c;
     }
 
-    public String getNumber8BIIIncludes10YearPartsString() {
-        return number8BIIIncludes10YearPartsString;
+    public double getNumber8CResult() {
+        if ( isNumber8CCheckBox() == true ) {
+            number8CResult = getSqft8c() * 2;
+        } else {
+            number8CResult = 0;
+        }
+        return number8CResult;
     }
 
-    public void setNumber8BIIIncludes10YearPartsString(String number8BIIIncludes10YearPartsString) {
-        this.number8BIIIncludes10YearPartsString = number8BIIIncludes10YearPartsString;
+    public void setNumber8CResult(double number8CResult) {
+        this.number8CResult = number8CResult;
     }
 
-    public double getNumber8BIIIncludes10YearPartsResult() {
-//        if (!number8BIIIncludes10YearPartsString.equals("")) {
-//            if (isNumber8BIIIncludes10YearPartsCheckBox() == true) {
-//                this.number8BIIIncludes10YearPartsResult = Double.valueOf(getNumber8BIIIncludes10YearPartsString()) * getSqft8bii();
-//            } else {
-//                this.number8BIIIncludes10YearPartsResult = 0;
-//            }
-//        } else {
-//            this.number8BIIIncludes10YearPartsResult = 0;
-//        }
-        //Usually = 0, why? I don't know
-        this.number8BIIIncludes10YearPartsResult = 0;
-        return number8BIIIncludes10YearPartsResult;
+    public boolean isNumber8DCheckBox() {
+        return number8DCheckBox;
     }
 
-    public void setNumber8BIIIncludes10YearPartsResult(double number8BIIIncludes10YearPartsResult) {
-        this.number8BIIIncludes10YearPartsResult = number8BIIIncludes10YearPartsResult;
+    public void setNumber8DCheckBox(boolean number8DCheckBox) {
+        this.number8DCheckBox = number8DCheckBox;
     }
 
+    public double getNumber8DResult() {
+        if ( isNumber8DCheckBox() == true ) {
+            number8DResult = 500;
+        } else {
+            number8DResult = 0;
+        }
+        return number8DResult;
+    }
+
+    public void setNumber8DResult(double number8DResult) {
+        this.number8DResult = number8DResult;
+    }
+    
     //******************** 9. Single/Dual Zone HVAC System ***************************
     public int getSqft9() {
         this.sqft9 = 0;
@@ -1106,7 +1144,7 @@ public class MeasureBean implements Serializable {
     public double getNumber10LinearFeetResult() {
         if (!number10LinearFeet.equals("")) {
             if (isNumber10InstallWindowsCheckBox() == true) {
-                this.number10LinearFeetResult = Double.valueOf(getNumber10LinearFeet());
+                this.number10LinearFeetResult = Double.valueOf(getNumber10LinearFeet()) * 250;
             } else {
                 this.number10LinearFeetResult = 0;
             }
@@ -1293,7 +1331,7 @@ public class MeasureBean implements Serializable {
 
     public double getNumber11InstallPoolPumpResult() {
         if (isNumber11InstallPoolPumpCheckBox() == true) {
-            this.number11InstallPoolPumpResult = 1500;
+            this.number11InstallPoolPumpResult = 1850;
         } else {
             this.number11InstallPoolPumpResult = 0;
         }
@@ -1471,11 +1509,11 @@ public class MeasureBean implements Serializable {
 
     public double getTotal() {
         this.total = getNumber1InsulatAtticBlownResult() + getNumber2RemoveAndReplaceResult()
-                + getNumber3InstallBattedInsulationResult() + getNumber4SealDuctingCodeComplianceResult()
-                + getNumber5AirSealPackageResult() + getNumber6CAZAreaReportResult()
-                + getNumber7AInstallDuctingStandaloneResult() + getNumber7BInstallR8DuctingNewHVACResult()
-                + getNumber8ANewHVACSystemERIResult() + getNumber8BNewHVACSystemERIPrivateResult()
-                + getNumber8BIIIncludes10YearPartsResult() + getNumber9SingleDualZoneHVACSystemResult()
+                + getNumber3InstallBattedInsulationResult() + getNumber4ReplaceDuctsEquipmentResult()
+                + getNumber5AResult() + getNumber5BResult() + getNumber6Result()
+                + getNumber7AInstallDuctingStandaloneResult() + getNumber7BResult()
+                + getNumber8AResult() + getNumber8BResult() +  getNumber8CResult()
+                + getNumber8DResult() + getNumber9SingleDualZoneHVACSystemResult()
                 + getNumber91aRelocateCondenserResult() + getNumber91bCutInSupplyVentNewDuctResult()
                 + getNumber91cHVACCutInResult() + getNumber91dDuctSealOnlyResult()
                 + getNumber91eNewLineSetResult() + getNumber91fEnlargeReturnAirResult()
@@ -1555,20 +1593,30 @@ public class MeasureBean implements Serializable {
         setSqft3(0);
         setNumber3InstallBattedInsulationResult(0);
 
-        setNumber4SealDuctingCodeComplianceCheckBox(false);
-        setNumber4SealDuctingCodeComplianceString("");
+        setNumber4ReplaceDuctsEquipmentCheckBox(false);
+        setNumber4ReplaceDuctsEquipmentString("");
         setSqft4(0);
-        setNumber4SealDuctingCodeComplianceResult(0);
+        setNumber4ReplaceDuctsEquipmentResult(0);
 
         setSqft5(0);
         setNumber5AirSealPackageCheckBox(false);
         setNumber5AirSealPackageString("");
         setNumber5AirSealPackageResult(0);
 
+        setSqft5a(0);
+        setNumber5ACheckBox(false);
+        setNumber5AString("");
+        setNumber5AResult(0);
+        
+        setSqft5b(0);
+        setNumber5BCheckBox(false);
+        setNumber5BString("");
+        setNumber5BResult(0);
+
         setSqft6(0);
-        setNumber6CAZAreaReportCheckBox(false);
-        setNumber6CAZAreaReportString("");
-        setNumber6CAZAreaReportResult(0);
+        setNumber6CheckBox(false);
+        setNumber6String("");
+        setNumber6Result(0);
 
         setSqft7a(0);
         setNumber7AInstallDuctingStandaloneCheckBox(false);
@@ -1576,24 +1624,22 @@ public class MeasureBean implements Serializable {
         setNumber7AInstallDuctingStandaloneResult(0);
 
         setSqft7b(0);
-        setNumber7BInstallR8DuctingNewHVACCheckBox(false);
-        setNumber7BInstallR8DuctingNewHVACString("");
-        setNumber7BInstallR8DuctingNewHVACResult(0);
+        setNumber7BCheckBox(false);
+        setNumber7BString("");
+        setNumber7BResult(0);
 
-        setSqft8a(0);
-        setNumber8ANewHVACSystemERICheckBox(false);
-        setNumber8ANewHVACSystemERIString("");
-        setNumber8ANewHVACSystemERIResult(0);
+        setNumber8ACheckBox(false);
+        setNumber8AResult(0);
 
-        setSqft8b(0);
-        setNumber8BNewHVACSystemERIPrivateCheckBox(false);
-        setNumber8BNewHVACSystemERIPrivateString("");
-        setNumber8BNewHVACSystemERIPrivateResult(0);
+        setNumber8BCheckBox(false);
+        setNumber8BResult(0);
 
-        setSqft8bii(0);
-        setNumber8BIIIncludes10YearPartsCheckBox(false);
-        setNumber8BIIIncludes10YearPartsString("");
-        setNumber8BIIIncludes10YearPartsResult(0);
+        setNumber8CCheckBox(false);
+        setSqft8c(0);
+        setNumber8CResult(0);
+        
+        setNumber8DCheckBox(false);
+        setNumber8DResult(0);
 
         setSqft9(0);
         setNumber9SingleDualZoneHVACSystemCheckBox(false);
@@ -1723,20 +1769,30 @@ public class MeasureBean implements Serializable {
         setSqft3(measureEntity.getSqft3());
         setNumber3InstallBattedInsulationResult(measureEntity.getNumber3installbattedinresult());
 
-        setNumber4SealDuctingCodeComplianceCheckBox(measureEntity.getNumber4sealductingcodcheckbox() == 1);
-        setNumber4SealDuctingCodeComplianceString(measureEntity.getNumber4sealductingcodecstring() == null ? "" : measureEntity.getNumber4sealductingcodecstring());
+        setNumber4ReplaceDuctsEquipmentCheckBox(measureEntity.getNumber4replaceductscheckbox() == 1);
+        setNumber4ReplaceDuctsEquipmentString(measureEntity.getNumber4replaceductsstring() == null ? "" : measureEntity.getNumber4replaceductsstring());
         setSqft4(measureEntity.getSqft4());
-        setNumber4SealDuctingCodeComplianceResult(measureEntity.getNumber4sealductingcoderesult());
+        setNumber4ReplaceDuctsEquipmentResult(measureEntity.getNumber4replaceductsresult());
 
         setSqft5(measureEntity.getSqft5());
         setNumber5AirSealPackageCheckBox(measureEntity.getNumber5airsealpcheckbox() == 1);
         setNumber5AirSealPackageString(measureEntity.getNumber5airsealstring() == null ? "" : measureEntity.getNumber5airsealstring());
         setNumber5AirSealPackageResult(measureEntity.getNumber5airsealparesult());
+        
+        setSqft5a(measureEntity.getSqft5a());
+        setNumber5ACheckBox(measureEntity.getNumber5acheckbox() == 1);
+        setNumber5AString(measureEntity.getNumber5astring() == null ? "" : measureEntity.getNumber5astring());
+        setNumber5AResult(measureEntity.getNumber5aresult());
+        
+        setSqft5b(measureEntity.getSqft5b());
+        setNumber5BCheckBox(measureEntity.getNumber5bcheckbox() == 1);
+        setNumber5BString(measureEntity.getNumber5bstring() == null ? "" : measureEntity.getNumber5bstring());
+        setNumber5BResult(measureEntity.getNumber5bresult());
 
         setSqft6(measureEntity.getSqft6());
-        setNumber6CAZAreaReportCheckBox(measureEntity.getNumber6cazarearecheckbox() == 1);
-        setNumber6CAZAreaReportString(measureEntity.getNumber6cazareatstring() == null ? "" : measureEntity.getNumber6cazareatstring());
-        setNumber6CAZAreaReportResult(measureEntity.getNumber6cazarearesult());
+        setNumber6CheckBox(measureEntity.getNumber6checkbox() == 1);
+        setNumber6String(measureEntity.getNumber6string() == null ? "" : measureEntity.getNumber6string());
+        setNumber6Result(measureEntity.getNumber6result());
 
         setSqft7a(measureEntity.getSqft7a());
         setNumber7AInstallDuctingStandaloneCheckBox(measureEntity.getNumber7ainstallductingcheckbox() == 1);
@@ -1744,24 +1800,22 @@ public class MeasureBean implements Serializable {
         setNumber7AInstallDuctingStandaloneResult(measureEntity.getNumber7ainstallductingresult());
 
         setSqft7b(measureEntity.getSqft7b());
-        setNumber7BInstallR8DuctingNewHVACCheckBox(measureEntity.getNumber7binstallr8ducheckbox() == 1);
-        setNumber7BInstallR8DuctingNewHVACString(measureEntity.getNumber7binstallr8ductstring() == null ? "" : measureEntity.getNumber7binstallr8ductstring());
-        setNumber7BInstallR8DuctingNewHVACResult(measureEntity.getNumber7binstallr8ductresult());
+        setNumber7BCheckBox(measureEntity.getNumber7bcheckbox() == 1);
+        setNumber7BString(measureEntity.getNumber7bstring() == null ? "" : measureEntity.getNumber7bstring());
+        setNumber7BResult(measureEntity.getNumber7bresult());
 
-        setSqft8a(measureEntity.getSqft8a());
-        setNumber8ANewHVACSystemERICheckBox(measureEntity.getNumber8anewhvacicheckbox() == 1);
-        setNumber8ANewHVACSystemERIString(measureEntity.getNumber8anewhvacstring() == null ? "" : measureEntity.getNumber8anewhvacstring());
-        setNumber8ANewHVACSystemERIResult(measureEntity.getNumber8anewhvaresult());
+        setNumber8ACheckBox(measureEntity.getNumber8acheckbox() == 1);
+        setNumber8AResult(measureEntity.getNumber8aresult());
 
-        setSqft8b(measureEntity.getSqft8b());
-        setNumber8BNewHVACSystemERIPrivateCheckBox(measureEntity.getNumber8biiincludecheckbox() == 1);
-        setNumber8BNewHVACSystemERIPrivateString(measureEntity.getNumber8bnewhvacsysstring() == null ? "" : measureEntity.getNumber8bnewhvacsysstring());
-        setNumber8BNewHVACSystemERIPrivateResult(measureEntity.getNumber8bnewhvacsyresult());
+        setNumber8BCheckBox(measureEntity.getNumber8bcheckbox() == 1);
+        setNumber8BResult(measureEntity.getNumber8bresult());
 
-        setSqft8bii(measureEntity.getSqft8bii());
-        setNumber8BIIIncludes10YearPartsCheckBox(measureEntity.getNumber8biiincludecheckbox() == 1);
-        setNumber8BIIIncludes10YearPartsString(measureEntity.getNumber8biiincludestring() == null ? "" : measureEntity.getNumber8biiincludestring());
-        setNumber8BIIIncludes10YearPartsResult(measureEntity.getNumber8biiincludresult());
+        setSqft8c(measureEntity.getSqft8c());
+        setNumber8CCheckBox(measureEntity.getNumber8ccheckbox() == 1);
+        setNumber8CResult(measureEntity.getNumber8cresult());
+        
+        setNumber8DCheckBox(measureEntity.getNumber8dcheckbox() == 1);
+        setNumber8DResult(measureEntity.getNumber8dresult());
 
         setSqft9(measureEntity.getSqft9());
         setNumber9SingleDualZoneHVACSystemCheckBox(measureEntity.getNumber91arelocheckbox() == 1);
@@ -1860,9 +1914,9 @@ public class MeasureBean implements Serializable {
         setNumber15FCanadianSolar270WattCheckBox(measureEntity.getNumber15fcanadiansocheckbox() == 1);
 
         setMarginPercentage(measureEntity.getMarginpercentage());
-        setPgeRebateAmount(measureEntity.getPgeRebateAmount());
-        setPgeRebatePoints(measureEntity.getPgeRebatePoints());
-        setSmudRebateAmount(measureEntity.getSmudRebateAmount());
+        setPgeRebateAmount(measureEntity.getPgerebateamount());
+        setPgeRebatePoints(measureEntity.getPgerebatepoints());
+        setSmudRebateAmount(measureEntity.getSmudrebateamount());
     }
 
     public void setSqft() {
@@ -1874,5 +1928,5 @@ public class MeasureBean implements Serializable {
         setSqft6(questionsBean.getSquareFootage());
         setSqft7b(questionsBean.getSquareFootage());
     }
-    
+
 }
