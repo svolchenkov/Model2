@@ -321,6 +321,28 @@ public class MeasureEntity implements Serializable {
     private Integer number8dcheckbox;
     @Column(name = "NUMBER8DRESULT")
     private double number8dresult;
+    @Column(name = "N16CHECKBOX")
+    private Integer n16checkbox;
+    @Column(name = "N16INT")
+    private Integer n16int;
+    @Column(name = "N16RESULT")
+    private double n16result;
+    @Column(name = "N17CHECKBOX")
+    private Integer n17checkbox;
+    @Size(max = 300)
+    @Column(name = "N17STRING")
+    private String n17string;
+    @Column(name = "N17SQFT")
+    private Integer n17sqft;
+    @Column(name = "N17RESULT")
+    private double n17result;
+    @Column(name = "N18CHECKBOX")
+    private Integer n18checkbox;
+    @Size(max = 300)
+    @Column(name = "N18STRING")
+    private String n18string;
+    @Column(name = "N18RESULT")
+    private double n18result;
 
     public MeasureEntity() {
     }
@@ -1423,6 +1445,86 @@ public class MeasureEntity implements Serializable {
 
     public void setNumber8dresult(double number8dresult) {
         this.number8dresult = number8dresult;
+    }
+
+    public Integer getN16checkbox() {
+        return n16checkbox;
+    }
+
+    public void setN16checkbox(Integer n16checkbox) {
+        this.n16checkbox = n16checkbox;
+    }
+
+    public Integer getN16int() {
+        return n16int;
+    }
+
+    public void setN16int(Integer n16int) {
+        this.n16int = n16int;
+    }
+
+    public double getN16result() {
+        return n16result;
+    }
+
+    public void setN16result(double n16result) {
+        this.n16result = n16result;
+    }
+
+    public Integer getN17checkbox() {
+        return n17checkbox;
+    }
+
+    public void setN17checkbox(Integer n17checkbox) {
+        this.n17checkbox = n17checkbox;
+    }
+
+    public String getN17string() {
+        return n17string;
+    }
+
+    public void setN17string(String n17string) {
+        this.n17string = n17string;
+    }
+
+    public Integer getN17sqft() {
+        return n17sqft;
+    }
+
+    public void setN17sqft(Integer n17sqft) {
+        this.n17sqft = n17sqft;
+    }
+
+    public double getN17result() {
+        return n17result;
+    }
+
+    public void setN17result(double n17result) {
+        this.n17result = n17result;
+    }
+
+    public Integer getN18checkbox() {
+        return n18checkbox;
+    }
+
+    public void setN18checkbox(Integer n18checkbox) {
+        this.n18checkbox = n18checkbox;
+    }
+
+    public String getN18string() {
+        return n18string;
+    }
+
+    public void setN18string(String n18string) {
+        this.n18string = n18string;
+    }
+
+    public double getN18result() {
+        return n18result;
+    }
+
+    public void setN18result(double n18result) {
+        this.n18result = n18result;
     }
 
     @Override

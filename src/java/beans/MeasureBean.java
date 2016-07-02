@@ -29,6 +29,8 @@ public class MeasureBean implements Serializable {
     MeasureManage measureManage;
     @Inject
     QuestionsBean questionsBean;
+    @Inject
+    DashBoardBean dashBoardBean;
 
     FinanceBean finance;
 
@@ -91,11 +93,11 @@ public class MeasureBean implements Serializable {
 
     private boolean number8BCheckBox = false;
     private double number8BResult = 0;
-    
+
     private int sqft8c = 0;
     private boolean number8CCheckBox = false;
     private double number8CResult = 0;
-    
+
     private boolean number8DCheckBox = false;
     private double number8DResult = 0;
 
@@ -194,6 +196,21 @@ public class MeasureBean implements Serializable {
     private boolean number15DIncludesSystemPVProductionCheckBox = false;
     private boolean number15EIncludesAllPermitsCheckBox = false;
     private boolean number15FCanadianSolar270WattCheckBox = false;
+
+    private boolean n16CheckBox = false;
+    private int n16Int = 0;
+    private double n16Result = 0;
+
+    private boolean n17CheckBox = false;
+    private String n17String = "";
+    private int n17Sqft = 0;
+    private double n17Result = 0;
+    
+    private boolean n18CheckBox = false;
+    private String n18String = "";
+    private double n18Result = 0;
+    
+    private int n19int;
 
     // Calculate whole cost
     private double wholeCost = 0;
@@ -518,7 +535,6 @@ public class MeasureBean implements Serializable {
     }
 
     //****************************** 6.  *****************************************
-
     public int getSqft6() {
         return sqft6;
     }
@@ -646,7 +662,6 @@ public class MeasureBean implements Serializable {
     }
 
     //******************************* 8. ******************************
-
     public boolean isNumber8ACheckBox() {
         return number8ACheckBox;
     }
@@ -656,7 +671,7 @@ public class MeasureBean implements Serializable {
     }
 
     public double getNumber8AResult() {
-        if ( isNumber8ACheckBox() == true ) {
+        if (isNumber8ACheckBox() == true) {
             number8AResult = 1200;
         } else {
             number8AResult = 0;
@@ -677,7 +692,7 @@ public class MeasureBean implements Serializable {
     }
 
     public double getNumber8BResult() {
-        if ( isNumber8BCheckBox() == true ) {
+        if (isNumber8BCheckBox() == true) {
             number8BResult = 300;
         } else {
             number8BResult = 0;
@@ -706,7 +721,7 @@ public class MeasureBean implements Serializable {
     }
 
     public double getNumber8CResult() {
-        if ( isNumber8CCheckBox() == true ) {
+        if (isNumber8CCheckBox() == true) {
             number8CResult = getSqft8c() * 2;
         } else {
             number8CResult = 0;
@@ -727,7 +742,7 @@ public class MeasureBean implements Serializable {
     }
 
     public double getNumber8DResult() {
-        if ( isNumber8DCheckBox() == true ) {
+        if (isNumber8DCheckBox() == true) {
             number8DResult = 500;
         } else {
             number8DResult = 0;
@@ -738,7 +753,7 @@ public class MeasureBean implements Serializable {
     public void setNumber8DResult(double number8DResult) {
         this.number8DResult = number8DResult;
     }
-    
+
     //******************** 9. Single/Dual Zone HVAC System ***************************
     public int getSqft9() {
         this.sqft9 = 0;
@@ -1498,6 +1513,124 @@ public class MeasureBean implements Serializable {
         this.number15FCanadianSolar270WattCheckBox = number15FCanadianSolar270WattCheckBox;
     }
 
+    // ************************ 16 Miles from shop Non local  ****************
+    public boolean isN16CheckBox() {
+        return n16CheckBox;
+    }
+
+    public void setN16CheckBox(boolean n16CheckBox) {
+        this.n16CheckBox = n16CheckBox;
+    }
+
+    public int getN16Int() {
+        return n16Int;
+    }
+
+    public void setN16Int(int n16Int) {
+        this.n16Int = n16Int;
+    }
+
+    public double getN16Result() {
+        if (isN16CheckBox() == true) {
+            double k = Math.round(Double.valueOf(getN16Int()) * 1000);
+            this.n16Result = k / 100;
+        } else {
+            this.n16Result = 0;
+        }
+        return n16Result;
+    }
+
+    public void setN16Result(double n16Result) {
+        this.n16Result = n16Result;
+    }
+
+    // *********************** 17 *****************************************
+    public boolean isN17CheckBox() {
+        return n17CheckBox;
+    }
+
+    public void setN17CheckBox(boolean n17CheckBox) {
+        this.n17CheckBox = n17CheckBox;
+    }
+
+    public String getN17String() {
+        return n17String;
+    }
+
+    public void setN17String(String n17String) {
+        this.n17String = n17String;
+    }
+
+    public int getN17Sqft() {
+        return n17Sqft;
+    }
+
+    public void setN17Sqft(int n17Sqft) {
+        this.n17Sqft = n17Sqft;
+    }
+
+    public double getN17Result() {
+        System.out.println("17 str = " + getN17String());
+        if ( !getN17String().equals("")) {
+            if (isN17CheckBox() == true) {
+                double k = Math.round(Double.valueOf(getN17String()) * 100 * getN17Sqft());
+                this.n17Result = k / 100;
+            } else {
+                this.n17Result = 0;
+            }
+        } else {
+            n17Result = 0;
+        }
+        return n17Result;
+    }
+
+    public void setN17Result(double n17Result) {
+        this.n17Result = n17Result;
+    }
+
+    // **************************** 18 ************************************
+
+    public boolean isN18CheckBox() {
+        return n18CheckBox;
+    }
+
+    public void setN18CheckBox(boolean n18CheckBox) {
+        this.n18CheckBox = n18CheckBox;
+    }
+
+    public String getN18String() {
+        return n18String;
+    }
+
+    public void setN18String(String n18String) {
+        this.n18String = n18String;
+    }
+
+    public double getN18Result() {
+            if (isN18CheckBox() == true) {
+                double k = Math.round(Double.valueOf(getN18String()) * 100);
+                this.n18Result = k / 100;
+            } else {
+                this.n18Result = 0;
+            }
+        return n18Result;
+    }
+
+    public void setN18Result(double n18Result) {
+        this.n18Result = n18Result;
+    }
+    
+    // ************************ 19 ****************************************
+
+    public int getN19int() {
+        n19int = ( dashBoardBean.getSolarCost() != 0 ) ? 600 : 0;      
+        return n19int;
+    }
+
+    public void setN19int(int n19int) {
+        this.n19int = n19int;
+    }
+    
     //*********************************************************************
     public String getCaseId() {
         return caseId;
@@ -1512,7 +1645,7 @@ public class MeasureBean implements Serializable {
                 + getNumber3InstallBattedInsulationResult() + getNumber4ReplaceDuctsEquipmentResult()
                 + getNumber5AResult() + getNumber5BResult() + getNumber6Result()
                 + getNumber7AInstallDuctingStandaloneResult() + getNumber7BResult()
-                + getNumber8AResult() + getNumber8BResult() +  getNumber8CResult()
+                + getNumber8AResult() + getNumber8BResult() + getNumber8CResult()
                 + getNumber8DResult() + getNumber9SingleDualZoneHVACSystemResult()
                 + getNumber91aRelocateCondenserResult() + getNumber91bCutInSupplyVentNewDuctResult()
                 + getNumber91cHVACCutInResult() + getNumber91dDuctSealOnlyResult()
@@ -1521,7 +1654,7 @@ public class MeasureBean implements Serializable {
                 + getNumber101BAddHeaderResult() + getNumber102ACutDownWindowResult() + getNumber102BElectricalReroutesResult()
                 + getNumber102CGardenWindow4Result() + getNumber102DGardenWindow6Result() + getNumber11InstallPoolPumpResult()
                 + getNumber12InstallWholeHouseFanResult() + getNumber13InstallWaterHeaterResult() + getNumber14PermitsResult()
-                + getNumber15InstallBatteryOperatedResult();
+                + getNumber15InstallBatteryOperatedResult() + getN16Result() + getN17Result() + getN18Result() + getN19int();
         return total;
     }
 
@@ -1607,7 +1740,7 @@ public class MeasureBean implements Serializable {
         setNumber5ACheckBox(false);
         setNumber5AString("");
         setNumber5AResult(0);
-        
+
         setSqft5b(0);
         setNumber5BCheckBox(false);
         setNumber5BString("");
@@ -1637,7 +1770,7 @@ public class MeasureBean implements Serializable {
         setNumber8CCheckBox(false);
         setSqft8c(0);
         setNumber8CResult(0);
-        
+
         setNumber8DCheckBox(false);
         setNumber8DResult(0);
 
@@ -1737,6 +1870,19 @@ public class MeasureBean implements Serializable {
         setNumber15EIncludesAllPermitsCheckBox(false);
         setNumber15FCanadianSolar270WattCheckBox(false);
 
+        setN16CheckBox(false);
+        setN16Int(0);
+        setN16Result(0);
+        
+        setN17CheckBox(false);
+        setN17Result(0);
+        setN17Sqft(0);
+        setN17String("");
+        
+        setN18CheckBox(false);
+        setN18Result(0);
+        setN18String("");
+
         setMarginPercentage(0);
 
         setPgeRebateAmount(0);
@@ -1778,12 +1924,12 @@ public class MeasureBean implements Serializable {
         setNumber5AirSealPackageCheckBox(measureEntity.getNumber5airsealpcheckbox() == 1);
         setNumber5AirSealPackageString(measureEntity.getNumber5airsealstring() == null ? "" : measureEntity.getNumber5airsealstring());
         setNumber5AirSealPackageResult(measureEntity.getNumber5airsealparesult());
-        
+
         setSqft5a(measureEntity.getSqft5a());
         setNumber5ACheckBox(measureEntity.getNumber5acheckbox() == 1);
         setNumber5AString(measureEntity.getNumber5astring() == null ? "" : measureEntity.getNumber5astring());
         setNumber5AResult(measureEntity.getNumber5aresult());
-        
+
         setSqft5b(measureEntity.getSqft5b());
         setNumber5BCheckBox(measureEntity.getNumber5bcheckbox() == 1);
         setNumber5BString(measureEntity.getNumber5bstring() == null ? "" : measureEntity.getNumber5bstring());
@@ -1813,7 +1959,7 @@ public class MeasureBean implements Serializable {
         setSqft8c(measureEntity.getSqft8c());
         setNumber8CCheckBox(measureEntity.getNumber8ccheckbox() == 1);
         setNumber8CResult(measureEntity.getNumber8cresult());
-        
+
         setNumber8DCheckBox(measureEntity.getNumber8dcheckbox() == 1);
         setNumber8DResult(measureEntity.getNumber8dresult());
 
@@ -1913,6 +2059,19 @@ public class MeasureBean implements Serializable {
         setNumber15EIncludesAllPermitsCheckBox(measureEntity.getNumber15eicheckbox() == 1);
         setNumber15FCanadianSolar270WattCheckBox(measureEntity.getNumber15fcanadiansocheckbox() == 1);
 
+        setN16CheckBox(measureEntity.getN16checkbox() == 1);
+        setN16Int(measureEntity.getN16int());
+        setN16Result(measureEntity.getN16result());
+        
+        setN17CheckBox(measureEntity.getN17checkbox() == 1);
+        setN17Result(measureEntity.getN17result());
+        setN17Sqft(measureEntity.getN17sqft());
+        setN17String(measureEntity.getN17string());
+        
+        setN18CheckBox(measureEntity.getN18checkbox() == 1);
+        setN18Result(measureEntity.getN18result());
+        setN18String(measureEntity.getN18string());
+
         setMarginPercentage(measureEntity.getMarginpercentage());
         setPgeRebateAmount(measureEntity.getPgerebateamount());
         setPgeRebatePoints(measureEntity.getPgerebatepoints());
@@ -1923,10 +2082,8 @@ public class MeasureBean implements Serializable {
         setSqft1(questionsBean.getSquareFootage());
         setSqft2(questionsBean.getSquareFootage());
         setSqft3(questionsBean.getSquareFootage());
-        setSqft4(questionsBean.getSquareFootage());
-        setSqft5(questionsBean.getSquareFootage());
-        setSqft6(questionsBean.getSquareFootage());
-        setSqft7b(questionsBean.getSquareFootage());
+        setSqft8c(questionsBean.getSquareFootage());
+        setN17Sqft(questionsBean.getSquareFootage());
     }
 
 }

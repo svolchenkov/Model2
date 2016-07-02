@@ -30,6 +30,7 @@
                                             <h:commandButton class="topButtonsMeasures" value="to house + finance" action="#{measureBean.wayToHouseFinance()}" />
                                             <h:commandButton class="topButtonsMeasures" value="to dashboard" action="dashboard" />
                                             <h:commandButton class="topButtonsMeasures" value="back to index" action="index" />
+                                            <h:commandButton class="topButtonsMeasures" value="save" action="#{questions.saveQuestionsHouse()}" />
                                             <h:commandButton class="topButtonsMeasures" value="fill Sqft" action="#{measureBean.setSqft()}" >
                                                 <p:ajax event="change" update="sqft1, sqft2, sqft3" />
                                             </h:commandButton>
@@ -309,7 +310,7 @@
                                                     <div>
                                                         <table><tr><td class="checkboxtd"><h:selectBooleanCheckbox value="#{measureBean.number92NotesCheckBox}"  /></td>
                                                                 <td class="titletd" ><h:outputText value="9. Notes " /></td>
-                                                                <td class="fieldtd"><h:inputTextarea  rows="6" cols="50" value="#{measureBean.number92NotesString}" /></td>
+                                                                <td class="fieldtd"><h:inputTextarea  rows="4" cols="50" value="#{measureBean.number92NotesString}" /></td>
                                                                 <td class="sqftpricelable" />
                                                                 <td class="sqftpricetd" />
                                                                 <td class="resulttd"  />
@@ -349,13 +350,7 @@
                                                             </tr>
                                                         </table>
                                                     </div>
-                                                </td>
-                                            </tr></table>    
-                                    </div>
-
-                                    <div class="measuresblock2" >
-                                        <table class="measure"><tr><td>
-                                                    <!-- second column -->
+                                                    <hr></hr>
                                                     <!-- 10. Install Windows: -->
                                                     <div>
                                                         <table><tr><td class="checkboxtd" />
@@ -373,7 +368,7 @@
                                                                         <p:ajax event="keyup" update="number10numOfWindows"  /></h:inputText></td>
                                                                 <td class="sqftpricetd" ><h:inputText style="width: 95%" value="#{measureBean.number10TotalUnitedInchesInt}" >
                                                                         <p:ajax event="keyup" update="number10InstallResult, hpTotal"  /></h:inputText></td>
-                                                                <td class="resulttd" ><h:outputText style="width: 95%" id="number10InstallResult" value="#{measureBean.number10InstallResult}" /></td>
+                                                                <td class="resulttd" ><h:outputText style="width: 95%" id="number10InstallResult" value=" = #{measureBean.number10InstallResult}" /></td>
                                                             </tr>
                                                             <tr><td class="checkboxtd"></td>
                                                                 <td class="rightFieldtd" ><h:outputText style="width: 95%" value="If new construction is selected, it is at a higher cost" /></td>
@@ -388,7 +383,7 @@
                                                                         <p:ajax event="keyup" update="number10numOfSliders"  /></h:inputText></td>
                                                                 <td class="rightJtd" ><h:inputText style="width: 95%" value="#{measureBean.number10LinearFeet}" >
                                                                         <p:ajax event="keyup" update="number10LinearFeetResult, hpTotal"  /></h:inputText></td>
-                                                                <td class="resulttd" ><h:outputText style="width: 95%" id="number10LinearFeetResult" value="#{measureBean.number10LinearFeetResult}" /></td>
+                                                                <td class="resulttd" ><h:outputText style="width: 95%" id="number10LinearFeetResult" value=" = #{measureBean.number10LinearFeetResult}" /></td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -409,7 +404,7 @@
                                                                 <td class="rightItd" />
                                                                 <td  class="rightJtd"><h:inputText style="width: 95%" value="#{measureBean.number101ACutInDoorInt}" >
                                                                         <p:ajax event="keyup" update="number101ACutInDoorResult, hpTotal"  /></h:inputText></td>
-                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number101ACutInDoorResult" value="#{measureBean.number101ACutInDoorResult}" /></td>
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number101ACutInDoorResult" value=" = #{measureBean.number101ACutInDoorResult}" /></td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -424,7 +419,7 @@
                                                                 <td class="rightItd" />
                                                                 <td  class="rightJtd"><h:inputText style="width: 95%" value="#{measureBean.number101BAddHeaderInt}" >
                                                                         <p:ajax event="keyup" update="number101BAddHeaderResult, hpTotal"  /></h:inputText></td>
-                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number101BAddHeaderResult" value="#{measureBean.number101BAddHeaderResult}" /></td>
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number101BAddHeaderResult" value=" = #{measureBean.number101BAddHeaderResult}" /></td>
                                                             </tr>
                                                             <tr><td class="checkboxtd" />
                                                                 <td class="rightFieldtd" ><h:outputText style="width: 95%" value="New Construction ($325. per hole/window)" /></td>
@@ -455,7 +450,7 @@
                                                                 <td  class="rightFieldtd"><h:outputText style="width: 95%" value="10.2a.Cut Down Window no Electric" /></td>
                                                                 <td class="rightItd" />
                                                                 <td  class="rightJtd" />
-                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number102ACutDownWindowResult" value="#{measureBean.number102ACutDownWindowResult}" /></td>
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number102ACutDownWindowResult" value=" = #{measureBean.number102ACutDownWindowResult}" /></td>
                                                             </tr>
                                                             <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number102BElectricalReroutesCheckBox}" >
                                                                         <p:ajax event="change" update="number102BElectricalReroutesResult, hpTotal"  />
@@ -463,7 +458,7 @@
                                                                 <td  class="rightFieldtd"><h:outputText style="width: 95%" value="10.2b.Electrical Reroutes" /></td>
                                                                 <td class="rightItd" />
                                                                 <td  class="rightJtd" />
-                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number102BElectricalReroutesResult" value="#{measureBean.number102BElectricalReroutesResult}" /></td>
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number102BElectricalReroutesResult" value=" = #{measureBean.number102BElectricalReroutesResult}" /></td>
                                                             </tr>
                                                             <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number102CGardenWindow4CheckBox}" >
                                                                         <p:ajax event="change" update="number102CGardenWindow4Result, hpTotal"  />
@@ -471,7 +466,7 @@
                                                                 <td  class="rightFieldtd"><h:outputText style="width: 95%" value="10.2c.Garden Window 4" /></td>
                                                                 <td class="rightItd" />
                                                                 <td  class="rightJtd" />
-                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number102CGardenWindow4Result" value="#{measureBean.number102CGardenWindow4Result}" /></td>
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number102CGardenWindow4Result" value=" = #{measureBean.number102CGardenWindow4Result}" /></td>
                                                             </tr>
                                                             <tr><td class="checkboxtd"><h:selectBooleanCheckbox style="width: 95%" value="#{measureBean.number102DGardenWindow6CheckBox}" >
                                                                         <p:ajax event="change" update="number102DGardenWindow6Result, hpTotal"  />
@@ -479,11 +474,16 @@
                                                                 <td  class="rightFieldtd"><h:outputText style="width: 95%" value="10.2d.Garden Window 6" /></td>
                                                                 <td class="rightItd" />
                                                                 <td  class="rightJtd" />
-                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number102DGardenWindow6Result" value="#{measureBean.number102DGardenWindow6Result}" /></td>
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number102DGardenWindow6Result" value=" = #{measureBean.number102DGardenWindow6Result}" /></td>
                                                             </tr>
                                                         </table>
                                                     </div>
-                                                    <hr></hr>
+                                                </td>
+                                            </tr></table>    
+                                    </div>
+                                    <div class="measuresblock2" >
+                                        <table class="measure"><tr><td>
+                                                    <!-- second column -->
                                                     <!-- 10.3. All glazing is Triple lowE, tempered where required by code and obscured in bathrooms as required by customer: -->
                                                     <table>
                                                         <tr><td class="checkboxtd" />
@@ -545,7 +545,7 @@
                                                                 <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Pentair 3HP Intelliflo Variable Speed Pool Pump" /></td>
                                                                 <td class="rightItd" />
                                                                 <td  class="rightJtd" />
-                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number11InstallPoolPumpResult" value="#{measureBean.number11InstallPoolPumpResult}" /></td>
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number11InstallPoolPumpResult" value=" = #{measureBean.number11InstallPoolPumpResult}" /></td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -573,7 +573,7 @@
                                                             </td>
                                                             <td class="rightItd" />
                                                             <td class="rightJtd"  />
-                                                            <td class="resulttd"><h:outputText id="number12InstallWholeHouseFanResult" value="#{measureBean.number12InstallWholeHouseFanResult}" />
+                                                            <td class="resulttd"><h:outputText id="number12InstallWholeHouseFanResult" value=" = #{measureBean.number12InstallWholeHouseFanResult}" />
                                                             </td>
                                                         </tr>
 
@@ -604,7 +604,7 @@
                                                             </td>
                                                             <td class="rightItd" />
                                                             <td class="rightJtd"  />
-                                                            <td class="resulttd"><h:outputText id="number13InstallWaterHeaterResult" value="#{measureBean.number13InstallWaterHeaterResult}" />
+                                                            <td class="resulttd"><h:outputText id="number13InstallWaterHeaterResult" value=" = #{measureBean.number13InstallWaterHeaterResult}" />
                                                             </td>
                                                         </tr>
                                                         <tr><td class="checkboxtd" />
@@ -630,7 +630,7 @@
                                                                 <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Includes all permits 3rd party verification as needed BPI test in and test out" /></td>
                                                                 <td class="rightItd" />
                                                                 <td  class="rightJtd" />
-                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number14PermitsResult" value="#{measureBean.number14PermitsResult}" /></td>
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number14PermitsResult" value=" = #{measureBean.number14PermitsResult}" /></td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -651,7 +651,7 @@
                                                                 <td  class="rightFieldtd"><h:outputText style="width: 95%" value="Install battery-operated CO and smoke detectors as needed (no charge)" /></td>
                                                                 <td class="rightItd" />
                                                                 <td  class="rightJtd" />
-                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number15InstallBatteryOperatedResult" value="#{measureBean.number15InstallBatteryOperatedResult}" /></td>
+                                                                <td  class="resulttd"><h:outputText style="width: 95%" id="number15InstallBatteryOperatedResult" value=" = #{measureBean.number15InstallBatteryOperatedResult}" /></td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -703,6 +703,100 @@
                                                                 <td class="rightItd" />
                                                                 <td  class="rightJtd" />
                                                                 <td  class="resulttd"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <hr></hr>
+                                                    <table><tr><td class="checkboxtd" />
+                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%; color: darkred" value="Pass Through Items (non commissioned)" /></td>
+                                                            <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                        </tr>
+                                                        <tr><td class="checkboxtd" />
+                                                            <td class="rightFieldtd" ><h:outputText style="width: 95%;" value="Travel Requirements" /></td>
+                                                            <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                        </tr>
+                                                    </table>
+                                                    <!-- 16. Miles from shop Non local  -->
+                                                    <table><tr>
+                                                            <td class="checkboxtd"><h:selectBooleanCheckbox id="n16CheckBox" value="#{measureBean.n16CheckBox}" >
+                                                                    <p:ajax event="change" update="n16Result ,hpTotal"  />
+                                                                </h:selectBooleanCheckbox></td>
+                                                            <td class="rightFieldtd" ><h:outputText value="16.Miles from shop Non local " /></td>
+                                                            <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            <td class="rightJtd" ><h:inputText style="width: 95%" value="#{measureBean.n16Int}" >
+                                                                    <p:ajax event="keyup" update="n16Result ,hpTotal"  /></h:inputText></td>
+                                                            <td class="resulttd" ><h:outputText style="width: 95%" id="n16Result" value=" = #{measureBean.n16Result}" /></td>
+                                                        </tr></table>
+                                                    <!-- 17. Roofing Squares -->
+                                                    <div>
+                                                        <table >
+                                                            <tr><td class="checkboxtd" />
+                                                                <td class="rightFieldtd" ><h:outputText style="width: 95%;" value="17.Roofing Squares" /></td>
+                                                                <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            </tr>
+                                                            <tr ><td class="checkboxtd" ><h:selectBooleanCheckbox value="#{measureBean.n17CheckBox}"  >
+                                                                        <p:ajax event="change" update="n17Result, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox>
+                                                                </td>
+                                                                <td class="rightFieldtd"><h:selectOneMenu style="width: 95%" id="n17String" value="#{measureBean.n17String}" >
+                                                                        <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                        <f:selectItem itemLabel="Tear off resheet and install new 30 year composition roofing" itemValue="450" />
+                                                                        <f:selectItem itemLabel="Install new 30 year composition roofing" itemValue="750" />
+                                                                        <f:selectItem itemLabel="Install new 30 year composition roofing at solar array area only" itemValue="550" />
+                                                                        <p:ajax event="change" update="n17String, n17Result, hpTotal" />
+                                                                    </h:selectOneMenu>
+                                                                </td>
+                                                                <td class="rightItd" ><h:outputText style="width: 95%" value="sqft:" /></td>
+                                                                <td class="rightJtd"><h:inputText id="n17Sqft" style="width: 95%" maxlength="5" value="#{measureBean.n17Sqft}"  >
+                                                                        <p:ajax event="keyup" update="n17Result, hpTotal" />
+                                                                    </h:inputText></td>
+                                                                <td class="resulttd"><h:outputText id="n17Result" value=" = #{measureBean.n17Result}" />
+                                                                </td>
+                                                            </tr></table>
+                                                    </div>
+
+                                                    <!-- 18. Electrical Panel Changeout -->
+                                                    <div>
+                                                        <table >
+                                                            <tr><td class="checkboxtd" />
+                                                                <td class="rightFieldtd" ><h:outputText style="width: 95%;" value="18.Electrical Panel Changeout" /></td>
+                                                                <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="resulttd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                            </tr>
+                                                            <tr ><td class="checkboxtd" ><h:selectBooleanCheckbox value="#{measureBean.n18CheckBox}"  >
+                                                                        <p:ajax event="change" update="n18Result, hpTotal"  />
+                                                                    </h:selectBooleanCheckbox>
+                                                                </td>
+                                                                <td class="rightFieldtd"><h:selectOneMenu style="width: 95%" id="n18String" value="#{measureBean.n18String}" >
+                                                                        <f:selectItem itemLabel="Select One " itemValue="0" />
+                                                                        <f:selectItem itemLabel="Upgrade SMUD Panel to meet Solar Requirements" itemValue="3000" />
+                                                                        <f:selectItem itemLabel="Upgrade Panel to meet PGE Requirements" itemValue="2100" />
+                                                                        <f:selectItem itemLabel="Upgrade Panel to 400A Service" itemValue="4000" />
+                                                                        <p:ajax event="change" update="n18String, n18Result, hpTotal" />
+                                                                    </h:selectOneMenu>
+                                                                </td>
+                                                                <td class="rightItd" ><h:outputText style="width: 95%" value="sqft:" /></td>
+                                                                <td class="rightJtd"></td>
+                                                                <td class="resulttd"><h:outputText id="n18Result" value=" = #{measureBean.n18Result}" />
+                                                                </td>
+                                                            </tr></table>
+                                                    </div>
+                                                    <hr></hr>
+                                                    <!-- 19 HP Only: -->
+                                                    <div>
+                                                        <table>
+                                                            <tr><td class="checkboxtd" />
+                                                                <td class="rightFieldtd" ><h:outputText style="width: 95%" value="19.HP Only " /></td>
+                                                                <td class="rightItd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="rightJtd" ><h:outputText style="width: 95%" value=" " /></td>
+                                                                <td class="resulttd" ><h:outputText style="width: 95%" value=" = #{measureBean.n19int}" /></td>
                                                             </tr>
                                                         </table>
                                                     </div>
