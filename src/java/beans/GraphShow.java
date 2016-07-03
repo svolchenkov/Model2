@@ -60,7 +60,7 @@ public class GraphShow implements Serializable {
         combinedModel = new BarChartModel();
 
         LineChartSeries asIs = new LineChartSeries();
-        asIs.setLabel("As is");
+        asIs.setLabel("current situation");
 
         double tempa = graph.getCurrentMonthPayment();
         double tempb;
@@ -70,11 +70,44 @@ public class GraphShow implements Serializable {
             tempb = Math.round((tempa += delta) * 100);
             tempa = tempb / 100;
             i++;
-        } while (i < lastYear);
+        } while (i < lastYear + 5);
+
+        //filling mo payment after project
+        combinedModel = new BarChartModel();
+        LineChartSeries futMoPaiment = new LineChartSeries();
+        futMoPaiment.setLabel("mo payment after realised project");
+        delta = (graph.getMoPaimentAfterImproveFuture() - graph.getCurrentMonthPaymentAfterImprove()) / graph.getTimeTravel();
+        if (graph.getFrontLoadTaxBenefit() == 0) {
+            tempa = graph.getHpMoPayment() + graph.getSolarMoPayment() + graph.getCurrentMonthPaymentAfterImprove();
+        } else {
+            tempa = graph.getHpMoPayment() + graph.getSolarMoPaymentAfterFrontLoad() + graph.getCurrentMonthPaymentAfterImprove();
+            double k = Math.round(tempa * 100);
+            tempa = k / 100;
+        }
+        if (graph.isAccountForTaxWrite() == true) {
+            tempa *= 0.67;
+        }
+        i = currentYear;
+        do {
+            if (i < lastYear) {
+                tempb = Math.round((tempa += delta) * 100);
+                tempa = tempb / 100;
+                futMoPaiment.set(i, tempa);
+            } else {
+                if ( i == lastYear) {
+                    tempa -= (graph.getHpMoPayment() + graph.getSolarMoPayment());
+                }
+                tempb = Math.round((tempa += delta) * 100);
+                tempa = tempb / 100;
+                tempa = tempa < 0 ? 0 : tempa; 
+                futMoPaiment.set(i, tempa);
+            }
+            i++;
+        } while (i < lastYear + 5);
 
         //filling bar map
         BarChartSeries tobe = new BarChartSeries();
-        tobe.setLabel("To be");
+        tobe.setLabel("mo payment for improvement");
         i = currentYear;
         if (graph.getFrontLoadTaxBenefit() == 0) {
             tempa = graph.getTotMonthlyPayment();
@@ -83,17 +116,25 @@ public class GraphShow implements Serializable {
             double k = Math.round(tempa * 100);
             tempa = k / 100;
         }
-        if ( graph.isAccountForTaxWrite() == true ) {
+        if (graph.isAccountForTaxWrite() == true) {
             tempa *= 0.67;
         }
 
         do {
-            tobe.set(i, tempa);
-            i++;
-        } while (i < lastYear);
+            if (i < lastYear) {
+                tobe.set(i, tempa);
+                i++;
+            } else {
+                tobe.set(i, 0);
+                i++;
+            }
+        } while (i < lastYear + 5);
+        
+        
 
         combinedModel.addSeries(tobe);
         combinedModel.addSeries(asIs);
+        combinedModel.addSeries(futMoPaiment);
 
         combinedModel.setTitle("Best graph");
         combinedModel.setLegendPosition("ne");
@@ -102,7 +143,7 @@ public class GraphShow implements Serializable {
         combinedModel.setShowPointLabels(true);
         Axis yAxis = combinedModel.getAxis(AxisType.Y);
         yAxis.setMin(0);
-        yAxis.setMax(graph.getFutureMonthPayment() * 1.3);
+        yAxis.setMax(graph.getFutureMonthPayment() * 1.5);
         Axis xAxis = combinedModel.getAxis(AxisType.X);
         xAxis.setMin(currentYear);
         xAxis.setMax(lastYear);

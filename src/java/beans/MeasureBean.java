@@ -1570,7 +1570,6 @@ public class MeasureBean implements Serializable {
     }
 
     public double getN17Result() {
-        System.out.println("17 str = " + getN17String());
         if ( !getN17String().equals("")) {
             if (isN17CheckBox() == true) {
                 double k = Math.round(Double.valueOf(getN17String()) * 100 * getN17Sqft());

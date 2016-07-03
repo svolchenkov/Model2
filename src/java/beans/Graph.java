@@ -11,8 +11,8 @@ import java.io.Serializable;
 
 import javax.inject.Inject;
 
-import entities.UtilityDistrict;
-import entities.DataUtilityDistrict;
+import entity.UtilityDistrict;
+import entity.DataUtilityDistrict;
 
 /**
  *
@@ -30,6 +30,8 @@ public class Graph implements Serializable {
     MeasureBean measureBean;
     @Inject
     DashBoardBean dashBoardBean;
+    @Inject
+    Graph graph;
 
     private int annualKW = 0;
     private String utilityDistrict = "";
@@ -66,6 +68,7 @@ public class Graph implements Serializable {
     private double solarMoPaymentAfterFrontLoad = 0;
     private double totMonthlyPayment = 0;
     private double costPerKW = 0;
+    private int dailyHoursForSolar;
 
     private int recommendedFullSize = 0;
     private int customSSystemSize = 0;
@@ -439,6 +442,14 @@ public class Graph implements Serializable {
     public void setAccountForTaxWrite(boolean accountForTaxWrite) {
         this.accountForTaxWrite = accountForTaxWrite;
     }
+
+    public int getDailyHoursForSolar() {
+        return dailyHoursForSolar;
+    }
+
+    public void setDailyHoursForSolar(int dailyHoursForSolar) {
+        this.dailyHoursForSolar = dailyHoursForSolar;
+    }
     
     public double getCurrentMonthPayment() {
         currentMonthPayment = 0.0;
@@ -497,6 +508,62 @@ public class Graph implements Serializable {
 
     public void setCurrentMonthPayment(double currentMonthPayment) {
         this.currentMonthPayment = currentMonthPayment;
+    }
+    
+    public double getCurrentMonthPaymentAfterImprove() {
+        currentMonthPayment = 0.0;
+        double tempa = 0.0;
+        UtilityDistrict ud = new UtilityDistrict();
+        dataUtilityDistrict = ud.getUtilityDistrict(getUtilityDistrict());
+        tempa = (getAnnualKW() - (this.getSystemSizeInKw() * getDailyHoursForSolar() * 30 * 12)) * 1.0 / 12;
+        //tier 1
+        if (tempa > 0) {
+            if ((tempa - dataUtilityDistrict.getTire1kw()) >= 0) {
+                currentMonthPayment += dataUtilityDistrict.getTire1kw() * dataUtilityDistrict.getTire1current();
+                tempa -= dataUtilityDistrict.getTire1kw();
+            } else {
+                currentMonthPayment += tempa * dataUtilityDistrict.getTire1current();
+                tempa -= dataUtilityDistrict.getTire1kw();
+            }
+        }
+        //tier 2
+        if (tempa > 0) {
+            if ((tempa - dataUtilityDistrict.getTire2kw()) >= 0) {
+                currentMonthPayment += dataUtilityDistrict.getTire2kw() * dataUtilityDistrict.getTire2current();
+                tempa -= dataUtilityDistrict.getTire2kw();
+            } else {
+                currentMonthPayment += tempa * dataUtilityDistrict.getTire2current();
+                tempa -= dataUtilityDistrict.getTire2kw();
+            }
+        }
+        //tier 3
+        if (tempa > 0) {
+            if ((tempa - dataUtilityDistrict.getTire3kw()) >= 0) {
+                currentMonthPayment += dataUtilityDistrict.getTire3kw() * dataUtilityDistrict.getTire3current();
+                tempa -= dataUtilityDistrict.getTire3kw();
+            } else {
+                currentMonthPayment += tempa * dataUtilityDistrict.getTire3current();
+                tempa -= dataUtilityDistrict.getTire3kw();
+            }
+        }
+        //tier 4
+        if (tempa > 0) {
+            if ((tempa - dataUtilityDistrict.getTire4kw()) >= 0) {
+                currentMonthPayment += dataUtilityDistrict.getTire4kw() * dataUtilityDistrict.getTire4current();
+                tempa -= dataUtilityDistrict.getTire4kw();
+            } else {
+                currentMonthPayment += tempa * dataUtilityDistrict.getTire4current();
+                tempa -= dataUtilityDistrict.getTire4kw();
+            }
+        }
+        //tier 5
+        if (tempa > 0) {
+            currentMonthPayment += tempa * dataUtilityDistrict.getTire5current();
+        }
+        tempa = Math.round(currentMonthPayment * 100);
+        currentMonthPayment = tempa / 100;
+        currentMonthPayment = currentMonthPayment > 0 ? currentMonthPayment : 0;
+        return currentMonthPayment;
     }
 
     public double getFutureMonthPayment() {
@@ -572,6 +639,83 @@ public class Graph implements Serializable {
         futureMonthPayment = tire1 + tire2 + tire3 + tire4 + tire5;
         tempa = Math.round(futureMonthPayment * 100);
         futureMonthPayment = tempa / 100;
+        return futureMonthPayment;
+    }
+    
+    public double getMoPaimentAfterImproveFuture() {
+        futureMonthPayment = 0.0;
+        double tire1 = 0;
+        double tire2 = 0;
+        double tire3 = 0;
+        double tire4 = 0;
+        double tire5 = 0;
+        double tempa = 0.0;
+        UtilityDistrict ud = new UtilityDistrict();
+        dataUtilityDistrict = ud.getUtilityDistrict(getUtilityDistrict());
+        tempa = (getAnnualKW() - ( this.getSystemSizeInKw() * getDailyHoursForSolar() * 30 * 12)) * 1.0 / 12;
+        //tier 1
+        if (tempa > 0) {
+            if ((tempa - dataUtilityDistrict.getTire1kw()) >= 0) {
+                tire1 = dataUtilityDistrict.getTire1kw() * dataUtilityDistrict.getTire1current();
+                tempa -= dataUtilityDistrict.getTire1kw();
+            } else {
+                tire1 = tempa * dataUtilityDistrict.getTire1current();
+                tempa -= dataUtilityDistrict.getTire1kw();
+            }
+            for (int i = 0; i < getTimeTravel(); i++) {
+                tire1 *= (1 + dataUtilityDistrict.getTire1increase());
+            }
+        }
+        //tier 2
+        if (tempa > 0) {
+            if ((tempa - dataUtilityDistrict.getTire2kw()) >= 0) {
+                tire2 = dataUtilityDistrict.getTire2kw() * dataUtilityDistrict.getTire2current();
+                tempa -= dataUtilityDistrict.getTire2kw();
+            } else {
+                tire2 = tempa * dataUtilityDistrict.getTire2current();
+                tempa -= dataUtilityDistrict.getTire2kw();
+            }
+            for (int i = 0; i < getTimeTravel(); i++) {
+                tire2 *= (1 + dataUtilityDistrict.getTire2increase());
+            }
+        }
+        //tier 3
+        if (tempa > 0) {
+            if ((tempa - dataUtilityDistrict.getTire3kw()) >= 0) {
+               tire3 = dataUtilityDistrict.getTire3kw() * dataUtilityDistrict.getTire3current();
+                tempa -= dataUtilityDistrict.getTire3kw();
+            } else {
+                tire3 = tempa * dataUtilityDistrict.getTire3current();
+                tempa -= dataUtilityDistrict.getTire3kw();
+            }
+            for (int i = 0; i < getTimeTravel(); i++) {
+                tire3 *= (1 + dataUtilityDistrict.getTire3increase());
+            }
+        }
+        //tier 4
+        if (tempa > 0) {
+            if ((tempa - dataUtilityDistrict.getTire4kw()) >= 0) {
+                tire4 = dataUtilityDistrict.getTire4kw() * dataUtilityDistrict.getTire4current();
+                tempa -= dataUtilityDistrict.getTire4kw();
+            } else {
+                tire4 = tempa * dataUtilityDistrict.getTire4current();
+                tempa -= dataUtilityDistrict.getTire4kw();
+            }
+            for (int i = 0; i < getTimeTravel(); i++) {
+                tire4 *= (1 + dataUtilityDistrict.getTire4increase());
+            }
+        }
+        //tier 5
+        if (tempa > 0) {
+            tire5 = tempa * dataUtilityDistrict.getTire5current();
+            for (int i = 0; i < getTimeTravel(); i++) {
+                tire5 *= (1 + dataUtilityDistrict.getTire5increase());
+            }
+        }
+        futureMonthPayment = tire1 + tire2 + tire3 + tire4 + tire5;
+        tempa = Math.round(futureMonthPayment * 100);
+        futureMonthPayment = tempa / 100;
+        futureMonthPayment = futureMonthPayment > 0 ? futureMonthPayment : 0;
         return futureMonthPayment;
     }
 
