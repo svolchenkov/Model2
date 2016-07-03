@@ -5,6 +5,8 @@
  */
 package beans;
 
+import entity.DataUtilityDistrict;
+import entity.UtilityDistrict;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -20,6 +22,8 @@ import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.BarChartModel;
 import org.primefaces.model.chart.BarChartSeries;
 import org.primefaces.model.chart.CartesianChartModel;
+import org.primefaces.model.chart.ChartSeries;
+import org.primefaces.model.chart.HorizontalBarChartModel;
 import org.primefaces.model.chart.LineChartSeries;
 
 /**
@@ -34,6 +38,8 @@ public class GraphShow implements Serializable {
 
     @Inject
     Graph graph;
+    @Inject
+    DashBoardBean dashBoardBean;
 
     private CartesianChartModel combinedModel;
 
@@ -94,12 +100,12 @@ public class GraphShow implements Serializable {
                 tempa = tempb / 100;
                 futMoPaiment.set(i, tempa);
             } else {
-                if ( i == lastYear) {
+                if (i == lastYear) {
                     tempa -= (graph.getHpMoPayment() + graph.getSolarMoPayment());
                 }
                 tempb = Math.round((tempa += delta) * 100);
                 tempa = tempb / 100;
-                tempa = tempa < 0 ? 0 : tempa; 
+                tempa = tempa < 0 ? 0 : tempa;
                 futMoPaiment.set(i, tempa);
             }
             i++;
@@ -129,8 +135,6 @@ public class GraphShow implements Serializable {
                 i++;
             }
         } while (i < lastYear + 5);
-        
-        
 
         combinedModel.addSeries(tobe);
         combinedModel.addSeries(asIs);
@@ -147,6 +151,89 @@ public class GraphShow implements Serializable {
         Axis xAxis = combinedModel.getAxis(AxisType.X);
         xAxis.setMin(currentYear);
         xAxis.setMax(lastYear);
+    }
+
+    // *****************bar *********************************
+    private HorizontalBarChartModel horizontalBarModel;
+
+    public HorizontalBarChartModel getHorizontalBarModel() {
+        createHorizontalBarModel();
+        return horizontalBarModel;
+    }
+
+    private void createHorizontalBarModel() {
+        horizontalBarModel = new HorizontalBarChartModel();
+
+        UtilityDistrict ud = new UtilityDistrict();
+        DataUtilityDistrict dataUtilityDistrict = ud.getUtilityDistrict(graph.getUtilityDistrict());
+
+        ChartSeries tier1 = new ChartSeries();
+        tier1.set("tiers", dataUtilityDistrict.tire1kw);
+        System.out.println("dataUtilityDistrict.tire1kw = " + dataUtilityDistrict.tire1kw);
+
+        ChartSeries tier2 = new ChartSeries();
+        tier2.set("tiers", dataUtilityDistrict.tire2kw);
+        System.out.println("dataUtilityDistrict.tire2kw = " + dataUtilityDistrict.tire2kw);
+
+        ChartSeries tier3 = new ChartSeries();
+        tier3.set("tiers", dataUtilityDistrict.tire3kw);
+        System.out.println("dataUtilityDistrict.tire3kw = " + dataUtilityDistrict.tire3kw);
+
+        ChartSeries tier4 = new ChartSeries();
+        tier4.set("tiers", dataUtilityDistrict.tire4kw);
+        System.out.println("dataUtilityDistrict.tire4kw = " + dataUtilityDistrict.tire4kw);
+
+        ChartSeries tier5 = new ChartSeries();
+        int temp = (int) ((int) ((graph.getAnnualKW() / 12) - dataUtilityDistrict.tire1kw
+                - dataUtilityDistrict.tire2kw - dataUtilityDistrict.tire3kw - dataUtilityDistrict.tire4kw) < 0 ? 0 : ((graph.getAnnualKW() / 12) - dataUtilityDistrict.tire1kw
+                        - dataUtilityDistrict.tire2kw - dataUtilityDistrict.tire3kw - dataUtilityDistrict.tire4kw));
+        tier5.set("tiers", temp);
+
+        horizontalBarModel.addSeries(tier1);
+        horizontalBarModel.addSeries(tier2);
+        horizontalBarModel.addSeries(tier3);
+        horizontalBarModel.addSeries(tier4);
+        horizontalBarModel.addSeries(tier5);
+
+        horizontalBarModel.setStacked(true);
+
+        Axis xAxis = horizontalBarModel.getAxis(AxisType.X);
+//        xAxis.setMin(0);
+        xAxis.setMax(dataUtilityDistrict.tire1kw + dataUtilityDistrict.tire2kw
+                + dataUtilityDistrict.tire3kw + dataUtilityDistrict.tire4kw
+                + (int) ((graph.getAnnualKW() / 12) - dataUtilityDistrict.tire1kw
+                - dataUtilityDistrict.tire2kw - dataUtilityDistrict.tire3kw - dataUtilityDistrict.tire4kw) + 50);
+        Axis yAxis = horizontalBarModel.getAxis(AxisType.Y);
+    }
+
+    //******************************slider******************************
+    private int slideMin = 0;
+    private int slideMax = 1;
+
+    public int getSlideMin() {
+        return slideMin;
+    }
+    
+    public void setSlideMin(int slideMin) {
+//        if ( graph.getDailyHoursForSolar() == 0 )  {
+//            graph.setNumberOfCustomPanels(0);
+//        } else {
+//            graph.setNumberOfCustomPanels((int) (Integer.valueOf(slideMax - slideMin) / (Math.round(30 * graph.getDailyHoursForSolar() * 0.271))));
+//        }
+        this.slideMin = slideMin;
+    }
+
+    public int getSlideMax() {
+        return slideMax;
+    }
+
+    public void setSlideMax(int slideMax) {
+//        if ( graph.getDailyHoursForSolar() == 0 )  {
+//            graph.setNumberOfCustomPanels(0);
+//        } else {
+//            graph.setNumberOfCustomPanels((int) (Integer.valueOf(slideMax - slideMin) / (Math.round(30 * graph.getDailyHoursForSolar() * 0.271))));
+//        }
+        this.slideMax = slideMax;
     }
 
 }

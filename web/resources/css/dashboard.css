@@ -26,6 +26,16 @@ and open the template in the editor.
     border-radius: 4px;
     box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
 }
+.block01DashBoard{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:1418px;
+    height:110px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
 .block1DashBoard, .block2DashBoard{
     float:left;
     margin:3px 3px 3px 5px;
