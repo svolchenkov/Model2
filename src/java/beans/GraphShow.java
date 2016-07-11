@@ -40,6 +40,7 @@ public class GraphShow implements Serializable {
     Graph graph;
     @Inject
     DashBoardBean dashBoardBean;
+    double wholePaimentIn20Years;
 
     private CartesianChartModel combinedModel;
 
@@ -83,71 +84,114 @@ public class GraphShow implements Serializable {
         LineChartSeries futMoPaiment = new LineChartSeries();
         futMoPaiment.setLabel("mo payment after realised project");
         delta = (graph.getMoPaimentAfterImproveFuture() - graph.getCurrentMonthPaymentAfterImprove()) / graph.getTimeTravel();
-        if (graph.getFrontLoadTaxBenefit() == 0) {
-            tempa = graph.getHpMoPayment() + graph.getSolarMoPayment() + graph.getCurrentMonthPaymentAfterImprove();
-        } else {
-            tempa = graph.getHpMoPayment() + graph.getSolarMoPaymentAfterFrontLoad() + graph.getCurrentMonthPaymentAfterImprove();
-            double k = Math.round(tempa * 100);
-            tempa = k / 100;
-        }
-        if (graph.isAccountForTaxWrite() == true) {
-            tempa *= 0.67;
-        }
         i = currentYear;
         do {
-            if (i < lastYear) {
-                tempb = Math.round((tempa += delta) * 100);
-                tempa = tempb / 100;
-                futMoPaiment.set(i, tempa);
-            } else {
-                if (i == lastYear) {
-                    tempa -= (graph.getHpMoPayment() + graph.getSolarMoPayment());
+            if (graph.getFrontLoadTaxBenefit() == 0) {
+                tempa = graph.getHpMoPayment() + graph.getSolarMoPayment() + graph.getCurrentMonthPaymentAfterImprove();
+                if (graph.isAccountForTaxWrite() == true) {
+                    tempa = graph.getHpMoPayment() * 0.67 + graph.getSolarMoPayment() * 0.67 + graph.getCurrentMonthPaymentAfterImprove();
                 }
-                tempb = Math.round((tempa += delta) * 100);
-                tempa = tempb / 100;
-                tempa = tempa < 0 ? 0 : tempa;
-                futMoPaiment.set(i, tempa);
+                if (i < lastYear) {
+                    futMoPaiment.set(i, tempa);
+                } else {
+                    futMoPaiment.set(i, graph.getCurrentMonthPaymentAfterImprove());
+                }
+            }
+            if (graph.getFrontLoadTaxBenefit() == 1) {
+                tempa = graph.getHpMoPayment() + graph.getSolarMoPaymentAfterFrontLoad() + graph.getCurrentMonthPaymentAfterImprove();
+                double k = Math.round(tempa * 100);
+                tempa = k / 100;
+                System.out.println("graph.isAccountForTaxWrite() == true = " + graph.isAccountForTaxWrite());
+                if (graph.isAccountForTaxWrite() == true) {
+                    tempa = graph.getHpMoPayment() * 0.67 + graph.getSolarMoPaymentAfterFrontLoad() * 0.67 + graph.getCurrentMonthPaymentAfterImprove();
+                }
+                if (i < lastYear) {
+                    futMoPaiment.set(i, tempa);
+                } else {
+                    futMoPaiment.set(i, graph.getCurrentMonthPaymentAfterImprove());
+                }
+            }
+            if (graph.getFrontLoadTaxBenefit() == 2) {
+                tempa = graph.getHpMoPayment() + graph.getSolarMoPayment() + graph.getCurrentMonthPaymentAfterImprove();
+                if (graph.isAccountForTaxWrite() == true) {
+                    tempa = graph.getHpMoPayment() * 0.67 + graph.getSolarMoPayment() * 0.67 + graph.getCurrentMonthPaymentAfterImprove();
+                }
+                if (i < currentYear + graph.getTimeTravel() * 0.3) {
+                    futMoPaiment.set(i, graph.getCurrentMonthPaymentAfterImprove());
+                }
+                if (i >= currentYear + graph.getTimeTravel() * 0.3 && i < lastYear) {
+                    futMoPaiment.set(i, tempa);
+                }
+                if (i >= lastYear ) {
+                    futMoPaiment.set(i, graph.getCurrentMonthPaymentAfterImprove());
+                }
             }
             i++;
         } while (i < lastYear + 5);
-
         //filling bar map
         BarChartSeries tobe = new BarChartSeries();
         tobe.setLabel("mo payment for improvement");
         i = currentYear;
-        if (graph.getFrontLoadTaxBenefit() == 0) {
-            tempa = graph.getTotMonthlyPayment();
-        } else {
-            tempa = graph.getHpMoPayment() + graph.getSolarMoPaymentAfterFrontLoad();
-            double k = Math.round(tempa * 100);
-            tempa = k / 100;
-        }
-        if (graph.isAccountForTaxWrite() == true) {
-            tempa *= 0.67;
-        }
 
         do {
-            if (i < lastYear) {
-                tobe.set(i, tempa);
-                i++;
-            } else {
-                tobe.set(i, 0);
-                i++;
+            if (graph.getFrontLoadTaxBenefit() == 0) {
+                tempa = graph.getTotMonthlyPayment();
+                if (graph.isAccountForTaxWrite() == true) {
+                    tempa *= 0.67;
+                }
+                if (i < lastYear) {
+                    tobe.set(i, tempa);
+                } else {
+                    tobe.set(i, 0);
+                }
             }
+            if (graph.getFrontLoadTaxBenefit() == 1) {
+                tempa = graph.getHpMoPayment() + graph.getSolarMoPaymentAfterFrontLoad();
+                double k = Math.round(tempa * 100);
+                tempa = k / 100;
+                if (graph.isAccountForTaxWrite() == true) {
+                    tempa *= 0.67;
+                }
+                if (i < lastYear) {
+                    tobe.set(i, tempa);
+                } else {
+                    tobe.set(i, 0);
+                }
+            }
+            if (graph.getFrontLoadTaxBenefit() == 2) {
+                tempa = graph.getTotMonthlyPayment();
+//                double k = Math.round(tempa * 100);
+//                tempa = k / 100;
+                if (graph.isAccountForTaxWrite() == true) {
+                    tempa *= 0.67;
+                }
+                if (i < currentYear + graph.getTimeTravel() * 0.3) {
+                    tobe.set(i, 0);
+                }
+                if (i >= currentYear + graph.getTimeTravel() * 0.3 && i < lastYear) {
+                    tobe.set(i, tempa);
+                }
+                if (i >= lastYear ) {
+                    tobe.set(i, 0);
+                }
+            }
+            i++;
         } while (i < lastYear + 5);
 
         combinedModel.addSeries(tobe);
-        combinedModel.addSeries(asIs);
+        //this line is showing current situation
+//        combinedModel.addSeries(asIs);
         combinedModel.addSeries(futMoPaiment);
 
-        combinedModel.setTitle("Best graph");
+        combinedModel.setTitle("Graph");
         combinedModel.setLegendPosition("ne");
         combinedModel.setMouseoverHighlight(false);
         combinedModel.setShowDatatip(false);
         combinedModel.setShowPointLabels(true);
         Axis yAxis = combinedModel.getAxis(AxisType.Y);
         yAxis.setMin(0);
-        yAxis.setMax(graph.getFutureMonthPayment() * 1.5);
+//        yAxis.setMax(graph.getFutureMonthPayment() * 1.5);
+        yAxis.setMax(graph.getTotMonthlyPayment() * 3);
         Axis xAxis = combinedModel.getAxis(AxisType.X);
         xAxis.setMin(currentYear);
         xAxis.setMax(lastYear);
@@ -198,11 +242,12 @@ public class GraphShow implements Serializable {
         horizontalBarModel.setStacked(true);
 
         Axis xAxis = horizontalBarModel.getAxis(AxisType.X);
-//        xAxis.setMin(0);
+        xAxis.setMin(0);
         xAxis.setMax(dataUtilityDistrict.tire1kw + dataUtilityDistrict.tire2kw
                 + dataUtilityDistrict.tire3kw + dataUtilityDistrict.tire4kw
                 + (int) ((graph.getAnnualKW() / 12) - dataUtilityDistrict.tire1kw
                 - dataUtilityDistrict.tire2kw - dataUtilityDistrict.tire3kw - dataUtilityDistrict.tire4kw) + 50);
+//        xAxis.setMax(graph.getTotMonthlyPayment() * 1.2);
         Axis yAxis = horizontalBarModel.getAxis(AxisType.Y);
     }
 
@@ -213,7 +258,7 @@ public class GraphShow implements Serializable {
     public int getSlideMin() {
         return slideMin;
     }
-    
+
     public void setSlideMin(int slideMin) {
 //        if ( graph.getDailyHoursForSolar() == 0 )  {
 //            graph.setNumberOfCustomPanels(0);
@@ -234,6 +279,16 @@ public class GraphShow implements Serializable {
 //            graph.setNumberOfCustomPanels((int) (Integer.valueOf(slideMax - slideMin) / (Math.round(30 * graph.getDailyHoursForSolar() * 0.271))));
 //        }
         this.slideMax = slideMax;
+    }
+
+    //temp calculate for show only
+    public double getWholePaimentIn20Years() {
+        wholePaimentIn20Years = graph.getFutureMonthPayment();
+        return wholePaimentIn20Years;
+    }
+
+    public void setWholePaimentIn20Years(double wholePaimentIn20Years) {
+        this.wholePaimentIn20Years = wholePaimentIn20Years;
     }
 
 }

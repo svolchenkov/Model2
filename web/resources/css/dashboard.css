@@ -66,6 +66,16 @@ and open the template in the editor.
     border-radius: 4px;
     box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
 }
+.block12DashBoard{
+    float:left;
+    margin:3px 3px 3px 5px;
+    width:1418px;
+    height:200px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,1.2) 0px 1px 3px;
+}
 .h4DashBoard {
     font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     font-size:  14px;
