@@ -10,12 +10,8 @@ import entity.UtilityDistrict;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.LinkedHashMap;
 import java.util.Map;
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import org.primefaces.model.chart.Axis;
 import org.primefaces.model.chart.AxisType;
@@ -213,19 +209,15 @@ public class GraphShow implements Serializable {
 
         ChartSeries tier1 = new ChartSeries();
         tier1.set("tiers", dataUtilityDistrict.tire1kw);
-        System.out.println("dataUtilityDistrict.tire1kw = " + dataUtilityDistrict.tire1kw);
 
         ChartSeries tier2 = new ChartSeries();
         tier2.set("tiers", dataUtilityDistrict.tire2kw);
-        System.out.println("dataUtilityDistrict.tire2kw = " + dataUtilityDistrict.tire2kw);
 
         ChartSeries tier3 = new ChartSeries();
         tier3.set("tiers", dataUtilityDistrict.tire3kw);
-        System.out.println("dataUtilityDistrict.tire3kw = " + dataUtilityDistrict.tire3kw);
 
         ChartSeries tier4 = new ChartSeries();
         tier4.set("tiers", dataUtilityDistrict.tire4kw);
-        System.out.println("dataUtilityDistrict.tire4kw = " + dataUtilityDistrict.tire4kw);
 
         ChartSeries tier5 = new ChartSeries();
         int temp = (int) ((int) ((graph.getAnnualKW() / 12) - dataUtilityDistrict.tire1kw

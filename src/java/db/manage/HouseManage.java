@@ -56,6 +56,7 @@ public class HouseManage {
         } finally {
             session.close();
         }
+        System.out.println("customers.get(0) = " + customers.size());
         return customers;
     }
     

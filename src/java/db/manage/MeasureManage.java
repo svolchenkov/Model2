@@ -188,6 +188,7 @@ public class MeasureManage {
                 measureEntity.setSmudrebateamount(0);
             } else {
                 measureEntity = (MeasureEntity) measures.get(0);
+                System.out.println("total = " + measureEntity.getTotal() );
             }
             tx.commit();
         } catch (HibernateException e) {

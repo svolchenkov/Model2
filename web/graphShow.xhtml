@@ -21,13 +21,13 @@
                                         <table><tr>
                                                 <td style="padding-left: 100px; "><h:commandButton class="buttonGraph" action="dashboard" value="to dashboard" /></td>
                                                 <td class="tdDashBoardGraphShow"><h:selectOneRadio style="padding-left: 100px;" value="#{graph.frontLoadTaxBenefit}">
-                                                        <f:selectItem itemValue="0" itemLabel="FrontLoad Tax Benefit" />
+                                                        <f:selectItem itemValue="0" itemLabel="Hawaii" />
                                                         <f:selectItem itemValue="1" itemLabel="ITS (decrease mo. payment)" />
                                                         <f:selectItem itemValue="2" itemLabel="ITS (Free first yeras)" />
-                                                        <p:ajax event="change" update="combinedModel" />
+                                                        <p:ajax event="change" update="combinedModel, accountForTaxWrite " />
                                                     </h:selectOneRadio></td>
                                                 <td><h:outputText style="padding-left: 100px;" value="Account for Tax write off:" /></td>
-                                                <td class="tdDashBoardGraphShow"><h:selectBooleanCheckbox value="#{graph.accountForTaxWrite}" >
+                                                <td class="tdDashBoardGraphShow"><h:selectBooleanCheckbox id="accountForTaxWrite" value="#{graph.accountForTaxWrite}" >
                                                         <p:ajax event="change" update="combinedModel" />
                                                     </h:selectBooleanCheckbox></td>
                                                 <td style="padding-left: 100px;" ></td>

@@ -29,7 +29,7 @@
                                                             <f:selectItem itemLabel="step 1" itemValue="1" />
                                                             <f:selectItem itemLabel="step 2" itemValue="2" />
                                                             <f:selectItem itemLabel="step 3" itemValue="3" />
-                                                            <p:ajax event="change" update="currentMoPayment, futureMoPayment, wholePayment" />
+                                                            <p:ajax event="change" update="currentMoPayment, futureMoPayment, wholePayment, combinedModel, today, costOnCheck, payToTheOnCheck, memo " />
                                                         </p:selectOneButton>
                                                     </td>
                                                 </tr></table>
@@ -46,15 +46,19 @@
                                         </div>
                                         <div class="block12DashBoard">
                                             <div style="padding-left: 400px;">
-                                            <div class="relative1">
-                                                <table style="color: darkred; padding-top: 8px;"><tr>
-                                                        <td ><img src="resources/img/check.png" alt="check" style="width:500px;height:180px;" />
-
-                                                        </td>
-                                                    </tr></table>
-                                                <h:outputText class="absolute1" value="#{showForSteven.today}" />
+                                                <div class="relative1">
+                                                    <table style="color: darkred; padding-top: 8px;"><tr>
+                                                            <td ><img src="resources/img/check.png" alt="check" style="width:500px;height:180px;" /></td>
+                                                        </tr></table>
+                                                    <h:outputText class="absolute1" id="today" value="#{showForSteven.today}" />
+                                                    <h:outputText class="absolute2" id="costOnCheck" value="#{showForSteven.costOnCheck}" />
+                                                    <h:outputText class="absolute3" id="payToTheOnCheck" value="#{showForSteven.payToTheOnCheck}" />
+                                                    <h:outputText class="absolute4" id="memo" value="#{showForSteven.memo}" />
+                                                </div>
                                             </div>
-                                            </div>
+                                        </div>
+                                        <div class="block1Graph">
+                                            <table class="tableGraph"><tr><td><p:chart id="combinedModel" type="bar" model="#{showForSteven.combinedModel}" style="height:500px" ></p:chart></td></tr></table>
                                         </div>
                                     </td></tr></table>
                         </div>

@@ -16,9 +16,33 @@ and open the template in the editor.
     height: 12px;
 }
 
+.absolute2 {
+    position: absolute;
+    top: 74px;
+    left: 385px;
+    width: 100px;
+    height: 12px;
+}
+
+.absolute3 {
+    position: absolute;
+    top: 74px;
+    left: 70px;
+    width: 100px;
+    height: 12px;
+}
+
+.absolute4 {
+    position: absolute;
+    top: 140px;
+    left: 30px;
+    width: 200px;
+    height: 12px;
+}
+
 .relative1 {
     position: relative;
-    width: 520px;
+    width: 510px;
     height: 200px;
-    border: 2px solid;
+    border: 1px solid;
 }

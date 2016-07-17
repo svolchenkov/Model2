@@ -1570,7 +1570,8 @@ public class MeasureBean implements Serializable {
     }
 
     public double getN17Result() {
-        if ( !getN17String().equals("")) {
+        System.out.println("n17String = " + n17String);
+        if (null != n17String) {
             if (isN17CheckBox() == true) {
                 double k = Math.round(Double.valueOf(getN17String()) * 100 * getN17Sqft());
                 this.n17Result = k / 100;
@@ -1653,7 +1654,8 @@ public class MeasureBean implements Serializable {
                 + getNumber101BAddHeaderResult() + getNumber102ACutDownWindowResult() + getNumber102BElectricalReroutesResult()
                 + getNumber102CGardenWindow4Result() + getNumber102DGardenWindow6Result() + getNumber11InstallPoolPumpResult()
                 + getNumber12InstallWholeHouseFanResult() + getNumber13InstallWaterHeaterResult() + getNumber14PermitsResult()
-                + getNumber15InstallBatteryOperatedResult() + getN16Result() + getN17Result() + getN18Result() + getN19int();
+                + getNumber15InstallBatteryOperatedResult() 
+                + getN16Result() + getN17Result() + getN18Result() + getN19int();
         return total;
     }
 
@@ -1898,7 +1900,8 @@ public class MeasureBean implements Serializable {
         MeasureEntity measureEntity = measureManage.receiveMeasureByCaseID(caseId);
 
         setCaseId(measureEntity.getCaseId());
-        setTotal(measureEntity.getTotal());
+        double k = measureEntity.getTotal();
+        setTotal(k);
         setCustomerID(measureEntity.getCustomerid());
 
         setNumber1InsulatAtticBlownCheckBox(measureEntity.getNumber1insulatatticblownche() == 1);

@@ -50,7 +50,6 @@ public class IndexBean implements Serializable {
     }
     
     public String findHouse() {
-        
         if ( getFindHouseInputText().length() != 0 ) {
            customers = questionsBean.findHouseByCaseId( getFindHouseInputText() ); 
         }

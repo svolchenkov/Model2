@@ -73,7 +73,8 @@ public class Graph implements Serializable {
     private int recommendedFullSize = 0;
     private int customSSystemSize = 0;
 
-    private int timeTravel;
+    private int timeTravel = 0;
+    private double inflation = 0;
     private double currentMonthPayment;
     private double futureMonthPayment;
     private double totalFuture;
@@ -427,20 +428,40 @@ public class Graph implements Serializable {
         this.timeTravel = timeTravel;
     }
 
+    public double getInflation() {
+        return inflation;
+    }
+
+    public void setInflation(double inflation) {
+        this.inflation = inflation;
+    }
+
     public int getFrontLoadTaxBenefit() {
         return frontLoadTaxBenefit;
     }
 
     public void setFrontLoadTaxBenefit(int frontLoadTaxBenefit) {
+        if ( frontLoadTaxBenefit != 1 ) {
+            setAccountForTaxWrite(false);
+        }
         this.frontLoadTaxBenefit = frontLoadTaxBenefit;
     }
 
     public boolean isAccountForTaxWrite() {
+        if ( getFrontLoadTaxBenefit() == 1 ) {
+            this.accountForTaxWrite = accountForTaxWrite;
+        } else {
+            this.accountForTaxWrite = false;
+        }
         return accountForTaxWrite;
     }
 
     public void setAccountForTaxWrite(boolean accountForTaxWrite) {
-        this.accountForTaxWrite = accountForTaxWrite;
+        if ( getFrontLoadTaxBenefit() == 1 ) {
+            this.accountForTaxWrite = accountForTaxWrite;
+        } else {
+            this.accountForTaxWrite = false;
+        }
     }
 
     public int getDailyHoursForSolar() {
@@ -587,7 +608,7 @@ public class Graph implements Serializable {
                 tempa -= dataUtilityDistrict.getTire1kw();
             }
             for (int i = 0; i < getTimeTravel(); i++) {
-                tire1 *= (1 + dataUtilityDistrict.getTire1increase());
+                tire1 *= (1 + dataUtilityDistrict.getTire1increase() + getInflation() / 100);
             }
         }
         //tier 2
@@ -600,7 +621,7 @@ public class Graph implements Serializable {
                 tempa -= dataUtilityDistrict.getTire2kw();
             }
             for (int i = 0; i < getTimeTravel(); i++) {
-                tire2 *= (1 + dataUtilityDistrict.getTire2increase());
+                tire2 *= (1 + dataUtilityDistrict.getTire2increase() + getInflation() / 100 );
             }
         }
         //tier 3
@@ -613,7 +634,7 @@ public class Graph implements Serializable {
                 tempa -= dataUtilityDistrict.getTire3kw();
             }
             for (int i = 0; i < getTimeTravel(); i++) {
-                tire3 *= (1 + dataUtilityDistrict.getTire3increase());
+                tire3 *= (1 + dataUtilityDistrict.getTire3increase() + getInflation() / 100 );
             }
         }
         //tier 4
@@ -626,14 +647,14 @@ public class Graph implements Serializable {
                 tempa -= dataUtilityDistrict.getTire4kw();
             }
             for (int i = 0; i < getTimeTravel(); i++) {
-                tire4 *= (1 + dataUtilityDistrict.getTire4increase());
+                tire4 *= (1 + dataUtilityDistrict.getTire4increase() + getInflation() / 100 );
             }
         }
         //tier 5
         if (tempa > 0) {
             tire5 = tempa * dataUtilityDistrict.getTire5current();
             for (int i = 0; i < getTimeTravel(); i++) {
-                tire5 *= (1 + dataUtilityDistrict.getTire5increase());
+                tire5 *= (1 + dataUtilityDistrict.getTire5increase() + getInflation() / 100 );
             }
         }
         futureMonthPayment = tire1 + tire2 + tire3 + tire4 + tire5;

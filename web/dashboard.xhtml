@@ -86,12 +86,14 @@
                                                         <tr><td class="tdMeasuresDashBoard" >Time Travel:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.timeTravel}" style="width: 95%" >
                                                                     <p:ajax event="keyup" update="currentMonthPayment, futureMonthPayment, totalFuture" />
                                                                 </h:inputText></td></tr>
+                                                        <tr><td class="tdMeasuresDashBoard" >inflation:</td><td class="tdMeasuresDashBoard" ><h:inputText value="#{graph.inflation}" style="width: 95%" >
+                                                                    <p:ajax event="keyup" update="currentMonthPayment, futureMonthPayment, totalFuture" />
+                                                                </h:inputText></td></tr>
                                                         <tr><td class="tdMeasuresDashBoard" >Current month payment:</td><td class="tdMeasuresDashBoard" ><h:outputText id="currentMonthPayment" value="#{graph.currentMonthPayment}"  /></td></tr>
                                                         <tr><td class="tdMeasuresDashBoard" >future month payment:</td><td class="tdMeasuresDashBoard" ><h:outputText id="futureMonthPayment" value="#{graph.futureMonthPayment}"  /></td></tr>
                                                         <tr><td class="tdMeasuresDashBoard" >total payment:</td><td class="tdMeasuresDashBoard" ><h:outputText id="totalFuture" value="#{graph.totalFuture}"  /></td></tr>
                                                     </table>
                                                 </td></tr></table>
-                                        <hr></hr>
                                         
                                     </div>
                                 </td>
